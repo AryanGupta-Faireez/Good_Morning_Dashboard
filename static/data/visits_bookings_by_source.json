@@ -1,0 +1,199 @@
+{
+  "summary": [
+    {
+      "booked_by": "Admin",
+      "count": 950
+    },
+    {
+      "booked_by": "App",
+      "count": 29549
+    }
+  ],
+  "timeseries": [
+    {
+      "visit_month": "2023-05",
+      "app_booked": 20,
+      "admin_booked": 0
+    },
+    {
+      "visit_month": "2023-06",
+      "app_booked": 44,
+      "admin_booked": 0
+    },
+    {
+      "visit_month": "2023-07",
+      "app_booked": 88,
+      "admin_booked": 0
+    },
+    {
+      "visit_month": "2023-08",
+      "app_booked": 188,
+      "admin_booked": 0
+    },
+    {
+      "visit_month": "2023-09",
+      "app_booked": 227,
+      "admin_booked": 0
+    },
+    {
+      "visit_month": "2023-10",
+      "app_booked": 283,
+      "admin_booked": 2
+    },
+    {
+      "visit_month": "2023-11",
+      "app_booked": 338,
+      "admin_booked": 2
+    },
+    {
+      "visit_month": "2023-12",
+      "app_booked": 404,
+      "admin_booked": 8
+    },
+    {
+      "visit_month": "2024-01",
+      "app_booked": 516,
+      "admin_booked": 21
+    },
+    {
+      "visit_month": "2024-02",
+      "app_booked": 458,
+      "admin_booked": 19
+    },
+    {
+      "visit_month": "2024-03",
+      "app_booked": 545,
+      "admin_booked": 31
+    },
+    {
+      "visit_month": "2024-04",
+      "app_booked": 538,
+      "admin_booked": 44
+    },
+    {
+      "visit_month": "2024-05",
+      "app_booked": 614,
+      "admin_booked": 36
+    },
+    {
+      "visit_month": "2024-06",
+      "app_booked": 641,
+      "admin_booked": 22
+    },
+    {
+      "visit_month": "2024-07",
+      "app_booked": 756,
+      "admin_booked": 24
+    },
+    {
+      "visit_month": "2024-08",
+      "app_booked": 725,
+      "admin_booked": 13
+    },
+    {
+      "visit_month": "2024-09",
+      "app_booked": 794,
+      "admin_booked": 17
+    },
+    {
+      "visit_month": "2024-10",
+      "app_booked": 800,
+      "admin_booked": 13
+    },
+    {
+      "visit_month": "2024-11",
+      "app_booked": 817,
+      "admin_booked": 27
+    },
+    {
+      "visit_month": "2024-12",
+      "app_booked": 865,
+      "admin_booked": 30
+    },
+    {
+      "visit_month": "2025-01",
+      "app_booked": 936,
+      "admin_booked": 28
+    },
+    {
+      "visit_month": "2025-02",
+      "app_booked": 855,
+      "admin_booked": 19
+    },
+    {
+      "visit_month": "2025-03",
+      "app_booked": 908,
+      "admin_booked": 10
+    },
+    {
+      "visit_month": "2025-04",
+      "app_booked": 1193,
+      "admin_booked": 7
+    },
+    {
+      "visit_month": "2025-05",
+      "app_booked": 922,
+      "admin_booked": 12
+    },
+    {
+      "visit_month": "2025-06",
+      "app_booked": 860,
+      "admin_booked": 14
+    },
+    {
+      "visit_month": "2025-07",
+      "app_booked": 989,
+      "admin_booked": 41
+    },
+    {
+      "visit_month": "2025-08",
+      "app_booked": 999,
+      "admin_booked": 39
+    },
+    {
+      "visit_month": "2025-09",
+      "app_booked": 1089,
+      "admin_booked": 38
+    },
+    {
+      "visit_month": "2025-10",
+      "app_booked": 1258,
+      "admin_booked": 53
+    },
+    {
+      "visit_month": "2025-11",
+      "app_booked": 1248,
+      "admin_booked": 49
+    },
+    {
+      "visit_month": "2025-12",
+      "app_booked": 1491,
+      "admin_booked": 61
+    },
+    {
+      "visit_month": "2026-01",
+      "app_booked": 1473,
+      "admin_booked": 49
+    },
+    {
+      "visit_month": "2026-02",
+      "app_booked": 1503,
+      "admin_booked": 59
+    },
+    {
+      "visit_month": "2026-03",
+      "app_booked": 1618,
+      "admin_booked": 87
+    },
+    {
+      "visit_month": "2026-04",
+      "app_booked": 1592,
+      "admin_booked": 57
+    },
+    {
+      "visit_month": "2026-05",
+      "app_booked": 954,
+      "admin_booked": 18
+    }
+  ]
+}

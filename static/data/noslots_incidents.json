@@ -1,0 +1,63 @@
+{
+  "summary": {
+    "total_incidents": 6480,
+    "sub_incidents": 2003,
+    "onetime_incidents": 4477
+  },
+  "timeseries": [
+    {
+      "month": "2025-09",
+      "total_incidents": 178,
+      "sub_incidents": 0,
+      "onetime_incidents": 178
+    },
+    {
+      "month": "2025-10",
+      "total_incidents": 428,
+      "sub_incidents": 0,
+      "onetime_incidents": 428
+    },
+    {
+      "month": "2025-11",
+      "total_incidents": 661,
+      "sub_incidents": 0,
+      "onetime_incidents": 661
+    },
+    {
+      "month": "2025-12",
+      "total_incidents": 576,
+      "sub_incidents": 0,
+      "onetime_incidents": 576
+    },
+    {
+      "month": "2026-01",
+      "total_incidents": 396,
+      "sub_incidents": 0,
+      "onetime_incidents": 396
+    },
+    {
+      "month": "2026-02",
+      "total_incidents": 564,
+      "sub_incidents": 0,
+      "onetime_incidents": 564
+    },
+    {
+      "month": "2026-03",
+      "total_incidents": 894,
+      "sub_incidents": 340,
+      "onetime_incidents": 554
+    },
+    {
+      "month": "2026-04",
+      "total_incidents": 1455,
+      "sub_incidents": 854,
+      "onetime_incidents": 601
+    },
+    {
+      "month": "2026-05",
+      "total_incidents": 1328,
+      "sub_incidents": 809,
+      "onetime_incidents": 519
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "by_type": [
+    {
+      "user_type": "On Demand",
+      "visit_count": 294
+    },
+    {
+      "user_type": "Free / Other",
+      "visit_count": 169
+    },
+    {
+      "user_type": "Subscribers",
+      "visit_count": 102
+    }
+  ],
+  "timeseries": [
+    {
+      "visit_month": "2024-11",
+      "lmd_count": 4
+    },
+    {
+      "visit_month": "2024-12",
+      "lmd_count": 18
+    },
+    {
+      "visit_month": "2025-01",
+      "lmd_count": 22
+    },
+    {
+      "visit_month": "2025-02",
+      "lmd_count": 36
+    },
+    {
+      "visit_month": "2025-03",
+      "lmd_count": 28
+    },
+    {
+      "visit_month": "2025-04",
+      "lmd_count": 24
+    },
+    {
+      "visit_month": "2025-05",
+      "lmd_count": 37
+    },
+    {
+      "visit_month": "2025-06",
+      "lmd_count": 48
+    },
+    {
+      "visit_month": "2025-07",
+      "lmd_count": 68
+    },
+    {
+      "visit_month": "2025-08",
+      "lmd_count": 41
+    },
+    {
+      "visit_month": "2025-09",
+      "lmd_count": 39
+    },
+    {
+      "visit_month": "2025-10",
+      "lmd_count": 14
+    },
+    {
+      "visit_month": "2025-11",
+      "lmd_count": 9
+    },
+    {
+      "visit_month": "2025-12",
+      "lmd_count": 16
+    },
+    {
+      "visit_month": "2026-01",
+      "lmd_count": 13
+    },
+    {
+      "visit_month": "2026-02",
+      "lmd_count": 21
+    },
+    {
+      "visit_month": "2026-03",
+      "lmd_count": 47
+    },
+    {
+      "visit_month": "2026-04",
+      "lmd_count": 63
+    },
+    {
+      "visit_month": "2026-05",
+      "lmd_count": 17
+    }
+  ]
+}

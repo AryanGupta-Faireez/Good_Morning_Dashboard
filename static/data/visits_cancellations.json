@@ -1,0 +1,390 @@
+{
+  "by_category": [
+    {
+      "cancel_category": "From Free",
+      "cancel_source": "Ops",
+      "count": 8996
+    },
+    {
+      "cancel_category": "From Free",
+      "cancel_source": "Admin",
+      "count": 4012
+    },
+    {
+      "cancel_category": "OOP Free",
+      "cancel_source": "Customer",
+      "count": 1188
+    },
+    {
+      "cancel_category": "OOP Free",
+      "cancel_source": "Ops",
+      "count": 455
+    },
+    {
+      "cancel_category": "In Policy",
+      "cancel_source": "Customer",
+      "count": 413
+    },
+    {
+      "cancel_category": "In Policy",
+      "cancel_source": "Admin",
+      "count": 221
+    },
+    {
+      "cancel_category": "OOP Charged",
+      "cancel_source": "Customer",
+      "count": 176
+    },
+    {
+      "cancel_category": "From Plan",
+      "cancel_source": "Customer",
+      "count": 146
+    },
+    {
+      "cancel_category": "From Free",
+      "cancel_source": "Customer",
+      "count": 139
+    },
+    {
+      "cancel_category": "In Policy",
+      "cancel_source": "Ops",
+      "count": 104
+    },
+    {
+      "cancel_category": "OOP Free",
+      "cancel_source": "Admin",
+      "count": 101
+    },
+    {
+      "cancel_category": "OOP Charged",
+      "cancel_source": "Ops",
+      "count": 15
+    },
+    {
+      "cancel_category": "OOP Charged",
+      "cancel_source": "Admin",
+      "count": 6
+    },
+    {
+      "cancel_category": "From Plan",
+      "cancel_source": "Ops",
+      "count": 5
+    }
+  ],
+  "timeseries": [
+    {
+      "visit_month": "2024-06",
+      "out_of_policy": 6,
+      "in_policy": 8,
+      "from_plan": 0,
+      "from_free": 106
+    },
+    {
+      "visit_month": "2024-07",
+      "out_of_policy": 35,
+      "in_policy": 17,
+      "from_plan": 0,
+      "from_free": 268
+    },
+    {
+      "visit_month": "2024-08",
+      "out_of_policy": 31,
+      "in_policy": 19,
+      "from_plan": 0,
+      "from_free": 285
+    },
+    {
+      "visit_month": "2024-09",
+      "out_of_policy": 33,
+      "in_policy": 24,
+      "from_plan": 0,
+      "from_free": 240
+    },
+    {
+      "visit_month": "2024-10",
+      "out_of_policy": 36,
+      "in_policy": 24,
+      "from_plan": 0,
+      "from_free": 407
+    },
+    {
+      "visit_month": "2024-11",
+      "out_of_policy": 20,
+      "in_policy": 25,
+      "from_plan": 0,
+      "from_free": 231
+    },
+    {
+      "visit_month": "2024-12",
+      "out_of_policy": 41,
+      "in_policy": 18,
+      "from_plan": 0,
+      "from_free": 249
+    },
+    {
+      "visit_month": "2025-01",
+      "out_of_policy": 25,
+      "in_policy": 11,
+      "from_plan": 0,
+      "from_free": 366
+    },
+    {
+      "visit_month": "2025-02",
+      "out_of_policy": 28,
+      "in_policy": 15,
+      "from_plan": 0,
+      "from_free": 338
+    },
+    {
+      "visit_month": "2025-03",
+      "out_of_policy": 36,
+      "in_policy": 15,
+      "from_plan": 10,
+      "from_free": 352
+    },
+    {
+      "visit_month": "2025-04",
+      "out_of_policy": 34,
+      "in_policy": 14,
+      "from_plan": 141,
+      "from_free": 403
+    },
+    {
+      "visit_month": "2025-05",
+      "out_of_policy": 25,
+      "in_policy": 15,
+      "from_plan": 0,
+      "from_free": 397
+    },
+    {
+      "visit_month": "2025-06",
+      "out_of_policy": 33,
+      "in_policy": 21,
+      "from_plan": 0,
+      "from_free": 529
+    },
+    {
+      "visit_month": "2025-07",
+      "out_of_policy": 71,
+      "in_policy": 14,
+      "from_plan": 0,
+      "from_free": 483
+    },
+    {
+      "visit_month": "2025-08",
+      "out_of_policy": 57,
+      "in_policy": 26,
+      "from_plan": 0,
+      "from_free": 379
+    },
+    {
+      "visit_month": "2025-09",
+      "out_of_policy": 61,
+      "in_policy": 28,
+      "from_plan": 0,
+      "from_free": 487
+    },
+    {
+      "visit_month": "2025-10",
+      "out_of_policy": 96,
+      "in_policy": 48,
+      "from_plan": 0,
+      "from_free": 650
+    },
+    {
+      "visit_month": "2025-11",
+      "out_of_policy": 89,
+      "in_policy": 49,
+      "from_plan": 0,
+      "from_free": 686
+    },
+    {
+      "visit_month": "2025-12",
+      "out_of_policy": 145,
+      "in_policy": 61,
+      "from_plan": 0,
+      "from_free": 914
+    },
+    {
+      "visit_month": "2026-01",
+      "out_of_policy": 132,
+      "in_policy": 49,
+      "from_plan": 0,
+      "from_free": 830
+    },
+    {
+      "visit_month": "2026-02",
+      "out_of_policy": 117,
+      "in_policy": 70,
+      "from_plan": 0,
+      "from_free": 674
+    },
+    {
+      "visit_month": "2026-03",
+      "out_of_policy": 191,
+      "in_policy": 76,
+      "from_plan": 0,
+      "from_free": 1098
+    },
+    {
+      "visit_month": "2026-04",
+      "out_of_policy": 237,
+      "in_policy": 61,
+      "from_plan": 0,
+      "from_free": 1150
+    },
+    {
+      "visit_month": "2026-05",
+      "out_of_policy": 258,
+      "in_policy": 30,
+      "from_plan": 0,
+      "from_free": 1092
+    },
+    {
+      "visit_month": "2026-06",
+      "out_of_policy": 96,
+      "in_policy": 0,
+      "from_plan": 0,
+      "from_free": 480
+    },
+    {
+      "visit_month": "2026-07",
+      "out_of_policy": 8,
+      "in_policy": 0,
+      "from_plan": 0,
+      "from_free": 53
+    }
+  ],
+  "by_source_ts": [
+    {
+      "visit_month": "2024-06",
+      "app_cancelled": 10,
+      "admin_cancelled": 110
+    },
+    {
+      "visit_month": "2024-07",
+      "app_cancelled": 41,
+      "admin_cancelled": 279
+    },
+    {
+      "visit_month": "2024-08",
+      "app_cancelled": 34,
+      "admin_cancelled": 301
+    },
+    {
+      "visit_month": "2024-09",
+      "app_cancelled": 40,
+      "admin_cancelled": 257
+    },
+    {
+      "visit_month": "2024-10",
+      "app_cancelled": 49,
+      "admin_cancelled": 418
+    },
+    {
+      "visit_month": "2024-11",
+      "app_cancelled": 29,
+      "admin_cancelled": 247
+    },
+    {
+      "visit_month": "2024-12",
+      "app_cancelled": 48,
+      "admin_cancelled": 260
+    },
+    {
+      "visit_month": "2025-01",
+      "app_cancelled": 25,
+      "admin_cancelled": 377
+    },
+    {
+      "visit_month": "2025-02",
+      "app_cancelled": 35,
+      "admin_cancelled": 346
+    },
+    {
+      "visit_month": "2025-03",
+      "app_cancelled": 55,
+      "admin_cancelled": 358
+    },
+    {
+      "visit_month": "2025-04",
+      "app_cancelled": 184,
+      "admin_cancelled": 408
+    },
+    {
+      "visit_month": "2025-05",
+      "app_cancelled": 35,
+      "admin_cancelled": 402
+    },
+    {
+      "visit_month": "2025-06",
+      "app_cancelled": 39,
+      "admin_cancelled": 544
+    },
+    {
+      "visit_month": "2025-07",
+      "app_cancelled": 60,
+      "admin_cancelled": 508
+    },
+    {
+      "visit_month": "2025-08",
+      "app_cancelled": 45,
+      "admin_cancelled": 417
+    },
+    {
+      "visit_month": "2025-09",
+      "app_cancelled": 53,
+      "admin_cancelled": 523
+    },
+    {
+      "visit_month": "2025-10",
+      "app_cancelled": 110,
+      "admin_cancelled": 684
+    },
+    {
+      "visit_month": "2025-11",
+      "app_cancelled": 103,
+      "admin_cancelled": 721
+    },
+    {
+      "visit_month": "2025-12",
+      "app_cancelled": 184,
+      "admin_cancelled": 936
+    },
+    {
+      "visit_month": "2026-01",
+      "app_cancelled": 142,
+      "admin_cancelled": 869
+    },
+    {
+      "visit_month": "2026-02",
+      "app_cancelled": 104,
+      "admin_cancelled": 757
+    },
+    {
+      "visit_month": "2026-03",
+      "app_cancelled": 187,
+      "admin_cancelled": 1178
+    },
+    {
+      "visit_month": "2026-04",
+      "app_cancelled": 213,
+      "admin_cancelled": 1235
+    },
+    {
+      "visit_month": "2026-05",
+      "app_cancelled": 217,
+      "admin_cancelled": 1163
+    },
+    {
+      "visit_month": "2026-06",
+      "app_cancelled": 69,
+      "admin_cancelled": 507
+    },
+    {
+      "visit_month": "2026-07",
+      "app_cancelled": 3,
+      "admin_cancelled": 58
+    }
+  ]
+}

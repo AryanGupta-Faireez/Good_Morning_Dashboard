@@ -1,0 +1,35 @@
+name: Refresh Dashboard Data
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 6:00 AM UTC daily (adjust as needed)
+  workflow_dispatch:        # allow manual trigger from GitHub Actions UI
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install psycopg2-binary python-dotenv
+
+      - name: Generate CSVs
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: python generate_csvs.py
+
+      - name: Commit & push updated data files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add static/data/
+          git diff --cached --quiet && echo "No changes" || git commit -m "chore: refresh dashboard data $(date -u +%Y-%m-%d)"
+          git push

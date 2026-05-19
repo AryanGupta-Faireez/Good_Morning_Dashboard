@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Faireez — Health & Business KPIs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; width: 100%; }
+  :root {
+    --bg: #f5f6fa;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --muted: #6b7280;
+    --blue: #4f46e5;
+    --blue-light: #eef2ff;
+    --green: #059669;
+    --green-light: #ecfdf5;
+    --orange: #d97706;
+    --orange-light: #fffbeb;
+    --purple: #7c3aed;
+    --purple-light: #f5f3ff;
+    --red: #dc2626;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
+
+  /* ── Layout ── */
+  .app { display: flex; flex-direction: column; min-height: 100%; width: 100%; background: var(--bg); }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 100; min-height: 56px; flex-shrink: 0; }
+  header h1 { font-size: 18px; font-weight: 700; }
+  header .tag { background: var(--blue-light); color: var(--blue); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px; }
+  .tab-nav { display: flex; gap: 0; margin-left: 24px; height: 100%; align-items: stretch; }
+  .tab-btn { padding: 0 18px; font-family: inherit; font-size: 13px; font-weight: 600; color: var(--muted); border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; transition: color .15s, border-color .15s; white-space: nowrap; }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: contents; }
+  .main { padding: 24px; display: flex; flex-direction: column; gap: 24px; width: 100%; flex: 1; }
+
+  /* ── Filters ── */
+  .filters { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+  .filter-group { display: flex; flex-direction: column; gap: 4px; }
+  .filter-group label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  .filter-group input, .filter-group select {
+    height: 36px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px;
+    font-family: inherit; font-size: 13px; color: var(--text); background: var(--bg);
+    outline: none; min-width: 140px;
+  }
+  .filter-group input:focus, .filter-group select:focus { border-color: var(--blue); }
+  .btn-reset, .btn-primary { height: 36px; padding: 0 16px; background: var(--blue); color: #fff; border: none; border-radius: 8px; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .btn-reset:hover, .btn-primary:hover { background: #4338ca; }
+  .btn-secondary { height: 36px; padding: 0 16px; background: #e5e7eb; color: var(--text); border: none; border-radius: 8px; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .btn-secondary:hover { background: #d1d5db; }
+
+  /* ── Section headings ── */
+  .section-title { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
+
+  /* ── KPI cards ── */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .kpi-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+  .kpi-card .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+  .kpi-card .value { font-size: 32px; font-weight: 700; line-height: 1; }
+  .kpi-card .sub { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .kpi-card.blue  { border-left: 4px solid var(--blue);   } .kpi-card.blue  .value { color: var(--blue); }
+  .kpi-card.green { border-left: 4px solid var(--green);  } .kpi-card.green .value { color: var(--green); }
+  .kpi-card.orange{ border-left: 4px solid var(--orange); } .kpi-card.orange .value { color: var(--orange); }
+  .kpi-card.purple{ border-left: 4px solid var(--purple); } .kpi-card.purple .value { color: var(--purple); }
+  .kpi-card.red   { border-left: 4px solid var(--red);    } .kpi-card.red   .value { color: var(--red); }
+
+  /* ── Funnel steps ── */
+  .funnel-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+  .funnel-steps { display: flex; flex-direction: column; gap: 0; }
+  .funnel-row { display: flex; align-items: center; gap: 12px; }
+  .funnel-bar-wrap { flex: 1; position: relative; height: 52px; display: flex; align-items: center; }
+  .funnel-bar { height: 52px; border-radius: 6px; display: flex; align-items: center; padding: 0 16px; font-weight: 700; font-size: 16px; color: #fff; transition: width .5s ease; min-width: 80px; }
+  .funnel-label { width: 220px; font-size: 13px; font-weight: 600; color: var(--text); }
+  .funnel-count { width: 80px; text-align: right; font-size: 14px; font-weight: 700; }
+  .funnel-pct   { width: 70px; text-align: right; font-size: 12px; color: var(--muted); }
+  .funnel-arrow { display: flex; flex-direction: column; align-items: center; padding: 4px 0; color: var(--muted); font-size: 11px; font-weight: 600; }
+  .funnel-arrow svg { width: 16px; height: 16px; }
+
+  /* ── Charts grid ── */
+  .charts-grid   { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+  .charts-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .charts-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); min-width: 0; }
+  .chart-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+  .chart-card .chart-wrap { position: relative; height: 260px; }
+
+  /* ── Table ── */
+  .table-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); overflow: hidden; }
+  .table-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; border-bottom: 2px solid var(--border); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: var(--bg); }
+  .pct-badge { display: inline-block; padding: 2px 7px; border-radius: 99px; font-size: 11px; font-weight: 700; }
+  .pct-high { background: var(--green-light); color: var(--green); }
+  .pct-mid  { background: var(--orange-light); color: var(--orange); }
+  .pct-low  { background: #fef2f2; color: var(--red); }
+
+  /* ── Loading / error ── */
+  .loading { display: flex; align-items: center; justify-content: center; height: 120px; color: var(--muted); font-size: 13px; }
+  .error-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 16px; color: var(--red); font-size: 13px; margin: 8px 0; }
+
+  @media (max-width: 900px) {
+    .charts-grid, .charts-grid-2, .charts-grid-3 { grid-template-columns: 1fr; }
+    .funnel-label { width: 140px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header>
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="8" fill="#4f46e5"/><path d="M7 20l5-7 4 5 3-4 3 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h1>Faireez</h1>
+    <span class="tag">Health &amp; Business KPIs</span>
+    <div style="flex:1"></div>
+    <nav class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab('funnel')">New Users Funnel</button>
+      <button class="tab-btn" onclick="switchTab('visits')">Visits</button>
+      <button class="tab-btn" onclick="switchTab('ratings')">Ratings</button>
+      <button class="tab-btn" onclick="switchTab('noslots')">No Slots</button>
+      <button class="tab-btn" onclick="switchTab('performance')">Performance</button>
+    </nav>
+    <div style="flex:1"></div>
+    <span id="last-updated" style="font-size:12px;color:var(--muted)"></span>
+  </header>
+
+  <div class="main">
+
+  <!-- ══════════════ TAB 1: NEW USERS FUNNEL ══════════════ -->
+  <div class="tab-panel active" id="panel-funnel">
+
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label>Account Created From</label>
+        <input type="date" id="f-date-from" />
+      </div>
+      <div class="filter-group">
+        <label>Account Created To</label>
+        <input type="date" id="f-date-to" />
+      </div>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="f-project"><option value="">All Projects</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="f-neighbourhood"><option value="">All Neighbourhoods</option></select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="f-sub-type">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring Subscribers</option>
+          <option value="ondemand">On-Demand Subscribers</option>
+          <option value="non_sub">Non-Subscribers</option>
+        </select>
+      </div>
+      <button class="btn-reset" onclick="applyFilters()">Apply</button>
+      <button class="btn-reset" style="background:#e5e7eb;color:var(--text)" onclick="resetFilters()">Reset</button>
+    </div>
+
+    <!-- KPI Cards -->
+    <div>
+      <div class="section-title">Funnel Overview</div>
+      <div class="kpi-grid">
+        <div class="kpi-card" style="border-left:4px solid #0ea5e9">
+          <div class="label">Residents in Buildings</div>
+          <div class="value" id="kpi-residents" style="color:#0ea5e9">—</div>
+          <div class="sub">Est. units across active buildings</div>
+        </div>
+        <div class="kpi-card blue">
+          <div class="label">Leads</div>
+          <div class="value" id="kpi-leads">—</div>
+          <div class="sub">Total unique apartments</div>
+        </div>
+        <div class="kpi-card blue">
+          <div class="label">Registered Leads</div>
+          <div class="value" id="kpi-registered">—</div>
+          <div class="sub" id="kpi-registered-pct">—% of leads</div>
+        </div>
+        <div class="kpi-card orange">
+          <div class="label">Review Before Booking</div>
+          <div class="value" id="kpi-review">—</div>
+          <div class="sub">Unique users (PostHog)</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="label">Subscribers</div>
+          <div class="value" id="kpi-subscribers">—</div>
+          <div class="sub" id="kpi-subscribers-pct">—% of leads</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="label">↳ Recurring</div>
+          <div class="value" id="kpi-recurring">—</div>
+          <div class="sub">Recurring Subscription</div>
+        </div>
+        <div class="kpi-card purple">
+          <div class="label">↳ On-Demand</div>
+          <div class="value" id="kpi-ondemand">—</div>
+          <div class="sub">On-Demand Subscription</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="label">Non-Subscribers</div>
+          <div class="value" id="kpi-non-sub">—</div>
+          <div class="sub">Leads not yet converted</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid #6b7280">
+          <div class="label">Churn</div>
+          <div class="value" id="kpi-churn" style="color:#6b7280">—</div>
+          <div class="sub">CHURN + FROZEN</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid #0ea5e9">
+          <div class="label">Waitlist</div>
+          <div class="value" id="kpi-waitlist" style="color:#0ea5e9">—</div>
+          <div class="sub">Active waiting</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid #059669">
+          <div class="label">MRR</div>
+          <div class="value" id="kpi-mrr" style="color:#059669;font-size:24px">—</div>
+          <div class="sub">Active recurring bookings</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Funnel Visualisation -->
+    <div class="funnel-wrap">
+      <div class="section-title">Conversion Funnel</div>
+      <div class="funnel-steps" id="funnel-steps">
+        <div class="loading">Loading funnel…</div>
+      </div>
+    </div>
+
+    <!-- Time-series + Subscriber split -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Funnel by Cohort Month <span style="font-weight:400;color:var(--muted);font-size:12px">(account created date)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-timeseries"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Subscriber Type Split</h3>
+        <div class="chart-wrap"><canvas id="chart-sub-split"></canvas></div>
+      </div>
+    </div>
+
+    <!-- MRR histogram + AdHoc spend histogram -->
+    <div class="charts-grid-2">
+      <div class="chart-card">
+        <h3>MRR Distribution <span style="font-weight:400;color:var(--muted);font-size:12px">(per apartment, active bookings)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-mrr-hist"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Avg Monthly AdHoc Spend <span style="font-weight:400;color:var(--muted);font-size:12px">(per apartment)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-adhoc-hist"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Cumulative subscribers -->
+    <div class="chart-card">
+      <h3>Cumulative Subscribers</h3>
+      <div class="chart-wrap"><canvas id="chart-cumulative-subs"></canvas></div>
+    </div>
+
+    <!-- Conversion source + Review views -->
+    <div class="charts-grid-2">
+      <div class="chart-card">
+        <h3>Conversion Source — Self vs Admin</h3>
+        <div class="chart-wrap"><canvas id="chart-conv-source"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Conversion Source — First Subscription <span style="font-size:11px;color:var(--muted)">(first ever subscription event)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-conv-source-first"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Review views -->
+    <div class="charts-grid-2">
+      <div class="chart-card" style="grid-column:1/-1">
+        <h3>Review Before Booking — Monthly Unique Users <span style="font-size:11px;color:var(--orange);font-weight:600">(PostHog)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-review-views"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Wonderful Signup Funnel -->
+    <div class="chart-card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+        <h3 style="margin:0">Wonderful Signup Funnel <span style="font-size:11px;color:var(--orange);font-weight:600">(PostHog)</span></h3>
+        <div style="display:flex;gap:6px" id="signup-funnel-btns">
+          <button onclick="loadSignupFunnel(7)"  class="sfbtn" data-days="7"  style="padding:4px 10px;border-radius:6px;border:1px solid var(--border);font-size:12px;font-weight:600;cursor:pointer;background:var(--bg);color:var(--muted)">7d</button>
+          <button onclick="loadSignupFunnel(14)" class="sfbtn" data-days="14" style="padding:4px 10px;border-radius:6px;border:1px solid var(--border);font-size:12px;font-weight:600;cursor:pointer;background:var(--bg);color:var(--muted)">14d</button>
+          <button onclick="loadSignupFunnel(30)" class="sfbtn" data-days="30" style="padding:4px 10px;border-radius:6px;border:1px solid var(--border);font-size:12px;font-weight:600;cursor:pointer;background:var(--blue);color:#fff">30d</button>
+          <button onclick="loadSignupFunnel(90)" class="sfbtn" data-days="90" style="padding:4px 10px;border-radius:6px;border:1px solid var(--border);font-size:12px;font-weight:600;cursor:pointer;background:var(--bg);color:var(--muted)">90d</button>
+        </div>
+      </div>
+      <div id="signup-funnel-wrap" style="min-height:220px">
+        <div class="loading">Loading…</div>
+      </div>
+    </div>
+
+    <!-- Breakdown table -->
+    <div class="table-card">
+      <h3>Funnel Breakdown by Project &amp; Neighbourhood</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Neighbourhood</th>
+              <th>Leads</th>
+              <th>Registered</th>
+              <th>Subscribers</th>
+              <th>Conversion %</th>
+            </tr>
+          </thead>
+          <tbody id="breakdown-tbody">
+            <tr><td colspan="6" class="loading">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /#panel-funnel -->
+
+  <!-- ══════════════ TAB 2: VISITS ══════════════ -->
+  <div class="tab-panel" id="panel-visits">
+
+    <!-- Visit Filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label>Visit Date From</label>
+        <input type="date" id="vf-date-from" />
+      </div>
+      <div class="filter-group">
+        <label>Visit Date To</label>
+        <input type="date" id="vf-date-to" />
+      </div>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="vf-project"><option value="">All Projects</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="vf-neighbourhood"><option value="">All Neighbourhoods</option></select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="vf-sub-type">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring Subscribers</option>
+          <option value="ondemand">On-Demand Subscribers</option>
+          <option value="non_sub">Non-Subscribers</option>
+        </select>
+      </div>
+      <button class="btn-reset" onclick="applyVisitFilters()">Apply</button>
+      <button class="btn-reset" style="background:#e5e7eb;color:var(--text)" onclick="resetVisitFilters()">Reset</button>
+    </div>
+
+    <!-- Visit KPI Cards -->
+    <div>
+      <div class="section-title">Visit Overview</div>
+      <div class="kpi-grid">
+        <div class="kpi-card green">
+          <div class="label">Finished + Completed</div>
+          <div class="value" id="vkpi-done">—</div>
+          <div class="sub" id="vkpi-done-sub">— fin · — comp</div>
+        </div>
+        <div class="kpi-card blue">
+          <div class="label">Pending</div>
+          <div class="value" id="vkpi-pending">—</div>
+          <div class="sub">Scheduled upcoming</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="label">Cancelled</div>
+          <div class="value" id="vkpi-cancelled">—</div>
+          <div class="sub">Excl. reschedules</div>
+        </div>
+        <div class="kpi-card orange">
+          <div class="label">Last Minute Deals</div>
+          <div class="value" id="vkpi-lmd">—</div>
+          <div class="sub">Unique LMD visits</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid #7c3aed">
+          <div class="label">Chores Added</div>
+          <div class="value" id="vkpi-chores" style="color:#7c3aed">—</div>
+          <div class="sub">Task add-ons on visits</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid #7c3aed">
+          <div class="label">Net Revenue</div>
+          <div class="value" id="vkpi-chore-rev" style="color:#7c3aed;font-size:24px">—</div>
+          <div class="sub">Sum of FinalPrice (fin+comp)</div>
+        </div>
+        <div class="kpi-card blue">
+          <div class="label">App Booked</div>
+          <div class="value" id="vkpi-app-booked">—</div>
+          <div class="sub">Finished + completed</div>
+        </div>
+        <div class="kpi-card orange">
+          <div class="label">Admin Booked</div>
+          <div class="value" id="vkpi-admin-booked">—</div>
+          <div class="sub">Finished + completed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visits over time + LMD by type -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Visit Duration Distribution <span style="font-weight:400;color:var(--muted);font-size:12px">(finished + completed)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-duration-hist"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Last Minute Deals — by User Type</h3>
+        <div class="chart-wrap"><canvas id="chart-lmd-type"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Chores charts -->
+    <div class="charts-grid-2">
+      <div class="chart-card">
+        <h3>Avg Tasks per Visit</h3>
+        <div class="chart-wrap"><canvas id="chart-chores-ts"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Avg Visit Price</h3>
+        <div class="chart-wrap"><canvas id="chart-avg-price"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Task distribution -->
+    <div class="chart-card">
+      <h3>Chore Selection Distribution <span style="font-weight:400;color:var(--muted);font-size:12px">(finished + completed visits)</span></h3>
+      <div class="chart-wrap" style="height:360px"><canvas id="chart-task-dist"></canvas></div>
+    </div>
+
+    <!-- Visit trend charts (count, finished%, duration) -->
+    <div class="charts-grid-3">
+      <div class="chart-card"><h3>Visit Count Trend</h3><div class="chart-wrap"><canvas id="chart-visit-count"></canvas></div></div>
+      <div class="chart-card"><h3>Finished Visit %</h3><div class="chart-wrap"><canvas id="chart-finished-pct"></canvas></div></div>
+      <div class="chart-card"><h3>Avg Visit Duration</h3><div class="chart-wrap"><canvas id="chart-visit-duration"></canvas></div></div>
+    </div>
+
+    <!-- Bookings by source chart -->
+    <div class="chart-card" style="grid-column:1/-1">
+      <h3>Bookings by Source — App vs Admin <span style="font-size:11px;color:var(--muted)">(finished + completed)</span></h3>
+      <div class="chart-wrap"><canvas id="chart-bookings-source"></canvas></div>
+    </div>
+
+    <!-- Cancellation summary cards -->
+    <div>
+      <div class="section-title">Cancellation Breakdown</div>
+      <div class="kpi-grid" id="cancel-cards">
+        <div class="loading">Loading…</div>
+      </div>
+    </div>
+
+    <!-- Cancellations over time -->
+    <div class="charts-grid-2">
+      <div class="chart-card">
+        <h3>Cancellations by Category <span style="font-weight:400;color:var(--muted);font-size:12px">(stacked monthly)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-cancel-ts"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>App vs Admin Cancellations <span style="font-weight:400;color:var(--muted);font-size:12px">(monthly)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-cancel-source"></canvas></div>
+      </div>
+    </div>
+
+  </div><!-- /#panel-visits -->
+
+  <div class="tab-panel" id="panel-ratings">
+
+    <!-- Ratings filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label>Visit Date From</label>
+        <input type="date" id="rf-date-from" onchange="rstateObj.dateFrom=this.value" />
+      </div>
+      <div class="filter-group">
+        <label>Visit Date To</label>
+        <input type="date" id="rf-date-to" onchange="rstateObj.dateTo=this.value" />
+      </div>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="rf-project" onchange="rstateObj.project=this.value">
+          <option value="">All Projects</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="rf-neighbourhood" onchange="rstateObj.neighbourhood=this.value">
+          <option value="">All Neighbourhoods</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="rf-sub-type" onchange="rstateObj.subType=this.value">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring Subscribers</option>
+          <option value="ondemand">On-Demand Subscribers</option>
+          <option value="non_sub">Non-Subscribers</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="ratingsLoaded=false;loadRatings()">Apply</button>
+      <button class="btn-secondary" onclick="resetRatingsFilters()">Reset</button>
+    </div>
+
+    <!-- KPI cards -->
+    <div>
+      <div class="section-title">Rating Overview</div>
+      <div class="kpi-grid">
+        <div class="kpi-card" style="border-left:4px solid #f59e0b">
+          <div class="label">Visit Rating</div>
+          <div class="value" id="rkpi-visit" style="color:#f59e0b">—</div>
+          <div class="sub" id="rkpi-visit-sub">Avg customer → visit score</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid #6366f1">
+          <div class="label">Fairee Rating</div>
+          <div class="value" id="rkpi-app" style="color:#6366f1">—</div>
+          <div class="sub" id="rkpi-app-sub">Avg fairee → customer score</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--muted)">
+          <div class="label">Total Reviews</div>
+          <div class="value" id="rkpi-total">—</div>
+          <div class="sub">Reviews with any rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trend + distribution row -->
+    <div class="charts-grid-2">
+      <div class="chart-card" style="grid-column:1/-1">
+        <h3>Average Rating Over Time</h3>
+        <div class="chart-wrap"><canvas id="chart-rating-ts"></canvas></div>
+      </div>
+    </div>
+    <div class="charts-grid-2">
+      <div class="chart-card">
+        <h3>Visit Rating Distribution</h3>
+        <div class="chart-wrap"><canvas id="chart-visit-dist"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Fairee Rating Distribution</h3>
+        <div class="chart-wrap"><canvas id="chart-app-dist"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Written reviews breakdown -->
+    <div>
+      <div class="section-title">Written Reviews</div>
+      <div class="charts-grid-2">
+        <div class="chart-card">
+          <h3>Customer Reviews <span style="font-weight:400;color:var(--muted);font-size:12px">(by sentiment)</span></h3>
+          <div id="cust-review-cards" class="kpi-grid" style="margin-bottom:0"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Fairee Reviews <span style="font-weight:400;color:var(--muted);font-size:12px">(by sentiment)</span></h3>
+          <div id="fairee-review-cards" class="kpi-grid" style="margin-bottom:0"></div>
+        </div>
+      </div>
+      <div class="charts-grid-2" style="margin-top:16px">
+        <div class="chart-card">
+          <h3>Customer Review Sentiment</h3>
+          <div class="chart-wrap"><canvas id="chart-cust-reviews"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>Fairee Review Sentiment</h3>
+          <div class="chart-wrap"><canvas id="chart-fairee-reviews"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /#panel-ratings -->
+
+  <div class="tab-panel" id="panel-noslots">
+
+    <!-- No Slots filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label>Event Date From</label>
+        <input type="date" id="nsf-date-from" onchange="nsstateObj.dateFrom=this.value" />
+      </div>
+      <div class="filter-group">
+        <label>Event Date To</label>
+        <input type="date" id="nsf-date-to" onchange="nsstateObj.dateTo=this.value" />
+      </div>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="nsf-project" onchange="nsstateObj.project=this.value">
+          <option value="">All Projects</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="nsf-neighbourhood" onchange="nsstateObj.neighbourhood=this.value">
+          <option value="">All Neighbourhoods</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="nsf-sub-type" onchange="nsstateObj.subType=this.value">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring Subscribers</option>
+          <option value="ondemand">On-Demand Subscribers</option>
+          <option value="non_sub">Non-Subscribers</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="nsslotsLoaded=false;loadNoSlots()">Apply</button>
+      <button class="btn-secondary" onclick="resetNsFilters()">Reset</button>
+    </div>
+
+    <!-- Incidents section -->
+    <div>
+      <div class="section-title">No Slots — By Total Incidents</div>
+      <div class="kpi-grid">
+        <div class="kpi-card" style="border-left:4px solid var(--blue)">
+          <div class="label">Sub Incidents</div><div class="value" id="nskpi-inc-sub" style="color:var(--blue)">—</div>
+          <div class="sub">Raw no-slot events</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--orange)">
+          <div class="label">One-time Incidents</div><div class="value" id="nskpi-inc-onetime" style="color:var(--orange)">—</div>
+          <div class="sub">Raw no-slot events</div>
+        </div>
+      </div>
+    </div>
+    <div class="charts-grid-2">
+      <div class="chart-card">
+        <h3>Incidents by Type <span style="font-weight:400;color:var(--muted);font-size:12px">(total events/month)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-ns-incidents"></canvas></div>
+      </div>
+    </div>
+
+    <!-- KPI cards -->
+    <div>
+      <div class="section-title">No Slots Overview</div>
+      <div class="kpi-grid">
+        <div class="kpi-card" style="border-left:4px solid var(--blue)">
+          <div class="label">Subscription No-Slots</div>
+          <div class="value" id="nskpi-sub" style="color:var(--blue)">—</div>
+          <div class="sub">Unique apt-days</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--orange)">
+          <div class="label">One-time No-Slots</div>
+          <div class="value" id="nskpi-onetime" style="color:var(--orange)">—</div>
+          <div class="sub">Unique apt-days</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--blue)">
+          <div class="label">Sub Avg Duration</div>
+          <div class="value" id="nskpi-duration-sub" style="color:var(--blue)">—</div>
+          <div class="sub">Minutes (subscription)</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--orange)">
+          <div class="label">One-time Avg Duration</div>
+          <div class="value" id="nskpi-duration-onetime" style="color:var(--orange)">—</div>
+          <div class="sub">Minutes (one-time)</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--green)">
+          <div class="label">Found Slot Same Day</div>
+          <div class="value" id="nskpi-success" style="color:var(--green)">—</div>
+          <div class="sub" id="nskpi-success-sub">Of affected apt-days</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeseries charts -->
+    <div class="charts-grid-2">
+      <div class="chart-card">
+        <h3>Subscription No-Slots Over Time <span style="font-weight:400;color:var(--muted);font-size:12px">(unique apt-days/month)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-ns-sub"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>One-time No-Slots Over Time <span style="font-weight:400;color:var(--muted);font-size:12px">(unique apt-days/month)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-ns-onetime"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Success rate chart -->
+    <div class="chart-card">
+      <h3>Same-Day Recovery Rate &amp; Avg Duration Requested</h3>
+      <div class="chart-wrap"><canvas id="chart-ns-success"></canvas></div>
+    </div>
+
+  </div><!-- /#panel-noslots -->
+
+  <!-- ── Performance tab ──────────────────────────────────────────────────── -->
+  <div class="tab-panel" id="panel-performance">
+
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label>Date From</label>
+        <input type="date" id="pf-date-from" />
+      </div>
+      <div class="filter-group">
+        <label>Date To</label>
+        <input type="date" id="pf-date-to" />
+      </div>
+      <button class="btn-primary" onclick="applyPerfFilters()">Apply</button>
+      <button class="btn-secondary" onclick="resetPerfFilters()">Reset</button>
+    </div>
+
+    <!-- KPI cards -->
+    <div>
+      <div class="section-title">App Entry Load Time (Landing Page)</div>
+      <div class="kpi-grid">
+        <div class="kpi-card" style="border-left:4px solid var(--blue)">
+          <div class="label">Weighted Median Load</div>
+          <div class="value" id="pkpi-avg" style="color:var(--blue)">—</div>
+          <div class="sub">P50 weighted by daily volume</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--orange)">
+          <div class="label">P50 Load Time</div>
+          <div class="value" id="pkpi-p50" style="color:var(--orange)">—</div>
+          <div class="sub">50th percentile</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--purple)">
+          <div class="label">P90 Load Time</div>
+          <div class="value" id="pkpi-p90" style="color:var(--purple)">—</div>
+          <div class="sub">90th percentile</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--green)">
+          <div class="label">P95 Load Time</div>
+          <div class="value" id="pkpi-p95" style="color:var(--green)">—</div>
+          <div class="sub">95th percentile</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load time trend -->
+    <div class="charts-grid-2">
+      <div class="chart-card" style="grid-column:1/-1">
+        <h3>App Entry Load Time Over Time <span style="font-weight:400;color:var(--muted);font-size:12px">(ms)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-perf-trend"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Distribution + login rate -->
+    <div class="charts-grid-2">
+      <div class="chart-card">
+        <h3>Load Time Distribution <span style="font-weight:400;color:var(--muted);font-size:12px">(% of sessions per bucket)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-perf-dist"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>App Login Rate <span style="font-weight:400;color:var(--muted);font-size:12px">(OTP completed / app opens)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-login-rate"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Login KPI row -->
+    <div>
+      <div class="section-title">Login Overview</div>
+      <div class="kpi-grid">
+        <div class="kpi-card" style="border-left:4px solid var(--blue)">
+          <div class="label">Users (latest day)</div>
+          <div class="value" id="pkpi-opens" style="color:var(--blue)">—</div>
+          <div class="sub">Unique users in range</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--green)">
+          <div class="label">Logged In (latest day)</div>
+          <div class="value" id="pkpi-logins" style="color:var(--green)">—</div>
+          <div class="sub">Users who completed login</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--orange)">
+          <div class="label">Login Rate (latest day)</div>
+          <div class="value" id="pkpi-login-rate" style="color:var(--orange)">—</div>
+          <div class="sub">% of users completing login</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--muted)">
+          <div class="label">Minor Updates Load Time</div>
+          <div class="value" style="color:var(--muted);font-size:16px;font-weight:500">Not tracked</div>
+          <div class="sub">Not yet instrumented in PostHog</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /#panel-performance -->
+
+  </div><!-- /.main -->
+</div><!-- /.app -->
+
+<script>
+// ── State ─────────────────────────────────────────────────────────────────────
+const state = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
+
+function qs(base, extra = {}) {
+  const p = { ...state, ...extra };
+  const params = new URLSearchParams();
+  if (p.dateFrom)     params.set('date_from', p.dateFrom);
+  if (p.dateTo)       params.set('date_to', p.dateTo);
+  if (p.project)      params.set('project', p.project);
+  if (p.neighbourhood)params.set('neighbourhood', p.neighbourhood);
+  if (p.subType)      params.set('sub_type', p.subType);
+  const s = params.toString();
+  return base + (s ? '?' + s : '');
+}
+
+async function get(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+const fmt = n => n == null ? '—' : Number(n).toLocaleString();
+const pct = (a, b) => b ? ((a / b) * 100).toFixed(1) + '%' : '—';
+
+function parseCsv(text) {
+  const lines = text.trim().split('\n');
+  const headers = lines[0].split(',');
+  return lines.slice(1).map(line => {
+    const vals = line.split(',');
+    const obj = {};
+    headers.forEach((h, i) => {
+      const v = vals[i];
+      obj[h] = isNaN(v) || v === '' ? v : Number(v);
+    });
+    return obj;
+  });
+}
+
+// ── Charts refs ───────────────────────────────────────────────────────────────
+let charts = {};
+function destroyChart(id) { if (charts[id]) { charts[id].destroy(); delete charts[id]; } }
+
+// ── Filters ───────────────────────────────────────────────────────────────────
+async function loadFilterOptions() {
+  const [projects, hoods] = await Promise.all([
+    get('/api/filters/projects'),
+    get('/api/filters/neighbourhoods'),
+  ]);
+  const pSel = document.getElementById('f-project');
+  projects.forEach(p => pSel.add(new Option(p, p)));
+  const nSel = document.getElementById('f-neighbourhood');
+  hoods.forEach(h => nSel.add(new Option(h, h)));
+}
+
+function applyFilters() {
+  state.dateFrom     = document.getElementById('f-date-from').value;
+  state.dateTo       = document.getElementById('f-date-to').value;
+  state.project      = document.getElementById('f-project').value;
+  state.neighbourhood= document.getElementById('f-neighbourhood').value;
+  state.subType      = document.getElementById('f-sub-type').value;
+  loadAll();
+}
+
+function resetFilters() {
+  ['f-date-from','f-date-to'].forEach(id => document.getElementById(id).value = '');
+  ['f-project','f-neighbourhood','f-sub-type'].forEach(id => document.getElementById(id).value = '');
+  Object.assign(state, { dateFrom:'', dateTo:'', project:'', neighbourhood:'', subType:'' });
+  loadAll();
+}
+
+// ── KPI Cards ─────────────────────────────────────────────────────────────────
+async function loadResidents() {
+  try {
+    const data = await get('/api/funnel/residents');
+    document.getElementById('kpi-residents').textContent = fmt(data.estimated_residents);
+  } catch { document.getElementById('kpi-residents').textContent = '—'; }
+}
+
+async function loadSummary() {
+  const data = await get(qs('/api/funnel/summary'));
+  document.getElementById('kpi-leads').textContent        = fmt(data.leads);
+  document.getElementById('kpi-registered').textContent   = fmt(data.registered_leads);
+  document.getElementById('kpi-registered-pct').textContent = pct(data.registered_leads, data.leads) + ' of leads';
+  document.getElementById('kpi-subscribers').textContent  = fmt(data.subscribers);
+  document.getElementById('kpi-subscribers-pct').textContent = pct(data.subscribers, data.leads) + ' of leads';
+  document.getElementById('kpi-recurring').textContent    = fmt(data.recurring);
+  document.getElementById('kpi-ondemand').textContent     = fmt(data.on_demand);
+  document.getElementById('kpi-non-sub').textContent      = fmt(data.non_subscribers);
+  document.getElementById('kpi-churn').textContent        = fmt(data.churn);
+  document.getElementById('kpi-waitlist').textContent     = fmt(data.waitlist);
+  const mrr = data.mrr;
+  document.getElementById('kpi-mrr').textContent =
+    mrr != null ? '$' + Number(mrr).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}) : '—';
+  return data;
+}
+
+async function loadReviewTotal() {
+  try {
+    const text = await fetch('/static/data/ph_review_booking.csv').then(r => r.text());
+    const rows = parseCsv(text);
+    const total = rows.reduce((s, r) => s + (r.unique_users || 0), 0);
+    document.getElementById('kpi-review').textContent = fmt(total);
+    return rows;
+  } catch { document.getElementById('kpi-review').textContent = 'N/A'; return []; }
+}
+
+// ── Funnel visualisation ──────────────────────────────────────────────────────
+function renderFunnel(summary, reviewTotal) {
+  const steps = [
+    { label: 'Leads',               count: summary.leads,           color: '#4f46e5' },
+    { label: 'Registered Leads',    count: summary.registered_leads,color: '#7c3aed' },
+    { label: 'Review Before Booking',count: reviewTotal,            color: '#d97706', note: 'PostHog' },
+    { label: 'Subscribers',         count: summary.subscribers,     color: '#059669' },
+    { label: '↳ Recurring',         count: summary.recurring,       color: '#10b981', indent: true },
+    { label: '↳ On-Demand',         count: summary.on_demand,       color: '#34d399', indent: true },
+  ];
+  const maxCount = steps[0].count || 1;
+  const container = document.getElementById('funnel-steps');
+  container.innerHTML = '';
+
+  steps.forEach((step, i) => {
+    const widthPct = Math.max(10, Math.round((step.count / maxCount) * 100));
+    const prevCount = i === 0 ? null : steps[i - 1].count;
+    const convPrev = prevCount ? ((step.count / prevCount) * 100).toFixed(1) + '%' : null;
+
+    if (i > 0 && !step.indent) {
+      const arrow = document.createElement('div');
+      arrow.className = 'funnel-row';
+      arrow.innerHTML = `
+        <div style="width:220px"></div>
+        <div class="funnel-arrow" style="flex:1;align-items:flex-start;padding-left:16px">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M3 10l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          ${convPrev ? `<span>${convPrev} of prev step</span>` : ''}
+        </div>
+        <div style="width:150px"></div>`;
+      container.appendChild(arrow);
+    }
+
+    const row = document.createElement('div');
+    row.className = 'funnel-row';
+    row.style.paddingLeft = step.indent ? '32px' : '0';
+    row.innerHTML = `
+      <div class="funnel-label">${step.label}${step.note ? ` <span style="font-size:10px;color:var(--orange);font-weight:600">(${step.note})</span>` : ''}</div>
+      <div class="funnel-bar-wrap">
+        <div class="funnel-bar" style="width:${widthPct}%;background:${step.color}">
+          ${step.count > 0 ? fmt(step.count) : ''}
+        </div>
+      </div>
+      <div class="funnel-pct">${((step.count / maxCount) * 100).toFixed(1)}% of top</div>`;
+    container.appendChild(row);
+  });
+}
+
+// ── Time-series chart ─────────────────────────────────────────────────────────
+async function loadTimeseries() {
+  const rows = await get(qs('/api/funnel/timeseries'));
+  destroyChart('timeseries');
+  if (!rows.length) return;
+  const labels = rows.map(r => r.cohort_month);
+  charts['timeseries'] = new Chart(document.getElementById('chart-timeseries'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Leads',            data: rows.map(r => r.leads),            borderColor: '#4f46e5', backgroundColor: 'rgba(79,70,229,.08)', tension: .3, fill: true },
+        { label: 'Registered Leads', data: rows.map(r => r.registered_leads), borderColor: '#7c3aed', backgroundColor: 'transparent', tension: .3 },
+        { label: 'Subscribers',      data: rows.map(r => r.subscribers),      borderColor: '#059669', backgroundColor: 'transparent', tension: .3 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Subscriber split donut ────────────────────────────────────────────────────
+function renderSubSplit(summary) {
+  destroyChart('sub-split');
+  charts['sub-split'] = new Chart(document.getElementById('chart-sub-split'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Recurring', 'On-Demand', 'Non-Subscriber'],
+      datasets: [{
+        data: [summary.recurring, summary.on_demand, summary.non_subscribers],
+        backgroundColor: ['#059669','#7c3aed','#e5e7eb'],
+        borderWidth: 2,
+        borderColor: '#fff',
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '65%',
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } }
+    }
+  });
+}
+
+// ── Conversion source bar ─────────────────────────────────────────────────────
+async function loadConversionSource() {
+  const rows = await get(qs('/api/funnel/conversion-source'));
+  destroyChart('conv-source');
+  if (!rows.length) return;
+
+  const sources = [...new Set(rows.map(r => r.converted_by))];
+  const types   = [...new Set(rows.map(r => r.subscription_type))];
+  const typeColors = { RECURRING_SUBSCRIPTION: '#059669', ON_DEMAND_SUBSCRIPTION: '#7c3aed' };
+  const typeLabels = { RECURRING_SUBSCRIPTION: 'Recurring', ON_DEMAND_SUBSCRIPTION: 'On-Demand' };
+
+  charts['conv-source'] = new Chart(document.getElementById('chart-conv-source'), {
+    type: 'bar',
+    data: {
+      labels: sources,
+      datasets: types.map(t => ({
+        label: typeLabels[t] || t,
+        data: sources.map(s => {
+          const r = rows.find(x => x.converted_by === s && x.subscription_type === t);
+          return r ? r.count : 0;
+        }),
+        backgroundColor: typeColors[t] || '#94a3b8',
+        borderRadius: 4,
+      }))
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 12 } } },
+        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Review views line ─────────────────────────────────────────────────────────
+async function loadReviewViews(rows) {
+  destroyChart('review-views');
+  if (!rows || !rows.length) return;
+  charts['review-views'] = new Chart(document.getElementById('chart-review-views'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.month),
+      datasets: [{
+        label: 'Unique users',
+        data: rows.map(r => r.unique_users),
+        backgroundColor: 'rgba(217,119,6,.7)',
+        borderColor: '#d97706',
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Conversion source (first event) bar ───────────────────────────────────────
+async function loadConversionSourceFirst() {
+  const rows = await get(qs('/api/funnel/conversion-source-first'));
+  destroyChart('conv-source-first');
+  if (!rows.length) return;
+
+  const sources = [...new Set(rows.map(r => r.converted_by))];
+  const types   = [...new Set(rows.map(r => r.subscription_type))];
+  const typeColors = { RECURRING_SUBSCRIPTION: '#059669', ON_DEMAND_SUBSCRIPTION: '#7c3aed' };
+  const typeLabels = { RECURRING_SUBSCRIPTION: 'Recurring', ON_DEMAND_SUBSCRIPTION: 'On-Demand' };
+
+  charts['conv-source-first'] = new Chart(document.getElementById('chart-conv-source-first'), {
+    type: 'bar',
+    data: {
+      labels: sources,
+      datasets: types.map(t => ({
+        label: typeLabels[t] || t,
+        data: sources.map(s => {
+          const r = rows.find(x => x.converted_by === s && x.subscription_type === t);
+          return r ? r.count : 0;
+        }),
+        backgroundColor: typeColors[t] || '#94a3b8',
+        borderRadius: 4,
+      }))
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 12 } } },
+        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Signup funnel (live PostHog, day-windowed) ────────────────────────────────
+const SIGNUP_STEP_COLORS = [
+  '#4f46e5','#6d28d9','#7c3aed','#9333ea','#059669','#0891b2','#d97706','#dc2626'
+];
+
+// CSV-based fallback for signup funnel (sum months covered by day window)
+let _signupCsvRows = null;
+async function _getSignupCsvRows() {
+  if (_signupCsvRows) return _signupCsvRows;
+  const text = await fetch('/static/data/ph_signup_funnel.csv').then(r => r.text());
+  _signupCsvRows = parseCsv(text);
+  return _signupCsvRows;
+}
+
+function _buildSignupStepsFromCsv(rows, days) {
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - days);
+  const cutoffStr = cutoff.toISOString().slice(0, 7); // 'YYYY-MM'
+  const filtered = rows.filter(r => r.month >= cutoffStr);
+  if (!filtered.length) return null;
+  const sum = k => filtered.reduce((s, r) => s + (r[k] || 0), 0);
+  const steps = [
+    { step: 'View Bedrooms',    count: sum('view_bedrooms') },
+    { step: 'View Contact',     count: sum('view_contact') },
+    { step: 'Become Lead',      count: sum('become_lead') },
+    { step: 'Choose Service',   count: sum('choose_service') },
+    { step: 'Review Booking',   count: sum('review_booking') },
+    { step: 'Register Success', count: sum('register_success') },
+  ];
+  const top = steps[0].count || 1;
+  steps.forEach(s => s.pct_of_top = +(s.count / top * 100).toFixed(1));
+  return steps;
+}
+
+async function loadSignupFunnel(days = 30) {
+  // Update button styles
+  document.querySelectorAll('.sfbtn').forEach(b => {
+    const active = parseInt(b.dataset.days) === days;
+    b.style.background = active ? 'var(--blue)' : 'var(--bg)';
+    b.style.color      = active ? '#fff'        : 'var(--muted)';
+    b.style.borderColor = active ? 'var(--blue)' : 'var(--border)';
+  });
+
+  const wrap = document.getElementById('signup-funnel-wrap');
+  wrap.innerHTML = '<div class="loading">Loading…</div>';
+
+  let steps = null;
+
+  try {
+    const data = await get(`/api/posthog/signup-funnel?days=${days}`);
+    if (!data.error && data.steps && data.steps.length) {
+      steps = data.steps;
+    }
+  } catch { /* live query unavailable */ }
+
+  // Fallback: build from monthly CSV
+  if (!steps) {
+    try {
+      const rows = await _getSignupCsvRows();
+      steps = _buildSignupStepsFromCsv(rows, days);
+    } catch { steps = null; }
+  }
+
+  if (!steps) {
+    wrap.innerHTML = '<div class="loading">No data available</div>';
+    return;
+  }
+
+  const maxCount = steps[0].count || 1;
+  steps.forEach(s => { if (s.pct_of_top == null) s.pct_of_top = +(s.count / maxCount * 100).toFixed(1); });
+
+  wrap.innerHTML = steps.map((step, i) => {
+    const widthPct = Math.max(8, Math.round((step.count / maxCount) * 100));
+    const convPrev = i > 0 && steps[i-1].count
+      ? ((step.count / steps[i-1].count) * 100).toFixed(1) + '% of prev'
+      : null;
+    const color = SIGNUP_STEP_COLORS[i % SIGNUP_STEP_COLORS.length];
+
+    const arrowRow = i > 0 ? `
+      <div style="display:flex;align-items:center;padding:2px 0 2px 200px;gap:6px;color:var(--muted);font-size:11px;font-weight:600">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M3 10l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        ${convPrev || ''}
+      </div>` : '';
+
+    return `${arrowRow}
+    <div style="display:flex;align-items:center;gap:12px;padding:2px 0">
+      <div style="width:192px;font-size:13px;font-weight:600;color:var(--text);text-align:right;flex-shrink:0">${step.step}</div>
+      <div style="flex:1;position:relative;height:44px;display:flex;align-items:center">
+        <div style="width:${widthPct}%;min-width:60px;height:44px;background:${color};border-radius:6px;display:flex;align-items:center;padding:0 14px;font-weight:700;font-size:15px;color:#fff;transition:width .4s ease">
+          ${step.count > 0 ? step.count.toLocaleString() : ''}
+        </div>
+      </div>
+      <div style="width:64px;text-align:right;font-size:12px;color:var(--muted);flex-shrink:0">${step.pct_of_top}%</div>
+    </div>`;
+  }).join('');
+}
+
+// ── Breakdown table ───────────────────────────────────────────────────────────
+async function loadBreakdown() {
+  const rows = await get(qs('/api/funnel/breakdown'));
+  const tbody = document.getElementById('breakdown-tbody');
+  if (!rows.length) { tbody.innerHTML = '<tr><td colspan="6" style="color:var(--muted);padding:16px">No data</td></tr>'; return; }
+
+  tbody.innerHTML = rows.map(r => {
+    const p = parseFloat(r.conversion_pct);
+    const cls = p >= 20 ? 'pct-high' : p >= 10 ? 'pct-mid' : 'pct-low';
+    return `<tr>
+      <td style="font-weight:600">${r.project}</td>
+      <td>${r.neighbourhood}</td>
+      <td>${fmt(r.leads)}</td>
+      <td>${fmt(r.registered_leads)}</td>
+      <td>${fmt(r.subscribers)}</td>
+      <td><span class="pct-badge ${cls}">${r.conversion_pct ?? '—'}%</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── MRR histogram ─────────────────────────────────────────────────────────────
+async function loadMrrHistogram() {
+  const rows = await get('/api/funnel/mrr-histogram');
+  destroyChart('mrr-hist');
+  if (!rows.length) return;
+  charts['mrr-hist'] = new Chart(document.getElementById('chart-mrr-hist'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => '$' + r.bucket),
+      datasets: [{ label: 'Apartments', data: rows.map(r => r.count),
+        backgroundColor: 'rgba(5,150,105,.75)', borderColor: '#059669',
+        borderWidth: 1, borderRadius: 4, borderSkipped: false }]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── AdHoc spend histogram ─────────────────────────────────────────────────────
+async function loadAdhocHistogram() {
+  const rows = await get('/api/funnel/adhoc-spend-histogram');
+  destroyChart('adhoc-hist');
+  if (!rows.length) return;
+  charts['adhoc-hist'] = new Chart(document.getElementById('chart-adhoc-hist'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => '$' + r.bucket),
+      datasets: [{ label: 'Apartments', data: rows.map(r => r.count),
+        backgroundColor: 'rgba(79,70,229,.75)', borderColor: '#4f46e5',
+        borderWidth: 1, borderRadius: 4, borderSkipped: false }]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Active subscribers per month ──────────────────────────────────────────────
+async function loadCumulativeSubscribers() {
+  const rows = await get('/api/funnel/cumulative-subscribers');
+  destroyChart('cumulative-subs');
+  if (!rows.length) return;
+  charts['cumulative-subs'] = new Chart(document.getElementById('chart-cumulative-subs'), {
+    type: 'line',
+    data: {
+      labels: rows.map(r => r.sub_month),
+      datasets: [
+        { label: 'Recurring', data: rows.map(r => r.recurring),
+          borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.15)',
+          fill: true, tension: .3, pointRadius: 2 },
+        { label: 'On-Demand', data: rows.map(r => r.on_demand),
+          borderColor: '#7c3aed', backgroundColor: 'rgba(124,58,237,.12)',
+          fill: true, tension: .3, pointRadius: 2 },
+        { label: 'Total Active', data: rows.map(r => r.active_subscribers),
+          borderColor: '#1d4ed8', backgroundColor: 'transparent',
+          tension: .3, pointRadius: 3, borderWidth: 2.5 },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Load all ──────────────────────────────────────────────────────────────────
+async function loadAll() {
+  try {
+    const [summary, reviewRows] = await Promise.all([
+      loadSummary(),
+      loadReviewTotal(),
+    ]);
+    const reviewTotal = Array.isArray(reviewRows)
+      ? reviewRows.reduce((s, r) => s + (r.unique_users || 0), 0)
+      : (reviewRows || 0);
+    renderFunnel(summary, reviewTotal);
+    renderSubSplit(summary);
+
+    await Promise.all([
+      loadTimeseries(),
+      loadConversionSource(),
+      loadConversionSourceFirst(),
+      loadReviewViews(Array.isArray(reviewRows) ? reviewRows : []),
+      loadBreakdown(),
+      loadMrrHistogram(),
+      loadAdhocHistogram(),
+      loadCumulativeSubscribers(),
+      loadResidents(),
+      loadSignupFunnel(),
+    ]);
+
+    document.getElementById('last-updated').textContent =
+      'Updated ' + new Date().toLocaleTimeString();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// ── Tab switching ─────────────────────────────────────────────────────────────
+let activeTab = 'funnel';
+
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    const tabs = ['funnel', 'visits', 'ratings', 'noslots', 'performance'];
+    b.classList.toggle('active', tabs[i] === tab);
+  });
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(`panel-${tab}`).classList.add('active');
+  if (tab === 'visits'      && !visitsLoaded)      loadVisits();
+  if (tab === 'ratings'     && !ratingsLoaded)     loadRatings();
+  if (tab === 'noslots'     && !nsslotsLoaded)     loadNoSlots();
+  if (tab === 'performance' && !perfLoaded)        loadPerformance();
+}
+
+let visitsLoaded = false;
+
+// ── Visit state & filters ─────────────────────────────────────────────────────
+const vstateObj = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
+
+function vqs(base) {
+  const params = new URLSearchParams();
+  if (vstateObj.dateFrom)      params.set('date_from', vstateObj.dateFrom);
+  if (vstateObj.dateTo)        params.set('date_to', vstateObj.dateTo);
+  if (vstateObj.project)       params.set('project', vstateObj.project);
+  if (vstateObj.neighbourhood) params.set('neighbourhood', vstateObj.neighbourhood);
+  if (vstateObj.subType)       params.set('sub_type', vstateObj.subType);
+  const s = params.toString();
+  return base + (s ? '?' + s : '');
+}
+
+async function populateVisitFilters() {
+  const [projects, hoods] = await Promise.all([
+    get('/api/filters/projects'),
+    get('/api/filters/neighbourhoods'),
+  ]);
+  const pSel = document.getElementById('vf-project');
+  const nSel = document.getElementById('vf-neighbourhood');
+  if (pSel.options.length === 1) {
+    projects.forEach(p => pSel.add(new Option(p, p)));
+    hoods.forEach(h => nSel.add(new Option(h, h)));
+  }
+}
+
+function applyVisitFilters() {
+  vstateObj.dateFrom      = document.getElementById('vf-date-from').value;
+  vstateObj.dateTo        = document.getElementById('vf-date-to').value;
+  vstateObj.project       = document.getElementById('vf-project').value;
+  vstateObj.neighbourhood = document.getElementById('vf-neighbourhood').value;
+  vstateObj.subType       = document.getElementById('vf-sub-type').value;
+  visitsLoaded = false;
+  loadVisits();
+}
+
+function resetVisitFilters() {
+  ['vf-date-from','vf-date-to'].forEach(id => document.getElementById(id).value = '');
+  ['vf-project','vf-neighbourhood','vf-sub-type'].forEach(id => document.getElementById(id).value = '');
+  Object.assign(vstateObj, { dateFrom:'', dateTo:'', project:'', neighbourhood:'', subType:'' });
+  visitsLoaded = false;
+  loadVisits();
+}
+
+// ── Visit KPIs ────────────────────────────────────────────────────────────────
+async function loadVisitSummary() {
+  const d = await get(vqs('/api/visits/summary'));
+  document.getElementById('vkpi-done').textContent      = fmt(d.finished_completed);
+  document.getElementById('vkpi-done-sub').textContent  = `${fmt(d.finished)} fin · ${fmt(d.completed)} comp`;
+  document.getElementById('vkpi-pending').textContent   = fmt(d.pending);
+  document.getElementById('vkpi-cancelled').textContent = fmt(d.cancelled);
+  const rev = d.net_revenue;
+  document.getElementById('vkpi-chore-rev').textContent =
+    rev != null ? '$' + Number(rev).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}) : '—';
+}
+
+async function loadVisitChores() {
+  const d = await get(vqs('/api/visits/chores'));
+  document.getElementById('vkpi-chores').textContent = fmt(d.summary.chore_count);
+  return d.timeseries;
+}
+
+async function loadLMD() {
+  const d = await get(vqs('/api/visits/last-minute'));
+  const total = d.by_type.reduce((s, r) => s + r.visit_count, 0);
+  document.getElementById('vkpi-lmd').textContent = fmt(total);
+
+  // Donut
+  destroyChart('lmd-type');
+  if (d.by_type.length) {
+    const colors = { 'Subscribers': '#059669', 'On Demand': '#7c3aed', 'Free / Other': '#d97706' };
+    charts['lmd-type'] = new Chart(document.getElementById('chart-lmd-type'), {
+      type: 'doughnut',
+      data: {
+        labels: d.by_type.map(r => r.user_type),
+        datasets: [{ data: d.by_type.map(r => r.visit_count),
+          backgroundColor: d.by_type.map(r => colors[r.user_type] || '#94a3b8'),
+          borderWidth: 2, borderColor: '#fff' }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, cutout: '62%',
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } } }
+    });
+  }
+  return d.timeseries;
+}
+
+// ── Visit duration histogram ──────────────────────────────────────────────────
+async function loadDurationHistogram() {
+  const rows = await get(vqs('/api/visits/duration-histogram'));
+  destroyChart('duration-hist');
+  if (!rows.length) return;
+  charts['duration-hist'] = new Chart(document.getElementById('chart-duration-hist'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.label),
+      datasets: [{
+        label: 'Visits',
+        data: rows.map(r => r.count),
+        backgroundColor: rows.map(r => {
+          const m = r.bucket_min;
+          if (m < 60)  return 'rgba(79,70,229,.75)';
+          if (m < 120) return 'rgba(5,150,105,.75)';
+          if (m < 180) return 'rgba(217,119,6,.75)';
+          return 'rgba(220,38,38,.6)';
+        }),
+        borderRadius: 4,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Cancellations ─────────────────────────────────────────────────────────────
+const CANCEL_COLORS = {
+  'Out Of Policy': '#dc2626', 'OOP Charged': '#dc2626', 'OOP Free': '#f87171',
+  'In Policy': '#d97706', 'From Plan': '#4f46e5', 'From Free': '#059669', 'Other': '#94a3b8'
+};
+
+async function loadCancellations() {
+  const d = await get(vqs('/api/visits/cancellations'));
+
+  // Summary cards — aggregate by cancel_category across cancel_source
+  const catTotals = {};
+  d.by_category.forEach(r => {
+    catTotals[r.cancel_category] = (catTotals[r.cancel_category] || 0) + r.count;
+  });
+  const container = document.getElementById('cancel-cards');
+  container.innerHTML = Object.entries(catTotals).map(([cat, count]) => `
+    <div class="kpi-card" style="border-left:4px solid ${CANCEL_COLORS[cat]||'#94a3b8'}">
+      <div class="label">${cat}</div>
+      <div class="value" style="color:${CANCEL_COLORS[cat]||'#94a3b8'}">${fmt(count)}</div>
+      <div class="sub">Cancellations</div>
+    </div>`).join('');
+
+  // Stacked bar timeseries
+  destroyChart('cancel-ts');
+  const ts = d.timeseries;
+  if (!ts.length) return;
+  const categories = [
+    { key: 'out_of_policy', label: 'Out Of Policy' },
+    { key: 'in_policy',     label: 'In Policy' },
+    { key: 'from_plan',     label: 'From Plan' },
+    { key: 'from_free',     label: 'From Free' },
+  ];
+  charts['cancel-ts'] = new Chart(document.getElementById('chart-cancel-ts'), {
+    type: 'bar',
+    data: {
+      labels: ts.map(r => r.visit_month),
+      datasets: categories.map(c => ({
+        label: c.label,
+        data: ts.map(r => r[c.key] || 0),
+        backgroundColor: CANCEL_COLORS[c.label],
+        borderRadius: 2,
+      }))
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+
+  // App vs Admin cancel timeseries
+  destroyChart('cancel-source');
+  const sts = d.by_source_ts;
+  if (sts && sts.length) {
+    charts['cancel-source'] = new Chart(document.getElementById('chart-cancel-source'), {
+      type: 'bar',
+      data: {
+        labels: sts.map(r => r.visit_month),
+        datasets: [
+          { label: 'App Cancelled', data: sts.map(r => r.app_cancelled || 0),
+            backgroundColor: 'rgba(79,70,229,.75)', borderRadius: 2 },
+          { label: 'Admin Cancelled', data: sts.map(r => r.admin_cancelled || 0),
+            backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 2 },
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+        scales: {
+          x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
+          y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+        }
+      }
+    });
+  }
+}
+
+// ── Chores timeseries charts ──────────────────────────────────────────────────
+function renderChoresChart(timeseries) {
+  destroyChart('chores-ts');
+  destroyChart('avg-price');
+  if (!timeseries.length) return;
+
+  const labels = timeseries.map(r => r.visit_month);
+  const baseOpts = {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+    }
+  };
+
+  charts['chores-ts'] = new Chart(document.getElementById('chart-chores-ts'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{ label: 'Avg tasks / visit', data: timeseries.map(r => r.avg_tasks_per_visit || 0),
+        backgroundColor: 'rgba(124,58,237,.7)', borderColor: '#7c3aed', borderWidth: 1, borderRadius: 3 }]
+    },
+    options: baseOpts
+  });
+
+  charts['avg-price'] = new Chart(document.getElementById('chart-avg-price'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{ label: 'Avg visit price', data: timeseries.map(r => r.avg_visit_price || 0),
+        borderColor: '#d97706', backgroundColor: 'rgba(217,119,6,.08)',
+        pointRadius: 3, tension: .3, fill: true }]
+    },
+    options: { ...baseOpts,
+      scales: { ...baseOpts.scales,
+        y: { ...baseOpts.scales.y, ticks: { font: { size: 11 }, callback: v => '$'+v } }
+      }
+    }
+  });
+}
+
+// ── Visit trends (count, finished%, duration) ─────────────────────────────────
+function loadVisitsTrends(timeseries) {
+  destroyChart('visit-count');
+  destroyChart('finished-pct');
+  destroyChart('visit-duration');
+  if (!timeseries || !timeseries.length) return;
+
+  const labels = timeseries.map(r => r.visit_month);
+  const baseOpts = {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true }
+    }
+  };
+
+  charts['visit-count'] = new Chart(document.getElementById('chart-visit-count'), {
+    type: 'line',
+    data: { labels, datasets: [{ label: 'Finished+Completed', data: timeseries.map(r => r.finished_completed || 0),
+      borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.12)',
+      fill: true, tension: .3, pointRadius: 3 }] },
+    options: baseOpts
+  });
+
+  charts['finished-pct'] = new Chart(document.getElementById('chart-finished-pct'), {
+    type: 'line',
+    data: { labels, datasets: [{ label: 'Finished %', data: timeseries.map(r => r.finished_pct || 0),
+      borderColor: '#4f46e5', backgroundColor: 'rgba(79,70,229,.08)', fill: true, tension: .3, pointRadius: 3 }] },
+    options: { ...baseOpts,
+      scales: { ...baseOpts.scales,
+        y: { ...baseOpts.scales.y, min: 0, max: 100, ticks: { font: { size: 11 }, callback: v => v + '%' } }
+      }
+    }
+  });
+
+  charts['visit-duration'] = new Chart(document.getElementById('chart-visit-duration'), {
+    type: 'bar',
+    data: { labels, datasets: [{ label: 'Avg Duration (min)', data: timeseries.map(r => r.avg_duration_mins || 0),
+      backgroundColor: 'rgba(217,119,6,.75)', borderColor: '#d97706', borderWidth: 1, borderRadius: 3 }] },
+    options: { ...baseOpts,
+      scales: { ...baseOpts.scales,
+        y: { ...baseOpts.scales.y, ticks: { font: { size: 11 }, callback: v => v + ' min' } }
+      }
+    }
+  });
+}
+
+// ── Bookings by source ────────────────────────────────────────────────────────
+async function loadBookingsBySource() {
+  const d = await get(vqs('/api/visits/bookings-by-source'));
+  const appRow   = d.summary.find(r => r.booked_by === 'App');
+  const adminRow = d.summary.find(r => r.booked_by === 'Admin');
+  document.getElementById('vkpi-app-booked').textContent   = fmt(appRow   ? appRow.count   : 0);
+  document.getElementById('vkpi-admin-booked').textContent = fmt(adminRow ? adminRow.count : 0);
+
+  destroyChart('bookings-source');
+  const ts = d.timeseries;
+  if (!ts.length) return;
+  charts['bookings-source'] = new Chart(document.getElementById('chart-bookings-source'), {
+    type: 'bar',
+    data: {
+      labels: ts.map(r => r.visit_month),
+      datasets: [
+        { label: 'App Booked', data: ts.map(r => r.app_booked || 0),
+          backgroundColor: 'rgba(79,70,229,.75)', borderRadius: 2 },
+        { label: 'Admin Booked', data: ts.map(r => r.admin_booked || 0),
+          backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 2 },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Load all visits ───────────────────────────────────────────────────────────
+async function loadTaskDistribution() {
+  const rows = await get(vqs('/api/visits/task-distribution'));
+  destroyChart('task-dist');
+  if (!rows.length) return;
+  const colors = [
+    '#4f46e5','#059669','#d97706','#dc2626','#7c3aed','#0891b2',
+    '#65a30d','#db2777','#ea580c','#0284c7','#16a34a','#9333ea',
+    '#ca8a04','#e11d48','#2563eb','#10b981','#f59e0b','#ef4444',
+    '#8b5cf6','#06b6d4','#84cc16','#f43f5e','#3b82f6','#14b8a6',
+    '#eab308','#f97316','#6366f1','#22c55e','#a855f7','#ec4899',
+  ];
+  charts['task-dist'] = new Chart(document.getElementById('chart-task-dist'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.task_name),
+      datasets: [{
+        label: 'Times selected',
+        data: rows.map(r => r.count),
+        backgroundColor: rows.map((_, i) => colors[i % colors.length] + 'cc'),
+        borderColor:     rows.map((_, i) => colors[i % colors.length]),
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true },
+        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+async function loadVisitsTimeseries() {
+  return await get(vqs('/api/visits/timeseries'));
+}
+
+async function loadVisits() {
+  visitsLoaded = true;
+  await populateVisitFilters();
+  const [choreData, timeseries] = await Promise.all([
+    loadVisitChores(),
+    loadVisitsTimeseries(),
+    loadVisitSummary(),
+    loadLMD(),
+    loadDurationHistogram(),
+    loadCancellations(),
+    loadTaskDistribution(),
+    loadBookingsBySource(),
+  ]);
+  renderChoresChart(choreData);
+  loadVisitsTrends(timeseries);
+  document.getElementById('last-updated').textContent =
+    'Updated ' + new Date().toLocaleTimeString();
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+(async () => {
+  await loadFilterOptions();
+  await loadAll();
+})();
+
+// ── No Slots tab ──────────────────────────────────────────────────────────────
+let nsslotsLoaded = false;
+const nsstateObj = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
+
+function nsqs(base) {
+  const p = new URLSearchParams();
+  if (nsstateObj.dateFrom)      p.set('date_from', nsstateObj.dateFrom);
+  if (nsstateObj.dateTo)        p.set('date_to',   nsstateObj.dateTo);
+  if (nsstateObj.project)       p.set('project',   nsstateObj.project);
+  if (nsstateObj.neighbourhood) p.set('neighbourhood', nsstateObj.neighbourhood);
+  if (nsstateObj.subType)       p.set('sub_type',  nsstateObj.subType);
+  const q = p.toString();
+  return q ? `${base}?${q}` : base;
+}
+
+async function populateNsFilters() {
+  const [projects, hoods] = await Promise.all([
+    get('/api/filters/projects'), get('/api/filters/neighbourhoods')
+  ]);
+  const ps = document.getElementById('nsf-project');
+  const hs = document.getElementById('nsf-neighbourhood');
+  if (ps.options.length <= 1)
+    projects.forEach(p => { const o = new Option(p, p); ps.add(o); });
+  if (hs.options.length <= 1)
+    hoods.forEach(h => { const o = new Option(h, h); hs.add(o); });
+}
+
+function resetNsFilters() {
+  ['nsf-date-from','nsf-date-to','nsf-project','nsf-neighbourhood','nsf-sub-type']
+    .forEach(id => document.getElementById(id).value = '');
+  Object.assign(nsstateObj, { dateFrom:'', dateTo:'', project:'', neighbourhood:'', subType:'' });
+  nsslotsLoaded = false;
+  loadNoSlots();
+}
+
+async function loadNoSlotsSummary() {
+  const d = await get(nsqs('/api/noslots/summary'));
+  document.getElementById('nskpi-sub').textContent          = fmt(d.subscription_apt_days);
+  document.getElementById('nskpi-onetime').textContent      = fmt(d.onetime_apt_days);
+  document.getElementById('nskpi-duration-sub').textContent =
+    d.avg_time_sub_mins ? d.avg_time_sub_mins + ' min' : '—';
+  document.getElementById('nskpi-duration-onetime').textContent =
+    d.avg_time_onetime_mins ? d.avg_time_onetime_mins + ' min' : '—';
+  document.getElementById('nskpi-success').textContent =
+    d.success_rate_pct != null ? d.success_rate_pct + '%' : '—';
+  document.getElementById('nskpi-success-sub').textContent =
+    `${fmt(d.found_slot_count)} of ${fmt(d.total_apt_days)} apt-days`;
+}
+
+async function loadNoSlotsTimeseries() {
+  const rows = await get(nsqs('/api/noslots/timeseries'));
+  destroyChart('ns-sub');
+  destroyChart('ns-onetime');
+  destroyChart('ns-success');
+  if (!rows.length) return;
+
+  const barOpts = (color) => ({
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true }
+    }
+  });
+
+  charts['ns-sub'] = new Chart(document.getElementById('chart-ns-sub'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.month),
+      datasets: [{ label: 'Subscription apt-days', data: rows.map(r => r.subscription_apt_days),
+        backgroundColor: 'rgba(79,70,229,.75)', borderRadius: 3 }]
+    },
+    options: barOpts('rgba(79,70,229,.75)')
+  });
+
+  charts['ns-onetime'] = new Chart(document.getElementById('chart-ns-onetime'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.month),
+      datasets: [{ label: 'One-time apt-days', data: rows.map(r => r.onetime_apt_days),
+        backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 3 }]
+    },
+    options: barOpts('rgba(217,119,6,.75)')
+  });
+
+  charts['ns-success'] = new Chart(document.getElementById('chart-ns-success'), {
+    type: 'line',
+    data: {
+      labels: rows.map(r => r.month),
+      datasets: [
+        { label: 'Recovery rate (%)', data: rows.map(r => r.success_rate_pct),
+          borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.08)',
+          fill: true, tension: .3, pointRadius: 3, yAxisID: 'y' },
+        { label: 'Sub avg duration (min)', data: rows.map(r => r.avg_time_sub_mins),
+          borderColor: '#4f46e5', backgroundColor: 'transparent',
+          tension: .3, pointRadius: 3, yAxisID: 'y2', borderDash: [4,3] },
+        { label: 'One-time avg duration (min)', data: rows.map(r => r.avg_time_onetime_mins),
+          borderColor: '#d97706', backgroundColor: 'transparent',
+          tension: .3, pointRadius: 3, yAxisID: 'y2', borderDash: [4,3] },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y:  { position: 'left',  min: 0, max: 100, grid: { color: 'rgba(0,0,0,.05)' },
+              ticks: { font: { size: 11 }, callback: v => v + '%' } },
+        y2: { position: 'right', grid: { display: false },
+              ticks: { font: { size: 11 }, callback: v => v + ' min' } }
+      }
+    }
+  });
+}
+
+async function loadNoSlotsIncidents() {
+  try {
+    const d = await get(nsqs('/api/noslots/incidents'));
+    document.getElementById('nskpi-inc-sub').textContent     = fmt(d.summary.sub_incidents);
+    document.getElementById('nskpi-inc-onetime').textContent = fmt(d.summary.onetime_incidents);
+
+    destroyChart('ns-incidents');
+    const ts = d.timeseries;
+    if (!ts.length) return;
+    charts['ns-incidents'] = new Chart(document.getElementById('chart-ns-incidents'), {
+      type: 'bar',
+      data: {
+        labels: ts.map(r => r.month),
+        datasets: [
+          { label: 'Sub Incidents', data: ts.map(r => r.sub_incidents || 0),
+            backgroundColor: 'rgba(79,70,229,.75)', borderRadius: 3 },
+          { label: 'One-time Incidents', data: ts.map(r => r.onetime_incidents || 0),
+            backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 3 },
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+        scales: {
+          x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
+          y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true }
+        }
+      }
+    });
+  } catch (e) { console.error('incidents:', e); }
+}
+
+async function loadNoSlots() {
+  nsslotsLoaded = true;
+  await populateNsFilters();
+  await Promise.all([
+    loadNoSlotsSummary(),
+    loadNoSlotsTimeseries(),
+    loadNoSlotsIncidents(),
+  ]);
+  document.getElementById('last-updated').textContent =
+    'Updated ' + new Date().toLocaleTimeString();
+}
+
+// ── Ratings tab ───────────────────────────────────────────────────────────────
+let ratingsLoaded = false;
+const rstateObj = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
+
+function rqs(base) {
+  const p = new URLSearchParams();
+  if (rstateObj.dateFrom)      p.set('date_from', rstateObj.dateFrom);
+  if (rstateObj.dateTo)        p.set('date_to',   rstateObj.dateTo);
+  if (rstateObj.project)       p.set('project',   rstateObj.project);
+  if (rstateObj.neighbourhood) p.set('neighbourhood', rstateObj.neighbourhood);
+  if (rstateObj.subType)       p.set('sub_type',  rstateObj.subType);
+  const q = p.toString();
+  return q ? `${base}?${q}` : base;
+}
+
+async function populateRatingsFilters() {
+  const [projects, hoods] = await Promise.all([
+    get('/api/filters/projects'), get('/api/filters/neighbourhoods')
+  ]);
+  const ps = document.getElementById('rf-project');
+  const hs = document.getElementById('rf-neighbourhood');
+  if (ps.options.length <= 1)
+    projects.forEach(p => { const o = new Option(p, p); ps.add(o); });
+  if (hs.options.length <= 1)
+    hoods.forEach(h => { const o = new Option(h, h); hs.add(o); });
+}
+
+function resetRatingsFilters() {
+  ['rf-date-from','rf-date-to','rf-project','rf-neighbourhood','rf-sub-type']
+    .forEach(id => document.getElementById(id).value = '');
+  Object.assign(rstateObj, { dateFrom:'', dateTo:'', project:'', neighbourhood:'', subType:'' });
+  ratingsLoaded = false;
+  loadRatings();
+}
+
+async function loadRatingsSummary() {
+  const d = await get(rqs('/api/ratings/summary'));
+  const fmtStar = v => v != null ? Number(v).toFixed(2) + ' ★' : '—';
+  document.getElementById('rkpi-visit').textContent = fmtStar(d.avg_visit_rating);
+  document.getElementById('rkpi-visit-sub').textContent =
+    `${fmt(d.visit_rating_count)} ratings`;
+  document.getElementById('rkpi-app').textContent = fmtStar(d.avg_app_rating);
+  document.getElementById('rkpi-app-sub').textContent =
+    `${fmt(d.app_rating_count)} ratings`;
+  document.getElementById('rkpi-total').textContent = fmt(d.total_reviews);
+}
+
+async function loadRatingsTimeseries() {
+  const rows = await get(rqs('/api/ratings/timeseries'));
+  destroyChart('rating-ts');
+  if (!rows.length) return;
+  charts['rating-ts'] = new Chart(document.getElementById('chart-rating-ts'), {
+    type: 'line',
+    data: {
+      labels: rows.map(r => r.month),
+      datasets: [
+        { label: 'Visit Rating', data: rows.map(r => r.avg_visit_rating),
+          borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,.08)',
+          fill: true, tension: .3, pointRadius: 3 },
+        { label: 'App Rating', data: rows.map(r => r.avg_app_rating),
+          borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,.08)',
+          fill: true, tension: .3, pointRadius: 3 },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { min: 3, max: 5, grid: { color: 'rgba(0,0,0,.05)' },
+             ticks: { font: { size: 11 }, callback: v => v + ' ★' } }
+      }
+    }
+  });
+}
+
+async function loadRatingsDistribution() {
+  const d = await get(rqs('/api/ratings/distribution'));
+  const STAR_LABELS = ['1 ★','2 ★','3 ★','4 ★','5 ★'];
+  const barOpts = (color) => ({
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 12 } } },
+      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+    }
+  });
+
+  destroyChart('visit-dist');
+  charts['visit-dist'] = new Chart(document.getElementById('chart-visit-dist'), {
+    type: 'bar',
+    data: { labels: STAR_LABELS,
+      datasets: [{ data: d.visit.map(r => r.count),
+        backgroundColor: 'rgba(245,158,11,.75)', borderColor: '#f59e0b',
+        borderWidth: 1, borderRadius: 4, borderSkipped: false }] },
+    options: barOpts('#f59e0b')
+  });
+
+  destroyChart('app-dist');
+  charts['app-dist'] = new Chart(document.getElementById('chart-app-dist'), {
+    type: 'bar',
+    data: { labels: STAR_LABELS,
+      datasets: [{ data: d.app.map(r => r.count),
+        backgroundColor: 'rgba(99,102,241,.75)', borderColor: '#6366f1',
+        borderWidth: 1, borderRadius: 4, borderSkipped: false }] },
+    options: barOpts('#6366f1')
+  });
+}
+
+async function loadReviewsSentiment() {
+  const d = await get(rqs('/api/ratings/reviews'));
+  const COLORS = { Positive: '#059669', Neutral: '#d97706', Negative: '#dc2626', 'No Rating': '#94a3b8' };
+
+  function renderReviewCards(containerId, pos, neu, neg, noRating) {
+    const total = pos + neu + neg + noRating;
+    document.getElementById(containerId).innerHTML = [
+      ['Positive', pos, '#059669'], ['Neutral', neu, '#d97706'],
+      ['Negative', neg, '#dc2626'], ['No Rating', noRating, '#94a3b8']
+    ].map(([label, count, color]) => `
+      <div class="kpi-card" style="border-left:4px solid ${color}">
+        <div class="label">${label}</div>
+        <div class="value" style="color:${color};font-size:22px">${fmt(count)}</div>
+        <div class="sub">${total > 0 ? ((count/total*100).toFixed(1) + '% of written') : '—'}</div>
+      </div>`).join('');
+  }
+
+  renderReviewCards('cust-review-cards',
+    d.cust_positive, d.cust_neutral, d.cust_negative, d.cust_no_rating);
+  renderReviewCards('fairee-review-cards',
+    d.fairee_positive, d.fairee_neutral, d.fairee_negative, d.fairee_no_rating);
+
+  const donutOpts = (labels, data, colors, canvasId, key) => {
+    destroyChart(key);
+    charts[key] = new Chart(document.getElementById(canvasId), {
+      type: 'doughnut',
+      data: { labels, datasets: [{ data, backgroundColor: colors, borderWidth: 2 }] },
+      options: { responsive: true, maintainAspectRatio: false, cutout: '65%',
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } }
+      }
+    });
+  };
+
+  const labels = ['Positive', 'Neutral', 'Negative', 'No Rating'];
+  const colors = ['#059669', '#d97706', '#dc2626', '#94a3b8'];
+  donutOpts(labels,
+    [d.cust_positive, d.cust_neutral, d.cust_negative, d.cust_no_rating],
+    colors, 'chart-cust-reviews', 'cust-reviews');
+  donutOpts(labels,
+    [d.fairee_positive, d.fairee_neutral, d.fairee_negative, d.fairee_no_rating],
+    colors, 'chart-fairee-reviews', 'fairee-reviews');
+}
+
+async function loadRatings() {
+  ratingsLoaded = true;
+  await populateRatingsFilters();
+  await Promise.all([
+    loadRatingsSummary(),
+    loadRatingsTimeseries(),
+    loadRatingsDistribution(),
+    loadReviewsSentiment(),
+  ]);
+  document.getElementById('last-updated').textContent =
+    'Updated ' + new Date().toLocaleTimeString();
+}
+
+// ── Performance tab ───────────────────────────────────────────────────────────
+let perfLoaded = false;
+const pstateObj = { dateFrom: '', dateTo: '' };
+
+function applyPerfFilters() {
+  pstateObj.dateFrom = document.getElementById('pf-date-from').value;
+  pstateObj.dateTo   = document.getElementById('pf-date-to').value;
+  perfLoaded = false;
+  loadPerformance();
+}
+
+function resetPerfFilters() {
+  pstateObj.dateFrom = '';
+  pstateObj.dateTo   = '';
+  document.getElementById('pf-date-from').value = '';
+  document.getElementById('pf-date-to').value   = '';
+  perfLoaded = false;
+  loadPerformance();
+}
+
+async function loadPerformance() {
+  perfLoaded = true;
+  const [ltText, lrText] = await Promise.all([
+    fetch('/static/data/ph_load_time_daily.csv').then(r => r.text()),
+    fetch('/static/data/ph_login_rate_daily.csv').then(r => r.text()),
+  ]);
+  let ltRows = parseCsv(ltText);
+  let lrRows = parseCsv(lrText);
+
+  // Apply date range filter
+  if (pstateObj.dateFrom) ltRows = ltRows.filter(r => r.date >= pstateObj.dateFrom);
+  if (pstateObj.dateTo)   ltRows = ltRows.filter(r => r.date <= pstateObj.dateTo);
+  if (pstateObj.dateFrom) lrRows = lrRows.filter(r => r.date >= pstateObj.dateFrom);
+  if (pstateObj.dateTo)   lrRows = lrRows.filter(r => r.date <= pstateObj.dateTo);
+
+  if (!ltRows.length || !lrRows.length) {
+    ['pkpi-avg','pkpi-p50','pkpi-p90','pkpi-p95','pkpi-opens','pkpi-logins','pkpi-login-rate']
+      .forEach(id => { const el = document.getElementById(id); if (el) el.textContent = '—'; });
+    return;
+  }
+
+  // Weighted p50 across filtered days (more reliable than avg which has outliers)
+  const totalCount = ltRows.reduce((s, r) => s + (+r.count || 0), 0);
+  const wavgP50 = Math.round(ltRows.reduce((s, r) => s + (+r.p50 || 0) * (+r.count || 0), 0) / (totalCount || 1));
+  // Latest day in range for KPI display
+  const latest = ltRows[ltRows.length - 1];
+  const p90Est = Math.round(((+latest.p50 || 0) + (+latest.p95 || 0)) / 2); // estimated P90
+  document.getElementById('pkpi-avg').textContent  = wavgP50 + ' ms';
+  document.getElementById('pkpi-p50').textContent  = (+latest.p50 || 0) + ' ms';
+  document.getElementById('pkpi-p90').textContent  = p90Est + ' ms';
+  document.getElementById('pkpi-p95').textContent  = (+latest.p95 || 0) + ' ms';
+
+  // Login KPIs — latest day in filtered range
+  const latestLr = lrRows[lrRows.length - 1];
+  document.getElementById('pkpi-opens').textContent      = (+latestLr.users || 0).toLocaleString();
+  document.getElementById('pkpi-logins').textContent     = (+latestLr.logged_in_users || 0).toLocaleString();
+  document.getElementById('pkpi-login-rate').textContent = (+latestLr.login_rate_pct || 0) + '%';
+
+  // Thin labels: for large date ranges show only every Nth label for readability
+  const step = ltRows.length > 90 ? Math.ceil(ltRows.length / 60) : 1;
+  const xLabels = ltRows.map((r, i) => (i % step === 0) ? r.date : '');
+
+  // Chart 1: load time trend — p50 and p95 (daily)
+  destroyChart('perf-trend');
+  charts['perf-trend'] = new Chart(document.getElementById('chart-perf-trend'), {
+    type: 'line',
+    data: {
+      labels: ltRows.map(r => r.date),
+      datasets: [
+        { label: 'P50 (median)', data: ltRows.map(r => +r.p50 || 0),
+          borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.08)',
+          fill: true, tension: .3, pointRadius: 0, borderWidth: 2 },
+        { label: 'P95', data: ltRows.map(r => +r.p95 || 0),
+          borderColor: '#dc2626', backgroundColor: 'transparent',
+          tension: .3, pointRadius: 0, borderWidth: 1.5, borderDash: [4,3] },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { grid: { display: false },
+             ticks: { font: { size: 10 }, maxRotation: 45,
+               callback: (val, i) => (i % step === 0) ? ltRows[i].date : '' } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' },
+             ticks: { font: { size: 11 }, callback: v => v + ' ms' }, beginAtZero: true }
+      }
+    }
+  });
+
+  // Chart 2: daily p50 vs p95 as grouped bar (sampled for readability)
+  destroyChart('perf-dist');
+  const sampleStep = ltRows.length > 60 ? Math.ceil(ltRows.length / 60) : 1;
+  const sampledLt = ltRows.filter((_, i) => i % sampleStep === 0);
+  charts['perf-dist'] = new Chart(document.getElementById('chart-perf-dist'), {
+    type: 'bar',
+    data: {
+      labels: sampledLt.map(r => r.date),
+      datasets: [
+        { label: 'P50 (ms)', data: sampledLt.map(r => +r.p50 || 0),
+          backgroundColor: 'rgba(5,150,105,.75)', borderRadius: 2 },
+        { label: 'P95 (ms)', data: sampledLt.map(r => +r.p95 || 0),
+          backgroundColor: 'rgba(220,38,38,.6)', borderRadius: 2 },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 45 } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, beginAtZero: true,
+             ticks: { font: { size: 11 }, callback: v => v + ' ms' } }
+      }
+    }
+  });
+
+  // Chart 3: login rate over time (daily)
+  const lrStep = lrRows.length > 90 ? Math.ceil(lrRows.length / 60) : 1;
+  destroyChart('login-rate');
+  charts['login-rate'] = new Chart(document.getElementById('chart-login-rate'), {
+    type: 'line',
+    data: {
+      labels: lrRows.map(r => r.date),
+      datasets: [
+        { label: 'Login rate (%)', data: lrRows.map(r => +r.login_rate_pct || 0),
+          borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.1)',
+          fill: true, tension: .3, pointRadius: 0, borderWidth: 2 },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false },
+             ticks: { font: { size: 10 }, maxRotation: 45,
+               callback: (val, i) => (i % lrStep === 0) ? lrRows[i].date : '' } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, min: 0, max: 100,
+             ticks: { font: { size: 11 }, callback: v => v + '%' } }
+      }
+    }
+  });
+
+  document.getElementById('last-updated').textContent =
+    'Updated ' + new Date().toLocaleTimeString();
+}
+</script>
+</body>
+</html>

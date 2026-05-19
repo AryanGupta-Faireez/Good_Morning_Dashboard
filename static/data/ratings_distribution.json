@@ -1,0 +1,46 @@
+{
+  "visit": [
+    {
+      "star": 1,
+      "count": 89
+    },
+    {
+      "star": 2,
+      "count": 40
+    },
+    {
+      "star": 3,
+      "count": 99
+    },
+    {
+      "star": 4,
+      "count": 284
+    },
+    {
+      "star": 5,
+      "count": 7348
+    }
+  ],
+  "app": [
+    {
+      "star": 1,
+      "count": 343
+    },
+    {
+      "star": 2,
+      "count": 397
+    },
+    {
+      "star": 3,
+      "count": 1425
+    },
+    {
+      "star": 4,
+      "count": 961
+    },
+    {
+      "star": 5,
+      "count": 21830
+    }
+  ]
+}
