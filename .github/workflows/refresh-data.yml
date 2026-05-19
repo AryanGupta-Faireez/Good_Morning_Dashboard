@@ -24,6 +24,7 @@ jobs:
       - name: Generate CSVs
         env:
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          POSTHOG_TOKEN: ${{ secrets.POSTHOG_TOKEN }}
         run: python generate_csvs.py
 
       - name: Commit & push updated data files

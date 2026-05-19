@@ -20,6 +20,9 @@ from contextlib import contextmanager
 from pathlib import Path
 from decimal import Decimal
 
+import urllib.request
+import urllib.error
+
 import psycopg2
 import psycopg2.extras
 from dotenv import load_dotenv
@@ -29,6 +32,10 @@ load_dotenv()
 # ── Config ─────────────────────────────────────────────────────────────────────
 
 DATA_DIR = Path(__file__).parent / "static" / "data"
+
+PH_TOKEN   = os.environ.get("POSTHOG_TOKEN", "")
+PH_PROJECT = "176966"
+PH_HOST    = "https://us.posthog.com"
 
 _DB = dict(
     host="faireez-db.ceaaeaabvoqy.us-east-1.rds.amazonaws.com",
@@ -1041,6 +1048,118 @@ def generate_noslots_raw():
         save_csv("noslots_monthly_raw.csv", [dict(r) for r in cur.fetchall()])
 
 
+# ── PostHog ────────────────────────────────────────────────────────────────────
+
+def _ph_query(hogql: str) -> list[dict]:
+    """Run a HogQL query against PostHog and return list of dicts."""
+    payload = json.dumps({"query": {"kind": "HogQLQuery", "query": hogql}}).encode()
+    req = urllib.request.Request(
+        f"{PH_HOST}/api/projects/{PH_PROJECT}/query/",
+        data=payload,
+        headers={
+            "Authorization": f"Bearer {PH_TOKEN}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        data = json.loads(resp.read())
+    cols = data.get("columns", [])
+    return [dict(zip(cols, row)) for row in data.get("results", [])]
+
+
+def generate_posthog():
+    print("\nPostHog…")
+
+    if not PH_TOKEN:
+        print("  ⚠  POSTHOG_TOKEN not set — skipping PostHog data")
+        return
+
+    # ── Daily load time (performance event) ───────────────────────────────────
+    rows = _ph_query("""
+        SELECT
+            toDate(timestamp)                                               AS date,
+            round(avg(toFloatOrDefault(toString(properties.value))))        AS avg_ms,
+            round(quantile(0.50)(toFloatOrDefault(toString(properties.value)))) AS p50,
+            round(quantile(0.95)(toFloatOrDefault(toString(properties.value)))) AS p95,
+            count()                                                         AS count
+        FROM events
+        WHERE event = 'performance'
+          AND toFloatOrDefault(toString(properties.value)) > 0
+          AND toFloatOrDefault(toString(properties.value)) < 60000
+        GROUP BY date
+        ORDER BY date
+    """)
+    save_csv("ph_load_time_daily.csv", rows)
+
+    # ── Daily login rate (customer-init as login proxy) ───────────────────────
+    rows = _ph_query("""
+        SELECT
+            toDate(timestamp)                                                           AS date,
+            uniqExact(distinct_id)                                                      AS users,
+            uniqExactIf(distinct_id, event = 'customer-init')                          AS logged_in_users,
+            round(
+                uniqExactIf(distinct_id, event = 'customer-init') * 100.0
+                / nullIf(uniqExact(distinct_id), 0),
+            1)                                                                          AS login_rate_pct
+        FROM events
+        WHERE event IN ('$pageview', 'customer-init')
+        GROUP BY date
+        ORDER BY date
+    """)
+    save_csv("ph_login_rate_daily.csv", rows)
+
+    # ── Monthly review-before-booking unique users ─────────────────────────────
+    rows = _ph_query("""
+        SELECT
+            formatDateTime(toStartOfMonth(timestamp), '%Y-%m') AS month,
+            uniqExact(distinct_id)                             AS unique_users
+        FROM events
+        WHERE event = 'view'
+          AND properties.scope = 'subscription-review-before-booking'
+        GROUP BY toStartOfMonth(timestamp)
+        ORDER BY month
+    """)
+    save_csv("ph_review_booking.csv", rows)
+
+    # ── Monthly signup funnel ─────────────────────────────────────────────────
+    rows = _ph_query("""
+        SELECT
+            formatDateTime(toStartOfMonth(timestamp), '%Y-%m') AS month,
+            uniqExactIf(distinct_id,
+                event = 'view'
+                AND properties.scope = 'register-how-many-bedrooms'
+                AND properties.$geoip_country_code = 'US')              AS view_bedrooms,
+            uniqExactIf(distinct_id,
+                event = 'view'
+                AND properties.scope = 'register-how-many-bathrooms')   AS view_bathrooms,
+            uniqExactIf(distinct_id,
+                event = 'view'
+                AND properties.scope = 'register-contact-details')      AS view_contact,
+            uniqExactIf(distinct_id,
+                event = 'view'
+                AND properties.scope = 'register-building-details')     AS view_building,
+            uniqExactIf(distinct_id,
+                event = 'register-init'
+                AND properties.isTest != 'true')                        AS become_lead,
+            uniqExactIf(distinct_id,
+                event = 'view'
+                AND properties.scope = 'subscription-choose-service')   AS choose_service,
+            uniqExactIf(distinct_id,
+                event = 'view'
+                AND properties.scope = 'subscription-review-before-booking') AS review_booking,
+            uniqExactIf(distinct_id,
+                event = 'view'
+                AND (properties.scope = 'register-success'
+                  OR properties.scope = 'subscription-success'))        AS register_success
+        FROM events
+        WHERE event IN ('view', 'register-init', 'click')
+        GROUP BY toStartOfMonth(timestamp)
+        ORDER BY month
+    """)
+    save_csv("ph_signup_funnel.csv", rows)
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -1059,6 +1178,8 @@ if __name__ == "__main__":
         generate_visits_raw()
         generate_ratings_raw()
         generate_noslots_raw()
+
+        generate_posthog()
     except Exception as exc:
         print(f"\n✗ Error: {exc}", file=sys.stderr)
         raise
