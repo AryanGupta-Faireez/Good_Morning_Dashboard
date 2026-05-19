@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Faireez — Health &amp; Business KPIs</title>
+<title>Faireez — Health & Business KPIs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
@@ -133,7 +133,7 @@
       <button class="tab-btn" onclick="switchTab('performance')">Performance</button>
     </nav>
     <div style="flex:1"></div>
-    <span id="refresh-ts" style="font-size:12px;color:var(--muted)">Data refreshed daily</span>
+    <span id="last-updated" style="font-size:12px;color:var(--muted)"></span>
   </header>
 
   <div class="main">
@@ -151,8 +151,25 @@
         <label>Account Created To</label>
         <input type="date" id="f-date-to" />
       </div>
-      <button class="btn-reset" onclick="applyFunnelFilters()">Apply</button>
-      <button class="btn-reset" style="background:#e5e7eb;color:var(--text)" onclick="resetFunnelFilters()">Reset</button>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="f-project"><option value="">All Projects</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="f-neighbourhood"><option value="">All Neighbourhoods</option></select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="f-sub-type">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring Subscribers</option>
+          <option value="ondemand">On-Demand Subscribers</option>
+          <option value="non_sub">Non-Subscribers</option>
+        </select>
+      </div>
+      <button class="btn-reset" onclick="applyFilters()">Apply</button>
+      <button class="btn-reset" style="background:#e5e7eb;color:var(--text)" onclick="resetFilters()">Reset</button>
     </div>
 
     <!-- KPI Cards -->
@@ -255,7 +272,7 @@
       <div class="chart-wrap"><canvas id="chart-cumulative-subs"></canvas></div>
     </div>
 
-    <!-- Conversion source + Conversion source first -->
+    <!-- Conversion source + Review views -->
     <div class="charts-grid-2">
       <div class="chart-card">
         <h3>Conversion Source — Self vs Admin</h3>
@@ -328,6 +345,23 @@
         <label>Visit Date To</label>
         <input type="date" id="vf-date-to" />
       </div>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="vf-project"><option value="">All Projects</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="vf-neighbourhood"><option value="">All Neighbourhoods</option></select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="vf-sub-type">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring Subscribers</option>
+          <option value="ondemand">On-Demand Subscribers</option>
+          <option value="non_sub">Non-Subscribers</option>
+        </select>
+      </div>
       <button class="btn-reset" onclick="applyVisitFilters()">Apply</button>
       <button class="btn-reset" style="background:#e5e7eb;color:var(--text)" onclick="resetVisitFilters()">Reset</button>
     </div>
@@ -379,7 +413,7 @@
       </div>
     </div>
 
-    <!-- Duration histogram + LMD by type -->
+    <!-- Visits over time + LMD by type -->
     <div class="charts-grid">
       <div class="chart-card">
         <h3>Visit Duration Distribution <span style="font-weight:400;color:var(--muted);font-size:12px">(finished + completed)</span></h3>
@@ -417,7 +451,7 @@
     </div>
 
     <!-- Bookings by source chart -->
-    <div class="chart-card">
+    <div class="chart-card" style="grid-column:1/-1">
       <h3>Bookings by Source — App vs Admin <span style="font-size:11px;color:var(--muted)">(finished + completed)</span></h3>
       <div class="chart-wrap"><canvas id="chart-bookings-source"></canvas></div>
     </div>
@@ -444,20 +478,40 @@
 
   </div><!-- /#panel-visits -->
 
-  <!-- ══════════════ TAB 3: RATINGS ══════════════ -->
   <div class="tab-panel" id="panel-ratings">
 
     <!-- Ratings filters -->
     <div class="filters">
       <div class="filter-group">
         <label>Visit Date From</label>
-        <input type="date" id="rf-date-from" />
+        <input type="date" id="rf-date-from" onchange="rstateObj.dateFrom=this.value" />
       </div>
       <div class="filter-group">
         <label>Visit Date To</label>
-        <input type="date" id="rf-date-to" />
+        <input type="date" id="rf-date-to" onchange="rstateObj.dateTo=this.value" />
       </div>
-      <button class="btn-primary" onclick="applyRatingsFilters()">Apply</button>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="rf-project" onchange="rstateObj.project=this.value">
+          <option value="">All Projects</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="rf-neighbourhood" onchange="rstateObj.neighbourhood=this.value">
+          <option value="">All Neighbourhoods</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="rf-sub-type" onchange="rstateObj.subType=this.value">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring Subscribers</option>
+          <option value="ondemand">On-Demand Subscribers</option>
+          <option value="non_sub">Non-Subscribers</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="ratingsLoaded=false;loadRatings()">Apply</button>
       <button class="btn-secondary" onclick="resetRatingsFilters()">Reset</button>
     </div>
 
@@ -483,14 +537,13 @@
       </div>
     </div>
 
-    <!-- Trend -->
+    <!-- Trend + distribution row -->
     <div class="charts-grid-2">
       <div class="chart-card" style="grid-column:1/-1">
         <h3>Average Rating Over Time</h3>
         <div class="chart-wrap"><canvas id="chart-rating-ts"></canvas></div>
       </div>
     </div>
-    <!-- Distribution -->
     <div class="charts-grid-2">
       <div class="chart-card">
         <h3>Visit Rating Distribution</h3>
@@ -529,20 +582,40 @@
 
   </div><!-- /#panel-ratings -->
 
-  <!-- ══════════════ TAB 4: NO SLOTS ══════════════ -->
   <div class="tab-panel" id="panel-noslots">
 
     <!-- No Slots filters -->
     <div class="filters">
       <div class="filter-group">
         <label>Event Date From</label>
-        <input type="date" id="nsf-date-from" />
+        <input type="date" id="nsf-date-from" onchange="nsstateObj.dateFrom=this.value" />
       </div>
       <div class="filter-group">
         <label>Event Date To</label>
-        <input type="date" id="nsf-date-to" />
+        <input type="date" id="nsf-date-to" onchange="nsstateObj.dateTo=this.value" />
       </div>
-      <button class="btn-primary" onclick="applyNsFilters()">Apply</button>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="nsf-project" onchange="nsstateObj.project=this.value">
+          <option value="">All Projects</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="nsf-neighbourhood" onchange="nsstateObj.neighbourhood=this.value">
+          <option value="">All Neighbourhoods</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="nsf-sub-type" onchange="nsstateObj.subType=this.value">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring Subscribers</option>
+          <option value="ondemand">On-Demand Subscribers</option>
+          <option value="non_sub">Non-Subscribers</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="nsslotsLoaded=false;loadNoSlots()">Apply</button>
       <button class="btn-secondary" onclick="resetNsFilters()">Reset</button>
     </div>
 
@@ -619,7 +692,7 @@
 
   </div><!-- /#panel-noslots -->
 
-  <!-- ══════════════ TAB 5: PERFORMANCE ══════════════ -->
+  <!-- ── Performance tab ──────────────────────────────────────────────────── -->
   <div class="tab-panel" id="panel-performance">
 
     <!-- Filters -->
@@ -716,221 +789,121 @@
 </div><!-- /.app -->
 
 <script>
-// ════════════════════════════════════════════════════════════════════════════
-// STATIC DASHBOARD — all data fetched from ./data/*.csv and ./data/*.json
-// ════════════════════════════════════════════════════════════════════════════
+// ── State ─────────────────────────────────────────────────────────────────────
+const state = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
-const fmt = n => (n == null || n === '') ? '—' : Number(n).toLocaleString();
+function qs(base, extra = {}) {
+  const p = { ...state, ...extra };
+  const params = new URLSearchParams();
+  if (p.dateFrom)     params.set('date_from', p.dateFrom);
+  if (p.dateTo)       params.set('date_to', p.dateTo);
+  if (p.project)      params.set('project', p.project);
+  if (p.neighbourhood)params.set('neighbourhood', p.neighbourhood);
+  if (p.subType)      params.set('sub_type', p.subType);
+  const s = params.toString();
+  return base + (s ? '?' + s : '');
+}
+
+async function get(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+const fmt = n => n == null ? '—' : Number(n).toLocaleString();
 const pct = (a, b) => b ? ((a / b) * 100).toFixed(1) + '%' : '—';
-const fmtStar = v => v != null ? Number(v).toFixed(2) + ' ★' : '—';
 
 function parseCsv(text) {
   const lines = text.trim().split('\n');
-  if (lines.length < 2) return [];
-  const headers = lines[0].split(',').map(h => h.trim());
+  const headers = lines[0].split(',');
   return lines.slice(1).map(line => {
     const vals = line.split(',');
     const obj = {};
     headers.forEach((h, i) => {
-      const v = (vals[i] || '').trim();
-      obj[h] = (v !== '' && !isNaN(v)) ? Number(v) : v;
+      const v = vals[i];
+      obj[h] = isNaN(v) || v === '' ? v : Number(v);
     });
     return obj;
-  }).filter(r => Object.values(r).some(v => v !== '' && v != null));
-}
-
-async function fetchJson(path) {
-  const r = await fetch(path);
-  if (!r.ok) throw new Error('fetch error: ' + path);
-  return r.json();
-}
-
-async function fetchCsv(path) {
-  const r = await fetch(path);
-  if (!r.ok) throw new Error('fetch error: ' + path);
-  return parseCsv(await r.text());
-}
-
-// Month-based date filter for timeseries CSVs
-function filterByMonth(rows, monthCol, mFrom, mTo) {
-  return rows.filter(r => {
-    const m = (r[monthCol] || '').toString().slice(0, 7);
-    if (mFrom && m < mFrom) return false;
-    if (mTo   && m > mTo)   return false;
-    return true;
   });
 }
 
-// ── Charts registry ───────────────────────────────────────────────────────────
+// ── Charts refs ───────────────────────────────────────────────────────────────
 let charts = {};
 function destroyChart(id) { if (charts[id]) { charts[id].destroy(); delete charts[id]; } }
 
-// ── Module-level cache (loaded once at startup) ────────────────────────────────
-let _cache = {};
-
-async function preloadAll() {
-  const [
-    funnelSummary, funnelResidents,
-    visitsSummary, visitsChoresSummary, visitsLastMinute, visitsCancellations, visitsBookingsBySource,
-    ratingsSummary, ratingsReviews, ratingsDistribution,
-    noslotsSummary, noslotsIncidents,
-    funnelTimeseries, funnelConvSource, funnelConvSourceFirst,
-    funnelMrrHist, funnelAdhocHist, funnelCumulativeSubs, funnelBreakdown,
-    visitsTimeseries, visitsChoresTimeseries, visitsDurationHist, visitsTaskDist,
-    ratingsTimeseries,
-    noslotsTimeseries,
-    phReviewBooking, phSignupFunnel,
-    phLoadTimeDaily, phLoginRateDaily,
-  ] = await Promise.all([
-    fetchJson('./data/funnel_summary.json'),
-    fetchJson('./data/funnel_residents.json'),
-    fetchJson('./data/visits_summary.json'),
-    fetchJson('./data/visits_chores_summary.json'),
-    fetchJson('./data/visits_last_minute.json'),
-    fetchJson('./data/visits_cancellations.json'),
-    fetchJson('./data/visits_bookings_by_source.json'),
-    fetchJson('./data/ratings_summary.json'),
-    fetchJson('./data/ratings_reviews.json'),
-    fetchJson('./data/ratings_distribution.json'),
-    fetchJson('./data/noslots_summary.json'),
-    fetchJson('./data/noslots_incidents.json'),
-    fetchCsv('./data/funnel_timeseries.csv'),
-    fetchCsv('./data/funnel_conversion_source.csv'),
-    fetchCsv('./data/funnel_conversion_source_first.csv'),
-    fetchCsv('./data/funnel_mrr_histogram.csv'),
-    fetchCsv('./data/funnel_adhoc_histogram.csv'),
-    fetchCsv('./data/funnel_cumulative_subscribers.csv'),
-    fetchCsv('./data/funnel_breakdown.csv'),
-    fetchCsv('./data/visits_timeseries.csv'),
-    fetchCsv('./data/visits_chores_timeseries.csv'),
-    fetchCsv('./data/visits_duration_histogram.csv'),
-    fetchCsv('./data/visits_task_distribution.csv'),
-    fetchCsv('./data/ratings_timeseries.csv'),
-    fetchCsv('./data/noslots_timeseries.csv'),
-    fetchCsv('./data/ph_review_booking.csv'),
-    fetchCsv('./data/ph_signup_funnel.csv'),
-    fetchCsv('./data/ph_load_time_daily.csv'),
-    fetchCsv('./data/ph_login_rate_daily.csv'),
+// ── Filters ───────────────────────────────────────────────────────────────────
+async function loadFilterOptions() {
+  const [projects, hoods] = await Promise.all([
+    get('/api/filters/projects'),
+    get('/api/filters/neighbourhoods'),
   ]);
-
-  // Show refresh timestamp in header
-  fetchJson('./data/last_updated.json').then(lu => {
-    if (lu && lu.updated_at) {
-      const d = new Date(lu.updated_at);
-      document.getElementById('refresh-ts').textContent =
-        'Updated ' + d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
-    }
-  }).catch(() => {});
-
-  Object.assign(_cache, {
-    funnelSummary, funnelResidents,
-    visitsSummary, visitsChoresSummary, visitsLastMinute, visitsCancellations, visitsBookingsBySource,
-    ratingsSummary, ratingsReviews, ratingsDistribution,
-    noslotsSummary, noslotsIncidents,
-    funnelTimeseries, funnelConvSource, funnelConvSourceFirst,
-    funnelMrrHist, funnelAdhocHist, funnelCumulativeSubs, funnelBreakdown,
-    visitsTimeseries, visitsChoresTimeseries, visitsDurationHist, visitsTaskDist,
-    ratingsTimeseries,
-    noslotsTimeseries,
-    phReviewBooking, phSignupFunnel,
-    phLoadTimeDaily, phLoginRateDaily,
-  });
+  const pSel = document.getElementById('f-project');
+  projects.forEach(p => pSel.add(new Option(p, p)));
+  const nSel = document.getElementById('f-neighbourhood');
+  hoods.forEach(h => nSel.add(new Option(h, h)));
 }
 
-// ── Tab switching ─────────────────────────────────────────────────────────────
-let activeTab = 'funnel';
-let visitsLoaded = false, ratingsLoaded = false, nsslotsLoaded = false, perfLoaded = false;
-
-function switchTab(tab) {
-  activeTab = tab;
-  document.querySelectorAll('.tab-btn').forEach((b, i) => {
-    const tabs = ['funnel', 'visits', 'ratings', 'noslots', 'performance'];
-    b.classList.toggle('active', tabs[i] === tab);
-  });
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('panel-' + tab).classList.add('active');
-  if (tab === 'visits'      && !visitsLoaded)  { visitsLoaded = true;  renderVisits(); }
-  if (tab === 'ratings'     && !ratingsLoaded) { ratingsLoaded = true; renderRatings(); }
-  if (tab === 'noslots'     && !nsslotsLoaded) { nsslotsLoaded = true; renderNoSlots(); }
-  if (tab === 'performance' && !perfLoaded)    { perfLoaded = true;    renderPerformance(); }
+function applyFilters() {
+  state.dateFrom     = document.getElementById('f-date-from').value;
+  state.dateTo       = document.getElementById('f-date-to').value;
+  state.project      = document.getElementById('f-project').value;
+  state.neighbourhood= document.getElementById('f-neighbourhood').value;
+  state.subType      = document.getElementById('f-sub-type').value;
+  loadAll();
 }
 
-// ════════════════════════════════════════════════════════════════════════════
-// TAB 1: FUNNEL
-// ════════════════════════════════════════════════════════════════════════════
-const fState = { dateFrom: '', dateTo: '' };
-
-function applyFunnelFilters() {
-  fState.dateFrom = document.getElementById('f-date-from').value;
-  fState.dateTo   = document.getElementById('f-date-to').value;
-  renderFunnelTab();
+function resetFilters() {
+  ['f-date-from','f-date-to'].forEach(id => document.getElementById(id).value = '');
+  ['f-project','f-neighbourhood','f-sub-type'].forEach(id => document.getElementById(id).value = '');
+  Object.assign(state, { dateFrom:'', dateTo:'', project:'', neighbourhood:'', subType:'' });
+  loadAll();
 }
 
-function resetFunnelFilters() {
-  document.getElementById('f-date-from').value = '';
-  document.getElementById('f-date-to').value   = '';
-  fState.dateFrom = '';
-  fState.dateTo   = '';
-  renderFunnelTab();
+// ── KPI Cards ─────────────────────────────────────────────────────────────────
+async function loadResidents() {
+  try {
+    const data = await get('/api/funnel/residents');
+    document.getElementById('kpi-residents').textContent = fmt(data.estimated_residents);
+  } catch { document.getElementById('kpi-residents').textContent = '—'; }
 }
 
-function renderFunnelTab() {
-  const summary   = _cache.funnelSummary;
-  const residents = _cache.funnelResidents;
-  const reviewRows = _cache.phReviewBooking || [];
-
-  // KPI cards — always global snapshot
-  document.getElementById('kpi-residents').textContent   = fmt(residents.estimated_residents);
-  document.getElementById('kpi-leads').textContent       = fmt(summary.leads);
-  document.getElementById('kpi-registered').textContent  = fmt(summary.registered_leads);
-  document.getElementById('kpi-registered-pct').textContent = pct(summary.registered_leads, summary.leads) + ' of leads';
-  document.getElementById('kpi-subscribers').textContent = fmt(summary.subscribers);
-  document.getElementById('kpi-subscribers-pct').textContent = pct(summary.subscribers, summary.leads) + ' of leads';
-  document.getElementById('kpi-recurring').textContent   = fmt(summary.recurring);
-  document.getElementById('kpi-ondemand').textContent    = fmt(summary.on_demand);
-  document.getElementById('kpi-non-sub').textContent     = fmt(summary.non_subscribers);
-  document.getElementById('kpi-churn').textContent       = fmt(summary.churn);
-  document.getElementById('kpi-waitlist').textContent    = fmt(summary.waitlist);
-  const mrr = summary.mrr;
+async function loadSummary() {
+  const data = await get(qs('/api/funnel/summary'));
+  document.getElementById('kpi-leads').textContent        = fmt(data.leads);
+  document.getElementById('kpi-registered').textContent   = fmt(data.registered_leads);
+  document.getElementById('kpi-registered-pct').textContent = pct(data.registered_leads, data.leads) + ' of leads';
+  document.getElementById('kpi-subscribers').textContent  = fmt(data.subscribers);
+  document.getElementById('kpi-subscribers-pct').textContent = pct(data.subscribers, data.leads) + ' of leads';
+  document.getElementById('kpi-recurring').textContent    = fmt(data.recurring);
+  document.getElementById('kpi-ondemand').textContent     = fmt(data.on_demand);
+  document.getElementById('kpi-non-sub').textContent      = fmt(data.non_subscribers);
+  document.getElementById('kpi-churn').textContent        = fmt(data.churn);
+  document.getElementById('kpi-waitlist').textContent     = fmt(data.waitlist);
+  const mrr = data.mrr;
   document.getElementById('kpi-mrr').textContent =
     mrr != null ? '$' + Number(mrr).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}) : '—';
-
-  // Review total (all time — not filtered)
-  const reviewTotal = reviewRows.reduce((s, r) => s + (r.unique_users || 0), 0);
-  document.getElementById('kpi-review').textContent = fmt(reviewTotal);
-
-  // Funnel viz
-  renderFunnelViz(summary, reviewTotal);
-
-  // Subscriber split donut (global)
-  renderSubSplit(summary);
-
-  // Static charts (not date-filtered)
-  renderMrrHistogram();
-  renderAdhocHistogram();
-  renderCumulativeSubscribers();
-  renderConversionSource();
-  renderConversionSourceFirst();
-  renderBreakdownTable();
-
-  // Date-filtered timeseries charts
-  const mFrom = fState.dateFrom ? fState.dateFrom.slice(0, 7) : '';
-  const mTo   = fState.dateTo   ? fState.dateTo.slice(0, 7)   : '';
-  const filteredTS     = filterByMonth(_cache.funnelTimeseries, 'cohort_month', mFrom, mTo);
-  const filteredReview = filterByMonth(reviewRows, 'month', mFrom, mTo);
-  renderFunnelTimeseries(filteredTS);
-  renderReviewViews(filteredReview);
+  return data;
 }
 
-function renderFunnelViz(summary, reviewTotal) {
+async function loadReviewTotal() {
+  try {
+    const text = await fetch('/static/data/ph_review_booking.csv').then(r => r.text());
+    const rows = parseCsv(text);
+    const total = rows.reduce((s, r) => s + (r.unique_users || 0), 0);
+    document.getElementById('kpi-review').textContent = fmt(total);
+    return rows;
+  } catch { document.getElementById('kpi-review').textContent = 'N/A'; return []; }
+}
+
+// ── Funnel visualisation ──────────────────────────────────────────────────────
+function renderFunnel(summary, reviewTotal) {
   const steps = [
-    { label: 'Leads',                count: summary.leads,            color: '#4f46e5' },
-    { label: 'Registered Leads',     count: summary.registered_leads, color: '#7c3aed' },
-    { label: 'Review Before Booking',count: reviewTotal,              color: '#d97706', note: 'PostHog' },
-    { label: 'Subscribers',          count: summary.subscribers,      color: '#059669' },
-    { label: '↳ Recurring',          count: summary.recurring,        color: '#10b981', indent: true },
-    { label: '↳ On-Demand',          count: summary.on_demand,        color: '#34d399', indent: true },
+    { label: 'Leads',               count: summary.leads,           color: '#4f46e5' },
+    { label: 'Registered Leads',    count: summary.registered_leads,color: '#7c3aed' },
+    { label: 'Review Before Booking',count: reviewTotal,            color: '#d97706', note: 'PostHog' },
+    { label: 'Subscribers',         count: summary.subscribers,     color: '#059669' },
+    { label: '↳ Recurring',         count: summary.recurring,       color: '#10b981', indent: true },
+    { label: '↳ On-Demand',         count: summary.on_demand,       color: '#34d399', indent: true },
   ];
   const maxCount = steps[0].count || 1;
   const container = document.getElementById('funnel-steps');
@@ -969,13 +942,16 @@ function renderFunnelViz(summary, reviewTotal) {
   });
 }
 
-function renderFunnelTimeseries(rows) {
+// ── Time-series chart ─────────────────────────────────────────────────────────
+async function loadTimeseries() {
+  const rows = await get(qs('/api/funnel/timeseries'));
   destroyChart('timeseries');
   if (!rows.length) return;
+  const labels = rows.map(r => r.cohort_month);
   charts['timeseries'] = new Chart(document.getElementById('chart-timeseries'), {
     type: 'line',
     data: {
-      labels: rows.map(r => r.cohort_month),
+      labels,
       datasets: [
         { label: 'Leads',            data: rows.map(r => r.leads),            borderColor: '#4f46e5', backgroundColor: 'rgba(79,70,229,.08)', tension: .3, fill: true },
         { label: 'Registered Leads', data: rows.map(r => r.registered_leads), borderColor: '#7c3aed', backgroundColor: 'transparent', tension: .3 },
@@ -993,6 +969,7 @@ function renderFunnelTimeseries(rows) {
   });
 }
 
+// ── Subscriber split donut ────────────────────────────────────────────────────
 function renderSubSplit(summary) {
   destroyChart('sub-split');
   charts['sub-split'] = new Chart(document.getElementById('chart-sub-split'), {
@@ -1002,18 +979,238 @@ function renderSubSplit(summary) {
       datasets: [{
         data: [summary.recurring, summary.on_demand, summary.non_subscribers],
         backgroundColor: ['#059669','#7c3aed','#e5e7eb'],
-        borderWidth: 2, borderColor: '#fff',
+        borderWidth: 2,
+        borderColor: '#fff',
       }]
     },
     options: {
-      responsive: true, maintainAspectRatio: false, cutout: '65%',
+      responsive: true, maintainAspectRatio: false,
+      cutout: '65%',
       plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } }
     }
   });
 }
 
-function renderMrrHistogram() {
-  const rows = _cache.funnelMrrHist || [];
+// ── Conversion source bar ─────────────────────────────────────────────────────
+async function loadConversionSource() {
+  const rows = await get(qs('/api/funnel/conversion-source'));
+  destroyChart('conv-source');
+  if (!rows.length) return;
+
+  const sources = [...new Set(rows.map(r => r.converted_by))];
+  const types   = [...new Set(rows.map(r => r.subscription_type))];
+  const typeColors = { RECURRING_SUBSCRIPTION: '#059669', ON_DEMAND_SUBSCRIPTION: '#7c3aed' };
+  const typeLabels = { RECURRING_SUBSCRIPTION: 'Recurring', ON_DEMAND_SUBSCRIPTION: 'On-Demand' };
+
+  charts['conv-source'] = new Chart(document.getElementById('chart-conv-source'), {
+    type: 'bar',
+    data: {
+      labels: sources,
+      datasets: types.map(t => ({
+        label: typeLabels[t] || t,
+        data: sources.map(s => {
+          const r = rows.find(x => x.converted_by === s && x.subscription_type === t);
+          return r ? r.count : 0;
+        }),
+        backgroundColor: typeColors[t] || '#94a3b8',
+        borderRadius: 4,
+      }))
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 12 } } },
+        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Review views line ─────────────────────────────────────────────────────────
+async function loadReviewViews(rows) {
+  destroyChart('review-views');
+  if (!rows || !rows.length) return;
+  charts['review-views'] = new Chart(document.getElementById('chart-review-views'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.month),
+      datasets: [{
+        label: 'Unique users',
+        data: rows.map(r => r.unique_users),
+        backgroundColor: 'rgba(217,119,6,.7)',
+        borderColor: '#d97706',
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Conversion source (first event) bar ───────────────────────────────────────
+async function loadConversionSourceFirst() {
+  const rows = await get(qs('/api/funnel/conversion-source-first'));
+  destroyChart('conv-source-first');
+  if (!rows.length) return;
+
+  const sources = [...new Set(rows.map(r => r.converted_by))];
+  const types   = [...new Set(rows.map(r => r.subscription_type))];
+  const typeColors = { RECURRING_SUBSCRIPTION: '#059669', ON_DEMAND_SUBSCRIPTION: '#7c3aed' };
+  const typeLabels = { RECURRING_SUBSCRIPTION: 'Recurring', ON_DEMAND_SUBSCRIPTION: 'On-Demand' };
+
+  charts['conv-source-first'] = new Chart(document.getElementById('chart-conv-source-first'), {
+    type: 'bar',
+    data: {
+      labels: sources,
+      datasets: types.map(t => ({
+        label: typeLabels[t] || t,
+        data: sources.map(s => {
+          const r = rows.find(x => x.converted_by === s && x.subscription_type === t);
+          return r ? r.count : 0;
+        }),
+        backgroundColor: typeColors[t] || '#94a3b8',
+        borderRadius: 4,
+      }))
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 12 } } },
+        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Signup funnel (live PostHog, day-windowed) ────────────────────────────────
+const SIGNUP_STEP_COLORS = [
+  '#4f46e5','#6d28d9','#7c3aed','#9333ea','#059669','#0891b2','#d97706','#dc2626'
+];
+
+// CSV-based fallback for signup funnel (sum months covered by day window)
+let _signupCsvRows = null;
+async function _getSignupCsvRows() {
+  if (_signupCsvRows) return _signupCsvRows;
+  const text = await fetch('/static/data/ph_signup_funnel.csv').then(r => r.text());
+  _signupCsvRows = parseCsv(text);
+  return _signupCsvRows;
+}
+
+function _buildSignupStepsFromCsv(rows, days) {
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - days);
+  const cutoffStr = cutoff.toISOString().slice(0, 7); // 'YYYY-MM'
+  const filtered = rows.filter(r => r.month >= cutoffStr);
+  if (!filtered.length) return null;
+  const sum = k => filtered.reduce((s, r) => s + (r[k] || 0), 0);
+  const steps = [
+    { step: 'View Bedrooms',    count: sum('view_bedrooms') },
+    { step: 'View Contact',     count: sum('view_contact') },
+    { step: 'Become Lead',      count: sum('become_lead') },
+    { step: 'Choose Service',   count: sum('choose_service') },
+    { step: 'Review Booking',   count: sum('review_booking') },
+    { step: 'Register Success', count: sum('register_success') },
+  ];
+  const top = steps[0].count || 1;
+  steps.forEach(s => s.pct_of_top = +(s.count / top * 100).toFixed(1));
+  return steps;
+}
+
+async function loadSignupFunnel(days = 30) {
+  // Update button styles
+  document.querySelectorAll('.sfbtn').forEach(b => {
+    const active = parseInt(b.dataset.days) === days;
+    b.style.background = active ? 'var(--blue)' : 'var(--bg)';
+    b.style.color      = active ? '#fff'        : 'var(--muted)';
+    b.style.borderColor = active ? 'var(--blue)' : 'var(--border)';
+  });
+
+  const wrap = document.getElementById('signup-funnel-wrap');
+  wrap.innerHTML = '<div class="loading">Loading…</div>';
+
+  let steps = null;
+
+  try {
+    const data = await get(`/api/posthog/signup-funnel?days=${days}`);
+    if (!data.error && data.steps && data.steps.length) {
+      steps = data.steps;
+    }
+  } catch { /* live query unavailable */ }
+
+  // Fallback: build from monthly CSV
+  if (!steps) {
+    try {
+      const rows = await _getSignupCsvRows();
+      steps = _buildSignupStepsFromCsv(rows, days);
+    } catch { steps = null; }
+  }
+
+  if (!steps) {
+    wrap.innerHTML = '<div class="loading">No data available</div>';
+    return;
+  }
+
+  const maxCount = steps[0].count || 1;
+  steps.forEach(s => { if (s.pct_of_top == null) s.pct_of_top = +(s.count / maxCount * 100).toFixed(1); });
+
+  wrap.innerHTML = steps.map((step, i) => {
+    const widthPct = Math.max(8, Math.round((step.count / maxCount) * 100));
+    const convPrev = i > 0 && steps[i-1].count
+      ? ((step.count / steps[i-1].count) * 100).toFixed(1) + '% of prev'
+      : null;
+    const color = SIGNUP_STEP_COLORS[i % SIGNUP_STEP_COLORS.length];
+
+    const arrowRow = i > 0 ? `
+      <div style="display:flex;align-items:center;padding:2px 0 2px 200px;gap:6px;color:var(--muted);font-size:11px;font-weight:600">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M3 10l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        ${convPrev || ''}
+      </div>` : '';
+
+    return `${arrowRow}
+    <div style="display:flex;align-items:center;gap:12px;padding:2px 0">
+      <div style="width:192px;font-size:13px;font-weight:600;color:var(--text);text-align:right;flex-shrink:0">${step.step}</div>
+      <div style="flex:1;position:relative;height:44px;display:flex;align-items:center">
+        <div style="width:${widthPct}%;min-width:60px;height:44px;background:${color};border-radius:6px;display:flex;align-items:center;padding:0 14px;font-weight:700;font-size:15px;color:#fff;transition:width .4s ease">
+          ${step.count > 0 ? step.count.toLocaleString() : ''}
+        </div>
+      </div>
+      <div style="width:64px;text-align:right;font-size:12px;color:var(--muted);flex-shrink:0">${step.pct_of_top}%</div>
+    </div>`;
+  }).join('');
+}
+
+// ── Breakdown table ───────────────────────────────────────────────────────────
+async function loadBreakdown() {
+  const rows = await get(qs('/api/funnel/breakdown'));
+  const tbody = document.getElementById('breakdown-tbody');
+  if (!rows.length) { tbody.innerHTML = '<tr><td colspan="6" style="color:var(--muted);padding:16px">No data</td></tr>'; return; }
+
+  tbody.innerHTML = rows.map(r => {
+    const p = parseFloat(r.conversion_pct);
+    const cls = p >= 20 ? 'pct-high' : p >= 10 ? 'pct-mid' : 'pct-low';
+    return `<tr>
+      <td style="font-weight:600">${r.project}</td>
+      <td>${r.neighbourhood}</td>
+      <td>${fmt(r.leads)}</td>
+      <td>${fmt(r.registered_leads)}</td>
+      <td>${fmt(r.subscribers)}</td>
+      <td><span class="pct-badge ${cls}">${r.conversion_pct ?? '—'}%</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── MRR histogram ─────────────────────────────────────────────────────────────
+async function loadMrrHistogram() {
+  const rows = await get('/api/funnel/mrr-histogram');
   destroyChart('mrr-hist');
   if (!rows.length) return;
   charts['mrr-hist'] = new Chart(document.getElementById('chart-mrr-hist'), {
@@ -1034,8 +1231,9 @@ function renderMrrHistogram() {
   });
 }
 
-function renderAdhocHistogram() {
-  const rows = _cache.funnelAdhocHist || [];
+// ── AdHoc spend histogram ─────────────────────────────────────────────────────
+async function loadAdhocHistogram() {
+  const rows = await get('/api/funnel/adhoc-spend-histogram');
   destroyChart('adhoc-hist');
   if (!rows.length) return;
   charts['adhoc-hist'] = new Chart(document.getElementById('chart-adhoc-hist'), {
@@ -1056,8 +1254,9 @@ function renderAdhocHistogram() {
   });
 }
 
-function renderCumulativeSubscribers() {
-  const rows = _cache.funnelCumulativeSubs || [];
+// ── Active subscribers per month ──────────────────────────────────────────────
+async function loadCumulativeSubscribers() {
+  const rows = await get('/api/funnel/cumulative-subscribers');
   destroyChart('cumulative-subs');
   if (!rows.length) return;
   charts['cumulative-subs'] = new Chart(document.getElementById('chart-cumulative-subs'), {
@@ -1086,235 +1285,148 @@ function renderCumulativeSubscribers() {
   });
 }
 
-function renderConversionSource() {
-  const rows = _cache.funnelConvSource || [];
-  destroyChart('conv-source');
-  if (!rows.length) return;
-  const sources    = [...new Set(rows.map(r => r.converted_by))];
-  const types      = [...new Set(rows.map(r => r.subscription_type))];
-  const typeColors = { RECURRING_SUBSCRIPTION: '#059669', ON_DEMAND_SUBSCRIPTION: '#7c3aed' };
-  const typeLabels = { RECURRING_SUBSCRIPTION: 'Recurring', ON_DEMAND_SUBSCRIPTION: 'On-Demand' };
-  charts['conv-source'] = new Chart(document.getElementById('chart-conv-source'), {
-    type: 'bar',
-    data: {
-      labels: sources,
-      datasets: types.map(t => ({
-        label: typeLabels[t] || t,
-        data: sources.map(s => { const r = rows.find(x => x.converted_by === s && x.subscription_type === t); return r ? r.count : 0; }),
-        backgroundColor: typeColors[t] || '#94a3b8', borderRadius: 4,
-      }))
-    },
-    options: { responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
-      scales: {
-        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 12 } } },
-        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
-      }
-    }
+// ── Load all ──────────────────────────────────────────────────────────────────
+async function loadAll() {
+  try {
+    const [summary, reviewRows] = await Promise.all([
+      loadSummary(),
+      loadReviewTotal(),
+    ]);
+    const reviewTotal = Array.isArray(reviewRows)
+      ? reviewRows.reduce((s, r) => s + (r.unique_users || 0), 0)
+      : (reviewRows || 0);
+    renderFunnel(summary, reviewTotal);
+    renderSubSplit(summary);
+
+    await Promise.all([
+      loadTimeseries(),
+      loadConversionSource(),
+      loadConversionSourceFirst(),
+      loadReviewViews(Array.isArray(reviewRows) ? reviewRows : []),
+      loadBreakdown(),
+      loadMrrHistogram(),
+      loadAdhocHistogram(),
+      loadCumulativeSubscribers(),
+      loadResidents(),
+      loadSignupFunnel(),
+    ]);
+
+    document.getElementById('last-updated').textContent =
+      'Updated ' + new Date().toLocaleTimeString();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// ── Tab switching ─────────────────────────────────────────────────────────────
+let activeTab = 'funnel';
+
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    const tabs = ['funnel', 'visits', 'ratings', 'noslots', 'performance'];
+    b.classList.toggle('active', tabs[i] === tab);
   });
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(`panel-${tab}`).classList.add('active');
+  if (tab === 'visits'      && !visitsLoaded)      loadVisits();
+  if (tab === 'ratings'     && !ratingsLoaded)     loadRatings();
+  if (tab === 'noslots'     && !nsslotsLoaded)     loadNoSlots();
+  if (tab === 'performance' && !perfLoaded)        loadPerformance();
 }
 
-function renderConversionSourceFirst() {
-  const rows = _cache.funnelConvSourceFirst || [];
-  destroyChart('conv-source-first');
-  if (!rows.length) return;
-  const sources    = [...new Set(rows.map(r => r.converted_by))];
-  const types      = [...new Set(rows.map(r => r.subscription_type))];
-  const typeColors = { RECURRING_SUBSCRIPTION: '#059669', ON_DEMAND_SUBSCRIPTION: '#7c3aed' };
-  const typeLabels = { RECURRING_SUBSCRIPTION: 'Recurring', ON_DEMAND_SUBSCRIPTION: 'On-Demand' };
-  charts['conv-source-first'] = new Chart(document.getElementById('chart-conv-source-first'), {
-    type: 'bar',
-    data: {
-      labels: sources,
-      datasets: types.map(t => ({
-        label: typeLabels[t] || t,
-        data: sources.map(s => { const r = rows.find(x => x.converted_by === s && x.subscription_type === t); return r ? r.count : 0; }),
-        backgroundColor: typeColors[t] || '#94a3b8', borderRadius: 4,
-      }))
-    },
-    options: { responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
-      scales: {
-        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 12 } } },
-        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
-      }
-    }
-  });
+let visitsLoaded = false;
+
+// ── Visit state & filters ─────────────────────────────────────────────────────
+const vstateObj = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
+
+function vqs(base) {
+  const params = new URLSearchParams();
+  if (vstateObj.dateFrom)      params.set('date_from', vstateObj.dateFrom);
+  if (vstateObj.dateTo)        params.set('date_to', vstateObj.dateTo);
+  if (vstateObj.project)       params.set('project', vstateObj.project);
+  if (vstateObj.neighbourhood) params.set('neighbourhood', vstateObj.neighbourhood);
+  if (vstateObj.subType)       params.set('sub_type', vstateObj.subType);
+  const s = params.toString();
+  return base + (s ? '?' + s : '');
 }
 
-function renderReviewViews(rows) {
-  destroyChart('review-views');
-  if (!rows || !rows.length) return;
-  charts['review-views'] = new Chart(document.getElementById('chart-review-views'), {
-    type: 'bar',
-    data: {
-      labels: rows.map(r => r.month),
-      datasets: [{
-        label: 'Unique users',
-        data: rows.map(r => r.unique_users),
-        backgroundColor: 'rgba(217,119,6,.7)', borderColor: '#d97706', borderWidth: 1, borderRadius: 4,
-      }]
-    },
-    options: { responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
-        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
-      }
-    }
-  });
+async function populateVisitFilters() {
+  const [projects, hoods] = await Promise.all([
+    get('/api/filters/projects'),
+    get('/api/filters/neighbourhoods'),
+  ]);
+  const pSel = document.getElementById('vf-project');
+  const nSel = document.getElementById('vf-neighbourhood');
+  if (pSel.options.length === 1) {
+    projects.forEach(p => pSel.add(new Option(p, p)));
+    hoods.forEach(h => nSel.add(new Option(h, h)));
+  }
 }
-
-function renderBreakdownTable() {
-  const rows = _cache.funnelBreakdown || [];
-  const tbody = document.getElementById('breakdown-tbody');
-  if (!rows.length) { tbody.innerHTML = '<tr><td colspan="6" style="color:var(--muted);padding:16px">No data</td></tr>'; return; }
-  tbody.innerHTML = rows.map(r => {
-    const p = parseFloat(r.conversion_pct);
-    const cls = p >= 20 ? 'pct-high' : p >= 10 ? 'pct-mid' : 'pct-low';
-    return `<tr>
-      <td style="font-weight:600">${r.project}</td>
-      <td>${r.neighbourhood}</td>
-      <td>${fmt(r.leads)}</td>
-      <td>${fmt(r.registered_leads)}</td>
-      <td>${fmt(r.subscribers)}</td>
-      <td><span class="pct-badge ${cls}">${r.conversion_pct ?? '—'}%</span></td>
-    </tr>`;
-  }).join('');
-}
-
-// ── Signup Funnel ─────────────────────────────────────────────────────────────
-const SIGNUP_STEP_COLORS = ['#4f46e5','#6d28d9','#7c3aed','#9333ea','#059669','#0891b2','#d97706','#dc2626'];
-
-function buildSignupStepsFromCsv(rows, days) {
-  const cutoff = new Date();
-  cutoff.setDate(cutoff.getDate() - days);
-  const cutoffStr = cutoff.toISOString().slice(0, 7);
-  const filtered = rows.filter(r => (r.month || '').slice(0, 7) >= cutoffStr);
-  if (!filtered.length) return null;
-  const sum = k => filtered.reduce((s, r) => s + (r[k] || 0), 0);
-  const steps = [
-    { step: 'View Bedrooms',    count: sum('view_bedrooms') },
-    { step: 'View Contact',     count: sum('view_contact') },
-    { step: 'Become Lead',      count: sum('become_lead') },
-    { step: 'Choose Service',   count: sum('choose_service') },
-    { step: 'Review Booking',   count: sum('review_booking') },
-    { step: 'Register Success', count: sum('register_success') },
-  ];
-  const top = steps[0].count || 1;
-  steps.forEach(s => s.pct_of_top = +(s.count / top * 100).toFixed(1));
-  return steps;
-}
-
-function loadSignupFunnel(days = 30) {
-  document.querySelectorAll('.sfbtn').forEach(b => {
-    const active = parseInt(b.dataset.days) === days;
-    b.style.background  = active ? 'var(--blue)' : 'var(--bg)';
-    b.style.color       = active ? '#fff'         : 'var(--muted)';
-    b.style.borderColor = active ? 'var(--blue)'  : 'var(--border)';
-  });
-  const wrap = document.getElementById('signup-funnel-wrap');
-  const steps = buildSignupStepsFromCsv(_cache.phSignupFunnel || [], days);
-  if (!steps) { wrap.innerHTML = '<div class="loading">No data available</div>'; return; }
-
-  const maxCount = steps[0].count || 1;
-  wrap.innerHTML = steps.map((step, i) => {
-    const widthPct = Math.max(8, Math.round((step.count / maxCount) * 100));
-    const convPrev = i > 0 && steps[i-1].count
-      ? ((step.count / steps[i-1].count) * 100).toFixed(1) + '% of prev'
-      : null;
-    const color = SIGNUP_STEP_COLORS[i % SIGNUP_STEP_COLORS.length];
-    const arrowRow = i > 0 ? `
-      <div style="display:flex;align-items:center;padding:2px 0 2px 200px;gap:6px;color:var(--muted);font-size:11px;font-weight:600">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M3 10l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        ${convPrev || ''}
-      </div>` : '';
-    return `${arrowRow}
-    <div style="display:flex;align-items:center;gap:12px;padding:2px 0">
-      <div style="width:192px;font-size:13px;font-weight:600;color:var(--text);text-align:right;flex-shrink:0">${step.step}</div>
-      <div style="flex:1;position:relative;height:44px;display:flex;align-items:center">
-        <div style="width:${widthPct}%;min-width:60px;height:44px;background:${color};border-radius:6px;display:flex;align-items:center;padding:0 14px;font-weight:700;font-size:15px;color:#fff;transition:width .4s ease">
-          ${step.count > 0 ? step.count.toLocaleString() : ''}
-        </div>
-      </div>
-      <div style="width:64px;text-align:right;font-size:12px;color:var(--muted);flex-shrink:0">${step.pct_of_top}%</div>
-    </div>`;
-  }).join('');
-}
-
-// ════════════════════════════════════════════════════════════════════════════
-// TAB 2: VISITS
-// ════════════════════════════════════════════════════════════════════════════
-const vState = { dateFrom: '', dateTo: '' };
 
 function applyVisitFilters() {
-  vState.dateFrom = document.getElementById('vf-date-from').value;
-  vState.dateTo   = document.getElementById('vf-date-to').value;
-  visitsLoaded = true;
-  renderVisits();
+  vstateObj.dateFrom      = document.getElementById('vf-date-from').value;
+  vstateObj.dateTo        = document.getElementById('vf-date-to').value;
+  vstateObj.project       = document.getElementById('vf-project').value;
+  vstateObj.neighbourhood = document.getElementById('vf-neighbourhood').value;
+  vstateObj.subType       = document.getElementById('vf-sub-type').value;
+  visitsLoaded = false;
+  loadVisits();
 }
 
 function resetVisitFilters() {
-  document.getElementById('vf-date-from').value = '';
-  document.getElementById('vf-date-to').value   = '';
-  vState.dateFrom = '';
-  vState.dateTo   = '';
-  visitsLoaded = true;
-  renderVisits();
+  ['vf-date-from','vf-date-to'].forEach(id => document.getElementById(id).value = '');
+  ['vf-project','vf-neighbourhood','vf-sub-type'].forEach(id => document.getElementById(id).value = '');
+  Object.assign(vstateObj, { dateFrom:'', dateTo:'', project:'', neighbourhood:'', subType:'' });
+  visitsLoaded = false;
+  loadVisits();
 }
 
-const CANCEL_COLORS = {
-  'Out Of Policy': '#dc2626', 'OOP Charged': '#dc2626', 'OOP Free': '#f87171',
-  'In Policy': '#d97706', 'From Plan': '#4f46e5', 'From Free': '#059669', 'Other': '#94a3b8'
-};
-
-function renderVisits() {
-  const mFrom = vState.dateFrom ? vState.dateFrom.slice(0, 7) : '';
-  const mTo   = vState.dateTo   ? vState.dateTo.slice(0, 7)   : '';
-
-  // KPI cards — global snapshots
-  const vs = _cache.visitsSummary;
-  document.getElementById('vkpi-done').textContent     = fmt(vs.finished_completed);
-  document.getElementById('vkpi-done-sub').textContent = `${fmt(vs.finished)} fin · ${fmt(vs.completed)} comp`;
-  document.getElementById('vkpi-pending').textContent  = fmt(vs.pending);
-  document.getElementById('vkpi-cancelled').textContent= fmt(vs.cancelled);
-  const rev = vs.net_revenue;
+// ── Visit KPIs ────────────────────────────────────────────────────────────────
+async function loadVisitSummary() {
+  const d = await get(vqs('/api/visits/summary'));
+  document.getElementById('vkpi-done').textContent      = fmt(d.finished_completed);
+  document.getElementById('vkpi-done-sub').textContent  = `${fmt(d.finished)} fin · ${fmt(d.completed)} comp`;
+  document.getElementById('vkpi-pending').textContent   = fmt(d.pending);
+  document.getElementById('vkpi-cancelled').textContent = fmt(d.cancelled);
+  const rev = d.net_revenue;
   document.getElementById('vkpi-chore-rev').textContent =
     rev != null ? '$' + Number(rev).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}) : '—';
-
-  const cs = _cache.visitsChoresSummary;
-  document.getElementById('vkpi-chores').textContent = fmt(cs.chore_count);
-
-  const lmd = _cache.visitsLastMinute;
-  const lmdTotal = (lmd.by_type || []).reduce((s, r) => s + (r.visit_count || 0), 0);
-  document.getElementById('vkpi-lmd').textContent = fmt(lmdTotal);
-
-  const bbs = _cache.visitsBookingsBySource;
-  const appRow   = (bbs.summary || []).find(r => r.booked_by === 'App');
-  const adminRow = (bbs.summary || []).find(r => r.booked_by === 'Admin');
-  document.getElementById('vkpi-app-booked').textContent   = fmt(appRow   ? appRow.count   : 0);
-  document.getElementById('vkpi-admin-booked').textContent = fmt(adminRow ? adminRow.count : 0);
-
-  // Static charts (no date filter)
-  renderDurationHistogram();
-  renderLmdType(lmd.by_type || []);
-  renderTaskDistribution();
-
-  // Date-filtered timeseries
-  const visitTS    = filterByMonth(_cache.visitsTimeseries,      'visit_month', mFrom, mTo);
-  const choresTS   = filterByMonth(_cache.visitsChoresTimeseries,'visit_month', mFrom, mTo);
-  const cancelTS   = filterByMonth(_cache.visitsCancellations.timeseries   || [], 'visit_month', mFrom, mTo);
-  const cancelSTS  = filterByMonth(_cache.visitsCancellations.by_source_ts || [], 'visit_month', mFrom, mTo);
-  const bookingTS  = filterByMonth(bbs.timeseries || [], 'visit_month', mFrom, mTo);
-
-  renderVisitsTrends(visitTS);
-  renderChoresChart(choresTS);
-  renderBookingsBySource(bookingTS);
-  renderCancellations(_cache.visitsCancellations.by_category || [], cancelTS, cancelSTS);
 }
 
-function renderDurationHistogram() {
-  const rows = _cache.visitsDurationHist || [];
+async function loadVisitChores() {
+  const d = await get(vqs('/api/visits/chores'));
+  document.getElementById('vkpi-chores').textContent = fmt(d.summary.chore_count);
+  return d.timeseries;
+}
+
+async function loadLMD() {
+  const d = await get(vqs('/api/visits/last-minute'));
+  const total = d.by_type.reduce((s, r) => s + r.visit_count, 0);
+  document.getElementById('vkpi-lmd').textContent = fmt(total);
+
+  // Donut
+  destroyChart('lmd-type');
+  if (d.by_type.length) {
+    const colors = { 'Subscribers': '#059669', 'On Demand': '#7c3aed', 'Free / Other': '#d97706' };
+    charts['lmd-type'] = new Chart(document.getElementById('chart-lmd-type'), {
+      type: 'doughnut',
+      data: {
+        labels: d.by_type.map(r => r.user_type),
+        datasets: [{ data: d.by_type.map(r => r.visit_count),
+          backgroundColor: d.by_type.map(r => colors[r.user_type] || '#94a3b8'),
+          borderWidth: 2, borderColor: '#fff' }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, cutout: '62%',
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } } }
+    });
+  }
+  return d.timeseries;
+}
+
+// ── Visit duration histogram ──────────────────────────────────────────────────
+async function loadDurationHistogram() {
+  const rows = await get(vqs('/api/visits/duration-histogram'));
   destroyChart('duration-hist');
   if (!rows.length) return;
   charts['duration-hist'] = new Chart(document.getElementById('chart-duration-hist'), {
@@ -1331,10 +1443,12 @@ function renderDurationHistogram() {
           if (m < 180) return 'rgba(217,119,6,.75)';
           return 'rgba(220,38,38,.6)';
         }),
-        borderRadius: 4, borderSkipped: false,
+        borderRadius: 4,
+        borderSkipped: false,
       }]
     },
-    options: { responsive: true, maintainAspectRatio: false,
+    options: {
+      responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
         x: { grid: { display: false }, ticks: { font: { size: 11 } } },
@@ -1344,131 +1458,48 @@ function renderDurationHistogram() {
   });
 }
 
-function renderLmdType(byType) {
-  destroyChart('lmd-type');
-  if (!byType.length) return;
-  const colors = { 'Subscribers': '#059669', 'On Demand': '#7c3aed', 'Free / Other': '#d97706' };
-  charts['lmd-type'] = new Chart(document.getElementById('chart-lmd-type'), {
-    type: 'doughnut',
-    data: {
-      labels: byType.map(r => r.user_type),
-      datasets: [{ data: byType.map(r => r.visit_count),
-        backgroundColor: byType.map(r => colors[r.user_type] || '#94a3b8'),
-        borderWidth: 2, borderColor: '#fff' }]
-    },
-    options: { responsive: true, maintainAspectRatio: false, cutout: '62%',
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } } }
-  });
-}
+// ── Cancellations ─────────────────────────────────────────────────────────────
+const CANCEL_COLORS = {
+  'Out Of Policy': '#dc2626', 'OOP Charged': '#dc2626', 'OOP Free': '#f87171',
+  'In Policy': '#d97706', 'From Plan': '#4f46e5', 'From Free': '#059669', 'Other': '#94a3b8'
+};
 
-function renderChoresChart(timeseries) {
-  destroyChart('chores-ts');
-  destroyChart('avg-price');
-  if (!timeseries.length) return;
-  const labels = timeseries.map(r => r.visit_month);
-  const baseOpts = {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
-      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
-    }
-  };
-  charts['chores-ts'] = new Chart(document.getElementById('chart-chores-ts'), {
-    type: 'bar',
-    data: { labels, datasets: [{ label: 'Avg tasks / visit', data: timeseries.map(r => r.avg_tasks_per_visit || 0),
-      backgroundColor: 'rgba(124,58,237,.7)', borderColor: '#7c3aed', borderWidth: 1, borderRadius: 3 }] },
-    options: baseOpts
-  });
-  charts['avg-price'] = new Chart(document.getElementById('chart-avg-price'), {
-    type: 'line',
-    data: { labels, datasets: [{ label: 'Avg visit price', data: timeseries.map(r => r.avg_visit_price || 0),
-      borderColor: '#d97706', backgroundColor: 'rgba(217,119,6,.08)', pointRadius: 3, tension: .3, fill: true }] },
-    options: { ...baseOpts, scales: { ...baseOpts.scales,
-      y: { ...baseOpts.scales.y, ticks: { font: { size: 11 }, callback: v => '$'+v } }
-    }}
-  });
-}
+async function loadCancellations() {
+  const d = await get(vqs('/api/visits/cancellations'));
 
-function renderTaskDistribution() {
-  const rows = _cache.visitsTaskDist || [];
-  destroyChart('task-dist');
-  if (!rows.length) return;
-  const colors = [
-    '#4f46e5','#059669','#d97706','#dc2626','#7c3aed','#0891b2','#65a30d','#db2777','#ea580c','#0284c7',
-    '#16a34a','#9333ea','#ca8a04','#e11d48','#2563eb','#10b981','#f59e0b','#ef4444','#8b5cf6','#06b6d4',
-    '#84cc16','#f43f5e','#3b82f6','#14b8a6','#eab308','#f97316','#6366f1','#22c55e','#a855f7','#ec4899',
-  ];
-  charts['task-dist'] = new Chart(document.getElementById('chart-task-dist'), {
-    type: 'bar',
-    data: {
-      labels: rows.map(r => r.task_name),
-      datasets: [{
-        label: 'Times selected', data: rows.map(r => r.count),
-        backgroundColor: rows.map((_, i) => colors[i % colors.length] + 'cc'),
-        borderColor:     rows.map((_, i) => colors[i % colors.length]),
-        borderWidth: 1, borderRadius: 4,
-      }]
-    },
-    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true },
-        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
-      }
-    }
+  // Summary cards — aggregate by cancel_category across cancel_source
+  const catTotals = {};
+  d.by_category.forEach(r => {
+    catTotals[r.cancel_category] = (catTotals[r.cancel_category] || 0) + r.count;
   });
-}
+  const container = document.getElementById('cancel-cards');
+  container.innerHTML = Object.entries(catTotals).map(([cat, count]) => `
+    <div class="kpi-card" style="border-left:4px solid ${CANCEL_COLORS[cat]||'#94a3b8'}">
+      <div class="label">${cat}</div>
+      <div class="value" style="color:${CANCEL_COLORS[cat]||'#94a3b8'}">${fmt(count)}</div>
+      <div class="sub">Cancellations</div>
+    </div>`).join('');
 
-function renderVisitsTrends(timeseries) {
-  destroyChart('visit-count');
-  destroyChart('finished-pct');
-  destroyChart('visit-duration');
-  if (!timeseries || !timeseries.length) return;
-  const labels = timeseries.map(r => r.visit_month);
-  const baseOpts = {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
-      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true }
-    }
-  };
-  charts['visit-count'] = new Chart(document.getElementById('chart-visit-count'), {
-    type: 'line',
-    data: { labels, datasets: [{ label: 'Finished+Completed', data: timeseries.map(r => r.finished_completed || 0),
-      borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.12)', fill: true, tension: .3, pointRadius: 3 }] },
-    options: baseOpts
-  });
-  charts['finished-pct'] = new Chart(document.getElementById('chart-finished-pct'), {
-    type: 'line',
-    data: { labels, datasets: [{ label: 'Finished %', data: timeseries.map(r => r.finished_pct || 0),
-      borderColor: '#4f46e5', backgroundColor: 'rgba(79,70,229,.08)', fill: true, tension: .3, pointRadius: 3 }] },
-    options: { ...baseOpts, scales: { ...baseOpts.scales,
-      y: { ...baseOpts.scales.y, min: 0, max: 100, ticks: { font: { size: 11 }, callback: v => v + '%' } }
-    }}
-  });
-  charts['visit-duration'] = new Chart(document.getElementById('chart-visit-duration'), {
-    type: 'bar',
-    data: { labels, datasets: [{ label: 'Avg Duration (min)', data: timeseries.map(r => r.avg_duration_mins || 0),
-      backgroundColor: 'rgba(217,119,6,.75)', borderColor: '#d97706', borderWidth: 1, borderRadius: 3 }] },
-    options: { ...baseOpts, scales: { ...baseOpts.scales,
-      y: { ...baseOpts.scales.y, ticks: { font: { size: 11 }, callback: v => v + ' min' } }
-    }}
-  });
-}
-
-function renderBookingsBySource(ts) {
-  destroyChart('bookings-source');
+  // Stacked bar timeseries
+  destroyChart('cancel-ts');
+  const ts = d.timeseries;
   if (!ts.length) return;
-  charts['bookings-source'] = new Chart(document.getElementById('chart-bookings-source'), {
+  const categories = [
+    { key: 'out_of_policy', label: 'Out Of Policy' },
+    { key: 'in_policy',     label: 'In Policy' },
+    { key: 'from_plan',     label: 'From Plan' },
+    { key: 'from_free',     label: 'From Free' },
+  ];
+  charts['cancel-ts'] = new Chart(document.getElementById('chart-cancel-ts'), {
     type: 'bar',
     data: {
       labels: ts.map(r => r.visit_month),
-      datasets: [
-        { label: 'App Booked',   data: ts.map(r => r.app_booked   || 0), backgroundColor: 'rgba(79,70,229,.75)',  borderRadius: 2 },
-        { label: 'Admin Booked', data: ts.map(r => r.admin_booked || 0), backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 2 },
-      ]
+      datasets: categories.map(c => ({
+        label: c.label,
+        data: ts.map(r => r[c.key] || 0),
+        backgroundColor: CANCEL_COLORS[c.label],
+        borderRadius: 2,
+      }))
     },
     options: { responsive: true, maintainAspectRatio: false,
       plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
@@ -1478,57 +1509,20 @@ function renderBookingsBySource(ts) {
       }
     }
   });
-}
-
-function renderCancellations(byCategory, ts, sts) {
-  // Summary cards
-  const catTotals = {};
-  byCategory.forEach(r => { catTotals[r.cancel_category] = (catTotals[r.cancel_category] || 0) + r.count; });
-  document.getElementById('cancel-cards').innerHTML = Object.entries(catTotals).map(([cat, count]) => `
-    <div class="kpi-card" style="border-left:4px solid ${CANCEL_COLORS[cat]||'#94a3b8'}">
-      <div class="label">${cat}</div>
-      <div class="value" style="color:${CANCEL_COLORS[cat]||'#94a3b8'}">${fmt(count)}</div>
-      <div class="sub">Cancellations</div>
-    </div>`).join('');
-
-  // Stacked bar timeseries
-  destroyChart('cancel-ts');
-  if (ts.length) {
-    const categories = [
-      { key: 'out_of_policy', label: 'Out Of Policy' },
-      { key: 'in_policy',     label: 'In Policy' },
-      { key: 'from_plan',     label: 'From Plan' },
-      { key: 'from_free',     label: 'From Free' },
-    ];
-    charts['cancel-ts'] = new Chart(document.getElementById('chart-cancel-ts'), {
-      type: 'bar',
-      data: {
-        labels: ts.map(r => r.visit_month),
-        datasets: categories.map(c => ({
-          label: c.label, data: ts.map(r => r[c.key] || 0),
-          backgroundColor: CANCEL_COLORS[c.label], borderRadius: 2,
-        }))
-      },
-      options: { responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
-        scales: {
-          x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
-          y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
-        }
-      }
-    });
-  }
 
   // App vs Admin cancel timeseries
   destroyChart('cancel-source');
+  const sts = d.by_source_ts;
   if (sts && sts.length) {
     charts['cancel-source'] = new Chart(document.getElementById('chart-cancel-source'), {
       type: 'bar',
       data: {
         labels: sts.map(r => r.visit_month),
         datasets: [
-          { label: 'App Cancelled',   data: sts.map(r => r.app_cancelled   || 0), backgroundColor: 'rgba(79,70,229,.75)',  borderRadius: 2 },
-          { label: 'Admin Cancelled', data: sts.map(r => r.admin_cancelled || 0), backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 2 },
+          { label: 'App Cancelled', data: sts.map(r => r.app_cancelled || 0),
+            backgroundColor: 'rgba(79,70,229,.75)', borderRadius: 2 },
+          { label: 'Admin Cancelled', data: sts.map(r => r.admin_cancelled || 0),
+            backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 2 },
         ]
       },
       options: { responsive: true, maintainAspectRatio: false,
@@ -1542,190 +1536,251 @@ function renderCancellations(byCategory, ts, sts) {
   }
 }
 
-// ════════════════════════════════════════════════════════════════════════════
-// TAB 3: RATINGS
-// ════════════════════════════════════════════════════════════════════════════
-const rState = { dateFrom: '', dateTo: '' };
+// ── Chores timeseries charts ──────────────────────────────────────────────────
+function renderChoresChart(timeseries) {
+  destroyChart('chores-ts');
+  destroyChart('avg-price');
+  if (!timeseries.length) return;
 
-function applyRatingsFilters() {
-  rState.dateFrom = document.getElementById('rf-date-from').value;
-  rState.dateTo   = document.getElementById('rf-date-to').value;
-  ratingsLoaded = true;
-  renderRatings();
-}
+  const labels = timeseries.map(r => r.visit_month);
+  const baseOpts = {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+    }
+  };
 
-function resetRatingsFilters() {
-  document.getElementById('rf-date-from').value = '';
-  document.getElementById('rf-date-to').value   = '';
-  rState.dateFrom = '';
-  rState.dateTo   = '';
-  ratingsLoaded = true;
-  renderRatings();
-}
+  charts['chores-ts'] = new Chart(document.getElementById('chart-chores-ts'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{ label: 'Avg tasks / visit', data: timeseries.map(r => r.avg_tasks_per_visit || 0),
+        backgroundColor: 'rgba(124,58,237,.7)', borderColor: '#7c3aed', borderWidth: 1, borderRadius: 3 }]
+    },
+    options: baseOpts
+  });
 
-function renderRatings() {
-  // KPI cards — global snapshot
-  const d = _cache.ratingsSummary;
-  document.getElementById('rkpi-visit').textContent     = fmtStar(d.avg_visit_rating);
-  document.getElementById('rkpi-visit-sub').textContent = `${fmt(d.visit_rating_count)} ratings`;
-  document.getElementById('rkpi-app').textContent       = fmtStar(d.avg_app_rating);
-  document.getElementById('rkpi-app-sub').textContent   = `${fmt(d.app_rating_count)} ratings`;
-  document.getElementById('rkpi-total').textContent     = fmt(d.total_reviews);
-
-  // Static charts
-  renderRatingsDistribution();
-  renderReviewsSentiment();
-
-  // Date-filtered timeseries
-  const mFrom = rState.dateFrom ? rState.dateFrom.slice(0, 7) : '';
-  const mTo   = rState.dateTo   ? rState.dateTo.slice(0, 7)   : '';
-  const filtered = filterByMonth(_cache.ratingsTimeseries, 'month', mFrom, mTo);
-  renderRatingsTimeseries(filtered);
-}
-
-function renderRatingsTimeseries(rows) {
-  destroyChart('rating-ts');
-  if (!rows.length) return;
-  charts['rating-ts'] = new Chart(document.getElementById('chart-rating-ts'), {
+  charts['avg-price'] = new Chart(document.getElementById('chart-avg-price'), {
     type: 'line',
     data: {
-      labels: rows.map(r => r.month),
-      datasets: [
-        { label: 'Visit Rating', data: rows.map(r => r.avg_visit_rating),
-          borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,.08)', fill: true, tension: .3, pointRadius: 3 },
-        { label: 'App Rating',   data: rows.map(r => r.avg_app_rating),
-          borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,.08)',  fill: true, tension: .3, pointRadius: 3 },
-      ]
+      labels,
+      datasets: [{ label: 'Avg visit price', data: timeseries.map(r => r.avg_visit_price || 0),
+        borderColor: '#d97706', backgroundColor: 'rgba(217,119,6,.08)',
+        pointRadius: 3, tension: .3, fill: true }]
     },
-    options: { responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
-      scales: {
-        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
-        y: { min: 3, max: 5, grid: { color: 'rgba(0,0,0,.05)' },
-             ticks: { font: { size: 11 }, callback: v => v + ' ★' } }
+    options: { ...baseOpts,
+      scales: { ...baseOpts.scales,
+        y: { ...baseOpts.scales.y, ticks: { font: { size: 11 }, callback: v => '$'+v } }
       }
     }
   });
 }
 
-function renderRatingsDistribution() {
-  const d = _cache.ratingsDistribution;
-  const STAR_LABELS = ['1 ★','2 ★','3 ★','4 ★','5 ★'];
-  const barOpts = () => ({
+// ── Visit trends (count, finished%, duration) ─────────────────────────────────
+function loadVisitsTrends(timeseries) {
+  destroyChart('visit-count');
+  destroyChart('finished-pct');
+  destroyChart('visit-duration');
+  if (!timeseries || !timeseries.length) return;
+
+  const labels = timeseries.map(r => r.visit_month);
+  const baseOpts = {
     responsive: true, maintainAspectRatio: false,
     plugins: { legend: { display: false } },
     scales: {
-      x: { grid: { display: false }, ticks: { font: { size: 12 } } },
-      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true }
     }
-  });
-  destroyChart('visit-dist');
-  charts['visit-dist'] = new Chart(document.getElementById('chart-visit-dist'), {
-    type: 'bar',
-    data: { labels: STAR_LABELS, datasets: [{ data: (d.visit || []).map(r => r.count),
-      backgroundColor: 'rgba(245,158,11,.75)', borderColor: '#f59e0b',
-      borderWidth: 1, borderRadius: 4, borderSkipped: false }] },
-    options: barOpts()
-  });
-  destroyChart('app-dist');
-  charts['app-dist'] = new Chart(document.getElementById('chart-app-dist'), {
-    type: 'bar',
-    data: { labels: STAR_LABELS, datasets: [{ data: (d.app || []).map(r => r.count),
-      backgroundColor: 'rgba(99,102,241,.75)', borderColor: '#6366f1',
-      borderWidth: 1, borderRadius: 4, borderSkipped: false }] },
-    options: barOpts()
-  });
-}
-
-function renderReviewsSentiment() {
-  const d = _cache.ratingsReviews;
-
-  function renderReviewCards(containerId, pos, neu, neg, noRating) {
-    const total = pos + neu + neg + noRating;
-    document.getElementById(containerId).innerHTML = [
-      ['Positive', pos, '#059669'], ['Neutral', neu, '#d97706'],
-      ['Negative', neg, '#dc2626'], ['No Rating', noRating, '#94a3b8']
-    ].map(([label, count, color]) => `
-      <div class="kpi-card" style="border-left:4px solid ${color}">
-        <div class="label">${label}</div>
-        <div class="value" style="color:${color};font-size:22px">${fmt(count)}</div>
-        <div class="sub">${total > 0 ? ((count/total*100).toFixed(1) + '% of written') : '—'}</div>
-      </div>`).join('');
-  }
-
-  renderReviewCards('cust-review-cards',   d.cust_positive,   d.cust_neutral,   d.cust_negative,   d.cust_no_rating);
-  renderReviewCards('fairee-review-cards', d.fairee_positive, d.fairee_neutral, d.fairee_negative, d.fairee_no_rating);
-
-  const labels = ['Positive', 'Neutral', 'Negative', 'No Rating'];
-  const colors = ['#059669', '#d97706', '#dc2626', '#94a3b8'];
-
-  const mkDonut = (canvasId, key, data) => {
-    destroyChart(key);
-    charts[key] = new Chart(document.getElementById(canvasId), {
-      type: 'doughnut',
-      data: { labels, datasets: [{ data, backgroundColor: colors, borderWidth: 2 }] },
-      options: { responsive: true, maintainAspectRatio: false, cutout: '65%',
-        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } } }
-    });
   };
 
-  mkDonut('chart-cust-reviews',   'cust-reviews',   [d.cust_positive,   d.cust_neutral,   d.cust_negative,   d.cust_no_rating]);
-  mkDonut('chart-fairee-reviews', 'fairee-reviews', [d.fairee_positive, d.fairee_neutral, d.fairee_negative, d.fairee_no_rating]);
+  charts['visit-count'] = new Chart(document.getElementById('chart-visit-count'), {
+    type: 'line',
+    data: { labels, datasets: [{ label: 'Finished+Completed', data: timeseries.map(r => r.finished_completed || 0),
+      borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.12)',
+      fill: true, tension: .3, pointRadius: 3 }] },
+    options: baseOpts
+  });
+
+  charts['finished-pct'] = new Chart(document.getElementById('chart-finished-pct'), {
+    type: 'line',
+    data: { labels, datasets: [{ label: 'Finished %', data: timeseries.map(r => r.finished_pct || 0),
+      borderColor: '#4f46e5', backgroundColor: 'rgba(79,70,229,.08)', fill: true, tension: .3, pointRadius: 3 }] },
+    options: { ...baseOpts,
+      scales: { ...baseOpts.scales,
+        y: { ...baseOpts.scales.y, min: 0, max: 100, ticks: { font: { size: 11 }, callback: v => v + '%' } }
+      }
+    }
+  });
+
+  charts['visit-duration'] = new Chart(document.getElementById('chart-visit-duration'), {
+    type: 'bar',
+    data: { labels, datasets: [{ label: 'Avg Duration (min)', data: timeseries.map(r => r.avg_duration_mins || 0),
+      backgroundColor: 'rgba(217,119,6,.75)', borderColor: '#d97706', borderWidth: 1, borderRadius: 3 }] },
+    options: { ...baseOpts,
+      scales: { ...baseOpts.scales,
+        y: { ...baseOpts.scales.y, ticks: { font: { size: 11 }, callback: v => v + ' min' } }
+      }
+    }
+  });
 }
 
-// ════════════════════════════════════════════════════════════════════════════
-// TAB 4: NO SLOTS
-// ════════════════════════════════════════════════════════════════════════════
-const nsState = { dateFrom: '', dateTo: '' };
+// ── Bookings by source ────────────────────────────────────────────────────────
+async function loadBookingsBySource() {
+  const d = await get(vqs('/api/visits/bookings-by-source'));
+  const appRow   = d.summary.find(r => r.booked_by === 'App');
+  const adminRow = d.summary.find(r => r.booked_by === 'Admin');
+  document.getElementById('vkpi-app-booked').textContent   = fmt(appRow   ? appRow.count   : 0);
+  document.getElementById('vkpi-admin-booked').textContent = fmt(adminRow ? adminRow.count : 0);
 
-function applyNsFilters() {
-  nsState.dateFrom = document.getElementById('nsf-date-from').value;
-  nsState.dateTo   = document.getElementById('nsf-date-to').value;
-  nsslotsLoaded = true;
-  renderNoSlots();
+  destroyChart('bookings-source');
+  const ts = d.timeseries;
+  if (!ts.length) return;
+  charts['bookings-source'] = new Chart(document.getElementById('chart-bookings-source'), {
+    type: 'bar',
+    data: {
+      labels: ts.map(r => r.visit_month),
+      datasets: [
+        { label: 'App Booked', data: ts.map(r => r.app_booked || 0),
+          backgroundColor: 'rgba(79,70,229,.75)', borderRadius: 2 },
+        { label: 'Admin Booked', data: ts.map(r => r.admin_booked || 0),
+          backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 2 },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Load all visits ───────────────────────────────────────────────────────────
+async function loadTaskDistribution() {
+  const rows = await get(vqs('/api/visits/task-distribution'));
+  destroyChart('task-dist');
+  if (!rows.length) return;
+  const colors = [
+    '#4f46e5','#059669','#d97706','#dc2626','#7c3aed','#0891b2',
+    '#65a30d','#db2777','#ea580c','#0284c7','#16a34a','#9333ea',
+    '#ca8a04','#e11d48','#2563eb','#10b981','#f59e0b','#ef4444',
+    '#8b5cf6','#06b6d4','#84cc16','#f43f5e','#3b82f6','#14b8a6',
+    '#eab308','#f97316','#6366f1','#22c55e','#a855f7','#ec4899',
+  ];
+  charts['task-dist'] = new Chart(document.getElementById('chart-task-dist'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.task_name),
+      datasets: [{
+        label: 'Times selected',
+        data: rows.map(r => r.count),
+        backgroundColor: rows.map((_, i) => colors[i % colors.length] + 'cc'),
+        borderColor:     rows.map((_, i) => colors[i % colors.length]),
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true },
+        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+async function loadVisitsTimeseries() {
+  return await get(vqs('/api/visits/timeseries'));
+}
+
+async function loadVisits() {
+  visitsLoaded = true;
+  await populateVisitFilters();
+  const [choreData, timeseries] = await Promise.all([
+    loadVisitChores(),
+    loadVisitsTimeseries(),
+    loadVisitSummary(),
+    loadLMD(),
+    loadDurationHistogram(),
+    loadCancellations(),
+    loadTaskDistribution(),
+    loadBookingsBySource(),
+  ]);
+  renderChoresChart(choreData);
+  loadVisitsTrends(timeseries);
+  document.getElementById('last-updated').textContent =
+    'Updated ' + new Date().toLocaleTimeString();
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+(async () => {
+  await loadFilterOptions();
+  await loadAll();
+})();
+
+// ── No Slots tab ──────────────────────────────────────────────────────────────
+let nsslotsLoaded = false;
+const nsstateObj = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
+
+function nsqs(base) {
+  const p = new URLSearchParams();
+  if (nsstateObj.dateFrom)      p.set('date_from', nsstateObj.dateFrom);
+  if (nsstateObj.dateTo)        p.set('date_to',   nsstateObj.dateTo);
+  if (nsstateObj.project)       p.set('project',   nsstateObj.project);
+  if (nsstateObj.neighbourhood) p.set('neighbourhood', nsstateObj.neighbourhood);
+  if (nsstateObj.subType)       p.set('sub_type',  nsstateObj.subType);
+  const q = p.toString();
+  return q ? `${base}?${q}` : base;
+}
+
+async function populateNsFilters() {
+  const [projects, hoods] = await Promise.all([
+    get('/api/filters/projects'), get('/api/filters/neighbourhoods')
+  ]);
+  const ps = document.getElementById('nsf-project');
+  const hs = document.getElementById('nsf-neighbourhood');
+  if (ps.options.length <= 1)
+    projects.forEach(p => { const o = new Option(p, p); ps.add(o); });
+  if (hs.options.length <= 1)
+    hoods.forEach(h => { const o = new Option(h, h); hs.add(o); });
 }
 
 function resetNsFilters() {
-  document.getElementById('nsf-date-from').value = '';
-  document.getElementById('nsf-date-to').value   = '';
-  nsState.dateFrom = '';
-  nsState.dateTo   = '';
-  nsslotsLoaded = true;
-  renderNoSlots();
+  ['nsf-date-from','nsf-date-to','nsf-project','nsf-neighbourhood','nsf-sub-type']
+    .forEach(id => document.getElementById(id).value = '');
+  Object.assign(nsstateObj, { dateFrom:'', dateTo:'', project:'', neighbourhood:'', subType:'' });
+  nsslotsLoaded = false;
+  loadNoSlots();
 }
 
-function renderNoSlots() {
-  // KPI cards — global snapshots
-  const d  = _cache.noslotsSummary;
-  const inc = _cache.noslotsIncidents;
-  document.getElementById('nskpi-inc-sub').textContent     = fmt(inc.summary.sub_incidents);
-  document.getElementById('nskpi-inc-onetime').textContent = fmt(inc.summary.onetime_incidents);
-  document.getElementById('nskpi-sub').textContent         = fmt(d.subscription_apt_days);
-  document.getElementById('nskpi-onetime').textContent     = fmt(d.onetime_apt_days);
-  document.getElementById('nskpi-duration-sub').textContent     = d.avg_time_sub_mins    ? d.avg_time_sub_mins    + ' min' : '—';
-  document.getElementById('nskpi-duration-onetime').textContent = d.avg_time_onetime_mins ? d.avg_time_onetime_mins + ' min' : '—';
+async function loadNoSlotsSummary() {
+  const d = await get(nsqs('/api/noslots/summary'));
+  document.getElementById('nskpi-sub').textContent          = fmt(d.subscription_apt_days);
+  document.getElementById('nskpi-onetime').textContent      = fmt(d.onetime_apt_days);
+  document.getElementById('nskpi-duration-sub').textContent =
+    d.avg_time_sub_mins ? d.avg_time_sub_mins + ' min' : '—';
+  document.getElementById('nskpi-duration-onetime').textContent =
+    d.avg_time_onetime_mins ? d.avg_time_onetime_mins + ' min' : '—';
   document.getElementById('nskpi-success').textContent =
     d.success_rate_pct != null ? d.success_rate_pct + '%' : '—';
   document.getElementById('nskpi-success-sub').textContent =
     `${fmt(d.found_slot_count)} of ${fmt(d.total_apt_days)} apt-days`;
-
-  // Date-filtered timeseries
-  const mFrom = nsState.dateFrom ? nsState.dateFrom.slice(0, 7) : '';
-  const mTo   = nsState.dateTo   ? nsState.dateTo.slice(0, 7)   : '';
-  const filteredNS  = filterByMonth(_cache.noslotsTimeseries, 'month', mFrom, mTo);
-  const filteredInc = filterByMonth(inc.timeseries || [], 'month', mFrom, mTo);
-
-  renderNsTimeseries(filteredNS);
-  renderNsIncidents(filteredInc);
 }
 
-function renderNsTimeseries(rows) {
+async function loadNoSlotsTimeseries() {
+  const rows = await get(nsqs('/api/noslots/timeseries'));
   destroyChart('ns-sub');
   destroyChart('ns-onetime');
   destroyChart('ns-success');
   if (!rows.length) return;
 
-  const barOpts = () => ({
+  const barOpts = (color) => ({
     responsive: true, maintainAspectRatio: false,
     plugins: { legend: { display: false } },
     scales: {
@@ -1736,18 +1791,22 @@ function renderNsTimeseries(rows) {
 
   charts['ns-sub'] = new Chart(document.getElementById('chart-ns-sub'), {
     type: 'bar',
-    data: { labels: rows.map(r => r.month),
+    data: {
+      labels: rows.map(r => r.month),
       datasets: [{ label: 'Subscription apt-days', data: rows.map(r => r.subscription_apt_days),
-        backgroundColor: 'rgba(79,70,229,.75)', borderRadius: 3 }] },
-    options: barOpts()
+        backgroundColor: 'rgba(79,70,229,.75)', borderRadius: 3 }]
+    },
+    options: barOpts('rgba(79,70,229,.75)')
   });
 
   charts['ns-onetime'] = new Chart(document.getElementById('chart-ns-onetime'), {
     type: 'bar',
-    data: { labels: rows.map(r => r.month),
+    data: {
+      labels: rows.map(r => r.month),
       datasets: [{ label: 'One-time apt-days', data: rows.map(r => r.onetime_apt_days),
-        backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 3 }] },
-    options: barOpts()
+        backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 3 }]
+    },
+    options: barOpts('rgba(217,119,6,.75)')
   });
 
   charts['ns-success'] = new Chart(document.getElementById('chart-ns-success'), {
@@ -1779,55 +1838,247 @@ function renderNsTimeseries(rows) {
   });
 }
 
-function renderNsIncidents(ts) {
-  destroyChart('ns-incidents');
-  if (!ts.length) return;
-  charts['ns-incidents'] = new Chart(document.getElementById('chart-ns-incidents'), {
-    type: 'bar',
+async function loadNoSlotsIncidents() {
+  try {
+    const d = await get(nsqs('/api/noslots/incidents'));
+    document.getElementById('nskpi-inc-sub').textContent     = fmt(d.summary.sub_incidents);
+    document.getElementById('nskpi-inc-onetime').textContent = fmt(d.summary.onetime_incidents);
+
+    destroyChart('ns-incidents');
+    const ts = d.timeseries;
+    if (!ts.length) return;
+    charts['ns-incidents'] = new Chart(document.getElementById('chart-ns-incidents'), {
+      type: 'bar',
+      data: {
+        labels: ts.map(r => r.month),
+        datasets: [
+          { label: 'Sub Incidents', data: ts.map(r => r.sub_incidents || 0),
+            backgroundColor: 'rgba(79,70,229,.75)', borderRadius: 3 },
+          { label: 'One-time Incidents', data: ts.map(r => r.onetime_incidents || 0),
+            backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 3 },
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+        scales: {
+          x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
+          y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true }
+        }
+      }
+    });
+  } catch (e) { console.error('incidents:', e); }
+}
+
+async function loadNoSlots() {
+  nsslotsLoaded = true;
+  await populateNsFilters();
+  await Promise.all([
+    loadNoSlotsSummary(),
+    loadNoSlotsTimeseries(),
+    loadNoSlotsIncidents(),
+  ]);
+  document.getElementById('last-updated').textContent =
+    'Updated ' + new Date().toLocaleTimeString();
+}
+
+// ── Ratings tab ───────────────────────────────────────────────────────────────
+let ratingsLoaded = false;
+const rstateObj = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
+
+function rqs(base) {
+  const p = new URLSearchParams();
+  if (rstateObj.dateFrom)      p.set('date_from', rstateObj.dateFrom);
+  if (rstateObj.dateTo)        p.set('date_to',   rstateObj.dateTo);
+  if (rstateObj.project)       p.set('project',   rstateObj.project);
+  if (rstateObj.neighbourhood) p.set('neighbourhood', rstateObj.neighbourhood);
+  if (rstateObj.subType)       p.set('sub_type',  rstateObj.subType);
+  const q = p.toString();
+  return q ? `${base}?${q}` : base;
+}
+
+async function populateRatingsFilters() {
+  const [projects, hoods] = await Promise.all([
+    get('/api/filters/projects'), get('/api/filters/neighbourhoods')
+  ]);
+  const ps = document.getElementById('rf-project');
+  const hs = document.getElementById('rf-neighbourhood');
+  if (ps.options.length <= 1)
+    projects.forEach(p => { const o = new Option(p, p); ps.add(o); });
+  if (hs.options.length <= 1)
+    hoods.forEach(h => { const o = new Option(h, h); hs.add(o); });
+}
+
+function resetRatingsFilters() {
+  ['rf-date-from','rf-date-to','rf-project','rf-neighbourhood','rf-sub-type']
+    .forEach(id => document.getElementById(id).value = '');
+  Object.assign(rstateObj, { dateFrom:'', dateTo:'', project:'', neighbourhood:'', subType:'' });
+  ratingsLoaded = false;
+  loadRatings();
+}
+
+async function loadRatingsSummary() {
+  const d = await get(rqs('/api/ratings/summary'));
+  const fmtStar = v => v != null ? Number(v).toFixed(2) + ' ★' : '—';
+  document.getElementById('rkpi-visit').textContent = fmtStar(d.avg_visit_rating);
+  document.getElementById('rkpi-visit-sub').textContent =
+    `${fmt(d.visit_rating_count)} ratings`;
+  document.getElementById('rkpi-app').textContent = fmtStar(d.avg_app_rating);
+  document.getElementById('rkpi-app-sub').textContent =
+    `${fmt(d.app_rating_count)} ratings`;
+  document.getElementById('rkpi-total').textContent = fmt(d.total_reviews);
+}
+
+async function loadRatingsTimeseries() {
+  const rows = await get(rqs('/api/ratings/timeseries'));
+  destroyChart('rating-ts');
+  if (!rows.length) return;
+  charts['rating-ts'] = new Chart(document.getElementById('chart-rating-ts'), {
+    type: 'line',
     data: {
-      labels: ts.map(r => r.month),
+      labels: rows.map(r => r.month),
       datasets: [
-        { label: 'Sub Incidents',      data: ts.map(r => r.sub_incidents     || 0), backgroundColor: 'rgba(79,70,229,.75)',  borderRadius: 3 },
-        { label: 'One-time Incidents', data: ts.map(r => r.onetime_incidents || 0), backgroundColor: 'rgba(217,119,6,.75)', borderRadius: 3 },
+        { label: 'Visit Rating', data: rows.map(r => r.avg_visit_rating),
+          borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,.08)',
+          fill: true, tension: .3, pointRadius: 3 },
+        { label: 'App Rating', data: rows.map(r => r.avg_app_rating),
+          borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,.08)',
+          fill: true, tension: .3, pointRadius: 3 },
       ]
     },
     options: { responsive: true, maintainAspectRatio: false,
       plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
       scales: {
-        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
-        y: { stacked: true, grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } }, beginAtZero: true }
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { min: 3, max: 5, grid: { color: 'rgba(0,0,0,.05)' },
+             ticks: { font: { size: 11 }, callback: v => v + ' ★' } }
       }
     }
   });
 }
 
-// ════════════════════════════════════════════════════════════════════════════
-// TAB 5: PERFORMANCE
-// ════════════════════════════════════════════════════════════════════════════
-const pState = { dateFrom: '', dateTo: '' };
+async function loadRatingsDistribution() {
+  const d = await get(rqs('/api/ratings/distribution'));
+  const STAR_LABELS = ['1 ★','2 ★','3 ★','4 ★','5 ★'];
+  const barOpts = (color) => ({
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 12 } } },
+      y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } }
+    }
+  });
+
+  destroyChart('visit-dist');
+  charts['visit-dist'] = new Chart(document.getElementById('chart-visit-dist'), {
+    type: 'bar',
+    data: { labels: STAR_LABELS,
+      datasets: [{ data: d.visit.map(r => r.count),
+        backgroundColor: 'rgba(245,158,11,.75)', borderColor: '#f59e0b',
+        borderWidth: 1, borderRadius: 4, borderSkipped: false }] },
+    options: barOpts('#f59e0b')
+  });
+
+  destroyChart('app-dist');
+  charts['app-dist'] = new Chart(document.getElementById('chart-app-dist'), {
+    type: 'bar',
+    data: { labels: STAR_LABELS,
+      datasets: [{ data: d.app.map(r => r.count),
+        backgroundColor: 'rgba(99,102,241,.75)', borderColor: '#6366f1',
+        borderWidth: 1, borderRadius: 4, borderSkipped: false }] },
+    options: barOpts('#6366f1')
+  });
+}
+
+async function loadReviewsSentiment() {
+  const d = await get(rqs('/api/ratings/reviews'));
+  const COLORS = { Positive: '#059669', Neutral: '#d97706', Negative: '#dc2626', 'No Rating': '#94a3b8' };
+
+  function renderReviewCards(containerId, pos, neu, neg, noRating) {
+    const total = pos + neu + neg + noRating;
+    document.getElementById(containerId).innerHTML = [
+      ['Positive', pos, '#059669'], ['Neutral', neu, '#d97706'],
+      ['Negative', neg, '#dc2626'], ['No Rating', noRating, '#94a3b8']
+    ].map(([label, count, color]) => `
+      <div class="kpi-card" style="border-left:4px solid ${color}">
+        <div class="label">${label}</div>
+        <div class="value" style="color:${color};font-size:22px">${fmt(count)}</div>
+        <div class="sub">${total > 0 ? ((count/total*100).toFixed(1) + '% of written') : '—'}</div>
+      </div>`).join('');
+  }
+
+  renderReviewCards('cust-review-cards',
+    d.cust_positive, d.cust_neutral, d.cust_negative, d.cust_no_rating);
+  renderReviewCards('fairee-review-cards',
+    d.fairee_positive, d.fairee_neutral, d.fairee_negative, d.fairee_no_rating);
+
+  const donutOpts = (labels, data, colors, canvasId, key) => {
+    destroyChart(key);
+    charts[key] = new Chart(document.getElementById(canvasId), {
+      type: 'doughnut',
+      data: { labels, datasets: [{ data, backgroundColor: colors, borderWidth: 2 }] },
+      options: { responsive: true, maintainAspectRatio: false, cutout: '65%',
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } }
+      }
+    });
+  };
+
+  const labels = ['Positive', 'Neutral', 'Negative', 'No Rating'];
+  const colors = ['#059669', '#d97706', '#dc2626', '#94a3b8'];
+  donutOpts(labels,
+    [d.cust_positive, d.cust_neutral, d.cust_negative, d.cust_no_rating],
+    colors, 'chart-cust-reviews', 'cust-reviews');
+  donutOpts(labels,
+    [d.fairee_positive, d.fairee_neutral, d.fairee_negative, d.fairee_no_rating],
+    colors, 'chart-fairee-reviews', 'fairee-reviews');
+}
+
+async function loadRatings() {
+  ratingsLoaded = true;
+  await populateRatingsFilters();
+  await Promise.all([
+    loadRatingsSummary(),
+    loadRatingsTimeseries(),
+    loadRatingsDistribution(),
+    loadReviewsSentiment(),
+  ]);
+  document.getElementById('last-updated').textContent =
+    'Updated ' + new Date().toLocaleTimeString();
+}
+
+// ── Performance tab ───────────────────────────────────────────────────────────
+let perfLoaded = false;
+const pstateObj = { dateFrom: '', dateTo: '' };
 
 function applyPerfFilters() {
-  pState.dateFrom = document.getElementById('pf-date-from').value;
-  pState.dateTo   = document.getElementById('pf-date-to').value;
-  perfLoaded = true;
-  renderPerformance();
+  pstateObj.dateFrom = document.getElementById('pf-date-from').value;
+  pstateObj.dateTo   = document.getElementById('pf-date-to').value;
+  perfLoaded = false;
+  loadPerformance();
 }
 
 function resetPerfFilters() {
-  pState.dateFrom = '';
-  pState.dateTo   = '';
+  pstateObj.dateFrom = '';
+  pstateObj.dateTo   = '';
   document.getElementById('pf-date-from').value = '';
   document.getElementById('pf-date-to').value   = '';
-  perfLoaded = true;
-  renderPerformance();
+  perfLoaded = false;
+  loadPerformance();
 }
 
-function renderPerformance() {
-  let ltRows = (_cache.phLoadTimeDaily  || []).slice();
-  let lrRows = (_cache.phLoginRateDaily || []).slice();
+async function loadPerformance() {
+  perfLoaded = true;
+  const [ltText, lrText] = await Promise.all([
+    fetch('/static/data/ph_load_time_daily.csv').then(r => r.text()),
+    fetch('/static/data/ph_login_rate_daily.csv').then(r => r.text()),
+  ]);
+  let ltRows = parseCsv(ltText);
+  let lrRows = parseCsv(lrText);
 
-  if (pState.dateFrom) { ltRows = ltRows.filter(r => r.date >= pState.dateFrom); lrRows = lrRows.filter(r => r.date >= pState.dateFrom); }
-  if (pState.dateTo)   { ltRows = ltRows.filter(r => r.date <= pState.dateTo);   lrRows = lrRows.filter(r => r.date <= pState.dateTo); }
+  // Apply date range filter
+  if (pstateObj.dateFrom) ltRows = ltRows.filter(r => r.date >= pstateObj.dateFrom);
+  if (pstateObj.dateTo)   ltRows = ltRows.filter(r => r.date <= pstateObj.dateTo);
+  if (pstateObj.dateFrom) lrRows = lrRows.filter(r => r.date >= pstateObj.dateFrom);
+  if (pstateObj.dateTo)   lrRows = lrRows.filter(r => r.date <= pstateObj.dateTo);
 
   if (!ltRows.length || !lrRows.length) {
     ['pkpi-avg','pkpi-p50','pkpi-p90','pkpi-p95','pkpi-opens','pkpi-logins','pkpi-login-rate']
@@ -1835,23 +2086,28 @@ function renderPerformance() {
     return;
   }
 
+  // Weighted p50 across filtered days (more reliable than avg which has outliers)
   const totalCount = ltRows.reduce((s, r) => s + (+r.count || 0), 0);
-  const wavgP50    = Math.round(ltRows.reduce((s, r) => s + (+r.p50 || 0) * (+r.count || 0), 0) / (totalCount || 1));
-  const latest     = ltRows[ltRows.length - 1];
-  const p90Est     = Math.round(((+latest.p50 || 0) + (+latest.p95 || 0)) / 2);
-  document.getElementById('pkpi-avg').textContent = wavgP50 + ' ms';
-  document.getElementById('pkpi-p50').textContent = (+latest.p50 || 0) + ' ms';
-  document.getElementById('pkpi-p90').textContent = p90Est + ' ms';
-  document.getElementById('pkpi-p95').textContent = (+latest.p95 || 0) + ' ms';
+  const wavgP50 = Math.round(ltRows.reduce((s, r) => s + (+r.p50 || 0) * (+r.count || 0), 0) / (totalCount || 1));
+  // Latest day in range for KPI display
+  const latest = ltRows[ltRows.length - 1];
+  const p90Est = Math.round(((+latest.p50 || 0) + (+latest.p95 || 0)) / 2); // estimated P90
+  document.getElementById('pkpi-avg').textContent  = wavgP50 + ' ms';
+  document.getElementById('pkpi-p50').textContent  = (+latest.p50 || 0) + ' ms';
+  document.getElementById('pkpi-p90').textContent  = p90Est + ' ms';
+  document.getElementById('pkpi-p95').textContent  = (+latest.p95 || 0) + ' ms';
 
+  // Login KPIs — latest day in filtered range
   const latestLr = lrRows[lrRows.length - 1];
-  document.getElementById('pkpi-opens').textContent      = (+latestLr.users        || 0).toLocaleString();
+  document.getElementById('pkpi-opens').textContent      = (+latestLr.users || 0).toLocaleString();
   document.getElementById('pkpi-logins').textContent     = (+latestLr.logged_in_users || 0).toLocaleString();
-  document.getElementById('pkpi-login-rate').textContent = (+latestLr.login_rate_pct  || 0) + '%';
+  document.getElementById('pkpi-login-rate').textContent = (+latestLr.login_rate_pct || 0) + '%';
 
+  // Thin labels: for large date ranges show only every Nth label for readability
   const step = ltRows.length > 90 ? Math.ceil(ltRows.length / 60) : 1;
+  const xLabels = ltRows.map((r, i) => (i % step === 0) ? r.date : '');
 
-  // Chart 1: load time trend
+  // Chart 1: load time trend — p50 and p95 (daily)
   destroyChart('perf-trend');
   charts['perf-trend'] = new Chart(document.getElementById('chart-perf-trend'), {
     type: 'line',
@@ -1878,17 +2134,19 @@ function renderPerformance() {
     }
   });
 
-  // Chart 2: P50 vs P95 grouped bar (sampled)
+  // Chart 2: daily p50 vs p95 as grouped bar (sampled for readability)
   destroyChart('perf-dist');
   const sampleStep = ltRows.length > 60 ? Math.ceil(ltRows.length / 60) : 1;
-  const sampledLt  = ltRows.filter((_, i) => i % sampleStep === 0);
+  const sampledLt = ltRows.filter((_, i) => i % sampleStep === 0);
   charts['perf-dist'] = new Chart(document.getElementById('chart-perf-dist'), {
     type: 'bar',
     data: {
       labels: sampledLt.map(r => r.date),
       datasets: [
-        { label: 'P50 (ms)', data: sampledLt.map(r => +r.p50 || 0), backgroundColor: 'rgba(5,150,105,.75)', borderRadius: 2 },
-        { label: 'P95 (ms)', data: sampledLt.map(r => +r.p95 || 0), backgroundColor: 'rgba(220,38,38,.6)',  borderRadius: 2 },
+        { label: 'P50 (ms)', data: sampledLt.map(r => +r.p50 || 0),
+          backgroundColor: 'rgba(5,150,105,.75)', borderRadius: 2 },
+        { label: 'P95 (ms)', data: sampledLt.map(r => +r.p95 || 0),
+          backgroundColor: 'rgba(220,38,38,.6)', borderRadius: 2 },
       ]
     },
     options: { responsive: true, maintainAspectRatio: false,
@@ -1901,7 +2159,7 @@ function renderPerformance() {
     }
   });
 
-  // Chart 3: login rate over time
+  // Chart 3: login rate over time (daily)
   const lrStep = lrRows.length > 90 ? Math.ceil(lrRows.length / 60) : 1;
   destroyChart('login-rate');
   charts['login-rate'] = new Chart(document.getElementById('chart-login-rate'), {
@@ -1925,23 +2183,10 @@ function renderPerformance() {
       }
     }
   });
-}
 
-// ════════════════════════════════════════════════════════════════════════════
-// INIT
-// ════════════════════════════════════════════════════════════════════════════
-(async () => {
-  try {
-    await preloadAll();
-    renderFunnelTab();
-    loadSignupFunnel(30);
-  } catch (err) {
-    console.error('Failed to load data:', err);
-    document.querySelector('.main').insertAdjacentHTML('afterbegin',
-      `<div class="error-box">Failed to load data files: ${err.message}. Make sure all ./data/*.json and ./data/*.csv files exist.</div>`
-    );
-  }
-})();
+  document.getElementById('last-updated').textContent =
+    'Updated ' + new Date().toLocaleTimeString();
+}
 </script>
 </body>
 </html>

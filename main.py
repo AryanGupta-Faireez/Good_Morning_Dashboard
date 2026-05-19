@@ -1337,4 +1337,4 @@ app.mount("/static", StaticFiles(directory=str(HERE / "static")), name="static")
 
 @app.get("/")
 def index():
-    return FileResponse(str(HERE / "static" / "index.html"))
+    return FileResponse(str(HERE / "static" / "index_backend.html"))
