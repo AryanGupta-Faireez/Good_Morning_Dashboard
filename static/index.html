@@ -2236,9 +2236,15 @@ function renderPerformance() {
     data: {
       labels: ltRows.map(r => r.date),
       datasets: [
+        { label: 'P25', data: ltRows.map(r => +r.p25 || 0),
+          borderColor: '#60a5fa', backgroundColor: 'transparent',
+          tension: .3, pointRadius: 0, borderWidth: 1.5, borderDash: [2,3] },
         { label: 'P50 (median)', data: ltRows.map(r => +r.p50 || 0),
           borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.08)',
           fill: true, tension: .3, pointRadius: 0, borderWidth: 2 },
+        { label: 'P75', data: ltRows.map(r => +r.p75 || 0),
+          borderColor: '#f59e0b', backgroundColor: 'transparent',
+          tension: .3, pointRadius: 0, borderWidth: 1.5, borderDash: [2,3] },
         { label: 'P95', data: ltRows.map(r => +r.p95 || 0),
           borderColor: '#dc2626', backgroundColor: 'transparent',
           tension: .3, pointRadius: 0, borderWidth: 1.5, borderDash: [4,3] },

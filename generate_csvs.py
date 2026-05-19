@@ -1079,10 +1079,12 @@ def generate_posthog():
     rows = _ph_query("""
         SELECT
             toDate(timestamp)                                               AS date,
-            round(avg(toFloatOrDefault(toString(properties.value))))        AS avg_ms,
+            round(avg(toFloatOrDefault(toString(properties.value))))            AS avg_ms,
+            round(quantile(0.25)(toFloatOrDefault(toString(properties.value)))) AS p25,
             round(quantile(0.50)(toFloatOrDefault(toString(properties.value)))) AS p50,
+            round(quantile(0.75)(toFloatOrDefault(toString(properties.value)))) AS p75,
             round(quantile(0.95)(toFloatOrDefault(toString(properties.value)))) AS p95,
-            count()                                                         AS count
+            count()                                                             AS count
         FROM events
         WHERE event = 'performance'
           AND toFloatOrDefault(toString(properties.value)) > 0
