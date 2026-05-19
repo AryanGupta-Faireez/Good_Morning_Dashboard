@@ -151,6 +151,23 @@
         <label>Account Created To</label>
         <input type="date" id="f-date-to" />
       </div>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="f-project"><option value="">All Projects</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="f-neighbourhood"><option value="">All Neighbourhoods</option></select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="f-sub-type">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring</option>
+          <option value="ondemand">On-Demand</option>
+          <option value="non_sub">Non-Subscriber</option>
+        </select>
+      </div>
       <button class="btn-reset" onclick="applyFunnelFilters()">Apply</button>
       <button class="btn-reset" style="background:#e5e7eb;color:var(--text)" onclick="resetFunnelFilters()">Reset</button>
     </div>
@@ -328,6 +345,23 @@
         <label>Visit Date To</label>
         <input type="date" id="vf-date-to" />
       </div>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="vf-project"><option value="">All Projects</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="vf-neighbourhood"><option value="">All Neighbourhoods</option></select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="vf-sub-type">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring</option>
+          <option value="ondemand">On-Demand</option>
+          <option value="non_sub">Non-Subscriber</option>
+        </select>
+      </div>
       <button class="btn-reset" onclick="applyVisitFilters()">Apply</button>
       <button class="btn-reset" style="background:#e5e7eb;color:var(--text)" onclick="resetVisitFilters()">Reset</button>
     </div>
@@ -457,6 +491,23 @@
         <label>Visit Date To</label>
         <input type="date" id="rf-date-to" />
       </div>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="rf-project"><option value="">All Projects</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="rf-neighbourhood"><option value="">All Neighbourhoods</option></select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="rf-sub-type">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring</option>
+          <option value="ondemand">On-Demand</option>
+          <option value="non_sub">Non-Subscriber</option>
+        </select>
+      </div>
       <button class="btn-primary" onclick="applyRatingsFilters()">Apply</button>
       <button class="btn-secondary" onclick="resetRatingsFilters()">Reset</button>
     </div>
@@ -541,6 +592,23 @@
       <div class="filter-group">
         <label>Event Date To</label>
         <input type="date" id="nsf-date-to" />
+      </div>
+      <div class="filter-group">
+        <label>Project</label>
+        <select id="nsf-project"><option value="">All Projects</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Neighbourhood</label>
+        <select id="nsf-neighbourhood"><option value="">All Neighbourhoods</option></select>
+      </div>
+      <div class="filter-group">
+        <label>User Type</label>
+        <select id="nsf-sub-type">
+          <option value="">All Types</option>
+          <option value="recurring">Recurring</option>
+          <option value="ondemand">On-Demand</option>
+          <option value="non_sub">Non-Subscriber</option>
+        </select>
       </div>
       <button class="btn-primary" onclick="applyNsFilters()">Apply</button>
       <button class="btn-secondary" onclick="resetNsFilters()">Reset</button>
@@ -782,6 +850,11 @@ async function preloadAll() {
     noslotsTimeseries,
     phReviewBooking, phSignupFunnel,
     phLoadTimeDaily, phLoginRateDaily,
+    filters,
+    funnelApts,
+    visitsMonthlyRaw, visitsChoresMonthlyRaw,
+    ratingsMonthlyRaw,
+    noslotsMonthlyRaw,
   ] = await Promise.all([
     fetchJson('./data/funnel_summary.json'),
     fetchJson('./data/funnel_residents.json'),
@@ -812,6 +885,12 @@ async function preloadAll() {
     fetchCsv('./data/ph_signup_funnel.csv'),
     fetchCsv('./data/ph_load_time_daily.csv'),
     fetchCsv('./data/ph_login_rate_daily.csv'),
+    fetchJson('./data/filters.json'),
+    fetchCsv('./data/funnel_apts.csv'),
+    fetchCsv('./data/visits_monthly_raw.csv'),
+    fetchCsv('./data/visits_chores_monthly_raw.csv'),
+    fetchCsv('./data/ratings_monthly_raw.csv'),
+    fetchCsv('./data/noslots_monthly_raw.csv'),
   ]);
 
   // Show refresh timestamp in header
@@ -835,6 +914,11 @@ async function preloadAll() {
     noslotsTimeseries,
     phReviewBooking, phSignupFunnel,
     phLoadTimeDaily, phLoginRateDaily,
+    filters,
+    funnelApts,
+    visitsMonthlyRaw, visitsChoresMonthlyRaw,
+    ratingsMonthlyRaw,
+    noslotsMonthlyRaw,
   });
 }
 
@@ -856,57 +940,149 @@ function switchTab(tab) {
   if (tab === 'performance' && !perfLoaded)    { perfLoaded = true;    renderPerformance(); }
 }
 
+// ── Dropdown population ───────────────────────────────────────────────────────
+function populateDropdowns() {
+  const { filters } = _cache;
+  if (!filters) return;
+  const tabPrefixes = ['f', 'vf', 'rf', 'nsf'];
+  tabPrefixes.forEach(pfx => {
+    const pSel = document.getElementById(pfx + '-project');
+    const nSel = document.getElementById(pfx + '-neighbourhood');
+    if (pSel) filters.projects.forEach(p => pSel.add(new Option(p, p)));
+    if (nSel) filters.neighbourhoods.forEach(n => nSel.add(new Option(n, n)));
+  });
+}
+
+// ── Sub-type helper ───────────────────────────────────────────────────────────
+function matchSubType(aptStatus, subType) {
+  if (!subType) return true;
+  if (subType === 'recurring') return aptStatus === 'RECURRING_SUBSCRIPTION';
+  if (subType === 'ondemand')  return aptStatus === 'ON_DEMAND_SUBSCRIPTION';
+  if (subType === 'non_sub')   return aptStatus !== 'RECURRING_SUBSCRIPTION' && aptStatus !== 'ON_DEMAND_SUBSCRIPTION';
+  return true;
+}
+
 // ════════════════════════════════════════════════════════════════════════════
 // TAB 1: FUNNEL
 // ════════════════════════════════════════════════════════════════════════════
-const fState = { dateFrom: '', dateTo: '' };
+const fState = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
 
 function applyFunnelFilters() {
-  fState.dateFrom = document.getElementById('f-date-from').value;
-  fState.dateTo   = document.getElementById('f-date-to').value;
+  fState.dateFrom    = document.getElementById('f-date-from').value;
+  fState.dateTo      = document.getElementById('f-date-to').value;
+  fState.project     = document.getElementById('f-project').value;
+  fState.neighbourhood = document.getElementById('f-neighbourhood').value;
+  fState.subType     = document.getElementById('f-sub-type').value;
   renderFunnelTab();
 }
 
 function resetFunnelFilters() {
-  document.getElementById('f-date-from').value = '';
-  document.getElementById('f-date-to').value   = '';
-  fState.dateFrom = '';
-  fState.dateTo   = '';
+  document.getElementById('f-date-from').value    = '';
+  document.getElementById('f-date-to').value      = '';
+  document.getElementById('f-project').value      = '';
+  document.getElementById('f-neighbourhood').value = '';
+  document.getElementById('f-sub-type').value     = '';
+  fState.dateFrom    = '';
+  fState.dateTo      = '';
+  fState.project     = '';
+  fState.neighbourhood = '';
+  fState.subType     = '';
   renderFunnelTab();
 }
 
 function renderFunnelTab() {
-  const summary   = _cache.funnelSummary;
   const residents = _cache.funnelResidents;
   const reviewRows = _cache.phReviewBooking || [];
+  const mFrom = fState.dateFrom ? fState.dateFrom.slice(0, 7) : '';
+  const mTo   = fState.dateTo   ? fState.dateTo.slice(0, 7)   : '';
 
-  // KPI cards — always global snapshot
+  // Check if any dimensional filter is active
+  const hasDimFilter = fState.project || fState.neighbourhood || fState.subType || fState.dateFrom || fState.dateTo;
+
+  let leads, registered, subscribers, recurring, ondemand, nonSub, tsRows;
+
+  if (hasDimFilter && _cache.funnelApts && _cache.funnelApts.length) {
+    // Client-side aggregation from raw data
+    const filtered = _cache.funnelApts.filter(r => {
+      if (mFrom && (r.cohort_month || '') < mFrom) return false;
+      if (mTo   && (r.cohort_month || '') > mTo)   return false;
+      if (fState.project      && r.project !== fState.project) return false;
+      if (fState.neighbourhood && r.neighbourhood !== fState.neighbourhood) return false;
+      if (!matchSubType(r.apt_status, fState.subType)) return false;
+      return true;
+    });
+
+    // KPI totals using Sets to deduplicate apt_id
+    leads      = new Set(filtered.map(r => r.apt_id)).size;
+    registered = new Set(filtered.filter(r => r.is_registered === 'true').map(r => r.apt_id)).size;
+    subscribers= new Set(filtered.filter(r => r.is_subscriber === 'true').map(r => r.apt_id)).size;
+    recurring  = new Set(filtered.filter(r => r.is_recurring  === 'true').map(r => r.apt_id)).size;
+    ondemand   = new Set(filtered.filter(r => r.is_ondemand   === 'true').map(r => r.apt_id)).size;
+    nonSub     = leads - subscribers;
+
+    // Timeseries by cohort_month
+    const byMonth = {};
+    filtered.forEach(r => {
+      const m = r.cohort_month || 'Unknown';
+      if (!byMonth[m]) byMonth[m] = { leads: new Set(), registered: new Set(), subscribers: new Set() };
+      byMonth[m].leads.add(r.apt_id);
+      if (r.is_registered === 'true') byMonth[m].registered.add(r.apt_id);
+      if (r.is_subscriber === 'true') byMonth[m].subscribers.add(r.apt_id);
+    });
+    const months = Object.keys(byMonth).sort();
+    tsRows = months.map(m => ({
+      cohort_month:    m,
+      leads:           byMonth[m].leads.size,
+      registered_leads:byMonth[m].registered.size,
+      subscribers:     byMonth[m].subscribers.size,
+    }));
+
+    // Filtered KPI display (no churn/waitlist/MRR in raw)
+    document.getElementById('kpi-churn').textContent    = '—';
+    document.getElementById('kpi-waitlist').textContent = '—';
+    document.getElementById('kpi-mrr').textContent      = '—';
+  } else {
+    // Global snapshot from pre-aggregated JSON
+    const summary = _cache.funnelSummary;
+    leads      = summary.leads;
+    registered = summary.registered_leads;
+    subscribers= summary.subscribers;
+    recurring  = summary.recurring;
+    ondemand   = summary.on_demand;
+    nonSub     = summary.non_subscribers;
+
+    document.getElementById('kpi-churn').textContent    = fmt(summary.churn);
+    document.getElementById('kpi-waitlist').textContent = fmt(summary.waitlist);
+    const mrr = summary.mrr;
+    document.getElementById('kpi-mrr').textContent =
+      mrr != null ? '$' + Number(mrr).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}) : '—';
+
+    tsRows = filterByMonth(_cache.funnelTimeseries, 'cohort_month', mFrom, mTo);
+  }
+
+  // KPI cards
   document.getElementById('kpi-residents').textContent   = fmt(residents.estimated_residents);
-  document.getElementById('kpi-leads').textContent       = fmt(summary.leads);
-  document.getElementById('kpi-registered').textContent  = fmt(summary.registered_leads);
-  document.getElementById('kpi-registered-pct').textContent = pct(summary.registered_leads, summary.leads) + ' of leads';
-  document.getElementById('kpi-subscribers').textContent = fmt(summary.subscribers);
-  document.getElementById('kpi-subscribers-pct').textContent = pct(summary.subscribers, summary.leads) + ' of leads';
-  document.getElementById('kpi-recurring').textContent   = fmt(summary.recurring);
-  document.getElementById('kpi-ondemand').textContent    = fmt(summary.on_demand);
-  document.getElementById('kpi-non-sub').textContent     = fmt(summary.non_subscribers);
-  document.getElementById('kpi-churn').textContent       = fmt(summary.churn);
-  document.getElementById('kpi-waitlist').textContent    = fmt(summary.waitlist);
-  const mrr = summary.mrr;
-  document.getElementById('kpi-mrr').textContent =
-    mrr != null ? '$' + Number(mrr).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}) : '—';
+  document.getElementById('kpi-leads').textContent       = fmt(leads);
+  document.getElementById('kpi-registered').textContent  = fmt(registered);
+  document.getElementById('kpi-registered-pct').textContent = pct(registered, leads) + ' of leads';
+  document.getElementById('kpi-subscribers').textContent = fmt(subscribers);
+  document.getElementById('kpi-subscribers-pct').textContent = pct(subscribers, leads) + ' of leads';
+  document.getElementById('kpi-recurring').textContent   = fmt(recurring);
+  document.getElementById('kpi-ondemand').textContent    = fmt(ondemand);
+  document.getElementById('kpi-non-sub').textContent     = fmt(nonSub);
 
-  // Review total (all time — not filtered)
+  // Review total (all time — not filtered by dimension)
   const reviewTotal = reviewRows.reduce((s, r) => s + (r.unique_users || 0), 0);
   document.getElementById('kpi-review').textContent = fmt(reviewTotal);
 
-  // Funnel viz
-  renderFunnelViz(summary, reviewTotal);
+  // Funnel viz using computed values
+  const vizSummary = { leads, registered_leads: registered, subscribers, recurring, on_demand: ondemand };
+  renderFunnelViz(vizSummary, reviewTotal);
 
-  // Subscriber split donut (global)
-  renderSubSplit(summary);
+  // Subscriber split donut
+  renderSubSplit({ recurring, on_demand: ondemand, non_subscribers: nonSub });
 
-  // Static charts (not date-filtered)
+  // Static charts (global data — not affected by dimensional filters)
   renderMrrHistogram();
   renderAdhocHistogram();
   renderCumulativeSubscribers();
@@ -914,12 +1090,9 @@ function renderFunnelTab() {
   renderConversionSourceFirst();
   renderBreakdownTable();
 
-  // Date-filtered timeseries charts
-  const mFrom = fState.dateFrom ? fState.dateFrom.slice(0, 7) : '';
-  const mTo   = fState.dateTo   ? fState.dateTo.slice(0, 7)   : '';
-  const filteredTS     = filterByMonth(_cache.funnelTimeseries, 'cohort_month', mFrom, mTo);
+  // Timeseries + review views
   const filteredReview = filterByMonth(reviewRows, 'month', mFrom, mTo);
-  renderFunnelTimeseries(filteredTS);
+  renderFunnelTimeseries(tsRows);
   renderReviewViews(filteredReview);
 }
 
@@ -1245,20 +1418,29 @@ function loadSignupFunnel(days = 30) {
 // ════════════════════════════════════════════════════════════════════════════
 // TAB 2: VISITS
 // ════════════════════════════════════════════════════════════════════════════
-const vState = { dateFrom: '', dateTo: '' };
+const vState = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
 
 function applyVisitFilters() {
-  vState.dateFrom = document.getElementById('vf-date-from').value;
-  vState.dateTo   = document.getElementById('vf-date-to').value;
+  vState.dateFrom      = document.getElementById('vf-date-from').value;
+  vState.dateTo        = document.getElementById('vf-date-to').value;
+  vState.project       = document.getElementById('vf-project').value;
+  vState.neighbourhood = document.getElementById('vf-neighbourhood').value;
+  vState.subType       = document.getElementById('vf-sub-type').value;
   visitsLoaded = true;
   renderVisits();
 }
 
 function resetVisitFilters() {
-  document.getElementById('vf-date-from').value = '';
-  document.getElementById('vf-date-to').value   = '';
-  vState.dateFrom = '';
-  vState.dateTo   = '';
+  document.getElementById('vf-date-from').value    = '';
+  document.getElementById('vf-date-to').value      = '';
+  document.getElementById('vf-project').value      = '';
+  document.getElementById('vf-neighbourhood').value = '';
+  document.getElementById('vf-sub-type').value     = '';
+  vState.dateFrom      = '';
+  vState.dateTo        = '';
+  vState.project       = '';
+  vState.neighbourhood = '';
+  vState.subType       = '';
   visitsLoaded = true;
   renderVisits();
 }
@@ -1271,46 +1453,141 @@ const CANCEL_COLORS = {
 function renderVisits() {
   const mFrom = vState.dateFrom ? vState.dateFrom.slice(0, 7) : '';
   const mTo   = vState.dateTo   ? vState.dateTo.slice(0, 7)   : '';
-
-  // KPI cards — global snapshots
-  const vs = _cache.visitsSummary;
-  document.getElementById('vkpi-done').textContent     = fmt(vs.finished_completed);
-  document.getElementById('vkpi-done-sub').textContent = `${fmt(vs.finished)} fin · ${fmt(vs.completed)} comp`;
-  document.getElementById('vkpi-pending').textContent  = fmt(vs.pending);
-  document.getElementById('vkpi-cancelled').textContent= fmt(vs.cancelled);
-  const rev = vs.net_revenue;
-  document.getElementById('vkpi-chore-rev').textContent =
-    rev != null ? '$' + Number(rev).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}) : '—';
-
-  const cs = _cache.visitsChoresSummary;
-  document.getElementById('vkpi-chores').textContent = fmt(cs.chore_count);
+  const hasDimFilter = vState.project || vState.neighbourhood || vState.subType || vState.dateFrom || vState.dateTo;
 
   const lmd = _cache.visitsLastMinute;
   const lmdTotal = (lmd.by_type || []).reduce((s, r) => s + (r.visit_count || 0), 0);
-  document.getElementById('vkpi-lmd').textContent = fmt(lmdTotal);
-
   const bbs = _cache.visitsBookingsBySource;
-  const appRow   = (bbs.summary || []).find(r => r.booked_by === 'App');
-  const adminRow = (bbs.summary || []).find(r => r.booked_by === 'Admin');
-  document.getElementById('vkpi-app-booked').textContent   = fmt(appRow   ? appRow.count   : 0);
-  document.getElementById('vkpi-admin-booked').textContent = fmt(adminRow ? adminRow.count : 0);
 
-  // Static charts (no date filter)
+  if (hasDimFilter && _cache.visitsMonthlyRaw && _cache.visitsMonthlyRaw.length) {
+    // Client-side aggregation from raw dimensional data
+    const filteredRaw = _cache.visitsMonthlyRaw.filter(r => {
+      if (mFrom && (r.visit_month || '') < mFrom) return false;
+      if (mTo   && (r.visit_month || '') > mTo)   return false;
+      if (vState.project      && r.project !== vState.project) return false;
+      if (vState.neighbourhood && r.neighbourhood !== vState.neighbourhood) return false;
+      if (!matchSubType(r.apt_status, vState.subType)) return false;
+      return true;
+    });
+
+    const totals = filteredRaw.reduce((acc, r) => ({
+      finished_completed: acc.finished_completed + (+r.finished_completed || 0),
+      finished:           acc.finished           + (+r.finished           || 0),
+      completed:          acc.completed          + (+r.completed          || 0),
+      pending:            acc.pending            + (+r.pending            || 0),
+      cancelled:          acc.cancelled          + (+r.cancelled          || 0),
+      net_revenue:        acc.net_revenue        + (+r.net_revenue        || 0),
+    }), { finished_completed:0, finished:0, completed:0, pending:0, cancelled:0, net_revenue:0 });
+
+    document.getElementById('vkpi-done').textContent     = fmt(totals.finished_completed);
+    document.getElementById('vkpi-done-sub').textContent = `${fmt(totals.finished)} fin · ${fmt(totals.completed)} comp`;
+    document.getElementById('vkpi-pending').textContent  = fmt(totals.pending);
+    document.getElementById('vkpi-cancelled').textContent= fmt(totals.cancelled);
+    document.getElementById('vkpi-chore-rev').textContent =
+      '$' + Math.round(totals.net_revenue).toLocaleString();
+    document.getElementById('vkpi-lmd').textContent      = '—';
+    document.getElementById('vkpi-chores').textContent   = '—';
+    document.getElementById('vkpi-app-booked').textContent   = '—';
+    document.getElementById('vkpi-admin-booked').textContent = '—';
+
+    // Timeseries by visit_month (group & sum)
+    const byMonth = {};
+    filteredRaw.forEach(r => {
+      const m = r.visit_month;
+      if (!byMonth[m]) byMonth[m] = { finished_completed:0, finished:0, pending:0, cancelled:0, revenue:0, dur_sum:0, dur_count:0 };
+      byMonth[m].finished_completed += +r.finished_completed || 0;
+      byMonth[m].finished           += +r.finished           || 0;
+      byMonth[m].pending            += +r.pending            || 0;
+      byMonth[m].cancelled          += +r.cancelled          || 0;
+      byMonth[m].revenue            += +r.net_revenue        || 0;
+      if (+r.avg_duration_mins > 0) {
+        byMonth[m].dur_sum   += (+r.avg_duration_mins) * (+r.finished_completed || 0);
+        byMonth[m].dur_count += +r.finished_completed || 0;
+      }
+    });
+    const visitMonths = Object.keys(byMonth).sort();
+    const visitTS = visitMonths.map(m => {
+      const g = byMonth[m];
+      const total_noncancel = g.finished_completed + g.cancelled;
+      return {
+        visit_month:        m,
+        finished_completed: g.finished_completed,
+        pending:            g.pending,
+        cancelled:          g.cancelled,
+        finished_pct:       total_noncancel > 0 ? +(g.finished_completed / total_noncancel * 100).toFixed(1) : 0,
+        avg_duration_mins:  g.dur_count > 0 ? Math.round(g.dur_sum / g.dur_count) : 0,
+      };
+    });
+
+    // Chores timeseries from chores raw
+    const filteredChoresRaw = (_cache.visitsChoresMonthlyRaw || []).filter(r => {
+      if (mFrom && (r.visit_month || '') < mFrom) return false;
+      if (mTo   && (r.visit_month || '') > mTo)   return false;
+      if (vState.project      && r.project !== vState.project) return false;
+      if (vState.neighbourhood && r.neighbourhood !== vState.neighbourhood) return false;
+      if (!matchSubType(r.apt_status, vState.subType)) return false;
+      return true;
+    });
+    const choresByMonth = {};
+    filteredChoresRaw.forEach(r => {
+      const m = r.visit_month;
+      if (!choresByMonth[m]) choresByMonth[m] = { task_sum:0, visit_sum:0, price_sum:0, price_count:0 };
+      choresByMonth[m].task_sum    += +r.chore_count    || 0;
+      choresByMonth[m].visit_sum   += 0; // visits counted in main raw
+      choresByMonth[m].price_sum   += (+r.avg_visit_price || 0) * (+r.chore_count || 1);
+      choresByMonth[m].price_count += +r.chore_count || 0;
+    });
+    // Build chores timeseries aligned to same months as visits
+    const choresTS = visitMonths.map(m => {
+      const cv = byMonth[m];
+      const cc = choresByMonth[m] || { task_sum:0, price_sum:0, price_count:0 };
+      return {
+        visit_month:       m,
+        avg_tasks_per_visit: cv.finished_completed > 0 ? +(cc.task_sum / cv.finished_completed).toFixed(2) : 0,
+        avg_visit_price:   cc.price_count > 0 ? +(cc.price_sum / cc.price_count).toFixed(2) : 0,
+      };
+    });
+
+    renderVisitsTrends(visitTS);
+    renderChoresChart(choresTS);
+    renderBookingsBySource([]); // no dimension breakdown for bookings by source
+    renderCancellations(_cache.visitsCancellations.by_category || [], [], []);
+  } else {
+    // Global snapshot from pre-aggregated data
+    const vs = _cache.visitsSummary;
+    document.getElementById('vkpi-done').textContent     = fmt(vs.finished_completed);
+    document.getElementById('vkpi-done-sub').textContent = `${fmt(vs.finished)} fin · ${fmt(vs.completed)} comp`;
+    document.getElementById('vkpi-pending').textContent  = fmt(vs.pending);
+    document.getElementById('vkpi-cancelled').textContent= fmt(vs.cancelled);
+    const rev = vs.net_revenue;
+    document.getElementById('vkpi-chore-rev').textContent =
+      rev != null ? '$' + Number(rev).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}) : '—';
+
+    const cs = _cache.visitsChoresSummary;
+    document.getElementById('vkpi-chores').textContent = fmt(cs.chore_count);
+    document.getElementById('vkpi-lmd').textContent    = fmt(lmdTotal);
+
+    const appRow   = (bbs.summary || []).find(r => r.booked_by === 'App');
+    const adminRow = (bbs.summary || []).find(r => r.booked_by === 'Admin');
+    document.getElementById('vkpi-app-booked').textContent   = fmt(appRow   ? appRow.count   : 0);
+    document.getElementById('vkpi-admin-booked').textContent = fmt(adminRow ? adminRow.count : 0);
+
+    const visitTS   = filterByMonth(_cache.visitsTimeseries,       'visit_month', mFrom, mTo);
+    const choresTS  = filterByMonth(_cache.visitsChoresTimeseries,  'visit_month', mFrom, mTo);
+    const cancelTS  = filterByMonth(_cache.visitsCancellations.timeseries    || [], 'visit_month', mFrom, mTo);
+    const cancelSTS = filterByMonth(_cache.visitsCancellations.by_source_ts  || [], 'visit_month', mFrom, mTo);
+    const bookingTS = filterByMonth(bbs.timeseries || [], 'visit_month', mFrom, mTo);
+
+    renderVisitsTrends(visitTS);
+    renderChoresChart(choresTS);
+    renderBookingsBySource(bookingTS);
+    renderCancellations(_cache.visitsCancellations.by_category || [], cancelTS, cancelSTS);
+  }
+
+  // Static charts (global data — not affected by dimensional filters)
   renderDurationHistogram();
   renderLmdType(lmd.by_type || []);
   renderTaskDistribution();
-
-  // Date-filtered timeseries
-  const visitTS    = filterByMonth(_cache.visitsTimeseries,      'visit_month', mFrom, mTo);
-  const choresTS   = filterByMonth(_cache.visitsChoresTimeseries,'visit_month', mFrom, mTo);
-  const cancelTS   = filterByMonth(_cache.visitsCancellations.timeseries   || [], 'visit_month', mFrom, mTo);
-  const cancelSTS  = filterByMonth(_cache.visitsCancellations.by_source_ts || [], 'visit_month', mFrom, mTo);
-  const bookingTS  = filterByMonth(bbs.timeseries || [], 'visit_month', mFrom, mTo);
-
-  renderVisitsTrends(visitTS);
-  renderChoresChart(choresTS);
-  renderBookingsBySource(bookingTS);
-  renderCancellations(_cache.visitsCancellations.by_category || [], cancelTS, cancelSTS);
 }
 
 function renderDurationHistogram() {
@@ -1545,42 +1822,91 @@ function renderCancellations(byCategory, ts, sts) {
 // ════════════════════════════════════════════════════════════════════════════
 // TAB 3: RATINGS
 // ════════════════════════════════════════════════════════════════════════════
-const rState = { dateFrom: '', dateTo: '' };
+const rState = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
 
 function applyRatingsFilters() {
-  rState.dateFrom = document.getElementById('rf-date-from').value;
-  rState.dateTo   = document.getElementById('rf-date-to').value;
+  rState.dateFrom      = document.getElementById('rf-date-from').value;
+  rState.dateTo        = document.getElementById('rf-date-to').value;
+  rState.project       = document.getElementById('rf-project').value;
+  rState.neighbourhood = document.getElementById('rf-neighbourhood').value;
+  rState.subType       = document.getElementById('rf-sub-type').value;
   ratingsLoaded = true;
   renderRatings();
 }
 
 function resetRatingsFilters() {
-  document.getElementById('rf-date-from').value = '';
-  document.getElementById('rf-date-to').value   = '';
-  rState.dateFrom = '';
-  rState.dateTo   = '';
+  document.getElementById('rf-date-from').value    = '';
+  document.getElementById('rf-date-to').value      = '';
+  document.getElementById('rf-project').value      = '';
+  document.getElementById('rf-neighbourhood').value = '';
+  document.getElementById('rf-sub-type').value     = '';
+  rState.dateFrom      = '';
+  rState.dateTo        = '';
+  rState.project       = '';
+  rState.neighbourhood = '';
+  rState.subType       = '';
   ratingsLoaded = true;
   renderRatings();
 }
 
 function renderRatings() {
-  // KPI cards — global snapshot
-  const d = _cache.ratingsSummary;
-  document.getElementById('rkpi-visit').textContent     = fmtStar(d.avg_visit_rating);
-  document.getElementById('rkpi-visit-sub').textContent = `${fmt(d.visit_rating_count)} ratings`;
-  document.getElementById('rkpi-app').textContent       = fmtStar(d.avg_app_rating);
-  document.getElementById('rkpi-app-sub').textContent   = `${fmt(d.app_rating_count)} ratings`;
-  document.getElementById('rkpi-total').textContent     = fmt(d.total_reviews);
+  const mFrom = rState.dateFrom ? rState.dateFrom.slice(0, 7) : '';
+  const mTo   = rState.dateTo   ? rState.dateTo.slice(0, 7)   : '';
+  const hasDimFilter = rState.project || rState.neighbourhood || rState.subType || rState.dateFrom || rState.dateTo;
 
-  // Static charts
+  // Static charts (global data — not filtered by dimension)
   renderRatingsDistribution();
   renderReviewsSentiment();
 
-  // Date-filtered timeseries
-  const mFrom = rState.dateFrom ? rState.dateFrom.slice(0, 7) : '';
-  const mTo   = rState.dateTo   ? rState.dateTo.slice(0, 7)   : '';
-  const filtered = filterByMonth(_cache.ratingsTimeseries, 'month', mFrom, mTo);
-  renderRatingsTimeseries(filtered);
+  if (hasDimFilter && _cache.ratingsMonthlyRaw && _cache.ratingsMonthlyRaw.length) {
+    // Client-side aggregation from raw dimensional data
+    const filteredRaw = _cache.ratingsMonthlyRaw.filter(r => {
+      if (mFrom && (r.review_month || '') < mFrom) return false;
+      if (mTo   && (r.review_month || '') > mTo)   return false;
+      if (rState.project      && r.project !== rState.project) return false;
+      if (rState.neighbourhood && r.neighbourhood !== rState.neighbourhood) return false;
+      if (!matchSubType(r.apt_status, rState.subType)) return false;
+      return true;
+    });
+
+    const totalCount   = filteredRaw.reduce((s, r) => s + (+r.count || 0), 0);
+    const ratingWsum   = filteredRaw.reduce((s, r) => s + (+r.avg_rating || 0) * (+r.count || 0), 0);
+    const avgRating    = totalCount > 0 ? (ratingWsum / totalCount).toFixed(2) : null;
+
+    document.getElementById('rkpi-visit').textContent     = avgRating ? avgRating + ' ★' : '—';
+    document.getElementById('rkpi-visit-sub').textContent = `${fmt(totalCount)} ratings`;
+    document.getElementById('rkpi-app').textContent       = '—';
+    document.getElementById('rkpi-app-sub').textContent   = 'Fairee rating (global only)';
+    document.getElementById('rkpi-total').textContent     = fmt(totalCount);
+
+    // Timeseries by review_month
+    const byMonth = {};
+    filteredRaw.forEach(r => {
+      const m = r.review_month;
+      if (!byMonth[m]) byMonth[m] = { count: 0, rating_sum: 0 };
+      byMonth[m].count      += +r.count || 0;
+      byMonth[m].rating_sum += (+r.avg_rating || 0) * (+r.count || 0);
+    });
+    const ratingMonths = Object.keys(byMonth).sort();
+    const tsRows = ratingMonths.map(m => ({
+      month:            m,
+      review_count:     byMonth[m].count,
+      avg_visit_rating: byMonth[m].count > 0 ? +(byMonth[m].rating_sum / byMonth[m].count).toFixed(2) : null,
+      avg_app_rating:   null,
+    }));
+    renderRatingsTimeseries(tsRows);
+  } else {
+    // Global snapshot
+    const d = _cache.ratingsSummary;
+    document.getElementById('rkpi-visit').textContent     = fmtStar(d.avg_visit_rating);
+    document.getElementById('rkpi-visit-sub').textContent = `${fmt(d.visit_rating_count)} ratings`;
+    document.getElementById('rkpi-app').textContent       = fmtStar(d.avg_app_rating);
+    document.getElementById('rkpi-app-sub').textContent   = `${fmt(d.app_rating_count)} ratings`;
+    document.getElementById('rkpi-total').textContent     = fmt(d.total_reviews);
+
+    const filtered = filterByMonth(_cache.ratingsTimeseries, 'month', mFrom, mTo);
+    renderRatingsTimeseries(filtered);
+  }
 }
 
 function renderRatingsTimeseries(rows) {
@@ -1676,47 +2002,98 @@ function renderReviewsSentiment() {
 // ════════════════════════════════════════════════════════════════════════════
 // TAB 4: NO SLOTS
 // ════════════════════════════════════════════════════════════════════════════
-const nsState = { dateFrom: '', dateTo: '' };
+const nsState = { dateFrom: '', dateTo: '', project: '', neighbourhood: '', subType: '' };
 
 function applyNsFilters() {
-  nsState.dateFrom = document.getElementById('nsf-date-from').value;
-  nsState.dateTo   = document.getElementById('nsf-date-to').value;
+  nsState.dateFrom      = document.getElementById('nsf-date-from').value;
+  nsState.dateTo        = document.getElementById('nsf-date-to').value;
+  nsState.project       = document.getElementById('nsf-project').value;
+  nsState.neighbourhood = document.getElementById('nsf-neighbourhood').value;
+  nsState.subType       = document.getElementById('nsf-sub-type').value;
   nsslotsLoaded = true;
   renderNoSlots();
 }
 
 function resetNsFilters() {
-  document.getElementById('nsf-date-from').value = '';
-  document.getElementById('nsf-date-to').value   = '';
-  nsState.dateFrom = '';
-  nsState.dateTo   = '';
+  document.getElementById('nsf-date-from').value    = '';
+  document.getElementById('nsf-date-to').value      = '';
+  document.getElementById('nsf-project').value      = '';
+  document.getElementById('nsf-neighbourhood').value = '';
+  document.getElementById('nsf-sub-type').value     = '';
+  nsState.dateFrom      = '';
+  nsState.dateTo        = '';
+  nsState.project       = '';
+  nsState.neighbourhood = '';
+  nsState.subType       = '';
   nsslotsLoaded = true;
   renderNoSlots();
 }
 
 function renderNoSlots() {
-  // KPI cards — global snapshots
-  const d  = _cache.noslotsSummary;
-  const inc = _cache.noslotsIncidents;
-  document.getElementById('nskpi-inc-sub').textContent     = fmt(inc.summary.sub_incidents);
-  document.getElementById('nskpi-inc-onetime').textContent = fmt(inc.summary.onetime_incidents);
-  document.getElementById('nskpi-sub').textContent         = fmt(d.subscription_apt_days);
-  document.getElementById('nskpi-onetime').textContent     = fmt(d.onetime_apt_days);
-  document.getElementById('nskpi-duration-sub').textContent     = d.avg_time_sub_mins    ? d.avg_time_sub_mins    + ' min' : '—';
-  document.getElementById('nskpi-duration-onetime').textContent = d.avg_time_onetime_mins ? d.avg_time_onetime_mins + ' min' : '—';
-  document.getElementById('nskpi-success').textContent =
-    d.success_rate_pct != null ? d.success_rate_pct + '%' : '—';
-  document.getElementById('nskpi-success-sub').textContent =
-    `${fmt(d.found_slot_count)} of ${fmt(d.total_apt_days)} apt-days`;
-
-  // Date-filtered timeseries
   const mFrom = nsState.dateFrom ? nsState.dateFrom.slice(0, 7) : '';
   const mTo   = nsState.dateTo   ? nsState.dateTo.slice(0, 7)   : '';
-  const filteredNS  = filterByMonth(_cache.noslotsTimeseries, 'month', mFrom, mTo);
-  const filteredInc = filterByMonth(inc.timeseries || [], 'month', mFrom, mTo);
+  const hasDimFilter = nsState.project || nsState.neighbourhood || nsState.subType || nsState.dateFrom || nsState.dateTo;
+  const inc = _cache.noslotsIncidents;
 
-  renderNsTimeseries(filteredNS);
-  renderNsIncidents(filteredInc);
+  if (hasDimFilter && _cache.noslotsMonthlyRaw && _cache.noslotsMonthlyRaw.length) {
+    // Client-side aggregation from raw dimensional data
+    const filteredRaw = _cache.noslotsMonthlyRaw.filter(r => {
+      if (mFrom && (r.ns_month || '') < mFrom) return false;
+      if (mTo   && (r.ns_month || '') > mTo)   return false;
+      if (nsState.project      && r.project !== nsState.project) return false;
+      if (nsState.neighbourhood && r.neighbourhood !== nsState.neighbourhood) return false;
+      if (!matchSubType(r.apt_status, nsState.subType)) return false;
+      return true;
+    });
+
+    const subTotal     = filteredRaw.filter(r => r.visit_type === 'Subscription').reduce((s, r) => s + (+r.count || 0), 0);
+    const onetimeTotal = filteredRaw.filter(r => r.visit_type === 'One-time').reduce((s, r) => s + (+r.count || 0), 0);
+
+    document.getElementById('nskpi-inc-sub').textContent     = fmt(subTotal);
+    document.getElementById('nskpi-inc-onetime').textContent = fmt(onetimeTotal);
+    document.getElementById('nskpi-sub').textContent         = '—';
+    document.getElementById('nskpi-onetime').textContent     = '—';
+    document.getElementById('nskpi-duration-sub').textContent     = '—';
+    document.getElementById('nskpi-duration-onetime').textContent = '—';
+    document.getElementById('nskpi-success').textContent         = '—';
+    document.getElementById('nskpi-success-sub').textContent     = 'Filtered view';
+
+    // Timeseries by ns_month
+    const byMonth = {};
+    filteredRaw.forEach(r => {
+      const m = r.ns_month;
+      if (!byMonth[m]) byMonth[m] = { sub_incidents: 0, onetime_incidents: 0 };
+      if (r.visit_type === 'Subscription') byMonth[m].sub_incidents    += +r.count || 0;
+      if (r.visit_type === 'One-time')     byMonth[m].onetime_incidents += +r.count || 0;
+    });
+    const nsMonths = Object.keys(byMonth).sort();
+    const incTS = nsMonths.map(m => ({
+      month:              m,
+      sub_incidents:      byMonth[m].sub_incidents,
+      onetime_incidents:  byMonth[m].onetime_incidents,
+    }));
+
+    renderNsTimeseries([]); // no apt-day timeseries for filtered view
+    renderNsIncidents(incTS);
+  } else {
+    // Global snapshot
+    const d = _cache.noslotsSummary;
+    document.getElementById('nskpi-inc-sub').textContent     = fmt(inc.summary.sub_incidents);
+    document.getElementById('nskpi-inc-onetime').textContent = fmt(inc.summary.onetime_incidents);
+    document.getElementById('nskpi-sub').textContent         = fmt(d.subscription_apt_days);
+    document.getElementById('nskpi-onetime').textContent     = fmt(d.onetime_apt_days);
+    document.getElementById('nskpi-duration-sub').textContent     = d.avg_time_sub_mins    ? d.avg_time_sub_mins    + ' min' : '—';
+    document.getElementById('nskpi-duration-onetime').textContent = d.avg_time_onetime_mins ? d.avg_time_onetime_mins + ' min' : '—';
+    document.getElementById('nskpi-success').textContent =
+      d.success_rate_pct != null ? d.success_rate_pct + '%' : '—';
+    document.getElementById('nskpi-success-sub').textContent =
+      `${fmt(d.found_slot_count)} of ${fmt(d.total_apt_days)} apt-days`;
+
+    const filteredNS  = filterByMonth(_cache.noslotsTimeseries, 'month', mFrom, mTo);
+    const filteredInc = filterByMonth(inc.timeseries || [], 'month', mFrom, mTo);
+    renderNsTimeseries(filteredNS);
+    renderNsIncidents(filteredInc);
+  }
 }
 
 function renderNsTimeseries(rows) {
@@ -1933,6 +2310,7 @@ function renderPerformance() {
 (async () => {
   try {
     await preloadAll();
+    populateDropdowns();
     renderFunnelTab();
     loadSignupFunnel(30);
   } catch (err) {

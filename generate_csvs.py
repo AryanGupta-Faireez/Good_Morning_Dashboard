@@ -884,6 +884,163 @@ def generate_noslots():
                    "timeseries": [dict(r) for r in cur.fetchall()]})
 
 
+# ── Raw Dimensional Data ───────────────────────────────────────────────────────
+
+def generate_filters():
+    """Generate filters.json with list of projects and neighbourhoods."""
+    with db() as cur:
+        cur.execute("""
+            SELECT DISTINCT "Project" FROM "Locations"
+            WHERE "Project" IS NOT NULL AND "IsTest" = false AND "Status" = 'ACTIVE'
+            ORDER BY 1
+        """)
+        projects = [r["Project"] for r in cur.fetchall()]
+
+        cur.execute('SELECT DISTINCT "Project" FROM "Neighborhoods" WHERE "Project" IS NOT NULL ORDER BY 1')
+        neighbourhoods = [r["Project"] for r in cur.fetchall()]
+
+    save_json("filters.json", {"projects": projects, "neighbourhoods": neighbourhoods})
+
+
+def generate_funnel_raw():
+    """Generate funnel_apts.csv — one row per apartment with all dimensions."""
+    with db() as cur:
+        cur.execute("""
+            SELECT
+                a."Id" AS apt_id,
+                COALESCE(l."Project", 'Unknown') AS project,
+                COALESCE(n."Project", 'Unknown') AS neighbourhood,
+                TO_CHAR(DATE_TRUNC('month', acc."CreatedAt"), 'YYYY-MM') AS cohort_month,
+                a."Status" AS apt_status,
+                CASE WHEN rr."ApartmentId" IS NOT NULL THEN 'true' ELSE 'false' END AS is_registered,
+                CASE WHEN a."Status" IN ('RECURRING_SUBSCRIPTION','ON_DEMAND_SUBSCRIPTION') THEN 'true' ELSE 'false' END AS is_subscriber,
+                CASE WHEN a."Status" = 'RECURRING_SUBSCRIPTION' THEN 'true' ELSE 'false' END AS is_recurring,
+                CASE WHEN a."Status" = 'ON_DEMAND_SUBSCRIPTION' THEN 'true' ELSE 'false' END AS is_ondemand
+            FROM "Apartments" a
+            LEFT JOIN "Customers" c ON c."ApartmentId" = a."Id"
+            LEFT JOIN "Accounts" acc ON acc."Id" = c."AccountId"
+            JOIN "Locations" l ON l."Id" = a."LocationId"
+            LEFT JOIN "Neighborhoods" n ON n."Id" = a."NeighborhoodId"
+            LEFT JOIN (SELECT DISTINCT "ApartmentId" FROM "RegistrationRequests") rr ON rr."ApartmentId" = a."Id"
+            WHERE l."IsTest" = false AND l."Status" = 'ACTIVE'
+            ORDER BY cohort_month, project
+        """)
+        save_csv("funnel_apts.csv", [dict(r) for r in cur.fetchall()])
+
+
+def generate_visits_raw():
+    """Generate visits_monthly_raw.csv and visits_chores_monthly_raw.csv."""
+    with db() as cur:
+        cur.execute(f"""
+            SELECT
+                TO_CHAR(DATE_TRUNC('month', v."Date"), 'YYYY-MM') AS visit_month,
+                COALESCE(l."Project", 'Unknown') AS project,
+                COALESCE(n."Project", 'Unknown') AS neighbourhood,
+                a."Status" AS apt_status,
+                COUNT(*) FILTER (WHERE v."Status" IN ('FINISHED','COMPLETED')) AS finished_completed,
+                COUNT(*) FILTER (WHERE v."Status" = 'FINISHED') AS finished,
+                COUNT(*) FILTER (WHERE v."Status" = 'COMPLETED') AS completed,
+                COUNT(*) FILTER (WHERE v."Status" = 'PENDING') AS pending,
+                COUNT(*) FILTER (WHERE v."Status" = 'CANCELLED') AS cancelled,
+                ROUND(SUM(CASE WHEN l."Currency" = 'ILS' THEN v."FinalPrice" / 3.65
+                               WHEN l."Currency" = 'GBP' THEN v."FinalPrice" * 1.27
+                               ELSE v."FinalPrice" END)
+                      FILTER (WHERE v."Status" IN ('FINISHED','COMPLETED'))::numeric, 2) AS net_revenue,
+                ROUND(AVG(v."NetDuration" * 60) FILTER (WHERE v."Status" IN ('FINISHED','COMPLETED') AND v."NetDuration" > 0)::numeric, 0) AS avg_duration_mins
+            FROM "VisitsNew" v
+            JOIN "Apartments" a ON a."Id" = v."ApartmentId"
+            JOIN "Locations" l ON l."Id" = a."LocationId"
+            LEFT JOIN "Neighborhoods" n ON n."Id" = a."NeighborhoodId"
+            WHERE l."IsTest" = false AND l."Status" = 'ACTIVE'
+              AND v."Status" IN ('FINISHED','COMPLETED','PENDING','CANCELLED')
+              AND v."Date" IS NOT NULL
+            GROUP BY DATE_TRUNC('month', v."Date"), l."Project", n."Project", a."Status"
+            ORDER BY visit_month, project
+        """)
+        save_csv("visits_monthly_raw.csv", [dict(r) for r in cur.fetchall()])
+
+        cur.execute(f"""
+            SELECT
+                TO_CHAR(DATE_TRUNC('month', v."Date"), 'YYYY-MM') AS visit_month,
+                COALESCE(l."Project", 'Unknown') AS project,
+                COALESCE(n."Project", 'Unknown') AS neighbourhood,
+                a."Status" AS apt_status,
+                ROUND(COUNT(vt."Id")::numeric / NULLIF(COUNT(DISTINCT v."Id"), 0), 2) AS avg_tasks_per_visit,
+                ROUND(AVG(CASE WHEN l."Currency" = 'ILS' THEN v."FinalPrice" / 3.65
+                               WHEN l."Currency" = 'GBP' THEN v."FinalPrice" * 1.27
+                               ELSE v."FinalPrice" END)::numeric, 2) AS avg_visit_price,
+                COUNT(vt."Id") AS chore_count,
+                ROUND(SUM(t."Price")::numeric, 2) AS total_amount
+            FROM "VisitsNew" v
+            JOIN "Apartments" a ON a."Id" = v."ApartmentId"
+            JOIN "Locations" l ON l."Id" = a."LocationId"
+            LEFT JOIN "Neighborhoods" n ON n."Id" = a."NeighborhoodId"
+            LEFT JOIN "VisitTasks" vt ON vt."VisitId" = v."Id" AND vt."EntityType" = 'task'
+            LEFT JOIN "Tasks" t ON t."Id" = vt."EntityId"
+            WHERE l."IsTest" = false AND l."Status" = 'ACTIVE'
+              AND v."Status" IN ('FINISHED','COMPLETED','PENDING','CANCELLED')
+              AND v."Date" IS NOT NULL
+            GROUP BY DATE_TRUNC('month', v."Date"), l."Project", n."Project", a."Status"
+            ORDER BY visit_month, project
+        """)
+        save_csv("visits_chores_monthly_raw.csv", [dict(r) for r in cur.fetchall()])
+
+
+def generate_ratings_raw():
+    """Generate ratings_monthly_raw.csv."""
+    with db() as cur:
+        cur.execute("""
+            SELECT
+                TO_CHAR(DATE_TRUNC('month', rv."CreatedAt"), 'YYYY-MM') AS review_month,
+                COALESCE(l."Project", 'Unknown') AS project,
+                COALESCE(n."Project", 'Unknown') AS neighbourhood,
+                a."Status" AS apt_status,
+                COUNT(*) AS count,
+                ROUND(AVG(rv."CustomerRate")::numeric, 2) AS avg_rating,
+                COUNT(*) FILTER (WHERE rv."CustomerReview" IS NOT NULL AND rv."CustomerReview" != '') AS reviews
+            FROM "Reviews" rv
+            JOIN "VisitsNew" v ON v."Id" = rv."VisitId"
+            JOIN "Apartments" a ON a."Id" = v."ApartmentId"
+            JOIN "Locations" l ON l."Id" = a."LocationId"
+            LEFT JOIN "Neighborhoods" n ON n."Id" = a."NeighborhoodId"
+            WHERE l."IsTest" = false AND l."Status" = 'ACTIVE'
+              AND rv."CreatedAt" IS NOT NULL
+            GROUP BY DATE_TRUNC('month', rv."CreatedAt"), l."Project", n."Project", a."Status"
+            ORDER BY review_month, project
+        """)
+        save_csv("ratings_monthly_raw.csv", [dict(r) for r in cur.fetchall()])
+
+
+def generate_noslots_raw():
+    """Generate noslots_monthly_raw.csv."""
+    with db() as cur:
+        cur.execute(f"""
+            SELECT
+                TO_CHAR(DATE_TRUNC('month', ns."CreatedAt"), 'YYYY-MM') AS ns_month,
+                COALESCE(l."Project", 'Unknown') AS project,
+                COALESCE(n."Project", 'Unknown') AS neighbourhood,
+                a."Status" AS apt_status,
+                CASE
+                    WHEN req->>'frequency' IN (
+                        'once-a-week','twice-a-week','three-a-week','four-times-a-week',
+                        'every-day','once-in-2-week','once-a-month'
+                    ) THEN 'Subscription'
+                    ELSE 'One-time'
+                END AS visit_type,
+                COUNT(DISTINCT ns."Id") AS count
+            FROM "NoSlotEvents" ns
+            LEFT JOIN LATERAL jsonb_array_elements(ns."Request") AS req ON true
+            JOIN "Apartments" a ON a."Id" = ns."ApartmentId"
+            JOIN "Locations" l ON l."Id" = a."LocationId"
+            LEFT JOIN "Neighborhoods" n ON n."Id" = a."NeighborhoodId"
+            WHERE l."IsTest" = false AND l."Status" = 'ACTIVE'
+              AND ns."CreatedAt" IS NOT NULL
+            GROUP BY DATE_TRUNC('month', ns."CreatedAt"), l."Project", n."Project", a."Status", visit_type
+            ORDER BY ns_month, project
+        """)
+        save_csv("noslots_monthly_raw.csv", [dict(r) for r in cur.fetchall()])
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -895,6 +1052,13 @@ if __name__ == "__main__":
         generate_visits()
         generate_ratings()
         generate_noslots()
+
+        print("\nRaw dimensional data…")
+        generate_filters()
+        generate_funnel_raw()
+        generate_visits_raw()
+        generate_ratings_raw()
+        generate_noslots_raw()
     except Exception as exc:
         print(f"\n✗ Error: {exc}", file=sys.stderr)
         raise
