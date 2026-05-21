@@ -3481,7 +3481,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-04,Gindi 3,Unknown,WARM_LEAD,2,2,0,0,0,183.29,24.0
 2026-04,Gindi 4,Unknown,CHURN,12,9,3,0,38,1011.23,74.0
 2026-04,Gindi 4,Unknown,FROZEN,0,0,0,0,7,,
-2026-04,Gindi 4,Unknown,RECURRING_SUBSCRIPTION,11,10,1,0,6,1073.97,98.0
+2026-04,Gindi 4,Unknown,RECURRING_SUBSCRIPTION,11,9,2,0,6,1073.97,98.0
 2026-04,Grove Central Residences,Floating Miami,CHURN,5,5,0,0,10,678.0,83.0
 2026-04,Grove Central Residences,Floating Miami,ON_DEMAND_SUBSCRIPTION,0,0,0,0,2,,
 2026-04,Grove Central Residences,Floating Miami,RECURRING_SUBSCRIPTION,7,5,2,0,9,1124.0,80.0
@@ -3635,7 +3635,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,20 Broad Street,Financial District Polygon,WARM_LEAD,3,2,1,1,4,347.0,156.0
 2026-05,20 Broad Street,Hell's Kitchen Polygon,FREEMIUM,1,0,1,0,0,34.0,43.0
 2026-05,250 E Houston,Floating NY 2,CHURN,0,0,0,0,1,,
-2026-05,250 E Houston,Floating NY 2,RECURRING_SUBSCRIPTION,3,3,0,3,7,438.0,130.0
+2026-05,250 E Houston,Floating NY 2,RECURRING_SUBSCRIPTION,3,3,0,3,8,438.0,130.0
 2026-05,250 E Houston,Floating NY 2,TRIAL,1,0,1,0,1,121.0,159.0
 2026-05,300 Somerset,Harrison Polygon,CHURN,1,1,0,0,1,28.0,50.0
 2026-05,300 Somerset,Harrison Polygon,FREEMIUM,1,0,1,0,0,176.0,55.0
@@ -3689,7 +3689,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,Azrieli TLV,Unknown,CHURN,9,9,0,0,22,818.08,71.0
 2026-05,Azrieli TLV,Unknown,FROZEN,0,0,0,0,2,,
 2026-05,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,6,6,0,0,3,298.63,49.0
-2026-05,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,29,25,4,12,12,3276.44,111.0
+2026-05,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,30,26,4,10,12,3302.74,111.0
 2026-05,Azrieli TLV,Unknown,TRIAL,2,2,0,1,7,156.99,84.0
 2026-05,Bay Parc Apartments,Edgeater Polygon,CHURN,0,0,0,0,7,,
 2026-05,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,1,1,0,1,4,16.0,30.0
@@ -3707,6 +3707,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,Cite On The Bay,Edgeater Polygon,TRIAL,0,0,0,0,3,,
 2026-05,Dey and Bergen,Harrison Polygon,CHURN,1,1,0,0,1,92.0,99.0
 2026-05,Dey and Bergen,Harrison Polygon,TRIAL,1,1,0,0,0,95.0,148.0
+2026-05,Dey and Bergen,Harrison Polygon,WARM_LEAD,0,0,0,1,0,,
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,1,1,0,0,5,189.0,
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,10,8,2,0,21,85.0,28.0
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,5,1,4,0,46,421.0,41.0
@@ -3737,7 +3738,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,Gindi 2,Unknown,TRIAL,3,3,0,0,1,248.77,101.0
 2026-05,Gindi 3,Unknown,CHURN,3,3,0,0,29,401.37,23.0
 2026-05,Gindi 3,Unknown,FROZEN,0,0,0,0,10,,
-2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,24,24,0,13,6,2943.84,101.0
+2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,24,24,0,12,6,2943.84,101.0
 2026-05,Gindi 3,Unknown,TRIAL,0,0,0,0,4,,
 2026-05,Gindi 4,Unknown,CHURN,3,3,0,0,38,84.66,68.0
 2026-05,Gindi 4,Unknown,FROZEN,0,0,0,0,6,,
@@ -3914,6 +3915,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,WARM_LEAD,0,0,0,0,1,,
 2026-06,Cite On The Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,0,0,0,2,0,,
 2026-06,Dey and Bergen,Harrison Polygon,CHURN,0,0,0,0,1,,
+2026-06,Dey and Bergen,Harrison Polygon,WARM_LEAD,0,0,0,1,0,,
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,0,0,0,0,3,,
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,0,0,0,0,22,,
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,0,33,,

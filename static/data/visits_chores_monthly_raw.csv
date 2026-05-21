@@ -3635,7 +3635,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,20 Broad Street,Financial District Polygon,WARM_LEAD,5.63,82.13,45,1290.25
 2026-05,20 Broad Street,Hell's Kitchen Polygon,FREEMIUM,2.0,34.0,2,71.5
 2026-05,250 E Houston,Floating NY 2,CHURN,8.0,0.0,8,227.11
-2026-05,250 E Houston,Floating NY 2,RECURRING_SUBSCRIPTION,6.92,59.27,90,2454.01
+2026-05,250 E Houston,Floating NY 2,RECURRING_SUBSCRIPTION,6.43,49.54,90,2454.01
 2026-05,250 E Houston,Floating NY 2,TRIAL,5.0,96.8,10,298.61
 2026-05,300 Somerset,Harrison Polygon,CHURN,2.0,14.0,4,143.0
 2026-05,300 Somerset,Harrison Polygon,FREEMIUM,8.0,176.0,8,227.11
@@ -3689,7 +3689,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Azrieli TLV,Unknown,CHURN,6.48,26.53,201,5839.34
 2026-05,Azrieli TLV,Unknown,FROZEN,9.5,0.0,19,567.71
 2026-05,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,5.11,35.53,46,1544.4
-2026-05,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,7.85,100.72,416,13210.34
+2026-05,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,7.87,100.7,409,12986.74
 2026-05,Azrieli TLV,Unknown,TRIAL,8.1,28.88,81,2517.97
 2026-05,Bay Parc Apartments,Edgeater Polygon,CHURN,9.14,0.0,64,1758.25
 2026-05,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,4.17,6.96,25,822.12
@@ -3707,6 +3707,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Cite On The Bay,Edgeater Polygon,TRIAL,8.0,0.0,24,681.33
 2026-05,Dey and Bergen,Harrison Polygon,CHURN,3.0,46.0,6,248.3
 2026-05,Dey and Bergen,Harrison Polygon,TRIAL,3.0,95.0,3,124.15
+2026-05,Dey and Bergen,Harrison Polygon,WARM_LEAD,2.0,54.0,2,71.5
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.67,29.08,52,1432.86
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,1.1,6.85,34,102.05
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,1.63,31.02,83,1182.87
@@ -3737,7 +3738,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Gindi 2,Unknown,TRIAL,6.75,52.62,27,879.71
 2026-05,Gindi 3,Unknown,CHURN,7.59,13.8,243,6377.8
 2026-05,Gindi 3,Unknown,FROZEN,2.6,0.0,26,610.22
-2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,7.95,108.52,342,10698.22
+2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,7.93,106.37,333,10431.07
 2026-05,Gindi 3,Unknown,TRIAL,8.0,0.0,32,1128.4
 2026-05,Gindi 4,Unknown,CHURN,5.0,8.2,205,5467.02
 2026-05,Gindi 4,Unknown,FROZEN,6.17,0.0,37,1359.15
@@ -3914,6 +3915,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,WARM_LEAD,8.0,0.0,8,227.11
 2026-06,Cite On The Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,8.0,179.0,16,454.22
 2026-06,Dey and Bergen,Harrison Polygon,CHURN,3.0,0.0,3,124.15
+2026-06,Dey and Bergen,Harrison Polygon,WARM_LEAD,4.0,122.0,4,182.65
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.33,0.0,25,698.88
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,1.0,0.0,22,
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,1.18,0.0,39,425.1

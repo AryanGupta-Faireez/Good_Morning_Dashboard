@@ -709,6 +709,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,1
 2026-05,Gindi 2,Unknown,RECURRING_SUBSCRIPTION,Subscription,1
 2026-05,Gindi 2,Unknown,TRIAL,Subscription,1
+2026-05,Gindi 3,Unknown,LEAD,Subscription,1
 2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,One-time,2
 2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,Subscription,1
 2026-05,Gindi 3,Unknown,TRIAL,Subscription,1
