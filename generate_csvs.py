@@ -1169,26 +1169,45 @@ def generate_posthog():
     """, "ph_signup_funnel.csv")
 
     # ── Slot seekers (users who tried to get a slot) ──────────────────────────
-    # One-time: view event with scope 'one-time-calendar'
-    # Subscription: view event with scope 'subscription-suggestions'
+    # One-time:     view event with scope 'one-time-calendar'
+    # Subscription: click event with label in ('Proceed with Standard plan',
+    #               'Proceed with Custom plan', 'Proceed with Daily plan')
+    #               covers all plan types (standard, custom, daily)
     _ph_safe("ph_slot_seekers", """
         SELECT
             formatDateTime(toStartOfMonth(timestamp), '%Y-%m') AS month,
             uniqExactIf(distinct_id,
-                properties.scope = 'one-time-calendar')                          AS onetime_users,
+                event = 'view' AND properties.scope = 'one-time-calendar')        AS onetime_users,
             uniqExactIf(distinct_id,
-                properties.scope = 'subscription-suggestions')                   AS sub_users,
-            countIf(properties.scope = 'one-time-calendar')                      AS onetime_incidents,
-            countIf(properties.scope = 'subscription-suggestions')               AS sub_incidents,
+                event = 'click' AND properties.label IN (
+                    'Proceed with Standard plan',
+                    'Proceed with Custom plan',
+                    'Proceed with Daily plan'))                                    AS sub_users,
+            countIf(
+                event = 'view' AND properties.scope = 'one-time-calendar')        AS onetime_incidents,
+            countIf(
+                event = 'click' AND properties.label IN (
+                    'Proceed with Standard plan',
+                    'Proceed with Custom plan',
+                    'Proceed with Daily plan'))                                    AS sub_incidents,
             uniqExactIf(
                 concat(toString(distinct_id), '-', toString(toDate(timestamp))),
-                properties.scope = 'one-time-calendar')                          AS onetime_user_days,
+                event = 'view' AND properties.scope = 'one-time-calendar')        AS onetime_user_days,
             uniqExactIf(
                 concat(toString(distinct_id), '-', toString(toDate(timestamp))),
-                properties.scope = 'subscription-suggestions')                   AS sub_user_days
+                event = 'click' AND properties.label IN (
+                    'Proceed with Standard plan',
+                    'Proceed with Custom plan',
+                    'Proceed with Daily plan'))                                    AS sub_user_days
         FROM events
-        WHERE event = 'view'
-          AND properties.scope IN ('one-time-calendar', 'subscription-suggestions')
+        WHERE (
+            (event = 'view'  AND properties.scope = 'one-time-calendar')
+            OR
+            (event = 'click' AND properties.label IN (
+                'Proceed with Standard plan',
+                'Proceed with Custom plan',
+                'Proceed with Daily plan'))
+        )
         GROUP BY toStartOfMonth(timestamp)
         ORDER BY month
     """, "ph_slot_seekers.csv")
@@ -1197,20 +1216,37 @@ def generate_posthog():
     _ph_safe("ph_slot_seekers_summary", """
         SELECT
             uniqExactIf(distinct_id,
-                properties.scope = 'one-time-calendar')                          AS onetime_users,
+                event = 'view' AND properties.scope = 'one-time-calendar')        AS onetime_users,
             uniqExactIf(distinct_id,
-                properties.scope = 'subscription-suggestions')                   AS sub_users,
-            countIf(properties.scope = 'one-time-calendar')                      AS onetime_incidents,
-            countIf(properties.scope = 'subscription-suggestions')               AS sub_incidents,
+                event = 'click' AND properties.label IN (
+                    'Proceed with Standard plan',
+                    'Proceed with Custom plan',
+                    'Proceed with Daily plan'))                                    AS sub_users,
+            countIf(
+                event = 'view' AND properties.scope = 'one-time-calendar')        AS onetime_incidents,
+            countIf(
+                event = 'click' AND properties.label IN (
+                    'Proceed with Standard plan',
+                    'Proceed with Custom plan',
+                    'Proceed with Daily plan'))                                    AS sub_incidents,
             uniqExactIf(
                 concat(toString(distinct_id), '-', toString(toDate(timestamp))),
-                properties.scope = 'one-time-calendar')                          AS onetime_user_days,
+                event = 'view' AND properties.scope = 'one-time-calendar')        AS onetime_user_days,
             uniqExactIf(
                 concat(toString(distinct_id), '-', toString(toDate(timestamp))),
-                properties.scope = 'subscription-suggestions')                   AS sub_user_days
+                event = 'click' AND properties.label IN (
+                    'Proceed with Standard plan',
+                    'Proceed with Custom plan',
+                    'Proceed with Daily plan'))                                    AS sub_user_days
         FROM events
-        WHERE event = 'view'
-          AND properties.scope IN ('one-time-calendar', 'subscription-suggestions')
+        WHERE (
+            (event = 'view'  AND properties.scope = 'one-time-calendar')
+            OR
+            (event = 'click' AND properties.label IN (
+                'Proceed with Standard plan',
+                'Proceed with Custom plan',
+                'Proceed with Daily plan'))
+        )
     """, "ph_slot_seekers_summary.json", is_json=True)
 
 
