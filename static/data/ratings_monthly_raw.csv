@@ -3030,7 +3030,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,7,5.0,2
 2026-05,Gindi 1,Unknown,CHURN,4,5.0,0
 2026-05,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,3,5.0,0
-2026-05,Gindi 1,Unknown,RECURRING_SUBSCRIPTION,8,,0
+2026-05,Gindi 1,Unknown,RECURRING_SUBSCRIPTION,9,,0
 2026-05,Gindi 2,Unknown,CHURN,5,5.0,1
 2026-05,Gindi 2,Unknown,RECURRING_SUBSCRIPTION,8,5.0,0
 2026-05,Gindi 2,Unknown,TRIAL,2,,0

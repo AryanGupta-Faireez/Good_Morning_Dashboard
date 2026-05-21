@@ -3689,7 +3689,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Azrieli TLV,Unknown,CHURN,6.48,26.53,201,5839.34
 2026-05,Azrieli TLV,Unknown,FROZEN,9.5,0.0,19,567.71
 2026-05,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,5.11,35.53,46,1544.4
-2026-05,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,7.87,100.7,409,12986.74
+2026-05,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,7.85,100.72,416,13210.34
 2026-05,Azrieli TLV,Unknown,TRIAL,8.1,28.88,81,2517.97
 2026-05,Bay Parc Apartments,Edgeater Polygon,CHURN,9.14,0.0,64,1758.25
 2026-05,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,4.17,6.96,25,822.12
@@ -3738,12 +3738,12 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Gindi 2,Unknown,TRIAL,6.75,52.62,27,879.71
 2026-05,Gindi 3,Unknown,CHURN,7.59,13.8,243,6377.8
 2026-05,Gindi 3,Unknown,FROZEN,2.6,0.0,26,610.22
-2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,7.93,106.37,333,10431.07
+2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,7.95,108.52,342,10698.22
 2026-05,Gindi 3,Unknown,TRIAL,8.0,0.0,32,1128.4
 2026-05,Gindi 4,Unknown,CHURN,5.0,8.2,205,5467.02
 2026-05,Gindi 4,Unknown,FROZEN,6.17,0.0,37,1359.15
 2026-05,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,5.0,0.0,15,542.1
-2026-05,Gindi 4,Unknown,RECURRING_SUBSCRIPTION,5.61,78.85,101,3122.6
+2026-05,Gindi 4,Unknown,RECURRING_SUBSCRIPTION,5.5,74.25,88,2689.44
 2026-05,Gindi 4,Unknown,TRIAL,8.0,134.25,16,536.12
 2026-05,Grove Central Residences,Floating Miami,CHURN,5.4,0.0,54,1363.18
 2026-05,Grove Central Residences,Floating Miami,ON_DEMAND_SUBSCRIPTION,8.0,0.0,8,227.11
