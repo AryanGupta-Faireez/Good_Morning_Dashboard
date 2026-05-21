@@ -629,6 +629,43 @@
         </div>
       </div>
     </div>
+
+    <!-- Slot seekers section -->
+    <div>
+      <div class="section-title">Slot Seekers — Users Who Tried to Book</div>
+      <div class="kpi-grid">
+        <div class="kpi-card" style="border-left:4px solid var(--blue)">
+          <div class="label">Sub Slot Seekers</div>
+          <div class="value" id="nskpi-seek-sub-users" style="color:var(--blue)">—</div>
+          <div class="sub">Unique users (subscription-suggestions)</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--orange)">
+          <div class="label">One-time Slot Seekers</div>
+          <div class="value" id="nskpi-seek-ot-users" style="color:var(--orange)">—</div>
+          <div class="sub">Unique users (one-time-calendar)</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--purple)">
+          <div class="label">Sub Seeker User-Days</div>
+          <div class="value" id="nskpi-seek-sub-days" style="color:var(--purple)">—</div>
+          <div class="sub">Unique (user × day) pairs</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--red)">
+          <div class="label">One-time Seeker User-Days</div>
+          <div class="value" id="nskpi-seek-ot-days" style="color:var(--red)">—</div>
+          <div class="sub">Unique (user × day) pairs</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--blue)">
+          <div class="label">Sub Incidents</div>
+          <div class="value" id="nskpi-seek-sub-inc" style="color:var(--blue)">—</div>
+          <div class="sub">Total slot-seek views</div>
+        </div>
+        <div class="kpi-card" style="border-left:4px solid var(--orange)">
+          <div class="label">One-time Incidents</div>
+          <div class="value" id="nskpi-seek-ot-inc" style="color:var(--orange)">—</div>
+          <div class="sub">Total slot-seek views</div>
+        </div>
+      </div>
+    </div>
     <div class="charts-grid-2">
       <div class="chart-card">
         <h3>Incidents by Type <span style="font-weight:400;color:var(--muted);font-size:12px">(total events/month)</span></h3>
@@ -856,6 +893,7 @@ async function preloadAll() {
     visitsMonthlyRaw, visitsChoresMonthlyRaw,
     ratingsMonthlyRaw,
     noslotsMonthlyRaw,
+    phSlotSeekersSummary, phSlotSeekers,
   ] = await Promise.all([
     fetchJson('./data/funnel_summary.json'),
     fetchJson('./data/funnel_residents.json'),
@@ -892,6 +930,8 @@ async function preloadAll() {
     fetchCsv('./data/visits_chores_monthly_raw.csv'),
     fetchCsv('./data/ratings_monthly_raw.csv'),
     fetchCsv('./data/noslots_monthly_raw.csv'),
+    fetchJson('./data/ph_slot_seekers_summary.json').catch(() => null),
+    fetchCsv('./data/ph_slot_seekers.csv').catch(() => []),
   ]);
 
   // Show refresh timestamp in header
@@ -920,6 +960,7 @@ async function preloadAll() {
     visitsMonthlyRaw, visitsChoresMonthlyRaw,
     ratingsMonthlyRaw,
     noslotsMonthlyRaw,
+    phSlotSeekersSummary, phSlotSeekers,
   });
 }
 
@@ -2076,6 +2117,9 @@ function renderNoSlots() {
 
     renderNsTimeseries([]); // no apt-day timeseries for filtered view
     renderNsIncidents(incTS);
+
+    // Slot seekers — always from global PostHog summary (no project/neighbourhood dimension)
+    renderSlotSeekerKpis(_cache.phSlotSeekersSummary);
   } else {
     // Global snapshot
     const d = _cache.noslotsSummary;
@@ -2094,7 +2138,20 @@ function renderNoSlots() {
     const filteredInc = filterByMonth(inc.timeseries || [], 'month', mFrom, mTo);
     renderNsTimeseries(filteredNS);
     renderNsIncidents(filteredInc);
+
+    // Slot seekers
+    renderSlotSeekerKpis(_cache.phSlotSeekersSummary);
   }
+}
+
+function renderSlotSeekerKpis(s) {
+  if (!s) return;
+  document.getElementById('nskpi-seek-sub-users').textContent = fmt(s.sub_users);
+  document.getElementById('nskpi-seek-ot-users').textContent  = fmt(s.onetime_users);
+  document.getElementById('nskpi-seek-sub-days').textContent  = fmt(s.sub_user_days);
+  document.getElementById('nskpi-seek-ot-days').textContent   = fmt(s.onetime_user_days);
+  document.getElementById('nskpi-seek-sub-inc').textContent   = fmt(s.sub_incidents);
+  document.getElementById('nskpi-seek-ot-inc').textContent    = fmt(s.onetime_incidents);
 }
 
 function renderNsTimeseries(rows) {

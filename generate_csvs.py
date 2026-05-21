@@ -1075,8 +1075,19 @@ def generate_posthog():
         print("  ⚠  POSTHOG_TOKEN not set — skipping PostHog data")
         return
 
+    def _ph_safe(label, query, filename, is_json=False):
+        """Run a PostHog query, warn and skip file write on failure."""
+        try:
+            rows = _ph_query(query)
+            if is_json:
+                save_json(filename, rows[0] if rows else {})
+            else:
+                save_csv(filename, rows)
+        except Exception as exc:
+            print(f"  ⚠  {label} failed: {exc}")
+
     # ── Daily load time (performance event) ───────────────────────────────────
-    rows = _ph_query("""
+    _ph_safe("ph_load_time_daily", """
         SELECT
             toDate(timestamp)                                               AS date,
             round(avg(toFloatOrDefault(toString(properties.value))))            AS avg_ms,
@@ -1091,11 +1102,10 @@ def generate_posthog():
           AND toFloatOrDefault(toString(properties.value)) < 60000
         GROUP BY date
         ORDER BY date
-    """)
-    save_csv("ph_load_time_daily.csv", rows)
+    """, "ph_load_time_daily.csv")
 
     # ── Daily login rate (customer-init as login proxy) ───────────────────────
-    rows = _ph_query("""
+    _ph_safe("ph_login_rate_daily", """
         SELECT
             toDate(timestamp)                                                           AS date,
             uniqExact(distinct_id)                                                      AS users,
@@ -1108,11 +1118,10 @@ def generate_posthog():
         WHERE event IN ('$pageview', 'customer-init')
         GROUP BY date
         ORDER BY date
-    """)
-    save_csv("ph_login_rate_daily.csv", rows)
+    """, "ph_login_rate_daily.csv")
 
     # ── Monthly review-before-booking unique users ─────────────────────────────
-    rows = _ph_query("""
+    _ph_safe("ph_review_booking", """
         SELECT
             formatDateTime(toStartOfMonth(timestamp), '%Y-%m') AS month,
             uniqExact(distinct_id)                             AS unique_users
@@ -1121,11 +1130,10 @@ def generate_posthog():
           AND properties.scope = 'subscription-review-before-booking'
         GROUP BY toStartOfMonth(timestamp)
         ORDER BY month
-    """)
-    save_csv("ph_review_booking.csv", rows)
+    """, "ph_review_booking.csv")
 
     # ── Monthly signup funnel ─────────────────────────────────────────────────
-    rows = _ph_query("""
+    _ph_safe("ph_signup_funnel", """
         SELECT
             formatDateTime(toStartOfMonth(timestamp), '%Y-%m') AS month,
             uniqExactIf(distinct_id,
@@ -1158,8 +1166,52 @@ def generate_posthog():
         WHERE event IN ('view', 'register-init', 'click')
         GROUP BY toStartOfMonth(timestamp)
         ORDER BY month
-    """)
-    save_csv("ph_signup_funnel.csv", rows)
+    """, "ph_signup_funnel.csv")
+
+    # ── Slot seekers (users who tried to get a slot) ──────────────────────────
+    # One-time: view event with scope 'one-time-calendar'
+    # Subscription: view event with scope 'subscription-suggestions'
+    _ph_safe("ph_slot_seekers", """
+        SELECT
+            formatDateTime(toStartOfMonth(timestamp), '%Y-%m') AS month,
+            uniqExactIf(distinct_id,
+                properties.scope = 'one-time-calendar')                          AS onetime_users,
+            uniqExactIf(distinct_id,
+                properties.scope = 'subscription-suggestions')                   AS sub_users,
+            countIf(properties.scope = 'one-time-calendar')                      AS onetime_incidents,
+            countIf(properties.scope = 'subscription-suggestions')               AS sub_incidents,
+            uniqExactIf(
+                concat(toString(distinct_id), '-', toString(toDate(timestamp))),
+                properties.scope = 'one-time-calendar')                          AS onetime_user_days,
+            uniqExactIf(
+                concat(toString(distinct_id), '-', toString(toDate(timestamp))),
+                properties.scope = 'subscription-suggestions')                   AS sub_user_days
+        FROM events
+        WHERE event = 'view'
+          AND properties.scope IN ('one-time-calendar', 'subscription-suggestions')
+        GROUP BY toStartOfMonth(timestamp)
+        ORDER BY month
+    """, "ph_slot_seekers.csv")
+
+    # All-time summary
+    _ph_safe("ph_slot_seekers_summary", """
+        SELECT
+            uniqExactIf(distinct_id,
+                properties.scope = 'one-time-calendar')                          AS onetime_users,
+            uniqExactIf(distinct_id,
+                properties.scope = 'subscription-suggestions')                   AS sub_users,
+            countIf(properties.scope = 'one-time-calendar')                      AS onetime_incidents,
+            countIf(properties.scope = 'subscription-suggestions')               AS sub_incidents,
+            uniqExactIf(
+                concat(toString(distinct_id), '-', toString(toDate(timestamp))),
+                properties.scope = 'one-time-calendar')                          AS onetime_user_days,
+            uniqExactIf(
+                concat(toString(distinct_id), '-', toString(toDate(timestamp))),
+                properties.scope = 'subscription-suggestions')                   AS sub_user_days
+        FROM events
+        WHERE event = 'view'
+          AND properties.scope IN ('one-time-calendar', 'subscription-suggestions')
+    """, "ph_slot_seekers_summary.json", is_json=True)
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
