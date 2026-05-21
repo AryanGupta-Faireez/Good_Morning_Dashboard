@@ -722,11 +722,15 @@
       </div>
     </div>
 
-    <!-- Incidents bar chart -->
+    <!-- Incidents bar chart + weekly failure rate -->
     <div class="charts-grid-2" style="margin-bottom:16px">
       <div class="chart-card">
         <h3>Incidents by Type <span style="font-weight:400;color:var(--muted);font-size:12px">(total events/month)</span></h3>
         <div class="chart-wrap"><canvas id="chart-ns-incidents"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Weekly Failure Rate <span style="font-weight:400;color:var(--muted);font-size:12px">(DB incidents ÷ slot attempts)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-ns-fail-rate"></canvas></div>
       </div>
     </div>
 
@@ -1924,7 +1928,7 @@ function _fillNsKpis(d, incData, s) {
     document.getElementById('nskpi-seek-ot-days').textContent  = fmt(s.onetime_user_days);
 
     const otTotal  = (+incData.summary.onetime_incidents || 0) + (+s.onetime_incidents || 0);
-    const subTotal = (+incData.summary.sub_incidents     || 0) + (+s.sub_incidents     || 0);
+    const subTotal = +s.sub_incidents || 0;  // sub: PostHog clicks cover all cases
     document.getElementById('nskpi-ot-total-inc').textContent  = fmt(otTotal);
     document.getElementById('nskpi-sub-total-inc').textContent = fmt(subTotal);
     document.getElementById('nskpi-ot-fail-pct').textContent   = otTotal  ? (((+incData.summary.onetime_incidents || 0) / otTotal  * 100).toFixed(1) + '%') : '—';
@@ -1979,8 +1983,65 @@ async function loadNoSlots() {
       }
     });
   }
+  await renderNsFailRateChart();
   document.getElementById('last-updated').textContent =
     'Updated ' + new Date().toLocaleTimeString();
+}
+
+async function renderNsFailRateChart() {
+  destroyChart('ns-fail-rate');
+  let dbWeekly, phWeekly;
+  try {
+    [dbWeekly, phWeekly] = await Promise.all([
+      get('/api/noslots/incidents_weekly'),
+      fetch('/static/data/ph_slot_seekers_weekly.csv').then(r => r.ok ? r.text() : '').then(parseCsv)
+    ]);
+  } catch (e) { console.warn('fail rate chart:', e); return; }
+  if (!dbWeekly?.length || !phWeekly?.length) return;
+
+  const phMap = {};
+  phWeekly.forEach(r => { phMap[r.week] = r; });
+
+  const weeks = dbWeekly.filter(r => phMap[r.week]).map(r => r.week).sort();
+  if (!weeks.length) return;
+
+  const dbMap = {};
+  dbWeekly.forEach(r => { dbMap[r.week] = r; });
+
+  const otRates  = weeks.map(w => {
+    const dbOT = +dbMap[w]?.onetime_incidents || 0;
+    const phOT = (+phMap[w].onetime_incidents || 0) + dbOT;
+    return phOT ? +((dbOT / phOT) * 100).toFixed(1) : null;
+  });
+  const subRates = weeks.map(w => {
+    const dbSub = +dbMap[w]?.sub_incidents || 0;
+    const phSub = +phMap[w].sub_incidents  || 0;
+    return phSub ? +((dbSub / phSub) * 100).toFixed(1) : null;
+  });
+
+  charts['ns-fail-rate'] = new Chart(document.getElementById('chart-ns-fail-rate'), {
+    type: 'line',
+    data: {
+      labels: weeks,
+      datasets: [
+        { label: 'One-time failure %',     data: otRates,
+          borderColor: '#d97706', backgroundColor: 'rgba(217,119,6,.08)',
+          fill: false, tension: .3, pointRadius: 2, spanGaps: true },
+        { label: 'Subscription failure %', data: subRates,
+          borderColor: '#4f46e5', backgroundColor: 'rgba(79,70,229,.08)',
+          fill: false, tension: .3, pointRadius: 2, spanGaps: true },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 10 }, maxTicksLimit: 16 } },
+        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,.05)' },
+             ticks: { font: { size: 11 }, callback: v => v + '%' } }
+      }
+    }
+  });
 }
 
 // ── Ratings tab ───────────────────────────────────────────────────────────────

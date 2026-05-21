@@ -890,6 +890,21 @@ def generate_noslots():
                   {"summary": ns_summary,
                    "timeseries": [dict(r) for r in cur.fetchall()]})
 
+        cur.execute(f"""
+            SELECT
+                TO_CHAR(DATE_TRUNC('week', ns."CreatedAt"), 'YYYY-MM-DD') AS week,
+                COUNT(*) FILTER (WHERE {_NS_TYPE} = 'Subscription') AS sub_incidents,
+                COUNT(*) FILTER (WHERE {_NS_TYPE} = 'One-time')     AS onetime_incidents
+            FROM "NoSlotEvents" ns
+            LEFT JOIN LATERAL jsonb_array_elements(ns."Request") AS req ON true
+            JOIN  "Apartments" a ON a."Id" = ns."ApartmentId"
+            JOIN  "Locations"  l ON l."Id" = a."LocationId"
+            WHERE {_LOC_GUARD}
+            GROUP BY DATE_TRUNC('week', ns."CreatedAt")
+            ORDER BY week
+        """)
+        save_csv("noslots_incidents_weekly.csv", [dict(r) for r in cur.fetchall()])
+
 
 # ── Raw Dimensional Data ───────────────────────────────────────────────────────
 
@@ -1248,6 +1263,30 @@ def generate_posthog():
                 'Proceed with Daily plan'))
         )
     """, "ph_slot_seekers_summary.json", is_json=True)
+
+    # Weekly breakdown for failure rate trend chart
+    _ph_safe("ph_slot_seekers_weekly", """
+        SELECT
+            formatDateTime(toStartOfWeek(timestamp, 1), '%Y-%m-%d') AS week,
+            countIf(
+                event = 'view' AND properties.scope = 'one-time-calendar')        AS onetime_incidents,
+            countIf(
+                event = 'click' AND properties.label IN (
+                    'Proceed with Standard plan',
+                    'Proceed with Custom plan',
+                    'Proceed with Daily plan'))                                    AS sub_incidents
+        FROM events
+        WHERE (
+            (event = 'view'  AND properties.scope = 'one-time-calendar')
+            OR
+            (event = 'click' AND properties.label IN (
+                'Proceed with Standard plan',
+                'Proceed with Custom plan',
+                'Proceed with Daily plan'))
+        )
+        GROUP BY toStartOfWeek(timestamp, 1)
+        ORDER BY week
+    """, "ph_slot_seekers_weekly.csv")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────

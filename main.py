@@ -1330,6 +1330,26 @@ def noslots_incidents(
         return {"summary": summary, "timeseries": [dict(r) for r in cur.fetchall()]}
 
 
+@app.get("/api/noslots/incidents_weekly")
+def noslots_incidents_weekly():
+    """Weekly no-slot incident counts by type (no filter support — used for trend chart)."""
+    with db() as cur:
+        cur.execute(f"""
+            SELECT
+                TO_CHAR(DATE_TRUNC('week', ns."CreatedAt"), 'YYYY-MM-DD') AS week,
+                COUNT(*) FILTER (WHERE {_NS_TYPE} = 'Subscription') AS sub_incidents,
+                COUNT(*) FILTER (WHERE {_NS_TYPE} = 'One-time')     AS onetime_incidents
+            FROM "NoSlotEvents" ns
+            LEFT JOIN LATERAL jsonb_array_elements(ns."Request") AS req ON true
+            JOIN  "Apartments" a ON a."Id" = ns."ApartmentId"
+            JOIN  "Locations"  l ON l."Id" = a."LocationId"
+            WHERE {_LOC_GUARD}
+            GROUP BY DATE_TRUNC('week', ns."CreatedAt")
+            ORDER BY week
+        """)
+        return [dict(r) for r in cur.fetchall()]
+
+
 # ── Serve frontend ─────────────────────────────────────────────────────────────
 
 app.mount("/static", StaticFiles(directory=str(HERE / "static")), name="static")
