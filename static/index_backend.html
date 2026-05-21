@@ -63,6 +63,7 @@
 
   /* ── KPI cards ── */
   .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .kpi-3col { grid-template-columns: repeat(3, 1fr) !important; }
   .kpi-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
   .kpi-card .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
   .kpi-card .value { font-size: 32px; font-weight: 700; line-height: 1; }
@@ -619,70 +620,113 @@
       <button class="btn-secondary" onclick="resetNsFilters()">Reset</button>
     </div>
 
-    <!-- Incidents section -->
-    <div>
-      <div class="section-title">No Slots — By Total Incidents</div>
-      <div class="kpi-grid">
-        <div class="kpi-card" style="border-left:4px solid var(--blue)">
-          <div class="label">Sub No-Slot Incidents</div><div class="value" id="nskpi-inc-sub" style="color:var(--blue)">—</div>
-          <div class="sub">Raw no-slot events</div>
-        </div>
-        <div class="kpi-card" style="border-left:4px solid var(--blue)">
-          <div class="label">Sub Slot-Seek Incidents</div>
-          <div class="value" id="nskpi-seek-sub-inc" style="color:var(--blue)">—</div>
-          <div class="sub">Views of subscription-suggestions</div>
-        </div>
-        <div class="kpi-card" style="border-left:4px solid var(--purple)">
-          <div class="label">Sub Slot-Seek User-Days</div>
-          <div class="value" id="nskpi-seek-sub-days" style="color:var(--purple)">—</div>
-          <div class="sub">Unique (user × day) pairs</div>
-        </div>
-        <div class="kpi-card" style="border-left:4px solid var(--orange)">
-          <div class="label">One-time No-Slot Incidents</div><div class="value" id="nskpi-inc-onetime" style="color:var(--orange)">—</div>
-          <div class="sub">Raw no-slot events</div>
-        </div>
-        <div class="kpi-card" style="border-left:4px solid var(--orange)">
-          <div class="label">One-time Slot-Seek Incidents</div>
-          <div class="value" id="nskpi-seek-ot-inc" style="color:var(--orange)">—</div>
-          <div class="sub">Views of one-time-calendar</div>
-        </div>
-        <div class="kpi-card" style="border-left:4px solid var(--red)">
-          <div class="label">One-time Slot-Seek User-Days</div>
-          <div class="value" id="nskpi-seek-ot-days" style="color:var(--red)">—</div>
-          <div class="sub">Unique (user × day) pairs</div>
-        </div>
+    <!-- ── One-time rows ── -->
+    <div class="section-title">One-time Demand</div>
+
+    <!-- Row 1: OT incidents -->
+    <div class="kpi-grid kpi-3col" style="margin-bottom:12px">
+      <div class="kpi-card" style="border-left:4px solid var(--orange)">
+        <div class="label">No-Slot Incidents</div>
+        <div class="value" id="nskpi-inc-onetime" style="color:var(--orange)">—</div>
+        <div class="sub">Raw failure events (DB)</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--orange)">
+        <div class="label">Total Slots Sought</div>
+        <div class="value" id="nskpi-ot-total-inc" style="color:var(--orange)">—</div>
+        <div class="sub">Calendar views + incidents</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--red)">
+        <div class="label">Failure Rate</div>
+        <div class="value" id="nskpi-ot-fail-pct" style="color:var(--red)">—</div>
+        <div class="sub">% of attempts with no slot</div>
       </div>
     </div>
 
-    <!-- KPI cards -->
-    <div>
-      <div class="section-title">No Slots Overview</div>
-      <div class="kpi-grid">
-        <div class="kpi-card" style="border-left:4px solid var(--blue)">
-          <div class="label">Subscription No-Slots</div>
-          <div class="value" id="nskpi-sub" style="color:var(--blue)">—</div>
-          <div class="sub">Unique apt-days</div>
-        </div>
-        <div class="kpi-card" style="border-left:4px solid var(--orange)">
-          <div class="label">One-time No-Slots</div>
-          <div class="value" id="nskpi-onetime" style="color:var(--orange)">—</div>
-          <div class="sub">Unique apt-days</div>
-        </div>
-        <div class="kpi-card" style="border-left:4px solid var(--blue)">
-          <div class="label">Sub Avg Duration</div>
-          <div class="value" id="nskpi-duration-sub" style="color:var(--blue)">—</div>
-          <div class="sub">Minutes (subscription)</div>
-        </div>
-        <div class="kpi-card" style="border-left:4px solid var(--orange)">
-          <div class="label">One-time Avg Duration</div>
-          <div class="value" id="nskpi-duration-onetime" style="color:var(--orange)">—</div>
-          <div class="sub">Minutes (one-time)</div>
-        </div>
-        <div class="kpi-card" style="border-left:4px solid var(--green)">
-          <div class="label">Found Slot Same Day</div>
-          <div class="value" id="nskpi-success" style="color:var(--green)">—</div>
-          <div class="sub" id="nskpi-success-sub">Of affected apt-days</div>
-        </div>
+    <!-- Row 2: OT user-days -->
+    <div class="kpi-grid kpi-3col" style="margin-bottom:24px">
+      <div class="kpi-card" style="border-left:4px solid var(--orange)">
+        <div class="label">Apt-Days with No Slot</div>
+        <div class="value" id="nskpi-onetime" style="color:var(--orange)">—</div>
+        <div class="sub">Unique apt × day (DB)</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--orange)">
+        <div class="label">Total Seeker User-Days</div>
+        <div class="value" id="nskpi-seek-ot-days" style="color:var(--orange)">—</div>
+        <div class="sub">Unique user × day (PostHog)</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--red)">
+        <div class="label">User-Day Failure Rate</div>
+        <div class="value" id="nskpi-ot-days-pct" style="color:var(--red)">—</div>
+        <div class="sub">Apt-days no slot / seeker user-days</div>
+      </div>
+    </div>
+
+    <!-- ── Subscription rows ── -->
+    <div class="section-title">Subscription Demand</div>
+
+    <!-- Row 3: Sub incidents -->
+    <div class="kpi-grid kpi-3col" style="margin-bottom:12px">
+      <div class="kpi-card" style="border-left:4px solid var(--blue)">
+        <div class="label">No-Slot Incidents</div>
+        <div class="value" id="nskpi-inc-sub" style="color:var(--blue)">—</div>
+        <div class="sub">Raw failure events (DB)</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--blue)">
+        <div class="label">Total Slots Sought</div>
+        <div class="value" id="nskpi-sub-total-inc" style="color:var(--blue)">—</div>
+        <div class="sub">Suggestions views + incidents</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--purple)">
+        <div class="label">Failure Rate</div>
+        <div class="value" id="nskpi-sub-fail-pct" style="color:var(--purple)">—</div>
+        <div class="sub">% of attempts with no slot</div>
+      </div>
+    </div>
+
+    <!-- Row 4: Sub user-days -->
+    <div class="kpi-grid kpi-3col" style="margin-bottom:24px">
+      <div class="kpi-card" style="border-left:4px solid var(--blue)">
+        <div class="label">Apt-Days with No Slot</div>
+        <div class="value" id="nskpi-sub" style="color:var(--blue)">—</div>
+        <div class="sub">Unique apt × day (DB)</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--blue)">
+        <div class="label">Total Seeker User-Days</div>
+        <div class="value" id="nskpi-seek-sub-days" style="color:var(--blue)">—</div>
+        <div class="sub">Unique user × day (PostHog)</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--purple)">
+        <div class="label">User-Day Failure Rate</div>
+        <div class="value" id="nskpi-sub-days-pct" style="color:var(--purple)">—</div>
+        <div class="sub">Apt-days no slot / seeker user-days</div>
+      </div>
+    </div>
+
+    <!-- Row 5: Avg duration + recovery -->
+    <div class="section-title">Duration &amp; Recovery</div>
+    <div class="kpi-grid kpi-3col" style="margin-bottom:24px">
+      <div class="kpi-card" style="border-left:4px solid var(--orange)">
+        <div class="label">Avg Duration Requested (OT)</div>
+        <div class="value" id="nskpi-duration-onetime" style="color:var(--orange)">—</div>
+        <div class="sub">Minutes (one-time)</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--blue)">
+        <div class="label">Avg Duration Requested (Sub)</div>
+        <div class="value" id="nskpi-duration-sub" style="color:var(--blue)">—</div>
+        <div class="sub">Minutes (subscription)</div>
+      </div>
+      <div class="kpi-card" style="border-left:4px solid var(--green)">
+        <div class="label">Same-Day Recovery Rate</div>
+        <div class="value" id="nskpi-success" style="color:var(--green)">—</div>
+        <div class="sub" id="nskpi-success-sub">Of affected apt-days</div>
+      </div>
+    </div>
+
+    <!-- Incidents bar chart -->
+    <div class="charts-grid-2" style="margin-bottom:16px">
+      <div class="chart-card">
+        <h3>Incidents by Type <span style="font-weight:400;color:var(--muted);font-size:12px">(total events/month)</span></h3>
+        <div class="chart-wrap"><canvas id="chart-ns-incidents"></canvas></div>
       </div>
     </div>
 
@@ -1773,19 +1817,6 @@ function resetNsFilters() {
   loadNoSlots();
 }
 
-async function loadNoSlotsSummary() {
-  const d = await get(nsqs('/api/noslots/summary'));
-  document.getElementById('nskpi-sub').textContent          = fmt(d.subscription_apt_days);
-  document.getElementById('nskpi-onetime').textContent      = fmt(d.onetime_apt_days);
-  document.getElementById('nskpi-duration-sub').textContent =
-    d.avg_time_sub_mins ? d.avg_time_sub_mins + ' min' : '—';
-  document.getElementById('nskpi-duration-onetime').textContent =
-    d.avg_time_onetime_mins ? d.avg_time_onetime_mins + ' min' : '—';
-  document.getElementById('nskpi-success').textContent =
-    d.success_rate_pct != null ? d.success_rate_pct + '%' : '—';
-  document.getElementById('nskpi-success-sub').textContent =
-    `${fmt(d.found_slot_count)} of ${fmt(d.total_apt_days)} apt-days`;
-}
 
 async function loadNoSlotsTimeseries() {
   const rows = await get(nsqs('/api/noslots/timeseries'));
@@ -1852,15 +1883,82 @@ async function loadNoSlotsTimeseries() {
   });
 }
 
-async function loadNoSlotsIncidents() {
-  try {
-    const d = await get(nsqs('/api/noslots/incidents'));
-    document.getElementById('nskpi-inc-sub').textContent     = fmt(d.summary.sub_incidents);
-    document.getElementById('nskpi-inc-onetime').textContent = fmt(d.summary.onetime_incidents);
 
-    destroyChart('ns-incidents');
-    const ts = d.timeseries;
-    if (!ts.length) return;
+async function loadSlotSeekers() {
+  try {
+    const resp = await fetch('/static/data/ph_slot_seekers_summary.json');
+    if (!resp.ok) return null;
+    return await resp.json();
+  } catch (e) { console.warn('slot seekers:', e); return null; }
+}
+
+async function loadNoSlotsSummaryData() {
+  return await get(nsqs('/api/noslots/summary'));
+}
+
+async function loadNoSlotsIncidentsData() {
+  try { return await get(nsqs('/api/noslots/incidents')); }
+  catch (e) { console.error('incidents:', e); return { summary: {}, timeseries: [] }; }
+}
+
+function _fillNsKpis(d, incData, s) {
+  // Summary KPIs
+  document.getElementById('nskpi-sub').textContent     = fmt(d.subscription_apt_days);
+  document.getElementById('nskpi-onetime').textContent = fmt(d.onetime_apt_days);
+  document.getElementById('nskpi-duration-sub').textContent =
+    d.avg_time_sub_mins ? d.avg_time_sub_mins + ' min' : '—';
+  document.getElementById('nskpi-duration-onetime').textContent =
+    d.avg_time_onetime_mins ? d.avg_time_onetime_mins + ' min' : '—';
+  document.getElementById('nskpi-success').textContent =
+    d.success_rate_pct != null ? d.success_rate_pct + '%' : '—';
+  document.getElementById('nskpi-success-sub').textContent =
+    `${fmt(d.found_slot_count)} of ${fmt(d.total_apt_days)} apt-days`;
+
+  // Incident KPIs
+  document.getElementById('nskpi-inc-sub').textContent     = fmt(incData.summary.sub_incidents);
+  document.getElementById('nskpi-inc-onetime').textContent = fmt(incData.summary.onetime_incidents);
+
+  // PostHog + computed
+  if (s) {
+    document.getElementById('nskpi-seek-sub-days').textContent = fmt(s.sub_user_days);
+    document.getElementById('nskpi-seek-ot-days').textContent  = fmt(s.onetime_user_days);
+
+    const otTotal  = (+incData.summary.onetime_incidents || 0) + (+s.onetime_incidents || 0);
+    const subTotal = (+incData.summary.sub_incidents     || 0) + (+s.sub_incidents     || 0);
+    document.getElementById('nskpi-ot-total-inc').textContent  = fmt(otTotal);
+    document.getElementById('nskpi-sub-total-inc').textContent = fmt(subTotal);
+    document.getElementById('nskpi-ot-fail-pct').textContent   = otTotal  ? (((+incData.summary.onetime_incidents || 0) / otTotal  * 100).toFixed(1) + '%') : '—';
+    document.getElementById('nskpi-sub-fail-pct').textContent  = subTotal ? (((+incData.summary.sub_incidents     || 0) / subTotal * 100).toFixed(1) + '%') : '—';
+
+    const otDaysPct  = +s.onetime_user_days ? ((+d.onetime_apt_days        / +s.onetime_user_days * 100).toFixed(1) + '%') : '—';
+    const subDaysPct = +s.sub_user_days      ? ((+d.subscription_apt_days  / +s.sub_user_days     * 100).toFixed(1) + '%') : '—';
+    document.getElementById('nskpi-ot-days-pct').textContent  = otDaysPct;
+    document.getElementById('nskpi-sub-days-pct').textContent = subDaysPct;
+  } else {
+    ['nskpi-seek-sub-days','nskpi-seek-ot-days',
+     'nskpi-ot-total-inc','nskpi-sub-total-inc',
+     'nskpi-ot-fail-pct','nskpi-sub-fail-pct',
+     'nskpi-ot-days-pct','nskpi-sub-days-pct'].forEach(id => {
+      document.getElementById(id).textContent = '—';
+    });
+  }
+}
+
+async function loadNoSlots() {
+  nsslotsLoaded = true;
+  await populateNsFilters();
+  const [d, incData, , s] = await Promise.all([
+    loadNoSlotsSummaryData(),
+    loadNoSlotsIncidentsData(),
+    loadNoSlotsTimeseries(),
+    loadSlotSeekers(),
+  ]);
+  _fillNsKpis(d, incData, s);
+
+  // Draw incident chart (was inside loadNoSlotsIncidents, now inline)
+  destroyChart('ns-incidents');
+  const ts = incData.timeseries;
+  if (ts && ts.length) {
     charts['ns-incidents'] = new Chart(document.getElementById('chart-ns-incidents'), {
       type: 'bar',
       data: {
@@ -1880,31 +1978,7 @@ async function loadNoSlotsIncidents() {
         }
       }
     });
-  } catch (e) { console.error('incidents:', e); }
-}
-
-async function loadSlotSeekers() {
-  try {
-    // Read from pre-generated static CSV summary (PostHog data)
-    const resp = await fetch('/static/data/ph_slot_seekers_summary.json');
-    if (!resp.ok) return;
-    const s = await resp.json();
-    document.getElementById('nskpi-seek-sub-inc').textContent   = fmt(s.sub_incidents);
-    document.getElementById('nskpi-seek-sub-days').textContent  = fmt(s.sub_user_days);
-    document.getElementById('nskpi-seek-ot-inc').textContent    = fmt(s.onetime_incidents);
-    document.getElementById('nskpi-seek-ot-days').textContent   = fmt(s.onetime_user_days);
-  } catch (e) { console.warn('slot seekers:', e); }
-}
-
-async function loadNoSlots() {
-  nsslotsLoaded = true;
-  await populateNsFilters();
-  await Promise.all([
-    loadNoSlotsSummary(),
-    loadNoSlotsTimeseries(),
-    loadNoSlotsIncidents(),
-    loadSlotSeekers(),
-  ]);
+  }
   document.getElementById('last-updated').textContent =
     'Updated ' + new Date().toLocaleTimeString();
 }
