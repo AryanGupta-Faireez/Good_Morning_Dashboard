@@ -5,7 +5,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2025-09,655 Union,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,One-time,4
 2025-09,66 Rockwell Place,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,One-time,1
 2025-09,Alta,Floating NY 1,CHURN,One-time,2
-2025-09,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,One-time,2
+2025-09,Azrieli TLV,Unknown,CHURN,One-time,2
 2025-09,Azrieli TLV,Unknown,TRIAL,One-time,1
 2025-09,Brooklyn Crossing,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,One-time,1
 2025-09,Flamingo Point Center Tower,Miami Beach Polygon,LEAD,One-time,1
@@ -14,7 +14,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2025-09,Gindi 1,Unknown,TRIAL,One-time,2
 2025-09,Gindi 2,Unknown,CHURN,One-time,5
 2025-09,Gindi 2,Unknown,TRIAL,One-time,3
-2025-09,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,One-time,3
+2025-09,Gindi 3,Unknown,CHURN,One-time,3
 2025-09,Gindi 4,Unknown,WARM_LEAD,One-time,2
 2025-09,HaHehad,Unknown,TRIAL,One-time,3
 2025-09,John Street 116,Financial District Polygon,CHURN,One-time,1
@@ -45,7 +45,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2025-10,Agnes,Floating Jersey,LEAD,One-time,2
 2025-10,Agnes,Floating Jersey,TRIAL,One-time,4
 2025-10,Alta,Floating NY 1,ON_DEMAND_SUBSCRIPTION,One-time,3
-2025-10,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,One-time,2
+2025-10,Azrieli TLV,Unknown,CHURN,One-time,2
 2025-10,Brooklyn Crossing,Boerum Hill Polygon,CHURN,One-time,2
 2025-10,Brooklyn Crossing,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,One-time,1
 2025-10,Brooklyn Crossing,Boerum Hill Polygon,TRIAL,One-time,1
@@ -53,8 +53,8 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2025-10,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,2
 2025-10,Gindi 2,Unknown,CHURN,One-time,3
 2025-10,Gindi 2,Unknown,TRIAL,One-time,2
+2025-10,Gindi 3,Unknown,CHURN,One-time,4
 2025-10,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,2
-2025-10,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,One-time,4
 2025-10,Gindi 4,Unknown,LEAD,One-time,2
 2025-10,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,1
 2025-10,Gindi 4,Unknown,WARM_LEAD,One-time,2
@@ -105,18 +105,17 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2025-11,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,One-time,8
 2025-11,Alta,Floating NY 1,TRIAL,One-time,3
 2025-11,Arabella 101,Floating NY 2,LEAD,One-time,1
+2025-11,Azrieli TLV,Unknown,CHURN,One-time,1
 2025-11,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,1
-2025-11,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,One-time,1
 2025-11,Flamingo Point North Tower,Miami Beach Polygon,LEAD,One-time,5
 2025-11,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,2
 2025-11,Gindi 2,Unknown,CHURN,One-time,2
 2025-11,Gindi 2,Unknown,TRIAL,One-time,2
 2025-11,Gindi 2,Unknown,WARM_LEAD,One-time,1
+2025-11,Gindi 4,Unknown,CHURN,One-time,8
 2025-11,Gindi 4,Unknown,COLD_LEAD,One-time,4
-2025-11,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,6
-2025-11,Gindi 4,Unknown,RECURRING_SUBSCRIPTION,One-time,2
+2025-11,HaHehad,Unknown,CHURN,One-time,3
 2025-11,HaHehad,Unknown,COLD_LEAD,One-time,2
-2025-11,HaHehad,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,3
 2025-11,HaHehad,Unknown,WARM_LEAD,One-time,1
 2025-11,John Street 116,Financial District Polygon,CHURN,One-time,2
 2025-11,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,One-time,2
@@ -174,12 +173,11 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2025-12,Gindi 1,Unknown,FROZEN,One-time,1
 2025-12,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,2
 2025-12,Gindi 2,Unknown,TRIAL,One-time,4
-2025-12,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,One-time,1
-2025-12,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,1
+2025-12,Gindi 3,Unknown,CHURN,One-time,1
+2025-12,Gindi 4,Unknown,CHURN,One-time,1
 2025-12,Grove Central Residences,Floating Miami,RECURRING_SUBSCRIPTION,One-time,2
+2025-12,HaHehad,Unknown,CHURN,One-time,2
 2025-12,HaHehad,Unknown,COLD_LEAD,One-time,2
-2025-12,HaHehad,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,1
-2025-12,HaHehad,Unknown,RECURRING_SUBSCRIPTION,One-time,1
 2025-12,HaHehad,Unknown,TRIAL,One-time,3
 2025-12,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,One-time,2
 2025-12,Livana East Hanover,Chatham / West Orange Polygon,WARM_LEAD,One-time,11
@@ -291,10 +289,11 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-02,Oliver on the Hudson,Floating Jersey,RECURRING_SUBSCRIPTION,One-time,1
 2026-02,One Harrison,Harrison Polygon,CHURN,One-time,1
 2026-02,One Ten,Hoboken Polygon,RECURRING_SUBSCRIPTION,One-time,2
+2026-02,River Place,Hell's Kitchen Polygon,CHURN,One-time,1
 2026-02,River Place,Hell's Kitchen Polygon,FREEMIUM,One-time,2
 2026-02,River Place,Hell's Kitchen Polygon,LEAD,One-time,1
 2026-02,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,39
-2026-02,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,18
+2026-02,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,17
 2026-02,River Place,Hell's Kitchen Polygon,TRIAL,One-time,3
 2026-02,Silver Towers,Hell's Kitchen Polygon,LEAD,One-time,1
 2026-02,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,14
@@ -394,11 +393,12 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-03,Midtown 5,Floating Miami,TRIAL,One-time,3
 2026-03,Oliver on the Hudson,Floating Jersey,RECURRING_SUBSCRIPTION,Subscription,1
 2026-03,Plank Road,Boerum Hill Polygon,TRIAL,One-time,2
+2026-03,River Place,Hell's Kitchen Polygon,CHURN,Subscription,5
 2026-03,River Place,Hell's Kitchen Polygon,FREEMIUM,Subscription,2
 2026-03,River Place,Hell's Kitchen Polygon,LEAD,Subscription,2
 2026-03,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,7
 2026-03,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,2
-2026-03,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,31
+2026-03,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,26
 2026-03,River Place,Hell's Kitchen Polygon,WARM_LEAD,Subscription,1
 2026-03,Silver Towers,Hell's Kitchen Polygon,LEAD,One-time,3
 2026-03,Silver Towers,Hell's Kitchen Polygon,LEAD,Subscription,7
@@ -482,7 +482,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-04,Alta,Floating NY 1,LEAD,Subscription,1
 2026-04,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,One-time,2
 2026-04,Alta,Floating NY 1,WARM_LEAD,One-time,1
-2026-04,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,Subscription,2
+2026-04,Azrieli TLV,Unknown,CHURN,Subscription,2
 2026-04,Azrieli TLV,Unknown,WARM_LEAD,One-time,2
 2026-04,Azrieli TLV,Unknown,WARM_LEAD,Subscription,4
 2026-04,Bay Parc Apartments,Edgeater Polygon,LEAD,One-time,1
@@ -525,17 +525,16 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-04,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,One-time,10
 2026-04,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,Subscription,12
 2026-04,Flow Miami,Flow Brickell Polygon,LEAD,Subscription,1
+2026-04,Gindi 1,Unknown,CHURN,Subscription,1
 2026-04,Gindi 1,Unknown,LEAD,Subscription,1
-2026-04,Gindi 1,Unknown,RECURRING_SUBSCRIPTION,Subscription,1
 2026-04,Gindi 1,Unknown,TRIAL,One-time,1
 2026-04,Gindi 1,Unknown,TRIAL,Subscription,2
 2026-04,Gindi 2,Unknown,WARM_LEAD,One-time,1
 2026-04,Gindi 2,Unknown,WARM_LEAD,Subscription,1
-2026-04,Gindi 4,Unknown,CHURN,Subscription,1
-2026-04,Gindi 4,Unknown,RECURRING_SUBSCRIPTION,One-time,1
-2026-04,Gindi 4,Unknown,RECURRING_SUBSCRIPTION,Subscription,6
+2026-04,Gindi 4,Unknown,CHURN,One-time,1
+2026-04,Gindi 4,Unknown,CHURN,Subscription,7
 2026-04,Grove Central Residences,Floating Miami,WARM_LEAD,One-time,1
-2026-04,HaHehad,Unknown,RECURRING_SUBSCRIPTION,Subscription,2
+2026-04,HaHehad,Unknown,CHURN,Subscription,2
 2026-04,John Street 116,Financial District Polygon,WARM_LEAD,Subscription,13
 2026-04,Key Colony 1 Tidemark,The Ocean Club Polygon,LEAD,One-time,2
 2026-04,Key Colony 1 Tidemark,The Ocean Club Polygon,LEAD,Subscription,3
@@ -629,15 +628,16 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-04,Woodside Central,Floating NY 1,RECURRING_SUBSCRIPTION,One-time,1
 2026-04,Woodside Central,Floating NY 1,RECURRING_SUBSCRIPTION,Subscription,3
 2026-04,Woodside Central,Floating NY 1,TRIAL,One-time,3
-2026-05,100 House,Hoboken Polygon,WARM_LEAD,One-time,2
-2026-05,100 House,Hoboken Polygon,WARM_LEAD,Subscription,8
+2026-05,100 House,Hoboken Polygon,WARM_LEAD,One-time,4
+2026-05,100 House,Hoboken Polygon,WARM_LEAD,Subscription,10
 2026-05,1800 North Bayshore Drive,Edgeater Polygon,WARM_LEAD,One-time,2
 2026-05,1800 North Bayshore Drive,Edgeater Polygon,WARM_LEAD,Subscription,1
 2026-05,1 River Place,Hell's Kitchen Polygon,LEAD,One-time,2
 2026-05,1 River Place,Hell's Kitchen Polygon,LEAD,Subscription,2
 2026-05,1 River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,1
-2026-05,1 River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,19
+2026-05,1 River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,20
 2026-05,2000 Biscayne,Edgeater Polygon,LEAD,Subscription,5
+2026-05,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,Subscription,1
 2026-05,2000 Biscayne,Edgeater Polygon,TRIAL,One-time,3
 2026-05,2000 Biscayne,Edgeater Polygon,TRIAL,Subscription,2
 2026-05,2000 Biscayne,Edgeater Polygon,WARM_LEAD,One-time,1
@@ -663,8 +663,8 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Alta,Floating NY 1,ON_DEMAND_SUBSCRIPTION,Subscription,3
 2026-05,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,One-time,1
 2026-05,Alta,Floating NY 1,WARM_LEAD,Subscription,2
-2026-05,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,One-time,1
-2026-05,Azrieli TLV,Unknown,RECURRING_SUBSCRIPTION,Subscription,4
+2026-05,Azrieli TLV,Unknown,CHURN,One-time,1
+2026-05,Azrieli TLV,Unknown,CHURN,Subscription,4
 2026-05,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,One-time,3
 2026-05,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,1
 2026-05,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,One-time,2
@@ -695,7 +695,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,Subscription,10
 2026-05,Flamingo South Beach,Miami Beach Polygon,TRIAL,One-time,10
 2026-05,Flamingo South Beach,Miami Beach Polygon,TRIAL,Subscription,1
-2026-05,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,Subscription,3
+2026-05,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,Subscription,4
 2026-05,Flow Brickell,Flow Brickell Polygon,LEAD,One-time,12
 2026-05,Flow Brickell,Flow Brickell Polygon,LEAD,Subscription,18
 2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,One-time,4
@@ -706,12 +706,15 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,Subscription,23
 2026-05,Gindi 1,Unknown,CHURN,One-time,1
 2026-05,Gindi 1,Unknown,CHURN,Subscription,2
-2026-05,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,1
-2026-05,Gindi 2,Unknown,RECURRING_SUBSCRIPTION,Subscription,1
+2026-05,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,3
+2026-05,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,Subscription,1
+2026-05,Gindi 2,Unknown,CHURN,Subscription,1
+2026-05,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,One-time,2
+2026-05,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,Subscription,1
 2026-05,Gindi 2,Unknown,TRIAL,Subscription,1
+2026-05,Gindi 3,Unknown,CHURN,One-time,2
+2026-05,Gindi 3,Unknown,CHURN,Subscription,1
 2026-05,Gindi 3,Unknown,LEAD,Subscription,1
-2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,One-time,2
-2026-05,Gindi 3,Unknown,RECURRING_SUBSCRIPTION,Subscription,1
 2026-05,Gindi 3,Unknown,TRIAL,Subscription,1
 2026-05,Gindi 3,Unknown,WARM_LEAD,One-time,1
 2026-05,Gindi 3,Unknown,WARM_LEAD,Subscription,1
@@ -721,18 +724,19 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,LEAD,One-time,4
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,LEAD,Subscription,9
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,WARM_LEAD,Subscription,1
+2026-05,Midtown 5,Floating Miami,LEAD,One-time,1
 2026-05,Midtown 5,Floating Miami,LEAD,Subscription,4
 2026-05,Midtown 5,Floating Miami,TRIAL,Subscription,1
 2026-05,Nine 52,Hell's Kitchen Polygon,FREEMIUM,One-time,2
 2026-05,Oliver on the Hudson,Floating Jersey,CHURN,One-time,2
 2026-05,Oliver on the Hudson,Floating Jersey,LEAD,One-time,3
-2026-05,Oliver on the Hudson,Floating Jersey,LEAD,Subscription,4
+2026-05,Oliver on the Hudson,Floating Jersey,LEAD,Subscription,3
 2026-05,Oliver on the Hudson,Floating Jersey,RECURRING_SUBSCRIPTION,One-time,24
 2026-05,Oliver on the Hudson,Floating Jersey,RECURRING_SUBSCRIPTION,Subscription,7
 2026-05,Oliver on the Hudson,Floating Jersey,TRIAL,One-time,11
 2026-05,Oliver on the Hudson,Floating Jersey,TRIAL,Subscription,5
 2026-05,Oliver on the Hudson,Floating Jersey,WARM_LEAD,One-time,15
-2026-05,Oliver on the Hudson,Floating Jersey,WARM_LEAD,Subscription,9
+2026-05,Oliver on the Hudson,Floating Jersey,WARM_LEAD,Subscription,10
 2026-05,One Harrison,Harrison Polygon,LEAD,Subscription,1
 2026-05,One Ten,Hoboken Polygon,LEAD,One-time,2
 2026-05,One Ten,Hoboken Polygon,ON_DEMAND_SUBSCRIPTION,One-time,1
@@ -743,23 +747,23 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,River Place,Hell's Kitchen Polygon,LEAD,Subscription,3
 2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,17
 2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,14
-2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,5
-2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,3
+2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,7
+2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,5
 2026-05,River Place,Hell's Kitchen Polygon,TRIAL,One-time,3
 2026-05,River Place,Hell's Kitchen Polygon,TRIAL,Subscription,1
 2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,One-time,10
 2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,Subscription,17
 2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,One-time,6
-2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,Subscription,7
+2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,Subscription,11
 2026-05,Silver Towers,Hell's Kitchen Polygon,FROZEN,One-time,1
-2026-05,Silver Towers,Hell's Kitchen Polygon,LEAD,One-time,11
+2026-05,Silver Towers,Hell's Kitchen Polygon,LEAD,One-time,21
 2026-05,Silver Towers,Hell's Kitchen Polygon,LEAD,Subscription,47
-2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,4
-2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,5
+2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,6
+2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,9
 2026-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,2
-2026-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,17
+2026-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,18
 2026-05,Silver Towers,Hell's Kitchen Polygon,TRIAL,One-time,2
-2026-05,Silver Towers,Hell's Kitchen Polygon,TRIAL,Subscription,3
+2026-05,Silver Towers,Hell's Kitchen Polygon,TRIAL,Subscription,4
 2026-05,Silver Towers,Hell's Kitchen Polygon,WARM_LEAD,One-time,6
 2026-05,Silver Towers,Hell's Kitchen Polygon,WARM_LEAD,Subscription,21
 2026-05,Southgate Towers,Miami Beach Polygon,CHURN,One-time,2
@@ -774,21 +778,22 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,The Buchanan,Floating NY 1,CHURN,Subscription,1
 2026-05,The Buchanan,Floating NY 1,WARM_LEAD,One-time,1
 2026-05,The Buchanan,Floating NY 1,WARM_LEAD,Subscription,2
-2026-05,The Devan,Hoboken Polygon,LEAD,One-time,18
-2026-05,The Devan,Hoboken Polygon,LEAD,Subscription,68
+2026-05,The Devan,Hoboken Polygon,LEAD,One-time,11
+2026-05,The Devan,Hoboken Polygon,LEAD,Subscription,52
 2026-05,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,One-time,5
 2026-05,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,Subscription,10
 2026-05,The Devan,Hoboken Polygon,TRIAL,One-time,4
 2026-05,The Devan,Hoboken Polygon,TRIAL,Subscription,1
-2026-05,The Devan,Hoboken Polygon,WARM_LEAD,One-time,1
-2026-05,The Devan,Hoboken Polygon,WARM_LEAD,Subscription,1
+2026-05,The Devan,Hoboken Polygon,WARM_LEAD,One-time,8
+2026-05,The Devan,Hoboken Polygon,WARM_LEAD,Subscription,17
 2026-05,The Dime,Williamsburg Polygon,RECURRING_SUBSCRIPTION,Subscription,2
 2026-05,The Eddy,Harrison Polygon,WARM_LEAD,Subscription,2
 2026-05,The Enclave,Hoboken Polygon,FREEMIUM,One-time,1
 2026-05,The Enclave,Hoboken Polygon,FREEMIUM,Subscription,6
 2026-05,The Enclave,Hoboken Polygon,LEAD,Subscription,2
 2026-05,The Ivy,Chatham / West Orange Polygon,LEAD,One-time,1
-2026-05,The Kestrel,Floating NY 2,LEAD,Subscription,2
+2026-05,The Kestrel,Floating NY 2,CHURN,Subscription,1
+2026-05,The Kestrel,Floating NY 2,LEAD,Subscription,4
 2026-05,The Landon,Hell's Kitchen Polygon,TRIAL,One-time,3
 2026-05,The Landon,Hell's Kitchen Polygon,TRIAL,Subscription,2
 2026-05,The Landon,Hell's Kitchen Polygon,WARM_LEAD,One-time,2
