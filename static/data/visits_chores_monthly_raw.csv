@@ -2518,9 +2518,9 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-01,Brooklyn Crossing,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,5.68,90.65,318,8695.18
 2026-01,Brooklyn Crossing,Boerum Hill Polygon,TRIAL,8.0,0.0,40,1135.55
 2026-01,Brooklyn Crossing,Boerum Hill Polygon,WARM_LEAD,3.86,8.85,27,811.72
-2026-01,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,6.93,60.0,201,5749.38
+2026-01,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,6.84,63.78,219,6286.8
 2026-01,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,4.9,48.13,142,4207.58
-2026-01,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.56,70.28,636,18365.62
+2026-01,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.57,69.23,618,17828.2
 2026-01,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,6.85,15.19,89,1952.21
 2026-01,Flamingo Point Center Tower,Miami Beach Polygon,WARM_LEAD,5.56,17.03,89,2766.53
 2026-01,Flamingo Point North Tower,Miami Beach Polygon,CHURN,7.65,46.79,153,4324.58
@@ -2757,9 +2757,9 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-02,Dey and Bergen,Harrison Polygon,CHURN,2.5,75.6,5,195.65
 2026-02,Dey and Bergen,Harrison Polygon,ON_DEMAND_SUBSCRIPTION,3.5,53.57,7,254.15
 2026-02,Dey and Bergen,Harrison Polygon,WARM_LEAD,5.2,120.54,26,795.08
-2026-02,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,7.88,75.19,134,3787.16
+2026-02,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,7.89,79.76,150,4241.38
 2026-02,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,4.75,17.14,133,4083.43
-2026-02,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.26,73.35,557,15986.23
+2026-02,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.22,72.04,541,15532.01
 2026-02,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,7.54,25.02,98,2333.37
 2026-02,Flamingo Point Center Tower,Miami Beach Polygon,WARM_LEAD,6.3,68.13,63,1978.6
 2026-02,Flamingo Point North Tower,Miami Beach Polygon,CHURN,7.89,0.0,142,3973.32
@@ -3015,10 +3015,10 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-03,Dey and Bergen,Harrison Polygon,CHURN,3.0,92.0,3,124.15
 2026-03,Dey and Bergen,Harrison Polygon,ON_DEMAND_SUBSCRIPTION,1.75,11.29,7,204.1
 2026-03,Dey and Bergen,Harrison Polygon,WARM_LEAD,4.4,118.18,22,662.87
-2026-03,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,6.88,104.95,110,3180.97
+2026-03,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,7.0,106.6,126,3635.19
 2026-03,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,2.5,64.1,10,344.5
 2026-03,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,5.03,28.77,176,5370.17
-2026-03,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,5.75,83.37,587,17122.56
+2026-03,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,5.71,82.4,571,16668.34
 2026-03,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,4.0,26.69,48,1213.29
 2026-03,Flamingo Point Center Tower,Miami Beach Polygon,WARM_LEAD,8.27,60.75,91,2788.37
 2026-03,Flamingo Point North Tower,Miami Beach Polygon,CHURN,8.13,0.0,65,1834.43
@@ -3275,10 +3275,10 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-04,Dey and Bergen,Harrison Polygon,CHURN,3.0,0.0,3,124.15
 2026-04,Dey and Bergen,Harrison Polygon,ON_DEMAND_SUBSCRIPTION,2.0,0.0,2,71.5
 2026-04,Dey and Bergen,Harrison Polygon,WARM_LEAD,2.0,54.0,2,71.5
-2026-04,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.13,99.35,65,1813.37
+2026-04,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.1,103.04,81,2267.59
 2026-04,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,1.4,11.43,7,23.4
 2026-04,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,2.7,13.62,100,2612.61
-2026-04,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,4.84,70.71,562,15375.1
+2026-04,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,4.79,69.32,546,14920.88
 2026-04,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,1.97,43.97,73,1516.32
 2026-04,Flamingo Point Center Tower,Miami Beach Polygon,WARM_LEAD,5.22,87.64,47,1396.98
 2026-04,Flamingo Point North Tower,Miami Beach Polygon,CHURN,8.0,0.0,8,227.11
@@ -3398,7 +3398,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-04,The Dime,Williamsburg Polygon,TRIAL,5.0,0.0,5,147.55
 2026-04,The Dime,Williamsburg Polygon,WARM_LEAD,10.0,174.0,10,262.21
 2026-04,The Eddy,Harrison Polygon,CHURN,2.0,0.0,2,71.5
-2026-04,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,4.92,121.92,59,1674.66
+2026-04,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,4.75,123.48,57,1603.16
 2026-04,The Eddy,Harrison Polygon,TRIAL,8.0,2.86,56,1589.77
 2026-04,The Eddy,Harrison Polygon,WARM_LEAD,2.67,46.67,24,871.65
 2026-04,The Enclave,Hoboken Polygon,CHURN,8.0,0.0,16,454.22
@@ -3436,7 +3436,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-04,Woodside Central,Floating NY 1,WARM_LEAD,8.0,0.0,8,227.11
 2026-05,100 House,Hoboken Polygon,CHURN,8.0,0.0,32,908.44
 2026-05,100 House,Hoboken Polygon,ON_DEMAND_SUBSCRIPTION,6.0,38.67,12,409.76
-2026-05,100 House,Hoboken Polygon,RECURRING_SUBSCRIPTION,6.53,106.05,111,3315.52
+2026-05,100 House,Hoboken Polygon,RECURRING_SUBSCRIPTION,6.44,106.48,116,3509.87
 2026-05,100 House,Hoboken Polygon,WARM_LEAD,8.0,0.0,8,227.11
 2026-05,1800 North Bayshore Drive,Edgeater Polygon,RECURRING_SUBSCRIPTION,8.0,58.67,24,681.33
 2026-05,1800 North Bayshore Drive,Edgeater Polygon,TRIAL,3.75,56.53,15,384.28
@@ -3448,7 +3448,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,1 River Place,Hell's Kitchen Polygon,TRIAL,1.0,104.0,1,13.0
 2026-05,2000 Biscayne,Edgeater Polygon,CHURN,8.0,0.0,8,227.11
 2026-05,2000 Biscayne,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,3.57,26.4,25,700.57
-2026-05,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.0,36.8,434,11419.33
+2026-05,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.0,33.17,434,11419.33
 2026-05,2000 Biscayne,Edgeater Polygon,TRIAL,3.57,66.6,25,694.72
 2026-05,2000 Biscayne,Edgeater Polygon,WARM_LEAD,2.75,55.27,11,408.85
 2026-05,2001 Biscayne Boulevard,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,7.67,0.0,23,622.83
@@ -3480,7 +3480,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,345 Baldwin Avenue,Floating Jersey,TRIAL,3.5,67.29,7,210.86
 2026-05,345 Baldwin Avenue,Floating Jersey,WARM_LEAD,2.25,10.33,9,239.2
 2026-05,416 Kent Avenue,Williamsburg Polygon,ON_DEMAND_SUBSCRIPTION,4.0,11.83,12,370.11
-2026-05,416 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,7.0,74.3,98,2906.8
+2026-05,416 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,7.07,76.97,106,3133.91
 2026-05,416 Kent Avenue,Williamsburg Polygon,WARM_LEAD,6.5,106.46,13,421.46
 2026-05,420 Kent Avenue,Williamsburg Polygon,CHURN,7.33,0.0,22,654.42
 2026-05,420 Kent Avenue,Williamsburg Polygon,ON_DEMAND_SUBSCRIPTION,4.33,86.96,26,836.16
@@ -3517,9 +3517,9 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Azrieli TLV,Unknown,TRIAL,8.1,13.99,81,2517.97
 2026-05,Bay Parc Apartments,Edgeater Polygon,CHURN,9.14,0.0,64,1758.25
 2026-05,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,4.17,6.96,25,822.12
-2026-05,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,6.79,43.8,584,17139.59
+2026-05,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,6.67,42.83,580,17002.83
 2026-05,Bay Parc Apartments,Edgeater Polygon,TRIAL,4.6,88.04,23,747.11
-2026-05,Bay Parc Apartments,Edgeater Polygon,WARM_LEAD,6.0,43.0,18,565.5
+2026-05,Bay Parc Apartments,Edgeater Polygon,WARM_LEAD,5.0,42.1,20,637.0
 2026-05,Biscayne SFR,The Ocean Club Polygon,CHURN,2.0,0.0,6,39.0
 2026-05,Biscayne SFR,Unknown,CHURN,2.0,0.0,6,161.85
 2026-05,Brooklyn Crossing,Boerum Hill Polygon,CHURN,7.14,0.0,50,1434.16
@@ -3532,15 +3532,15 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Dey and Bergen,Harrison Polygon,CHURN,3.0,46.0,6,248.3
 2026-05,Dey and Bergen,Harrison Polygon,TRIAL,3.0,95.0,3,124.15
 2026-05,Dey and Bergen,Harrison Polygon,WARM_LEAD,5.0,101.2,10,298.61
-2026-05,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.67,29.08,52,1432.86
+2026-05,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.5,43.06,68,1887.08
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,1.1,6.85,34,102.05
-2026-05,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,1.63,31.02,83,1182.87
-2026-05,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,4.61,77.58,585,15551.9
+2026-05,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,1.65,30.47,86,1213.42
+2026-05,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,4.55,73.52,569,15097.68
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,1.39,26.84,32,417.95
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,WARM_LEAD,3.42,116.37,41,1153.75
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,2.4,58.33,24,527.8
-2026-05,Flamingo Point North Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.66,109.18,406,11538.15
-2026-05,Flamingo Point North Tower,Miami Beach Polygon,TRIAL,2.0,6.0,4,26.0
+2026-05,Flamingo Point North Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.63,107.84,398,11311.04
+2026-05,Flamingo Point North Tower,Miami Beach Polygon,TRIAL,2.0,22.0,6,97.5
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,WARM_LEAD,2.0,14.0,2,30.55
 2026-05,Flamingo South Beach,Miami Beach Polygon,CHURN,3.41,12.24,99,3044.6
 2026-05,Flamingo South Beach,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,6.67,58.8,20,615.81
@@ -3548,7 +3548,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Flamingo South Beach,Miami Beach Polygon,TRIAL,2.33,59.33,14,521.3
 2026-05,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,2.38,48.79,19,531.05
 2026-05,Flow Brickell,Flow Brickell Polygon,ON_DEMAND_SUBSCRIPTION,3.0,0.0,3,83.2
-2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,4.7,71.18,216,6204.51
+2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,4.7,62.56,216,6204.51
 2026-05,Flow Brickell,Flow Brickell Polygon,TRIAL,3.89,50.92,74,2430.22
 2026-05,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,3.47,36.78,59,1772.29
 2026-05,Gindi 1,Unknown,CHURN,5.88,27.1,576,17326.79
@@ -3567,7 +3567,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Gindi 4,Unknown,TRIAL,8.0,134.25,16,536.12
 2026-05,Grove Central Residences,Floating Miami,CHURN,5.4,0.0,54,1363.18
 2026-05,Grove Central Residences,Floating Miami,ON_DEMAND_SUBSCRIPTION,8.0,0.0,8,227.11
-2026-05,Grove Central Residences,Floating Miami,RECURRING_SUBSCRIPTION,8.0,86.85,104,3008.59
+2026-05,Grove Central Residences,Floating Miami,RECURRING_SUBSCRIPTION,8.0,84.25,96,2781.48
 2026-05,Grove Central Residences,Floating Miami,TRIAL,8.0,0.0,16,454.22
 2026-05,Grove Central Residences,Floating Miami,WARM_LEAD,9.0,193.0,9,297.31
 2026-05,HaHehad,Unknown,CHURN,5.81,36.84,122,3799.38
@@ -3578,13 +3578,13 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,John Street 116,Financial District Polygon,TRIAL,8.0,0.0,8,227.11
 2026-05,Lake Tower,The Ocean Club Polygon,TRIAL,8.0,0.0,8,227.11
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,CHURN,7.0,0.0,14,529.1
-2026-05,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,4.83,90.32,87,2409.03
+2026-05,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,4.79,87.34,91,2542.54
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,TRIAL,4.0,23.0,16,398.32
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,WARM_LEAD,3.25,73.31,13,435.76
 2026-05,Midtown 5,Floating Miami,CHURN,7.25,1.34,58,1620.32
 2026-05,Midtown 5,Floating Miami,ON_DEMAND_SUBSCRIPTION,2.5,0.0,5,224.9
-2026-05,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,3.45,71.07,162,4527.9
-2026-05,Midtown 5,Floating Miami,TRIAL,5.2,88.65,26,887.51
+2026-05,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,3.45,69.79,162,4527.9
+2026-05,Midtown 5,Floating Miami,TRIAL,4.5,89.41,27,900.51
 2026-05,Midtown 5,Floating Miami,WARM_LEAD,8.0,10.0,8,227.11
 2026-05,Nine 52,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,6.5,126.04,78,2331.03
 2026-05,Oliver on the Hudson,Floating Jersey,ON_DEMAND_SUBSCRIPTION,6.43,23.42,90,2525.51
@@ -3608,7 +3608,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Quantum on the Bay Condominium,Edgeater Polygon,TRIAL,1.33,-7.2,4,154.7
 2026-05,River Place,Hell's Kitchen Polygon,CHURN,4.2,21.9,42,1500.07
 2026-05,River Place,Hell's Kitchen Polygon,FREEMIUM,5.0,90.0,10,298.61
-2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,3.33,40.93,80,2451.93
+2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,3.28,40.68,82,2523.43
 2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3.99,61.89,615,16493.88
 2026-05,River Place,Hell's Kitchen Polygon,TRIAL,1.86,63.21,52,979.42
 2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,1.52,38.89,76,814.19
@@ -3625,7 +3625,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Southgate Towers,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,9.25,20.81,37,1154.14
 2026-05,Southgate Towers,Miami Beach Polygon,RECURRING_SUBSCRIPTION,5.42,59.28,141,4179.11
 2026-05,Southgate Towers,Miami Beach Polygon,TRIAL,8.0,48.4,40,1135.55
-2026-05,Southgate Towers,Miami Beach Polygon,WARM_LEAD,6.0,105.0,12,380.51
+2026-05,Southgate Towers,Miami Beach Polygon,WARM_LEAD,6.0,24.33,12,380.51
 2026-05,Stonehill,Chatham / West Orange Polygon,CHURN,2.0,24.0,4,143.0
 2026-05,Stonehill,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,1.0,105.5,1,13.0
 2026-05,Stonehill,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,6.0,97.75,96,2850.9
@@ -3634,15 +3634,14 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,The Addison,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,2.33,29.0,7,243.75
 2026-05,The Addison,Brooklyn Heights Polygon,WARM_LEAD,4.0,0.0,4,127.66
 2026-05,The Bergen,Boerum Hill Polygon,CHURN,8.0,0.0,8,227.11
-2026-05,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,8.0,59.0,16,454.22
-2026-05,The Bergen,Boerum Hill Polygon,WARM_LEAD,8.0,121.0,8,227.11
+2026-05,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,8.0,89.25,32,908.44
 2026-05,The Boulevard,Floating Miami,CHURN,6.0,0.0,36,1184.82
 2026-05,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,2.0,7.75,8,274.3
 2026-05,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,5.83,108.71,105,3101.67
 2026-05,The Boulevard,Floating Miami,TRIAL,5.5,15.55,11,351.26
 2026-05,The Buchanan,Floating NY 1,CHURN,8.0,0.0,8,227.11
 2026-05,The Buchanan,Floating NY 1,ON_DEMAND_SUBSCRIPTION,7.0,93.0,21,648.57
-2026-05,The Buchanan,Floating NY 1,RECURRING_SUBSCRIPTION,5.4,64.67,162,4228.77
+2026-05,The Buchanan,Floating NY 1,RECURRING_SUBSCRIPTION,5.35,64.54,166,4362.28
 2026-05,The Buchanan,Floating NY 1,WARM_LEAD,6.33,196.53,19,525.72
 2026-05,The Devan,Hoboken Polygon,CHURN,2.0,0.0,2,71.5
 2026-05,The Devan,Hoboken Polygon,ON_DEMAND_SUBSCRIPTION,3.5,15.64,14,365.56
@@ -3654,12 +3653,12 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,The Dime,Williamsburg Polygon,RECURRING_SUBSCRIPTION,7.09,95.33,78,2284.1
 2026-05,The Dime,Williamsburg Polygon,TRIAL,5.0,0.0,5,147.55
 2026-05,The Eddy,Harrison Polygon,CHURN,2.0,9.0,4,113.75
-2026-05,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,5.58,101.94,67,1970.67
+2026-05,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,5.38,98.0,70,2053.87
 2026-05,The Eddy,Harrison Polygon,TRIAL,8.0,1.67,48,1362.66
 2026-05,The Eddy,Harrison Polygon,WARM_LEAD,2.0,24.33,8,237.9
 2026-05,The Enclave,Hoboken Polygon,CHURN,8.0,0.0,8,227.11
 2026-05,The Enclave,Hoboken Polygon,FREEMIUM,2.0,18.0,4,166.4
-2026-05,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,5.5,80.72,88,2814.76
+2026-05,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,5.5,79.66,88,2814.76
 2026-05,The Enclave,Hoboken Polygon,WARM_LEAD,8.0,150.0,8,227.11
 2026-05,The Ivy,Chatham / West Orange Polygon,CHURN,7.33,70.0,44,1271.4
 2026-05,The Ivy,Chatham / West Orange Polygon,FREEMIUM,8.0,112.0,8,227.11
@@ -3676,6 +3675,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,The Landon,Hell's Kitchen Polygon,TRIAL,1.0,109.0,1,13.0
 2026-05,The Landon,Hell's Kitchen Polygon,WARM_LEAD,1.14,7.13,32,293.15
 2026-05,The Vitagraph,Floating NY 2,CHURN,8.0,44.75,32,908.44
+2026-05,The Vitagraph,Floating NY 2,TRIAL,2.0,34.0,2,71.5
 2026-05,Union Channel ,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,5.33,145.75,32,954.33
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,CHURN,8.0,21.33,48,1362.66
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,6.5,85.03,104,3228.81
@@ -3684,7 +3684,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Waters Edge,Harrison Polygon,CHURN,8.0,0.0,8,227.11
 2026-05,Waters Edge,Harrison Polygon,ON_DEMAND_SUBSCRIPTION,8.0,118.0,8,227.11
 2026-05,Woodside Central,Floating NY 1,ON_DEMAND_SUBSCRIPTION,8.0,0.0,32,908.44
-2026-05,Woodside Central,Floating NY 1,RECURRING_SUBSCRIPTION,4.15,68.91,54,1545.83
+2026-05,Woodside Central,Floating NY 1,RECURRING_SUBSCRIPTION,4.15,60.61,54,1545.83
 2026-06,100 House,Hoboken Polygon,CHURN,8.0,0.0,16,454.22
 2026-06,100 House,Hoboken Polygon,ON_DEMAND_SUBSCRIPTION,8.0,0.0,8,227.11
 2026-06,100 House,Hoboken Polygon,RECURRING_SUBSCRIPTION,7.08,128.85,92,2731.3
@@ -3705,11 +3705,11 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,300 Somerset,Harrison Polygon,CHURN,2.0,0.0,2,71.5
 2026-06,300 Somerset,Harrison Polygon,RECURRING_SUBSCRIPTION,5.56,105.12,50,1386.45
 2026-06,330 Angelo Cifelli,Harrison Polygon,CHURN,8.0,0.0,32,908.44
-2026-06,330 Angelo Cifelli,Harrison Polygon,RECURRING_SUBSCRIPTION,3.6,87.51,90,2668.51
+2026-06,330 Angelo Cifelli,Harrison Polygon,RECURRING_SUBSCRIPTION,3.54,86.28,92,2740.01
 2026-06,330W-56th,Hell's Kitchen Polygon,CHURN,2.0,0.0,4,143.0
 2026-06,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,5.38,68.21,86,2395.9
 2026-06,345 Baldwin Avenue,Floating Jersey,RECURRING_SUBSCRIPTION,3.89,83.26,35,1106.82
-2026-06,416 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,7.25,102.21,116,3376.23
+2026-06,416 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,7.2,101.64,108,3149.12
 2026-06,420 Kent Avenue,Williamsburg Polygon,CHURN,8.0,0.0,16,454.22
 2026-06,420 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,5.1,84.96,158,4425.46
 2026-06,420 Kent Avenue,Williamsburg Polygon,TRIAL,3.0,0.0,6,207.35
@@ -3729,19 +3729,19 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,Azrieli TLV,Unknown,TRIAL,4.0,0.0,8,295.1
 2026-06,Bay Parc Apartments,Edgeater Polygon,CHURN,9.5,0.0,19,509.21
 2026-06,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,5.0,0.0,10,298.61
-2026-06,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.53,88.94,414,12051.13
+2026-06,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.44,88.92,424,12349.74
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,CHURN,8.0,0.0,8,227.11
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,7.18,108.54,287,8150.74
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,WARM_LEAD,8.0,0.0,8,227.11
 2026-06,Cite On The Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,8.0,179.0,16,454.22
 2026-06,Dey and Bergen,Harrison Polygon,CHURN,3.0,0.0,3,124.15
 2026-06,Dey and Bergen,Harrison Polygon,WARM_LEAD,4.0,122.0,4,182.65
-2026-06,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.33,0.0,25,698.88
+2026-06,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.2,0.0,41,1153.1
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,1.0,0.0,22,
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,1.18,0.0,39,425.1
-2026-06,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,4.68,104.14,515,13749.06
+2026-06,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,4.62,103.69,499,13294.84
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,2.09,35.91,23,488.15
-2026-06,Flamingo Point North Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.78,135.23,312,8804.51
+2026-06,Flamingo Point North Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.81,136.25,320,9031.62
 2026-06,Flamingo South Beach,Miami Beach Polygon,CHURN,3.29,0.0,56,1688.18
 2026-06,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,3.47,70.37,243,5636.15
 2026-06,Flamingo South Beach,Miami Beach Polygon,TRIAL,3.0,0.0,3,130.0
@@ -3758,13 +3758,13 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,Gindi 4,Unknown,CHURN,4.89,0.0,171,4684.29
 2026-06,Gindi 4,Unknown,FROZEN,7.0,0.0,7,264.55
 2026-06,Grove Central Residences,Floating Miami,CHURN,5.14,0.0,36,892.45
-2026-06,Grove Central Residences,Floating Miami,RECURRING_SUBSCRIPTION,8.0,125.44,72,2086.11
+2026-06,Grove Central Residences,Floating Miami,RECURRING_SUBSCRIPTION,8.0,124.7,80,2313.22
 2026-06,Grove Central Residences,Floating Miami,TRIAL,8.0,0.0,8,227.11
 2026-06,HaHehad,Unknown,CHURN,5.47,0.0,93,2901.47
 2026-06,HaHehad,Unknown,TRIAL,4.5,0.0,9,248.3
 2026-06,John Street 116,Financial District Polygon,CHURN,8.0,0.0,24,681.33
 2026-06,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,6.8,102.88,68,1801.93
-2026-06,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,4.5,109.28,72,1958.32
+2026-06,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,4.35,106.32,74,2029.82
 2026-06,Midtown 5,Floating Miami,CHURN,8.0,0.0,8,227.11
 2026-06,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,4.19,97.9,134,3809.0
 2026-06,Nine 52,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,6.93,140.05,104,3123.51
@@ -3786,7 +3786,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,River Place,Hell's Kitchen Polygon,WARM_LEAD,1.0,0.0,25,
 2026-06,Rothschild 80,Unknown,FROZEN,1.0,0.0,2,26.0
 2026-06,Silver Towers,Hell's Kitchen Polygon,CHURN,7.2,0.0,36,1058.33
-2026-06,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,4.8,0.0,24,651.17
+2026-06,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,4.17,4.24,25,664.17
 2026-06,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3.47,95.83,1016,24005.54
 2026-06,Silver Towers,Hell's Kitchen Polygon,TRIAL,8.0,0.0,8,227.11
 2026-06,Southgate Towers,Miami Beach Polygon,CHURN,6.21,0.0,118,3033.94
@@ -3794,18 +3794,19 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,Southgate Towers,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.0,72.28,108,3259.62
 2026-06,Southgate Towers,Miami Beach Polygon,TRIAL,8.0,0.0,16,454.22
 2026-06,Stonehill,Chatham / West Orange Polygon,CHURN,2.0,0.0,2,71.5
+2026-06,Stonehill,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,7.0,114.0,7,229.45
 2026-06,Stonehill,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,6.88,107.09,110,3233.62
 2026-06,The Addison,Brooklyn Heights Polygon,CHURN,8.0,0.0,8,227.11
 2026-06,The Addison,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,2.0,39.0,10,357.5
 2026-06,The Addison,Brooklyn Heights Polygon,WARM_LEAD,4.0,0.0,4,127.66
-2026-06,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,8.0,118.0,8,227.11
+2026-06,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,8.0,118.0,48,1362.66
 2026-06,The Boulevard,Floating Miami,CHURN,7.0,0.0,21,636.87
 2026-06,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,2.0,0.0,2,65.65
 2026-06,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,6.24,140.41,106,3007.94
 2026-06,The Boulevard,Floating Miami,TRIAL,8.0,0.0,8,227.11
 2026-06,The Buchanan,Floating NY 1,CHURN,8.0,0.0,8,227.11
 2026-06,The Buchanan,Floating NY 1,RECURRING_SUBSCRIPTION,5.7,89.27,188,4974.45
-2026-06,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,4.57,105.02,265,7045.74
+2026-06,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,4.58,105.37,270,7216.69
 2026-06,The Dime,Williamsburg Polygon,CHURN,3.0,0.0,6,166.4
 2026-06,The Dime,Williamsburg Polygon,RECURRING_SUBSCRIPTION,7.17,123.53,86,2511.21
 2026-06,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,5.0,122.73,60,1791.66
@@ -3855,10 +3856,10 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-07,Brooklyn Crossing,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,7.04,113.38,169,4798.95
 2026-07,Cite On The Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,8.0,179.0,8,227.11
 2026-07,Dey and Bergen,Harrison Polygon,CHURN,3.0,0.0,3,124.15
-2026-07,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.0,0.0,16,454.22
+2026-07,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,8.0,0.0,32,908.44
 2026-07,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,1.0,0.0,13,
 2026-07,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,3.0,0.0,3,141.7
-2026-07,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,4.47,130.26,264,6987.24
+2026-07,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,4.35,131.05,248,6533.02
 2026-07,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,7.0,0.0,7,223.6
 2026-07,Flamingo Point North Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.54,152.54,157,4615.52
 2026-07,Flamingo South Beach,Miami Beach Polygon,CHURN,2.33,0.0,7,267.15
@@ -3894,13 +3895,14 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-07,Southgate Towers,Miami Beach Polygon,RECURRING_SUBSCRIPTION,5.78,92.31,52,1565.46
 2026-07,Stonehill,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,6.7,113.22,67,1985.62
 2026-07,The Addison,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,2.0,31.0,2,71.5
+2026-07,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,8.0,118.0,16,454.22
 2026-07,The Boulevard,Floating Miami,CHURN,8.0,0.0,8,227.11
 2026-07,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,6.0,124.28,54,1612.26
 2026-07,The Buchanan,Floating NY 1,RECURRING_SUBSCRIPTION,6.21,109.32,87,2452.97
 2026-07,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,4.07,112.67,122,3210.35
 2026-07,The Dime,Williamsburg Polygon,CHURN,3.0,0.0,3,83.2
 2026-07,The Dime,Williamsburg Polygon,RECURRING_SUBSCRIPTION,6.86,121.75,48,1404.91
-2026-07,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,5.0,122.4,40,1194.44
+2026-07,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,5.13,121.56,41,1247.09
 2026-07,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,6.2,102.55,31,955.37
 2026-07,The Ivy,Chatham / West Orange Polygon,CHURN,8.0,0.0,16,454.22
 2026-07,The Ivy,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,8.0,167.0,8,227.11

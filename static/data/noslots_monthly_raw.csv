@@ -587,8 +587,9 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-04,Southgate Towers,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,2
 2026-04,Southgate Towers,Miami Beach Polygon,WARM_LEAD,One-time,1
 2026-04,Stonehill,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,2
-2026-04,The Bergen,Boerum Hill Polygon,WARM_LEAD,One-time,7
-2026-04,The Bergen,Boerum Hill Polygon,WARM_LEAD,Subscription,17
+2026-04,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,One-time,6
+2026-04,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,Subscription,17
+2026-04,The Bergen,Boerum Hill Polygon,WARM_LEAD,One-time,1
 2026-04,The Boulevard,Floating Miami,LEAD,One-time,8
 2026-04,The Boulevard,Floating Miami,LEAD,Subscription,2
 2026-04,The Boulevard,Floating Miami,TRIAL,One-time,1
@@ -682,8 +683,8 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,WARM_LEAD,Subscription,5
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,LEAD,One-time,4
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,LEAD,Subscription,3
-2026-05,Flamingo Point North Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,One-time,3
-2026-05,Flamingo Point North Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,3
+2026-05,Flamingo Point North Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,One-time,5
+2026-05,Flamingo Point North Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,4
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,TRIAL,One-time,2
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,TRIAL,Subscription,2
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,WARM_LEAD,One-time,1
@@ -695,9 +696,9 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,Subscription,10
 2026-05,Flamingo South Beach,Miami Beach Polygon,TRIAL,One-time,10
 2026-05,Flamingo South Beach,Miami Beach Polygon,TRIAL,Subscription,1
-2026-05,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,Subscription,4
+2026-05,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,Subscription,5
 2026-05,Flow Brickell,Flow Brickell Polygon,LEAD,One-time,12
-2026-05,Flow Brickell,Flow Brickell Polygon,LEAD,Subscription,18
+2026-05,Flow Brickell,Flow Brickell Polygon,LEAD,Subscription,19
 2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,One-time,4
 2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,Subscription,11
 2026-05,Flow Brickell,Flow Brickell Polygon,TRIAL,One-time,12
@@ -713,7 +714,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,Subscription,1
 2026-05,Gindi 2,Unknown,TRIAL,Subscription,1
 2026-05,Gindi 3,Unknown,CHURN,One-time,2
-2026-05,Gindi 3,Unknown,CHURN,Subscription,1
+2026-05,Gindi 3,Unknown,CHURN,Subscription,2
 2026-05,Gindi 3,Unknown,LEAD,Subscription,1
 2026-05,Gindi 3,Unknown,TRIAL,Subscription,1
 2026-05,Gindi 3,Unknown,WARM_LEAD,One-time,1
@@ -726,11 +727,11 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,WARM_LEAD,Subscription,1
 2026-05,Midtown 5,Floating Miami,LEAD,One-time,1
 2026-05,Midtown 5,Floating Miami,LEAD,Subscription,4
-2026-05,Midtown 5,Floating Miami,TRIAL,Subscription,1
+2026-05,Midtown 5,Floating Miami,TRIAL,Subscription,5
 2026-05,Nine 52,Hell's Kitchen Polygon,FREEMIUM,One-time,2
 2026-05,Oliver on the Hudson,Floating Jersey,CHURN,One-time,2
-2026-05,Oliver on the Hudson,Floating Jersey,LEAD,One-time,3
-2026-05,Oliver on the Hudson,Floating Jersey,LEAD,Subscription,3
+2026-05,Oliver on the Hudson,Floating Jersey,LEAD,One-time,5
+2026-05,Oliver on the Hudson,Floating Jersey,LEAD,Subscription,5
 2026-05,Oliver on the Hudson,Floating Jersey,RECURRING_SUBSCRIPTION,One-time,24
 2026-05,Oliver on the Hudson,Floating Jersey,RECURRING_SUBSCRIPTION,Subscription,7
 2026-05,Oliver on the Hudson,Floating Jersey,TRIAL,One-time,11
@@ -745,19 +746,19 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,River Place,Hell's Kitchen Polygon,FREEMIUM,One-time,1
 2026-05,River Place,Hell's Kitchen Polygon,FREEMIUM,Subscription,3
 2026-05,River Place,Hell's Kitchen Polygon,LEAD,Subscription,3
-2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,17
-2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,14
+2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,23
+2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,17
 2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,7
 2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,5
 2026-05,River Place,Hell's Kitchen Polygon,TRIAL,One-time,3
 2026-05,River Place,Hell's Kitchen Polygon,TRIAL,Subscription,1
 2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,One-time,10
 2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,Subscription,17
-2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,One-time,6
-2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,Subscription,11
+2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,One-time,8
+2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,Subscription,13
 2026-05,Silver Towers,Hell's Kitchen Polygon,FROZEN,One-time,1
-2026-05,Silver Towers,Hell's Kitchen Polygon,LEAD,One-time,21
-2026-05,Silver Towers,Hell's Kitchen Polygon,LEAD,Subscription,47
+2026-05,Silver Towers,Hell's Kitchen Polygon,LEAD,One-time,23
+2026-05,Silver Towers,Hell's Kitchen Polygon,LEAD,Subscription,48
 2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,6
 2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,9
 2026-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,2
@@ -773,6 +774,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Southgate Towers,Miami Beach Polygon,RECURRING_SUBSCRIPTION,One-time,2
 2026-05,Southgate Towers,Miami Beach Polygon,WARM_LEAD,Subscription,3
 2026-05,Stonehill,Chatham / West Orange Polygon,LEAD,Subscription,1
+2026-05,Stonehill,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,1
 2026-05,Stonehill,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,Subscription,9
 2026-05,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,One-time,4
 2026-05,The Buchanan,Floating NY 1,CHURN,Subscription,1
@@ -802,3 +804,4 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,Subscription,20
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,One-time,6
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,Subscription,6
+2026-05,Waters Edge,Harrison Polygon,LEAD,Subscription,1

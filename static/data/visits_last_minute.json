@@ -6,11 +6,11 @@
     },
     {
       "user_type": "Free / Other",
-      "visit_count": 175
+      "visit_count": 178
     },
     {
       "user_type": "Subscribers",
-      "visit_count": 101
+      "visit_count": 104
     }
   ],
   "timeseries": [
@@ -88,7 +88,7 @@
     },
     {
       "visit_month": "2026-05",
-      "lmd_count": 23
+      "lmd_count": 29
     }
   ]
 }
