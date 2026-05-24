@@ -2832,7 +2832,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,655 Union,Williamsburg Polygon,CHURN,2,,0
 2026-05,66 Rockwell Place,Brooklyn Heights Polygon,ON_DEMAND_SUBSCRIPTION,1,5.0,0
 2026-05,66 Rockwell Place,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,19,5.0,0
-2026-05,66 Rockwell Place,Brooklyn Heights Polygon,WARM_LEAD,1,,0
+2026-05,66 Rockwell Place,Brooklyn Heights Polygon,WARM_LEAD,1,5.0,1
 2026-05,Agnes,Floating Jersey,RECURRING_SUBSCRIPTION,10,5.0,3
 2026-05,Alta,Floating NY 1,ON_DEMAND_SUBSCRIPTION,3,4.67,1
 2026-05,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,11,5.0,0
@@ -2916,7 +2916,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,162,4.69,4
 2026-05,Silver Towers,Hell's Kitchen Polygon,TRIAL,2,,0
 2026-05,Silver Towers,Hell's Kitchen Polygon,WARM_LEAD,7,5.0,0
-2026-05,Southgate Towers,Miami Beach Polygon,CHURN,4,4.0,0
+2026-05,Southgate Towers,Miami Beach Polygon,CHURN,4,4.5,0
 2026-05,Southgate Towers,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,1,,0
 2026-05,Southgate Towers,Miami Beach Polygon,RECURRING_SUBSCRIPTION,10,5.0,0
 2026-05,Southgate Towers,Miami Beach Polygon,TRIAL,1,5.0,0

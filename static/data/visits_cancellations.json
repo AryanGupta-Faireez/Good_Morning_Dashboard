@@ -13,7 +13,7 @@
     {
       "cancel_category": "OOP Free",
       "cancel_source": "Customer",
-      "count": 1204
+      "count": 1205
     },
     {
       "cancel_category": "OOP Free",
@@ -33,7 +33,7 @@
     {
       "cancel_category": "OOP Charged",
       "cancel_source": "Customer",
-      "count": 177
+      "count": 178
     },
     {
       "cancel_category": "From Plan",
@@ -235,14 +235,14 @@
     },
     {
       "visit_month": "2026-05",
-      "out_of_policy": 314,
+      "out_of_policy": 315,
       "in_policy": 43,
       "from_plan": 0,
       "from_free": 1184
     },
     {
       "visit_month": "2026-06",
-      "out_of_policy": 273,
+      "out_of_policy": 274,
       "in_policy": 0,
       "from_plan": 0,
       "from_free": 526
@@ -373,12 +373,12 @@
     },
     {
       "visit_month": "2026-05",
-      "app_cancelled": 233,
+      "app_cancelled": 234,
       "admin_cancelled": 1308
     },
     {
       "visit_month": "2026-06",
-      "app_cancelled": 76,
+      "app_cancelled": 77,
       "admin_cancelled": 723
     },
     {
