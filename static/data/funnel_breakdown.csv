@@ -3,15 +3,15 @@ Silver Towers,Hell's Kitchen Polygon,1102,251,123,11.2
 River Place,Hell's Kitchen Polygon,792,185,85,10.7
 Woodside Central,Floating NY 1,430,46,9,2.1
 330W-56th,Hell's Kitchen Polygon,424,49,9,2.1
-Gindi 3,Unknown,252,75,16,6.3
-Gindi 1,Unknown,230,56,19,8.3
+Gindi 3,Unknown,252,75,0,0.0
+Gindi 1,Unknown,230,56,0,0.0
 420 Kent Avenue,Williamsburg Polygon,220,83,26,11.8
 Stonehill,Chatham / West Orange Polygon,203,53,17,8.4
-Gindi 2,Unknown,200,49,14,7.0
+Gindi 2,Unknown,200,49,0,0.0
 20 Broad Street,Financial District Polygon,198,105,32,16.2
 Midtown 5,Floating Miami,174,69,19,10.9
 Brooklyn Crossing,Boerum Hill Polygon,165,61,29,17.6
-Azrieli TLV,Unknown,160,40,12,7.5
+Azrieli TLV,Unknown,160,40,0,0.0
 The Eddy,Harrison Polygon,160,47,10,6.3
 Alta,Floating NY 1,156,47,20,12.8
 100 House,Hoboken Polygon,154,62,17,11.0
@@ -22,8 +22,8 @@ One Ten,Hoboken Polygon,146,55,19,13.0
 The Ivy,Chatham / West Orange Polygon,140,52,18,12.9
 The Buchanan,Floating NY 1,129,38,18,14.0
 2000 Biscayne,Edgeater Polygon,128,55,23,18.0
-Flamingo Point North Tower,Miami Beach Polygon,127,61,30,23.6
-Flow Brickell,Flow Brickell Polygon,125,24,8,6.4
+Flamingo Point North Tower,Miami Beach Polygon,127,62,30,23.6
+Flow Brickell,Flow Brickell Polygon,126,25,8,6.3
 Bay Parc Apartments,Edgeater Polygon,123,55,32,26.0
 The Boulevard,Floating Miami,121,52,18,14.9
 Southgate Towers,Miami Beach Polygon,121,56,9,7.4
@@ -36,34 +36,34 @@ Flamingo South Beach,Miami Beach Polygon,98,54,19,19.4
 Agnes,Floating Jersey,96,32,9,9.4
 1 Boerum PL,Floating NY 2,94,44,15,16.0
 The Dime,Williamsburg Polygon,88,38,13,14.8
+Gindi 4,Unknown,81,8,0,0.0
 John Street 116,Financial District Polygon,80,45,11,13.8
-Gindi 4,Unknown,80,8,3,3.8
 The Landon,Hell's Kitchen Polygon,78,42,8,10.3
 Grove Central Residences,Floating Miami,72,28,6,8.3
-One Harrison,Harrison Polygon,71,28,8,11.3
+One Harrison,Harrison Polygon,71,29,9,12.7
 The Addison,Brooklyn Heights Polygon,68,25,2,2.9
 655 Union,Boerum Hill Polygon,67,23,9,13.4
 66 Rockwell Place,Brooklyn Heights Polygon,65,31,10,15.4
 Livana East Hanover,Chatham / West Orange Polygon,63,19,7,11.1
 The Vitagraph,Floating NY 2,60,36,0,0.0
+Nine 52,Hell's Kitchen Polygon,57,20,8,14.0
 The Kestrel,Floating NY 2,57,32,4,7.0
-Nine 52,Hell's Kitchen Polygon,56,20,8,14.3
 Watermarc at Biscayne Bay,Edgeater Polygon,54,18,6,11.1
 Plank Road,Boerum Hill Polygon,53,17,2,3.8
-535 W 43rd Street,Hell's Kitchen Polygon,51,20,6,11.8
 250 E Houston,Floating NY 2,51,18,6,11.8
-HaHehad,Unknown,50,11,1,2.0
+535 W 43rd Street,Hell's Kitchen Polygon,51,20,6,11.8
+HaHehad,Unknown,50,11,0,0.0
 Dey and Bergen,Harrison Polygon,47,16,1,2.1
 220 East 72nd Street,Floating NY 2,45,19,1,2.2
 829 Garfield,Floating Jersey,39,23,0,0.0
 Union Channel ,Boerum Hill Polygon,38,13,4,10.5
-The Landing,Brooklyn Heights Polygon,31,12,3,9.7
 Waters Edge,Harrison Polygon,31,10,1,3.2
+The Landing,Brooklyn Heights Polygon,31,12,3,9.7
 Arabella 101,Floating NY 2,20,12,0,0.0
 Biscayne SFR,Unknown,17,5,0,0.0
-Quantum on the Bay Condominium,Edgeater Polygon,14,4,0,0.0
-The Bergen,Boerum Hill Polygon,14,8,2,14.3
 Aria on the Bay Condominium Association  INC,Edgeater Polygon,14,1,0,0.0
+The Bergen,Boerum Hill Polygon,14,8,2,14.3
+Quantum on the Bay Condominium,Edgeater Polygon,14,4,0,0.0
 Cite On The Bay,Edgeater Polygon,13,5,1,7.7
 1800 North Bayshore Drive,Edgeater Polygon,12,1,1,8.3
 Rothschild 80,Unknown,10,7,0,0.0
@@ -71,31 +71,31 @@ Rothschild 80,Unknown,10,7,0,0.0
 Opera Tower,Edgeater Polygon,5,2,1,20.0
 Biscayne SFR,The Ocean Club Polygon,5,1,0,0.0
 Club Tower I,The Ocean Club Polygon,4,2,0,0.0
+2001 Biscayne Boulevard,Edgeater Polygon,3,0,1,33.3
+1800 Club,Edgeater Polygon,3,0,0,0.0
 1800 Biscayne Plaza,Edgeater Polygon,3,1,0,0.0
+Flow Miami,Flow Brickell Polygon,3,0,0,0.0
 Key Colony 1 Tidemark,The Ocean Club Polygon,3,1,1,33.3
 Key Colony 3 Emeraldbay,The Ocean Club Polygon,3,1,0,0.0
-Flow Miami,Flow Brickell Polygon,3,0,0,0.0
-Quantum on the Bay,Edgeater Polygon,3,0,0,0.0
-2001 Biscayne Boulevard,Edgeater Polygon,3,0,1,33.3
 22 Skyview Apartments,Edgeater Polygon,3,0,0,0.0
-1800 Club,Edgeater Polygon,3,0,0,0.0
-Botanica at Key Colony,The Ocean Club Polygon,2,0,0,0.0
-Elysee Miami,Edgeater Polygon,2,1,0,0.0
-Key Colony 2. Ocean Sound,The Ocean Club Polygon,2,0,0,0.0
+Quantum on the Bay,Edgeater Polygon,3,0,0,0.0
 Lake Tower,The Ocean Club Polygon,2,1,0,0.0
+Botanica at Key Colony,The Ocean Club Polygon,2,0,0,0.0
+Key Colony 2. Ocean Sound,The Ocean Club Polygon,2,0,0,0.0
 1717 North Bayshore Drive,Edgeater Polygon,2,0,0,0.0
-Ocean Tower Two,The Ocean Club Polygon,1,0,0,0.0
-The Atelier Condo NYC,Hell's Kitchen Polygon,1,0,0,0.0
-Mirador 1000,Miami Beach Polygon,1,1,0,0.0
-1 Boerum Place,Brooklyn Heights Polygon,1,0,0,0.0
-251 NE 20th St apt 3506,Edgeater Polygon,1,1,0,0.0
-Cape Florida Club Condo Phase,The Ocean Club Polygon,1,0,0,0.0
-Governors Lodge Condo,The Ocean Club Polygon,1,0,0,0.0
-100 Sunrise Drive,The Ocean Club Polygon,1,0,0,0.0
-121 Crandon Boulevard,The Ocean Club Polygon,1,1,0,0.0
-101 Sunrise Drive,The Ocean Club Polygon,1,0,0,0.0
-Bay Parc,Edgeater Polygon,1,0,0,0.0
-544 Carroll,Boerum Hill Polygon,1,0,0,0.0
-Bahiamar Condominium of Key,The Ocean Club Polygon,1,1,0,0.0
-55 Ocean Lane Drive,The Ocean Club Polygon,1,0,0,0.0
+Elysee Miami,Edgeater Polygon,2,1,0,0.0
 Towers of Key Biscayne,The Ocean Club Polygon,1,0,0,0.0
+655 Union,Floating NY 2,1,1,0,0.0
+Venetia Condominium,Edgeater Polygon,1,0,0,0.0
+655 Union,Williamsburg Polygon,1,1,0,0.0
+544 Carroll,Boerum Hill Polygon,1,0,0,0.0
+Mirador 1000,Miami Beach Polygon,1,1,0,0.0
+Ocean Tower Two,The Ocean Club Polygon,1,0,0,0.0
+Governors Lodge Condo,The Ocean Club Polygon,1,0,0,0.0
+20 Broad Street,Hell's Kitchen Polygon,1,1,0,0.0
+Cape Florida Club Condo Phase,The Ocean Club Polygon,1,0,0,0.0
+Bay Parc,Edgeater Polygon,1,0,0,0.0
+The Atelier Condo NYC,Hell's Kitchen Polygon,1,0,0,0.0
+251 NE 20th St apt 3506,Edgeater Polygon,1,1,0,0.0
+1 Boerum Place,Brooklyn Heights Polygon,1,0,0,0.0
+55 Ocean Lane Drive,The Ocean Club Polygon,1,0,0,0.0

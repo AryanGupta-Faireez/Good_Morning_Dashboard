@@ -1,8 +1,8 @@
 {
   "summary": {
-    "total_incidents": 6761,
-    "sub_incidents": 2159,
-    "onetime_incidents": 4602
+    "total_incidents": 6795,
+    "sub_incidents": 2175,
+    "onetime_incidents": 4620
   },
   "timeseries": [
     {
@@ -55,9 +55,9 @@
     },
     {
       "month": "2026-05",
-      "total_incidents": 1609,
-      "sub_incidents": 965,
-      "onetime_incidents": 644
+      "total_incidents": 1643,
+      "sub_incidents": 981,
+      "onetime_incidents": 662
     }
   ]
 }

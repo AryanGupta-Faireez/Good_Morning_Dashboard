@@ -4,38 +4,26 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2023-06,Azrieli TLV,Unknown,CHURN,37,4.89,3
 2023-06,Azrieli TLV,Unknown,TRIAL,8,3.67,1
 2023-07,100 House,Hoboken Polygon,CHURN,1,,0
-2023-07,Azrieli TLV,Unknown,CHURN,40,4.86,3
-2023-07,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
-2023-07,Gindi 1,Unknown,CHURN,29,4.64,7
-2023-07,Gindi 1,Unknown,FROZEN,1,5.0,0
-2023-07,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,1,5.0,0
+2023-07,Azrieli TLV,Unknown,CHURN,41,4.86,3
+2023-07,Gindi 1,Unknown,CHURN,31,4.69,7
 2023-07,Gindi 1,Unknown,TRIAL,4,5.0,0
 2023-08,100 House,Hoboken Polygon,CHURN,1,,0
 2023-08,100 House,Hoboken Polygon,FREEMIUM,1,,0
-2023-08,Azrieli TLV,Unknown,CHURN,43,4.89,0
-2023-08,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,2,3.0,0
-2023-08,Gindi 1,Unknown,CHURN,63,4.6,8
-2023-08,Gindi 1,Unknown,FROZEN,5,5.0,0
-2023-08,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,7,5.0,1
+2023-08,Azrieli TLV,Unknown,CHURN,45,4.7,0
+2023-08,Gindi 1,Unknown,CHURN,75,4.7,9
 2023-08,Gindi 1,Unknown,TRIAL,5,3.67,1
-2023-08,Gindi 2,Unknown,CHURN,20,5.0,1
-2023-08,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,5,5.0,3
+2023-08,Gindi 2,Unknown,CHURN,25,5.0,4
 2023-08,Gindi 2,Unknown,TRIAL,8,4.0,0
 2023-08,Gindi 4,Unknown,CHURN,6,4.0,1
 2023-08,One Ten,Hoboken Polygon,RECURRING_SUBSCRIPTION,1,5.0,0
 2023-09,829 Garfield,Floating Jersey,CHURN,2,5.0,0
-2023-09,Azrieli TLV,Unknown,CHURN,49,5.0,0
-2023-09,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,7,5.0,2
+2023-09,Azrieli TLV,Unknown,CHURN,56,5.0,2
 2023-09,Azrieli TLV,Unknown,TRIAL,1,,0
-2023-09,Gindi 1,Unknown,CHURN,59,4.86,5
-2023-09,Gindi 1,Unknown,FROZEN,2,5.0,1
-2023-09,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2023-09,Gindi 1,Unknown,CHURN,62,4.88,6
 2023-09,Gindi 1,Unknown,TRIAL,2,1.0,0
-2023-09,Gindi 2,Unknown,CHURN,20,5.0,2
-2023-09,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,4,5.0,2
+2023-09,Gindi 2,Unknown,CHURN,24,5.0,4
 2023-09,Gindi 2,Unknown,TRIAL,7,,0
-2023-09,Gindi 3,Unknown,CHURN,7,5.0,1
-2023-09,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,2,5.0,0
+2023-09,Gindi 3,Unknown,CHURN,9,5.0,1
 2023-09,Gindi 4,Unknown,CHURN,6,4.33,0
 2023-09,One Ten,Hoboken Polygon,RECURRING_SUBSCRIPTION,2,,0
 2023-09,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,1,4.0,1
@@ -45,15 +33,11 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2023-10,829 Garfield,Floating Jersey,TRIAL,1,,0
 2023-10,Azrieli TLV,Unknown,CHURN,43,5.0,0
 2023-10,Azrieli TLV,Unknown,TRIAL,1,,0
-2023-10,Gindi 1,Unknown,CHURN,54,4.88,1
-2023-10,Gindi 1,Unknown,FROZEN,5,5.0,1
-2023-10,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,6,5.0,0
+2023-10,Gindi 1,Unknown,CHURN,65,4.91,2
 2023-10,Gindi 1,Unknown,TRIAL,3,5.0,0
-2023-10,Gindi 2,Unknown,CHURN,19,4.0,3
-2023-10,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,5,5.0,1
+2023-10,Gindi 2,Unknown,CHURN,24,4.43,4
 2023-10,Gindi 2,Unknown,TRIAL,4,,0
-2023-10,Gindi 3,Unknown,CHURN,31,5.0,1
-2023-10,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,11,5.0,0
+2023-10,Gindi 3,Unknown,CHURN,42,5.0,1
 2023-10,Gindi 3,Unknown,TRIAL,3,,0
 2023-10,Gindi 4,Unknown,CHURN,8,5.0,0
 2023-10,One Ten,Hoboken Polygon,CHURN,3,5.0,0
@@ -63,18 +47,13 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2023-11,100 House,Hoboken Polygon,ON_DEMAND_SUBSCRIPTION,1,5.0,0
 2023-11,829 Garfield,Floating Jersey,CHURN,9,5.0,0
 2023-11,829 Garfield,Floating Jersey,TRIAL,1,5.0,1
-2023-11,Azrieli TLV,Unknown,CHURN,44,,0
-2023-11,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,1,5.0,0
+2023-11,Azrieli TLV,Unknown,CHURN,45,5.0,0
 2023-11,Azrieli TLV,Unknown,TRIAL,3,,0
-2023-11,Gindi 1,Unknown,CHURN,70,5.0,1
-2023-11,Gindi 1,Unknown,FROZEN,3,,0
-2023-11,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,4,5.0,1
+2023-11,Gindi 1,Unknown,CHURN,77,5.0,2
 2023-11,Gindi 1,Unknown,TRIAL,2,5.0,1
-2023-11,Gindi 2,Unknown,CHURN,13,5.0,0
-2023-11,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,1,5.0,0
+2023-11,Gindi 2,Unknown,CHURN,14,5.0,0
 2023-11,Gindi 2,Unknown,TRIAL,3,,0
-2023-11,Gindi 3,Unknown,CHURN,55,5.0,0
-2023-11,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,3,,0
+2023-11,Gindi 3,Unknown,CHURN,58,5.0,0
 2023-11,Gindi 3,Unknown,TRIAL,2,5.0,0
 2023-11,Gindi 4,Unknown,CHURN,10,5.0,0
 2023-11,One Ten,Hoboken Polygon,CHURN,2,5.0,0
@@ -83,16 +62,11 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2023-11,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,1,5.0,1
 2023-12,100 House,Hoboken Polygon,CHURN,1,5.0,0
 2023-12,829 Garfield,Floating Jersey,CHURN,9,5.0,0
-2023-12,Azrieli TLV,Unknown,CHURN,55,4.8,0
-2023-12,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,1,5.0,0
-2023-12,Gindi 1,Unknown,CHURN,73,4.82,7
-2023-12,Gindi 1,Unknown,FROZEN,2,,0
-2023-12,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,7,5.0,0
+2023-12,Azrieli TLV,Unknown,CHURN,56,4.83,0
+2023-12,Gindi 1,Unknown,CHURN,82,4.83,7
 2023-12,Gindi 1,Unknown,TRIAL,4,,0
-2023-12,Gindi 2,Unknown,CHURN,19,,0
-2023-12,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,3,3.67,0
-2023-12,Gindi 3,Unknown,CHURN,72,4.78,4
-2023-12,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,4,,0
+2023-12,Gindi 2,Unknown,CHURN,22,3.67,0
+2023-12,Gindi 3,Unknown,CHURN,76,4.78,4
 2023-12,Gindi 3,Unknown,TRIAL,1,,0
 2023-12,Gindi 4,Unknown,CHURN,1,5.0,1
 2023-12,One Ten,Hoboken Polygon,RECURRING_SUBSCRIPTION,2,5.0,0
@@ -106,18 +80,13 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-01,100 House,Hoboken Polygon,CHURN,6,5.0,0
 2024-01,829 Garfield,Floating Jersey,CHURN,8,5.0,0
 2024-01,829 Garfield,Floating Jersey,TRIAL,1,5.0,1
-2024-01,Azrieli TLV,Unknown,CHURN,57,5.0,0
-2024-01,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,3,,0
+2024-01,Azrieli TLV,Unknown,CHURN,60,5.0,0
 2024-01,Azrieli TLV,Unknown,TRIAL,2,,0
-2024-01,Gindi 1,Unknown,CHURN,94,4.76,3
-2024-01,Gindi 1,Unknown,FROZEN,2,,0
-2024-01,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,3,3.0,0
+2024-01,Gindi 1,Unknown,CHURN,99,4.67,3
 2024-01,Gindi 1,Unknown,TRIAL,5,5.0,1
-2024-01,Gindi 2,Unknown,CHURN,24,4.8,3
-2024-01,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,4,5.0,2
+2024-01,Gindi 2,Unknown,CHURN,28,4.89,5
 2024-01,Gindi 2,Unknown,TRIAL,2,5.0,0
-2024-01,Gindi 3,Unknown,CHURN,83,5.0,4
-2024-01,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,10,5.0,0
+2024-01,Gindi 3,Unknown,CHURN,93,5.0,4
 2024-01,Gindi 3,Unknown,TRIAL,9,5.0,1
 2024-01,Gindi 4,Unknown,CHURN,4,5.0,0
 2024-01,One Ten,Hoboken Polygon,CHURN,1,,0
@@ -140,16 +109,11 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-01,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,2,,0
 2024-02,100 House,Hoboken Polygon,CHURN,10,5.0,0
 2024-02,829 Garfield,Floating Jersey,CHURN,3,5.0,0
-2024-02,Azrieli TLV,Unknown,CHURN,57,5.0,1
-2024-02,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,5,5.0,0
-2024-02,Gindi 1,Unknown,CHURN,68,4.71,2
-2024-02,Gindi 1,Unknown,FROZEN,1,,0
-2024-02,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2024-02,Azrieli TLV,Unknown,CHURN,62,5.0,1
+2024-02,Gindi 1,Unknown,CHURN,70,4.71,2
 2024-02,Gindi 1,Unknown,TRIAL,2,,0
-2024-02,Gindi 2,Unknown,CHURN,19,5.0,1
-2024-02,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,3,5.0,3
-2024-02,Gindi 3,Unknown,CHURN,68,4.67,3
-2024-02,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,9,,0
+2024-02,Gindi 2,Unknown,CHURN,22,5.0,4
+2024-02,Gindi 3,Unknown,CHURN,77,4.67,3
 2024-02,Gindi 3,Unknown,TRIAL,2,4.0,1
 2024-02,Gindi 4,Unknown,CHURN,10,5.0,1
 2024-02,One Ten,Hoboken Polygon,CHURN,3,5.0,0
@@ -171,19 +135,14 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-03,100 House,Hoboken Polygon,CHURN,7,5.0,0
 2024-03,100 House,Hoboken Polygon,ON_DEMAND_SUBSCRIPTION,2,5.0,0
 2024-03,829 Garfield,Floating Jersey,CHURN,2,,0
-2024-03,Azrieli TLV,Unknown,CHURN,51,5.0,0
-2024-03,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,8,5.0,0
+2024-03,Azrieli TLV,Unknown,CHURN,59,5.0,0
 2024-03,Azrieli TLV,Unknown,TRIAL,2,,0
-2024-03,Gindi 1,Unknown,CHURN,70,5.0,1
-2024-03,Gindi 1,Unknown,FROZEN,1,,0
-2024-03,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,6,,0
+2024-03,Gindi 1,Unknown,CHURN,77,5.0,1
 2024-03,Gindi 1,Unknown,TRIAL,1,,0
-2024-03,Gindi 2,Unknown,CHURN,28,3.83,2
+2024-03,Gindi 2,Unknown,CHURN,30,4.13,2
 2024-03,Gindi 2,Unknown,COLD_LEAD,1,,0
-2024-03,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,2,5.0,0
 2024-03,Gindi 2,Unknown,TRIAL,1,,0
-2024-03,Gindi 3,Unknown,CHURN,90,5.0,2
-2024-03,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,17,5.0,0
+2024-03,Gindi 3,Unknown,CHURN,107,5.0,2
 2024-03,Gindi 3,Unknown,TRIAL,2,5.0,0
 2024-03,Gindi 4,Unknown,CHURN,5,5.0,1
 2024-03,John Street 116,Financial District Polygon,CHURN,2,5.0,0
@@ -213,16 +172,11 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-04,330W-56th,Hell's Kitchen Polygon,WARM_LEAD,1,,0
 2024-04,829 Garfield,Floating Jersey,CHURN,3,,0
 2024-04,829 Garfield,Floating Jersey,TRIAL,1,,0
-2024-04,Azrieli TLV,Unknown,CHURN,50,,0
-2024-04,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,6,,0
+2024-04,Azrieli TLV,Unknown,CHURN,56,,0
 2024-04,Azrieli TLV,Unknown,TRIAL,1,5.0,0
-2024-04,Gindi 1,Unknown,CHURN,60,4.75,2
-2024-04,Gindi 1,Unknown,FROZEN,1,,0
-2024-04,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,8,,0
-2024-04,Gindi 2,Unknown,CHURN,25,5.0,1
-2024-04,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,4,5.0,0
-2024-04,Gindi 3,Unknown,CHURN,80,5.0,0
-2024-04,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,26,,0
+2024-04,Gindi 1,Unknown,CHURN,69,4.75,2
+2024-04,Gindi 2,Unknown,CHURN,29,5.0,1
+2024-04,Gindi 3,Unknown,CHURN,106,5.0,0
 2024-04,Gindi 3,Unknown,TRIAL,2,5.0,0
 2024-04,Gindi 4,Unknown,CHURN,4,5.0,0
 2024-04,John Street 116,Financial District Polygon,CHURN,11,5.0,2
@@ -254,15 +208,10 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-05,330W-56th,Hell's Kitchen Polygon,FREEMIUM,1,5.0,1
 2024-05,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3,5.0,1
 2024-05,829 Garfield,Floating Jersey,CHURN,3,,0
-2024-05,Azrieli TLV,Unknown,CHURN,53,3.0,1
-2024-05,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,6,,0
-2024-05,Gindi 1,Unknown,CHURN,45,5.0,1
-2024-05,Gindi 1,Unknown,FROZEN,1,,0
-2024-05,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,4,,0
-2024-05,Gindi 2,Unknown,CHURN,23,5.0,0
-2024-05,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,3,5.0,0
-2024-05,Gindi 3,Unknown,CHURN,69,5.0,1
-2024-05,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,11,5.0,0
+2024-05,Azrieli TLV,Unknown,CHURN,59,3.0,1
+2024-05,Gindi 1,Unknown,CHURN,50,5.0,1
+2024-05,Gindi 2,Unknown,CHURN,26,5.0,0
+2024-05,Gindi 3,Unknown,CHURN,80,5.0,1
 2024-05,Gindi 3,Unknown,TRIAL,1,5.0,0
 2024-05,Gindi 4,Unknown,CHURN,6,5.0,0
 2024-05,John Street 116,Financial District Polygon,CHURN,15,5.0,1
@@ -297,15 +246,11 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-06,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3,5.0,0
 2024-06,829 Garfield,Floating Jersey,CHURN,1,,0
 2024-06,829 Garfield,Floating Jersey,TRIAL,1,,0
-2024-06,Azrieli TLV,Unknown,CHURN,52,5.0,0
-2024-06,Azrieli TLV,Unknown,FROZEN,1,,0
-2024-06,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,8,,0
+2024-06,Azrieli TLV,Unknown,CHURN,61,5.0,0
 2024-06,Azrieli TLV,Unknown,TRIAL,1,,0
-2024-06,Gindi 1,Unknown,CHURN,23,5.0,1
-2024-06,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
+2024-06,Gindi 1,Unknown,CHURN,25,5.0,1
 2024-06,Gindi 1,Unknown,TRIAL,5,,0
-2024-06,Gindi 2,Unknown,CHURN,19,5.0,1
-2024-06,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2024-06,Gindi 2,Unknown,CHURN,20,5.0,1
 2024-06,Gindi 3,Unknown,CHURN,51,4.83,0
 2024-06,Gindi 3,Unknown,TRIAL,1,,0
 2024-06,Gindi 4,Unknown,CHURN,4,5.0,0
@@ -347,17 +292,11 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-07,330W-56th,Hell's Kitchen Polygon,CHURN,4,3.0,1
 2024-07,330W-56th,Hell's Kitchen Polygon,FREEMIUM,1,,0
 2024-07,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,4,,0
-2024-07,Azrieli TLV,Unknown,CHURN,59,5.0,0
-2024-07,Azrieli TLV,Unknown,FROZEN,1,,0
-2024-07,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,12,,0
-2024-07,Gindi 1,Unknown,CHURN,20,5.0,0
-2024-07,Gindi 1,Unknown,FROZEN,1,,0
-2024-07,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,3,5.0,0
-2024-07,Gindi 2,Unknown,CHURN,18,5.0,2
-2024-07,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,4,5.0,0
+2024-07,Azrieli TLV,Unknown,CHURN,72,5.0,0
+2024-07,Gindi 1,Unknown,CHURN,24,5.0,0
+2024-07,Gindi 2,Unknown,CHURN,22,5.0,2
 2024-07,Gindi 2,Unknown,TRIAL,1,,0
-2024-07,Gindi 3,Unknown,CHURN,44,4.38,2
-2024-07,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,19,4.83,0
+2024-07,Gindi 3,Unknown,CHURN,63,4.57,2
 2024-07,Gindi 3,Unknown,TRIAL,1,,0
 2024-07,Gindi 4,Unknown,CHURN,12,5.0,0
 2024-07,John Street 116,Financial District Polygon,CHURN,14,5.0,2
@@ -404,18 +343,12 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-08,330W-56th,Hell's Kitchen Polygon,CHURN,5,5.0,2
 2024-08,330W-56th,Hell's Kitchen Polygon,FREEMIUM,1,5.0,0
 2024-08,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3,5.0,1
-2024-08,Azrieli TLV,Unknown,CHURN,58,5.0,0
-2024-08,Azrieli TLV,Unknown,FROZEN,2,,0
-2024-08,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,10,,0
+2024-08,Azrieli TLV,Unknown,CHURN,70,5.0,0
 2024-08,Azrieli TLV,Unknown,TRIAL,4,,0
-2024-08,Gindi 1,Unknown,CHURN,30,5.0,3
-2024-08,Gindi 1,Unknown,FROZEN,1,,0
-2024-08,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,1,5.0,0
-2024-08,Gindi 2,Unknown,CHURN,11,5.0,0
-2024-08,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
+2024-08,Gindi 1,Unknown,CHURN,32,5.0,3
+2024-08,Gindi 2,Unknown,CHURN,13,5.0,0
 2024-08,Gindi 2,Unknown,TRIAL,2,,0
-2024-08,Gindi 3,Unknown,CHURN,46,5.0,0
-2024-08,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,9,5.0,0
+2024-08,Gindi 3,Unknown,CHURN,55,5.0,0
 2024-08,Gindi 4,Unknown,CHURN,3,5.0,0
 2024-08,John Street 116,Financial District Polygon,CHURN,20,5.0,0
 2024-08,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,4,,0
@@ -458,15 +391,11 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-09,330W-56th,Hell's Kitchen Polygon,FREEMIUM,2,,0
 2024-09,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3,5.0,0
 2024-09,330W-56th,Hell's Kitchen Polygon,WARM_LEAD,2,5.0,0
-2024-09,Azrieli TLV,Unknown,CHURN,59,,0
-2024-09,Azrieli TLV,Unknown,FROZEN,2,,0
-2024-09,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,12,,0
-2024-09,Gindi 1,Unknown,CHURN,47,5.0,8
-2024-09,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,2,5.0,1
+2024-09,Azrieli TLV,Unknown,CHURN,73,,0
+2024-09,Gindi 1,Unknown,CHURN,49,5.0,9
 2024-09,Gindi 1,Unknown,TRIAL,2,,0
 2024-09,Gindi 2,Unknown,CHURN,9,4.75,1
-2024-09,Gindi 3,Unknown,CHURN,52,5.0,2
-2024-09,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,12,5.0,1
+2024-09,Gindi 3,Unknown,CHURN,64,5.0,3
 2024-09,John Street 116,Financial District Polygon,CHURN,13,5.0,0
 2024-09,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,4,,0
 2024-09,John Street 116,Financial District Polygon,TRIAL,2,4.5,0
@@ -511,17 +440,12 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-10,330W-56th,Hell's Kitchen Polygon,FREEMIUM,2,,0
 2024-10,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,4,5.0,0
 2024-10,330W-56th,Hell's Kitchen Polygon,TRIAL,2,,0
-2024-10,Azrieli TLV,Unknown,CHURN,62,5.0,0
-2024-10,Azrieli TLV,Unknown,FROZEN,2,,0
-2024-10,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,11,,0
+2024-10,Azrieli TLV,Unknown,CHURN,75,5.0,0
 2024-10,Azrieli TLV,Unknown,TRIAL,1,,0
-2024-10,Gindi 1,Unknown,CHURN,21,5.0,0
-2024-10,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,3,,0
+2024-10,Gindi 1,Unknown,CHURN,24,5.0,0
 2024-10,Gindi 1,Unknown,TRIAL,2,5.0,0
-2024-10,Gindi 2,Unknown,CHURN,11,5.0,1
-2024-10,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,1,5.0,0
-2024-10,Gindi 3,Unknown,CHURN,44,5.0,0
-2024-10,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,9,5.0,0
+2024-10,Gindi 2,Unknown,CHURN,12,5.0,1
+2024-10,Gindi 3,Unknown,CHURN,53,5.0,0
 2024-10,Gindi 4,Unknown,CHURN,2,,0
 2024-10,John Street 116,Financial District Polygon,CHURN,16,4.86,0
 2024-10,John Street 116,Financial District Polygon,FREEMIUM,1,,0
@@ -572,17 +496,11 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-11,330 Angelo Cifelli,Harrison Polygon,TRIAL,1,5.0,0
 2024-11,330W-56th,Hell's Kitchen Polygon,CHURN,1,,0
 2024-11,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,6,5.0,0
-2024-11,Azrieli TLV,Unknown,CHURN,54,4.25,0
-2024-11,Azrieli TLV,Unknown,FROZEN,2,,0
-2024-11,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,6,,0
-2024-11,Gindi 1,Unknown,CHURN,52,4.96,1
-2024-11,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,5,,0
+2024-11,Azrieli TLV,Unknown,CHURN,62,4.25,0
+2024-11,Gindi 1,Unknown,CHURN,57,4.96,1
 2024-11,Gindi 1,Unknown,TRIAL,2,,0
-2024-11,Gindi 2,Unknown,CHURN,11,5.0,1
-2024-11,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,4,5.0,0
-2024-11,Gindi 3,Unknown,CHURN,72,5.0,3
-2024-11,Gindi 3,Unknown,FROZEN,2,,0
-2024-11,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,18,5.0,0
+2024-11,Gindi 2,Unknown,CHURN,15,5.0,1
+2024-11,Gindi 3,Unknown,CHURN,92,5.0,3
 2024-11,Gindi 4,Unknown,CHURN,10,5.0,0
 2024-11,HaHehad,Unknown,CHURN,7,5.0,0
 2024-11,John Street 116,Financial District Polygon,CHURN,18,5.0,0
@@ -639,19 +557,13 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2024-12,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,8,4.0,1
 2024-12,Agnes,Floating Jersey,CHURN,2,5.0,1
 2024-12,Agnes,Floating Jersey,TRIAL,1,5.0,1
-2024-12,Azrieli TLV,Unknown,CHURN,81,5.0,0
-2024-12,Azrieli TLV,Unknown,FROZEN,2,,0
-2024-12,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,13,,0
+2024-12,Azrieli TLV,Unknown,CHURN,96,5.0,0
 2024-12,Azrieli TLV,Unknown,TRIAL,1,5.0,0
-2024-12,Gindi 1,Unknown,CHURN,66,4.93,1
-2024-12,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,15,5.0,0
+2024-12,Gindi 1,Unknown,CHURN,81,4.95,1
 2024-12,Gindi 1,Unknown,TRIAL,2,,0
-2024-12,Gindi 2,Unknown,CHURN,13,5.0,1
-2024-12,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,4,5.0,0
+2024-12,Gindi 2,Unknown,CHURN,17,5.0,1
 2024-12,Gindi 2,Unknown,TRIAL,1,,0
-2024-12,Gindi 3,Unknown,CHURN,83,5.0,2
-2024-12,Gindi 3,Unknown,FROZEN,6,,0
-2024-12,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,17,5.0,0
+2024-12,Gindi 3,Unknown,CHURN,106,5.0,2
 2024-12,Gindi 4,Unknown,CHURN,15,5.0,0
 2024-12,HaHehad,Unknown,CHURN,14,5.0,1
 2024-12,John Street 116,Financial District Polygon,CHURN,12,5.0,0
@@ -711,19 +623,12 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-01,Agnes,Floating Jersey,CHURN,5,1.0,1
 2025-01,Agnes,Floating Jersey,RECURRING_SUBSCRIPTION,3,5.0,0
 2025-01,Agnes,Floating Jersey,TRIAL,1,,0
-2025-01,Azrieli TLV,Unknown,CHURN,78,4.95,3
-2025-01,Azrieli TLV,Unknown,FROZEN,2,,0
-2025-01,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,3,,0
+2025-01,Azrieli TLV,Unknown,CHURN,83,4.95,3
 2025-01,Azrieli TLV,Unknown,TRIAL,2,,0
-2025-01,Gindi 1,Unknown,CHURN,75,4.92,4
-2025-01,Gindi 1,Unknown,FROZEN,1,,0
-2025-01,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,15,4.6,0
+2025-01,Gindi 1,Unknown,CHURN,91,4.82,4
 2025-01,Gindi 1,Unknown,TRIAL,2,,0
-2025-01,Gindi 2,Unknown,CHURN,17,5.0,0
-2025-01,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,3,5.0,1
-2025-01,Gindi 3,Unknown,CHURN,107,4.97,3
-2025-01,Gindi 3,Unknown,FROZEN,2,,0
-2025-01,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,15,5.0,0
+2025-01,Gindi 2,Unknown,CHURN,20,5.0,1
+2025-01,Gindi 3,Unknown,CHURN,124,4.97,3
 2025-01,Gindi 3,Unknown,TRIAL,2,5.0,0
 2025-01,Gindi 4,Unknown,CHURN,16,5.0,0
 2025-01,HaHehad,Unknown,CHURN,19,3.0,1
@@ -782,19 +687,13 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-02,Agnes,Floating Jersey,CHURN,3,5.0,1
 2025-02,Agnes,Floating Jersey,RECURRING_SUBSCRIPTION,1,5.0,0
 2025-02,Agnes,Floating Jersey,TRIAL,2,5.0,1
-2025-02,Azrieli TLV,Unknown,CHURN,80,4.8,3
-2025-02,Azrieli TLV,Unknown,FROZEN,1,,0
-2025-02,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,6,,0
+2025-02,Azrieli TLV,Unknown,CHURN,87,4.8,3
 2025-02,Azrieli TLV,Unknown,TRIAL,6,,0
-2025-02,Gindi 1,Unknown,CHURN,71,4.82,0
+2025-02,Gindi 1,Unknown,CHURN,77,4.82,0
 2025-02,Gindi 1,Unknown,COLD_LEAD,2,5.0,0
-2025-02,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,6,,0
 2025-02,Gindi 1,Unknown,TRIAL,3,5.0,0
-2025-02,Gindi 2,Unknown,CHURN,18,5.0,0
-2025-02,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
-2025-02,Gindi 3,Unknown,CHURN,79,4.9,2
-2025-02,Gindi 3,Unknown,FROZEN,4,,0
-2025-02,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,20,5.0,0
+2025-02,Gindi 2,Unknown,CHURN,20,5.0,0
+2025-02,Gindi 3,Unknown,CHURN,103,4.93,2
 2025-02,Gindi 3,Unknown,TRIAL,8,5.0,2
 2025-02,Gindi 4,Unknown,CHURN,12,5.0,0
 2025-02,HaHehad,Unknown,CHURN,16,4.33,2
@@ -814,7 +713,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-02,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,26,5.0,0
 2025-02,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,15,5.0,1
 2025-02,River Place,Hell's Kitchen Polygon,TRIAL,4,3.0,1
-2025-02,River Place,Hell's Kitchen Polygon,WARM_LEAD,2,,0
+2025-02,River Place,Hell's Kitchen Polygon,WARM_LEAD,2,5.0,0
 2025-02,Silver Towers,Hell's Kitchen Polygon,CHURN,44,5.0,1
 2025-02,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,2,,0
 2025-02,Silver Towers,Hell's Kitchen Polygon,FROZEN,2,5.0,0
@@ -859,17 +758,12 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-03,330W-56th,Hell's Kitchen Polygon,WARM_LEAD,1,,0
 2025-03,Agnes,Floating Jersey,CHURN,3,,0
 2025-03,Agnes,Floating Jersey,RECURRING_SUBSCRIPTION,1,5.0,0
-2025-03,Azrieli TLV,Unknown,CHURN,86,3.67,1
-2025-03,Azrieli TLV,Unknown,FROZEN,2,,0
-2025-03,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,6,5.0,0
+2025-03,Azrieli TLV,Unknown,CHURN,94,4.0,1
 2025-03,Azrieli TLV,Unknown,TRIAL,4,,0
-2025-03,Gindi 1,Unknown,CHURN,49,4.4,1
-2025-03,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,9,4.0,0
-2025-03,Gindi 2,Unknown,CHURN,15,4.83,1
-2025-03,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,7,5.0,0
+2025-03,Gindi 1,Unknown,CHURN,58,4.33,1
+2025-03,Gindi 2,Unknown,CHURN,22,4.88,1
 2025-03,Gindi 2,Unknown,TRIAL,1,,0
-2025-03,Gindi 3,Unknown,CHURN,69,4.67,2
-2025-03,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,11,,0
+2025-03,Gindi 3,Unknown,CHURN,80,4.67,2
 2025-03,Gindi 4,Unknown,CHURN,14,5.0,0
 2025-03,HaHehad,Unknown,CHURN,15,,0
 2025-03,John Street 116,Financial District Polygon,CHURN,20,5.0,0
@@ -931,19 +825,12 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-04,Agnes,Floating Jersey,CHURN,6,,0
 2025-04,Agnes,Floating Jersey,ON_DEMAND_SUBSCRIPTION,1,5.0,1
 2025-04,Agnes,Floating Jersey,RECURRING_SUBSCRIPTION,2,5.0,0
-2025-04,Azrieli TLV,Unknown,CHURN,85,5.0,0
-2025-04,Azrieli TLV,Unknown,FROZEN,3,,0
-2025-04,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,7,,0
+2025-04,Azrieli TLV,Unknown,CHURN,95,5.0,0
 2025-04,Azrieli TLV,Unknown,TRIAL,7,,0
-2025-04,Gindi 1,Unknown,CHURN,62,5.0,0
-2025-04,Gindi 1,Unknown,FROZEN,1,,0
-2025-04,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
-2025-04,Gindi 2,Unknown,CHURN,17,5.0,0
-2025-04,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
+2025-04,Gindi 1,Unknown,CHURN,65,5.0,0
+2025-04,Gindi 2,Unknown,CHURN,19,5.0,0
 2025-04,Gindi 2,Unknown,TRIAL,2,,0
-2025-04,Gindi 3,Unknown,CHURN,96,5.0,0
-2025-04,Gindi 3,Unknown,FROZEN,2,,0
-2025-04,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,11,,0
+2025-04,Gindi 3,Unknown,CHURN,109,5.0,0
 2025-04,Gindi 4,Unknown,CHURN,8,5.0,0
 2025-04,HaHehad,Unknown,CHURN,12,5.0,1
 2025-04,HaHehad,Unknown,TRIAL,2,,0
@@ -1011,22 +898,16 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-05,Agnes,Floating Jersey,CHURN,5,,0
 2025-05,Agnes,Floating Jersey,ON_DEMAND_SUBSCRIPTION,1,5.0,1
 2025-05,Agnes,Floating Jersey,RECURRING_SUBSCRIPTION,2,5.0,0
-2025-05,Azrieli TLV,Unknown,CHURN,70,,0
-2025-05,Azrieli TLV,Unknown,FROZEN,2,,0
-2025-05,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,10,,0
+2025-05,Azrieli TLV,Unknown,CHURN,82,,0
 2025-05,Azrieli TLV,Unknown,TRIAL,8,5.0,1
 2025-05,Gindi 1,Unknown,CHURN,75,4.2,0
 2025-05,Gindi 1,Unknown,TRIAL,1,5.0,0
-2025-05,Gindi 2,Unknown,CHURN,9,5.0,0
-2025-05,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,2,5.0,1
+2025-05,Gindi 2,Unknown,CHURN,11,5.0,1
 2025-05,Gindi 2,Unknown,TRIAL,1,,0
-2025-05,Gindi 3,Unknown,CHURN,77,5.0,2
-2025-05,Gindi 3,Unknown,FROZEN,3,,0
-2025-05,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,7,,0
+2025-05,Gindi 3,Unknown,CHURN,87,5.0,2
 2025-05,Gindi 3,Unknown,TRIAL,1,,0
 2025-05,Gindi 4,Unknown,CHURN,10,5.0,0
-2025-05,HaHehad,Unknown,CHURN,14,5.0,0
-2025-05,HaHehad,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
+2025-05,HaHehad,Unknown,CHURN,16,5.0,0
 2025-05,John Street 116,Financial District Polygon,CHURN,13,5.0,0
 2025-05,John Street 116,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,6,5.0,1
 2025-05,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,7,5.0,1
@@ -1100,20 +981,13 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-06,Agnes,Floating Jersey,CHURN,5,,0
 2025-06,Agnes,Floating Jersey,RECURRING_SUBSCRIPTION,1,5.0,0
 2025-06,Agnes,Floating Jersey,TRIAL,1,,0
-2025-06,Azrieli TLV,Unknown,CHURN,68,5.0,0
-2025-06,Azrieli TLV,Unknown,FROZEN,2,,0
-2025-06,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
+2025-06,Azrieli TLV,Unknown,CHURN,72,5.0,0
 2025-06,Azrieli TLV,Unknown,TRIAL,1,,0
-2025-06,Gindi 1,Unknown,CHURN,42,4.5,1
-2025-06,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,7,5.0,0
-2025-06,Gindi 2,Unknown,CHURN,9,5.0,1
-2025-06,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,5,5.0,0
-2025-06,Gindi 3,Unknown,CHURN,41,5.0,1
-2025-06,Gindi 3,Unknown,FROZEN,4,,0
-2025-06,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,6,,0
+2025-06,Gindi 1,Unknown,CHURN,49,4.67,1
+2025-06,Gindi 2,Unknown,CHURN,14,5.0,1
+2025-06,Gindi 3,Unknown,CHURN,51,5.0,1
 2025-06,Gindi 4,Unknown,CHURN,6,,0
-2025-06,HaHehad,Unknown,CHURN,14,5.0,0
-2025-06,HaHehad,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2025-06,HaHehad,Unknown,CHURN,15,5.0,0
 2025-06,HaHehad,Unknown,TRIAL,2,,0
 2025-06,John Street 116,Financial District Polygon,CHURN,8,5.0,0
 2025-06,John Street 116,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,3,,0
@@ -1193,19 +1067,13 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-07,Alta,Floating NY 1,CHURN,3,5.0,0
 2025-07,Alta,Floating NY 1,ON_DEMAND_SUBSCRIPTION,1,5.0,1
 2025-07,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,2,5.0,0
-2025-07,Azrieli TLV,Unknown,CHURN,103,4.75,2
-2025-07,Azrieli TLV,Unknown,FROZEN,2,,0
-2025-07,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2025-07,Azrieli TLV,Unknown,CHURN,106,4.75,2
 2025-07,Azrieli TLV,Unknown,TRIAL,8,,0
-2025-07,Gindi 1,Unknown,CHURN,50,4.17,1
-2025-07,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,6,5.0,3
+2025-07,Gindi 1,Unknown,CHURN,56,4.44,4
 2025-07,Gindi 1,Unknown,TRIAL,1,5.0,0
-2025-07,Gindi 2,Unknown,CHURN,17,5.0,0
-2025-07,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,3,,0
+2025-07,Gindi 2,Unknown,CHURN,20,5.0,0
 2025-07,Gindi 2,Unknown,TRIAL,1,,0
-2025-07,Gindi 3,Unknown,CHURN,50,5.0,2
-2025-07,Gindi 3,Unknown,FROZEN,2,,0
-2025-07,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,9,5.0,0
+2025-07,Gindi 3,Unknown,CHURN,61,5.0,2
 2025-07,Gindi 3,Unknown,TRIAL,1,5.0,0
 2025-07,Gindi 4,Unknown,CHURN,10,,0
 2025-07,HaHehad,Unknown,CHURN,19,5.0,0
@@ -1300,22 +1168,14 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-08,Alta,Floating NY 1,LEAD,1,5.0,0
 2025-08,Alta,Floating NY 1,ON_DEMAND_SUBSCRIPTION,2,5.0,0
 2025-08,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,6,5.0,0
-2025-08,Azrieli TLV,Unknown,CHURN,100,5.0,1
-2025-08,Azrieli TLV,Unknown,FROZEN,2,,0
-2025-08,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2025-08,Azrieli TLV,Unknown,CHURN,103,5.0,1
 2025-08,Azrieli TLV,Unknown,TRIAL,4,,0
-2025-08,Gindi 1,Unknown,CHURN,44,5.0,2
-2025-08,Gindi 1,Unknown,FROZEN,1,,0
-2025-08,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2025-08,Gindi 1,Unknown,CHURN,46,5.0,2
 2025-08,Gindi 1,Unknown,TRIAL,1,,0
-2025-08,Gindi 2,Unknown,CHURN,11,5.0,1
-2025-08,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
-2025-08,Gindi 3,Unknown,CHURN,44,5.0,0
-2025-08,Gindi 3,Unknown,FROZEN,2,,0
-2025-08,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,11,,0
+2025-08,Gindi 2,Unknown,CHURN,13,5.0,1
+2025-08,Gindi 3,Unknown,CHURN,57,5.0,0
 2025-08,Gindi 3,Unknown,TRIAL,2,,0
-2025-08,Gindi 4,Unknown,CHURN,11,5.0,0
-2025-08,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,2,5.0,0
+2025-08,Gindi 4,Unknown,CHURN,13,5.0,0
 2025-08,Gindi 4,Unknown,TRIAL,1,5.0,0
 2025-08,HaHehad,Unknown,CHURN,16,5.0,0
 2025-08,HaHehad,Unknown,TRIAL,5,,0
@@ -1421,8 +1281,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-09,Alta,Floating NY 1,CHURN,10,5.0,0
 2025-09,Alta,Floating NY 1,ON_DEMAND_SUBSCRIPTION,3,5.0,0
 2025-09,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,6,5.0,0
-2025-09,Azrieli TLV,Unknown,CHURN,88,5.0,1
-2025-09,Azrieli TLV,Unknown,FROZEN,2,,0
+2025-09,Azrieli TLV,Unknown,CHURN,90,5.0,1
 2025-09,Azrieli TLV,Unknown,TRIAL,5,4.0,0
 2025-09,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,3,4.5,0
 2025-09,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,2,5.0,1
@@ -1431,17 +1290,12 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-09,Flamingo South Beach,Miami Beach Polygon,CHURN,2,5.0,1
 2025-09,Flamingo South Beach,Miami Beach Polygon,FROZEN,1,5.0,1
 2025-09,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,2,5.0,2
-2025-09,Gindi 1,Unknown,CHURN,48,4.86,1
-2025-09,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,15,5.0,1
+2025-09,Gindi 1,Unknown,CHURN,63,4.94,2
 2025-09,Gindi 1,Unknown,TRIAL,2,5.0,0
-2025-09,Gindi 2,Unknown,CHURN,23,5.0,0
-2025-09,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
-2025-09,Gindi 3,Unknown,CHURN,53,4.33,0
-2025-09,Gindi 3,Unknown,FROZEN,2,,0
-2025-09,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,6,,0
+2025-09,Gindi 2,Unknown,CHURN,24,5.0,0
+2025-09,Gindi 3,Unknown,CHURN,61,4.33,0
 2025-09,Gindi 3,Unknown,TRIAL,2,,0
-2025-09,Gindi 4,Unknown,CHURN,10,5.0,0
-2025-09,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,3,,0
+2025-09,Gindi 4,Unknown,CHURN,13,5.0,0
 2025-09,Grove Central Residences,Floating Miami,CHURN,1,5.0,0
 2025-09,Grove Central Residences,Floating Miami,TRIAL,1,5.0,0
 2025-09,HaHehad,Unknown,CHURN,15,5.0,0
@@ -1551,8 +1405,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-10,Alta,Floating NY 1,ON_DEMAND_SUBSCRIPTION,7,5.0,1
 2025-10,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,10,5.0,1
 2025-10,Alta,Floating NY 1,WARM_LEAD,1,5.0,0
-2025-10,Azrieli TLV,Unknown,CHURN,71,5.0,2
-2025-10,Azrieli TLV,Unknown,FROZEN,2,,0
+2025-10,Azrieli TLV,Unknown,CHURN,73,5.0,2
 2025-10,Azrieli TLV,Unknown,TRIAL,5,5.0,1
 2025-10,Brooklyn Crossing,Boerum Hill Polygon,CHURN,10,5.0,2
 2025-10,Brooklyn Crossing,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,4,5.0,0
@@ -1572,14 +1425,10 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-10,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,3,5.0,0
 2025-10,Flamingo South Beach,Miami Beach Polygon,TRIAL,3,5.0,0
 2025-10,Gindi 1,Unknown,CHURN,45,4.89,1
-2025-10,Gindi 2,Unknown,CHURN,21,5.0,0
-2025-10,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
+2025-10,Gindi 2,Unknown,CHURN,23,5.0,0
 2025-10,Gindi 2,Unknown,TRIAL,3,5.0,0
-2025-10,Gindi 3,Unknown,CHURN,33,5.0,0
-2025-10,Gindi 3,Unknown,FROZEN,6,5.0,1
-2025-10,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,3,,0
-2025-10,Gindi 4,Unknown,CHURN,12,5.0,0
-2025-10,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,6,5.0,0
+2025-10,Gindi 3,Unknown,CHURN,42,5.0,1
+2025-10,Gindi 4,Unknown,CHURN,18,5.0,0
 2025-10,Grove Central Residences,Floating Miami,CHURN,11,5.0,1
 2025-10,Grove Central Residences,Floating Miami,ON_DEMAND_SUBSCRIPTION,3,5.0,0
 2025-10,Grove Central Residences,Floating Miami,RECURRING_SUBSCRIPTION,2,,0
@@ -1698,9 +1547,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-11,Alta,Floating NY 1,ON_DEMAND_SUBSCRIPTION,2,5.0,0
 2025-11,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,17,5.0,1
 2025-11,Alta,Floating NY 1,TRIAL,1,,0
-2025-11,Azrieli TLV,Unknown,CHURN,75,5.0,1
-2025-11,Azrieli TLV,Unknown,FROZEN,1,,0
-2025-11,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,3,,0
+2025-11,Azrieli TLV,Unknown,CHURN,79,5.0,1
 2025-11,Azrieli TLV,Unknown,TRIAL,4,,0
 2025-11,Brooklyn Crossing,Boerum Hill Polygon,CHURN,15,4.7,2
 2025-11,Brooklyn Crossing,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,6,5.0,0
@@ -1722,16 +1569,10 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-11,Flamingo South Beach,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,1,5.0,0
 2025-11,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6,5.0,0
 2025-11,Flamingo South Beach,Miami Beach Polygon,TRIAL,1,5.0,0
-2025-11,Gindi 1,Unknown,CHURN,66,4.88,1
-2025-11,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,16,5.0,0
-2025-11,Gindi 2,Unknown,CHURN,31,5.0,1
-2025-11,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,4,,0
-2025-11,Gindi 3,Unknown,CHURN,40,5.0,1
-2025-11,Gindi 3,Unknown,FROZEN,8,3.67,0
-2025-11,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,5,5.0,0
-2025-11,Gindi 4,Unknown,CHURN,16,5.0,0
-2025-11,Gindi 4,Unknown,FROZEN,2,,0
-2025-11,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,5,,0
+2025-11,Gindi 1,Unknown,CHURN,82,4.92,1
+2025-11,Gindi 2,Unknown,CHURN,35,5.0,1
+2025-11,Gindi 3,Unknown,CHURN,53,4.56,1
+2025-11,Gindi 4,Unknown,CHURN,23,5.0,0
 2025-11,Grove Central Residences,Floating Miami,CHURN,5,5.0,0
 2025-11,Grove Central Residences,Floating Miami,ON_DEMAND_SUBSCRIPTION,1,5.0,0
 2025-11,Grove Central Residences,Floating Miami,RECURRING_SUBSCRIPTION,3,,0
@@ -1864,8 +1705,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-12,Alta,Floating NY 1,ON_DEMAND_SUBSCRIPTION,4,5.0,0
 2025-12,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,19,5.0,0
 2025-12,Alta,Floating NY 1,TRIAL,1,5.0,0
-2025-12,Azrieli TLV,Unknown,CHURN,94,4.91,2
-2025-12,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2025-12,Azrieli TLV,Unknown,CHURN,95,4.91,2
 2025-12,Azrieli TLV,Unknown,TRIAL,4,,0
 2025-12,Brooklyn Crossing,Boerum Hill Polygon,CHURN,17,5.0,0
 2025-12,Brooklyn Crossing,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,4,5.0,1
@@ -1887,23 +1727,16 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-12,Flamingo South Beach,Miami Beach Polygon,LEAD,1,5.0,0
 2025-12,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,15,4.85,3
 2025-12,Flamingo South Beach,Miami Beach Polygon,TRIAL,3,,0
-2025-12,Gindi 1,Unknown,CHURN,70,5.0,0
-2025-12,Gindi 1,Unknown,FROZEN,4,5.0,0
-2025-12,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,17,5.0,0
+2025-12,Gindi 1,Unknown,CHURN,91,5.0,0
 2025-12,Gindi 1,Unknown,TRIAL,2,5.0,0
-2025-12,Gindi 2,Unknown,CHURN,47,5.0,1
-2025-12,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
-2025-12,Gindi 3,Unknown,CHURN,59,5.0,2
-2025-12,Gindi 3,Unknown,FROZEN,8,,0
-2025-12,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,4,5.0,0
-2025-12,Gindi 4,Unknown,CHURN,20,5.0,0
-2025-12,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
+2025-12,Gindi 2,Unknown,CHURN,48,5.0,1
+2025-12,Gindi 3,Unknown,CHURN,71,5.0,2
+2025-12,Gindi 4,Unknown,CHURN,22,5.0,0
 2025-12,Gindi 4,Unknown,TRIAL,2,,0
 2025-12,Grove Central Residences,Floating Miami,CHURN,3,,0
 2025-12,Grove Central Residences,Floating Miami,ON_DEMAND_SUBSCRIPTION,3,5.0,0
 2025-12,Grove Central Residences,Floating Miami,RECURRING_SUBSCRIPTION,2,5.0,0
-2025-12,HaHehad,Unknown,CHURN,28,5.0,0
-2025-12,HaHehad,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2025-12,HaHehad,Unknown,CHURN,29,5.0,0
 2025-12,HaHehad,Unknown,TRIAL,4,,0
 2025-12,John Street 116,Financial District Polygon,CHURN,1,,0
 2025-12,John Street 116,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,6,,0
@@ -2058,20 +1891,13 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-01,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,13,5.0,1
 2026-01,Flamingo South Beach,Miami Beach Polygon,TRIAL,2,5.0,0
 2026-01,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,1,,0
-2026-01,Gindi 1,Unknown,CHURN,54,4.2,1
-2026-01,Gindi 1,Unknown,FROZEN,2,,0
-2026-01,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,2,5.0,0
+2026-01,Gindi 1,Unknown,CHURN,58,4.43,1
 2026-01,Gindi 1,Unknown,TRIAL,2,5.0,0
-2026-01,Gindi 2,Unknown,CHURN,39,5.0,0
-2026-01,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,5,5.0,0
+2026-01,Gindi 2,Unknown,CHURN,44,5.0,0
 2026-01,Gindi 2,Unknown,TRIAL,2,,0
-2026-01,Gindi 3,Unknown,CHURN,47,5.0,1
-2026-01,Gindi 3,Unknown,FROZEN,7,,0
-2026-01,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,1,5.0,0
+2026-01,Gindi 3,Unknown,CHURN,55,5.0,1
 2026-01,Gindi 3,Unknown,TRIAL,2,,0
-2026-01,Gindi 4,Unknown,CHURN,21,5.0,0
-2026-01,Gindi 4,Unknown,FROZEN,4,5.0,0
-2026-01,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2026-01,Gindi 4,Unknown,CHURN,26,5.0,0
 2026-01,Gindi 4,Unknown,TRIAL,3,,0
 2026-01,Grove Central Residences,Floating Miami,CHURN,5,,0
 2026-01,Grove Central Residences,Floating Miami,ON_DEMAND_SUBSCRIPTION,2,5.0,0
@@ -2210,8 +2036,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-02,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,19,5.0,0
 2026-02,Alta,Floating NY 1,TRIAL,1,5.0,0
 2026-02,Alta,Floating NY 1,WARM_LEAD,1,5.0,1
-2026-02,Azrieli TLV,Unknown,CHURN,62,4.9,0
-2026-02,Azrieli TLV,Unknown,FROZEN,1,,0
+2026-02,Azrieli TLV,Unknown,CHURN,63,4.9,0
 2026-02,Azrieli TLV,Unknown,TRIAL,6,,0
 2026-02,Bay Parc Apartments,Edgeater Polygon,CHURN,4,4.0,1
 2026-02,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,5,5.0,0
@@ -2243,18 +2068,12 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-02,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,13,4.89,1
 2026-02,Flamingo South Beach,Miami Beach Polygon,TRIAL,2,5.0,1
 2026-02,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,3,5.0,0
-2026-02,Gindi 1,Unknown,CHURN,61,4.67,3
-2026-02,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,8,5.0,0
+2026-02,Gindi 1,Unknown,CHURN,69,4.75,3
 2026-02,Gindi 1,Unknown,TRIAL,1,5.0,0
-2026-02,Gindi 2,Unknown,CHURN,42,5.0,1
-2026-02,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,6,5.0,0
-2026-02,Gindi 3,Unknown,CHURN,37,5.0,2
-2026-02,Gindi 3,Unknown,FROZEN,4,,0
-2026-02,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,3,,0
+2026-02,Gindi 2,Unknown,CHURN,48,5.0,1
+2026-02,Gindi 3,Unknown,CHURN,44,5.0,2
 2026-02,Gindi 3,Unknown,TRIAL,2,5.0,0
-2026-02,Gindi 4,Unknown,CHURN,37,5.0,1
-2026-02,Gindi 4,Unknown,FROZEN,4,5.0,0
-2026-02,Gindi 4,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2026-02,Gindi 4,Unknown,CHURN,42,5.0,1
 2026-02,Gindi 4,Unknown,TRIAL,2,5.0,0
 2026-02,Grove Central Residences,Floating Miami,CHURN,6,5.0,0
 2026-02,Grove Central Residences,Floating Miami,ON_DEMAND_SUBSCRIPTION,2,5.0,0
@@ -2424,8 +2243,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-03,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,23,5.0,2
 2026-03,Alta,Floating NY 1,TRIAL,1,5.0,1
 2026-03,Alta,Floating NY 1,WARM_LEAD,2,5.0,1
-2026-03,Azrieli TLV,Unknown,CHURN,60,5.0,0
-2026-03,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
+2026-03,Azrieli TLV,Unknown,CHURN,62,5.0,0
 2026-03,Azrieli TLV,Unknown,TRIAL,3,,0
 2026-03,Bay Parc Apartments,Edgeater Polygon,CHURN,3,,0
 2026-03,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,5,5.0,0
@@ -2457,15 +2275,11 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-03,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,14,4.64,1
 2026-03,Flamingo South Beach,Miami Beach Polygon,TRIAL,2,5.0,0
 2026-03,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,5,5.0,0
-2026-03,Gindi 1,Unknown,CHURN,44,5.0,0
-2026-03,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,4,5.0,0
+2026-03,Gindi 1,Unknown,CHURN,48,5.0,0
 2026-03,Gindi 1,Unknown,TRIAL,2,,0
-2026-03,Gindi 2,Unknown,CHURN,31,4.8,0
-2026-03,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,1,5.0,0
+2026-03,Gindi 2,Unknown,CHURN,32,4.83,0
 2026-03,Gindi 2,Unknown,TRIAL,1,,0
-2026-03,Gindi 3,Unknown,CHURN,43,5.0,1
-2026-03,Gindi 3,Unknown,FROZEN,3,,0
-2026-03,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,4,,0
+2026-03,Gindi 3,Unknown,CHURN,50,5.0,1
 2026-03,Gindi 4,Unknown,CHURN,24,5.0,0
 2026-03,Gindi 4,Unknown,TRIAL,1,,0
 2026-03,Grove Central Residences,Floating Miami,CHURN,7,5.0,0
@@ -2639,8 +2453,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-04,Alta,Floating NY 1,RECURRING_SUBSCRIPTION,22,5.0,0
 2026-04,Alta,Floating NY 1,TRIAL,1,5.0,0
 2026-04,Alta,Floating NY 1,WARM_LEAD,2,5.0,0
-2026-04,Azrieli TLV,Unknown,CHURN,60,4.0,1
-2026-04,Azrieli TLV,Unknown,ON_DEMAND_SUBSCRIPTION,1,,0
+2026-04,Azrieli TLV,Unknown,CHURN,61,4.0,1
 2026-04,Azrieli TLV,Unknown,TRIAL,3,,0
 2026-04,Azrieli TLV,Unknown,WARM_LEAD,1,5.0,0
 2026-04,Bay Parc Apartments,Edgeater Polygon,CHURN,1,,0
@@ -2676,13 +2489,10 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-04,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,12,5.0,7
 2026-04,Flow Brickell,Flow Brickell Polygon,TRIAL,8,5.0,1
 2026-04,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,8,5.0,3
-2026-04,Gindi 1,Unknown,CHURN,23,5.0,0
-2026-04,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,7,5.0,0
-2026-04,Gindi 2,Unknown,CHURN,27,5.0,0
-2026-04,Gindi 2,Unknown,ON_DEMAND_SUBSCRIPTION,2,,0
+2026-04,Gindi 1,Unknown,CHURN,30,5.0,0
+2026-04,Gindi 2,Unknown,CHURN,29,5.0,0
 2026-04,Gindi 2,Unknown,TRIAL,3,,0
-2026-04,Gindi 3,Unknown,CHURN,18,5.0,0
-2026-04,Gindi 3,Unknown,ON_DEMAND_SUBSCRIPTION,7,,0
+2026-04,Gindi 3,Unknown,CHURN,25,5.0,0
 2026-04,Gindi 3,Unknown,TRIAL,2,,0
 2026-04,Gindi 3,Unknown,WARM_LEAD,1,,0
 2026-04,Gindi 4,Unknown,CHURN,13,5.0,2
@@ -2870,8 +2680,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,13,5.0,1
 2026-05,Flow Brickell,Flow Brickell Polygon,TRIAL,10,5.0,0
 2026-05,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,8,5.0,2
-2026-05,Gindi 1,Unknown,CHURN,13,5.0,0
-2026-05,Gindi 1,Unknown,ON_DEMAND_SUBSCRIPTION,3,5.0,0
+2026-05,Gindi 1,Unknown,CHURN,16,5.0,0
 2026-05,Gindi 2,Unknown,CHURN,13,5.0,1
 2026-05,Gindi 2,Unknown,TRIAL,2,,0
 2026-05,Gindi 3,Unknown,CHURN,11,,0
@@ -2912,8 +2721,8 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,Silver Towers,Hell's Kitchen Polygon,CHURN,1,,0
 2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,4,5.0,0
 2026-05,Silver Towers,Hell's Kitchen Polygon,FROZEN,1,,0
-2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,16,5.0,1
-2026-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,162,4.69,4
+2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,17,5.0,1
+2026-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,162,4.7,4
 2026-05,Silver Towers,Hell's Kitchen Polygon,TRIAL,2,,0
 2026-05,Silver Towers,Hell's Kitchen Polygon,WARM_LEAD,7,5.0,0
 2026-05,Southgate Towers,Miami Beach Polygon,CHURN,4,4.5,0
