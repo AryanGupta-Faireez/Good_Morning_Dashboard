@@ -11,7 +11,7 @@ Gindi 2,Unknown,200,49,0,0.0
 20 Broad Street,Financial District Polygon,198,105,32,16.2
 Midtown 5,Floating Miami,174,69,19,10.9
 Brooklyn Crossing,Boerum Hill Polygon,165,61,29,17.6
-Azrieli TLV,Unknown,160,40,0,0.0
+Azrieli TLV,Unknown,161,41,0,0.0
 The Eddy,Harrison Polygon,160,47,10,6.3
 Alta,Floating NY 1,156,47,20,12.8
 100 House,Hoboken Polygon,154,62,17,11.0
@@ -23,12 +23,12 @@ The Ivy,Chatham / West Orange Polygon,140,52,18,12.9
 The Buchanan,Floating NY 1,129,38,18,14.0
 2000 Biscayne,Edgeater Polygon,128,55,23,18.0
 Flamingo Point North Tower,Miami Beach Polygon,127,62,30,23.6
-Flow Brickell,Flow Brickell Polygon,126,25,8,6.3
-Bay Parc Apartments,Edgeater Polygon,123,55,32,26.0
+Flow Brickell,Flow Brickell Polygon,127,25,8,6.3
+Bay Parc Apartments,Edgeater Polygon,124,57,32,25.8
 The Boulevard,Floating Miami,121,52,18,14.9
 Southgate Towers,Miami Beach Polygon,121,56,9,7.4
-330 Angelo Cifelli,Harrison Polygon,120,54,17,14.2
 Oliver on the Hudson,Floating Jersey,120,51,15,12.5
+330 Angelo Cifelli,Harrison Polygon,120,54,17,14.2
 The Enclave,Hoboken Polygon,106,38,10,9.4
 Flamingo South Beach,Miami Beach Polygon,98,54,19,19.4
 345 Baldwin Avenue,Floating Jersey,97,26,10,10.3
@@ -39,12 +39,12 @@ The Dime,Williamsburg Polygon,88,38,13,14.8
 Gindi 4,Unknown,81,8,0,0.0
 John Street 116,Financial District Polygon,80,45,11,13.8
 The Landon,Hell's Kitchen Polygon,78,42,8,10.3
+One Harrison,Harrison Polygon,72,30,9,12.5
 Grove Central Residences,Floating Miami,72,28,6,8.3
-One Harrison,Harrison Polygon,71,29,9,12.7
 The Addison,Brooklyn Heights Polygon,68,25,2,2.9
 655 Union,Boerum Hill Polygon,67,23,9,13.4
 66 Rockwell Place,Brooklyn Heights Polygon,65,31,10,15.4
-Livana East Hanover,Chatham / West Orange Polygon,63,19,7,11.1
+Livana East Hanover,Chatham / West Orange Polygon,64,20,8,12.5
 The Vitagraph,Floating NY 2,60,36,0,0.0
 Nine 52,Hell's Kitchen Polygon,57,20,8,14.0
 The Kestrel,Floating NY 2,57,32,4,7.0
@@ -53,7 +53,7 @@ Plank Road,Boerum Hill Polygon,53,17,2,3.8
 250 E Houston,Floating NY 2,51,18,6,11.8
 535 W 43rd Street,Hell's Kitchen Polygon,51,20,6,11.8
 HaHehad,Unknown,50,11,0,0.0
-Dey and Bergen,Harrison Polygon,47,16,1,2.1
+Dey and Bergen,Harrison Polygon,48,17,1,2.1
 220 East 72nd Street,Floating NY 2,45,19,1,2.2
 829 Garfield,Floating Jersey,39,23,0,0.0
 Union Channel ,Boerum Hill Polygon,38,13,4,10.5

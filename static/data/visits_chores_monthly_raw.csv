@@ -3227,7 +3227,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,1 River Place,Hell's Kitchen Polygon,TRIAL,1.0,104.0,1,13.0
 2026-05,2000 Biscayne,Edgeater Polygon,CHURN,8.0,0.0,8,227.11
 2026-05,2000 Biscayne,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,3.57,26.4,25,700.57
-2026-05,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.0,33.17,434,11419.33
+2026-05,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.0,34.08,441,11587.94
 2026-05,2000 Biscayne,Edgeater Polygon,TRIAL,3.57,66.6,25,694.72
 2026-05,2000 Biscayne,Edgeater Polygon,WARM_LEAD,2.75,55.27,11,408.85
 2026-05,2001 Biscayne Boulevard,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,7.67,0.0,23,622.83
@@ -3236,7 +3236,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,20 Broad Street,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,2.89,27.65,55,1363.18
 2026-05,20 Broad Street,Financial District Polygon,RECURRING_SUBSCRIPTION,5.24,78.59,283,8183.63
 2026-05,20 Broad Street,Financial District Polygon,TRIAL,2.0,21.0,20,539.5
-2026-05,20 Broad Street,Financial District Polygon,WARM_LEAD,5.63,82.13,45,1290.25
+2026-05,20 Broad Street,Financial District Polygon,WARM_LEAD,5.22,80.13,47,1361.75
 2026-05,20 Broad Street,Hell's Kitchen Polygon,FREEMIUM,2.0,34.0,2,71.5
 2026-05,250 E Houston,Floating NY 2,CHURN,8.0,0.0,8,227.11
 2026-05,250 E Houston,Floating NY 2,RECURRING_SUBSCRIPTION,6.43,49.54,90,2454.01
@@ -3262,7 +3262,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,416 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,7.07,76.97,106,3133.91
 2026-05,416 Kent Avenue,Williamsburg Polygon,WARM_LEAD,6.5,106.46,13,421.46
 2026-05,420 Kent Avenue,Williamsburg Polygon,CHURN,7.33,0.0,22,654.42
-2026-05,420 Kent Avenue,Williamsburg Polygon,ON_DEMAND_SUBSCRIPTION,4.33,86.96,26,836.16
+2026-05,420 Kent Avenue,Williamsburg Polygon,ON_DEMAND_SUBSCRIPTION,4.14,89.24,29,907.66
 2026-05,420 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,5.48,76.89,181,5073.9
 2026-05,420 Kent Avenue,Williamsburg Polygon,TRIAL,2.5,13.0,10,350.35
 2026-05,420 Kent Avenue,Williamsburg Polygon,WARM_LEAD,4.2,110.67,21,618.41
@@ -3280,7 +3280,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,66 Rockwell Place,Brooklyn Heights Polygon,ON_DEMAND_SUBSCRIPTION,7.33,25.64,22,625.17
 2026-05,66 Rockwell Place,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,3.92,70.65,98,3013.66
 2026-05,66 Rockwell Place,Brooklyn Heights Polygon,TRIAL,4.5,0.0,9,240.11
-2026-05,66 Rockwell Place,Brooklyn Heights Polygon,WARM_LEAD,8.0,121.0,8,227.11
+2026-05,66 Rockwell Place,Brooklyn Heights Polygon,WARM_LEAD,8.0,121.0,16,454.22
 2026-05,Agnes,Floating Jersey,CHURN,8.0,0.0,8,227.11
 2026-05,Agnes,Floating Jersey,RECURRING_SUBSCRIPTION,4.59,68.23,78,2268.5
 2026-05,Agnes,Floating Jersey,WARM_LEAD,3.0,0.0,3,71.5
@@ -3294,13 +3294,13 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Azrieli TLV,Unknown,TRIAL,8.1,13.99,81,2517.97
 2026-05,Bay Parc Apartments,Edgeater Polygon,CHURN,9.14,0.0,64,1758.25
 2026-05,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,4.17,6.96,25,822.12
-2026-05,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,6.67,42.83,580,17002.83
+2026-05,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,6.71,42.86,577,16925.48
 2026-05,Bay Parc Apartments,Edgeater Polygon,TRIAL,4.6,88.04,23,747.11
-2026-05,Bay Parc Apartments,Edgeater Polygon,WARM_LEAD,5.0,42.1,20,637.0
+2026-05,Bay Parc Apartments,Edgeater Polygon,WARM_LEAD,4.4,38.27,22,650.0
 2026-05,Biscayne SFR,The Ocean Club Polygon,CHURN,2.0,0.0,6,39.0
 2026-05,Biscayne SFR,Unknown,CHURN,2.0,0.0,6,161.85
 2026-05,Brooklyn Crossing,Boerum Hill Polygon,CHURN,7.14,0.0,50,1434.16
-2026-05,Brooklyn Crossing,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,2.33,36.57,21,530.01
+2026-05,Brooklyn Crossing,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,2.36,37.69,26,719.81
 2026-05,Brooklyn Crossing,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,7.28,88.47,386,10974.47
 2026-05,Brooklyn Crossing,Boerum Hill Polygon,WARM_LEAD,7.5,114.0,30,904.93
 2026-05,Cite On The Bay,Edgeater Polygon,CHURN,8.0,0.0,24,681.33
@@ -3344,14 +3344,14 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,HaHehad,Unknown,CHURN,5.81,36.84,122,3799.38
 2026-05,HaHehad,Unknown,TRIAL,4.6,10.78,23,650.0
 2026-05,John Street 116,Financial District Polygon,CHURN,6.33,74.89,19,519.87
-2026-05,John Street 116,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,4.5,100.36,18,480.22
+2026-05,John Street 116,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,3.8,99.29,19,493.22
 2026-05,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,6.0,97.17,72,1944.93
 2026-05,John Street 116,Financial District Polygon,TRIAL,8.0,0.0,8,227.11
 2026-05,Lake Tower,The Ocean Club Polygon,TRIAL,8.0,0.0,8,227.11
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,CHURN,7.0,0.0,14,529.1
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,4.79,87.34,91,2542.54
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,TRIAL,4.0,23.0,16,398.32
-2026-05,Livana East Hanover,Chatham / West Orange Polygon,WARM_LEAD,3.25,73.31,13,435.76
+2026-05,Livana East Hanover,Chatham / West Orange Polygon,WARM_LEAD,3.0,70.73,15,507.26
 2026-05,Midtown 5,Floating Miami,CHURN,7.25,1.34,58,1620.32
 2026-05,Midtown 5,Floating Miami,ON_DEMAND_SUBSCRIPTION,2.5,0.0,5,224.9
 2026-05,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,3.45,69.79,162,4527.9
@@ -3365,7 +3365,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,One Harrison,Harrison Polygon,CHURN,5.0,0.0,30,895.83
 2026-05,One Harrison,Harrison Polygon,RECURRING_SUBSCRIPTION,5.8,86.55,87,2373.41
 2026-05,One Harrison,Harrison Polygon,TRIAL,4.67,4.86,14,434.46
-2026-05,One Harrison,Harrison Polygon,WARM_LEAD,6.0,59.78,18,525.72
+2026-05,One Harrison,Harrison Polygon,WARM_LEAD,6.25,73.56,25,696.67
 2026-05,One Ten,Hoboken Polygon,CHURN,2.33,0.0,14,352.95
 2026-05,One Ten,Hoboken Polygon,FREEMIUM,2.0,54.0,4,143.0
 2026-05,One Ten,Hoboken Polygon,ON_DEMAND_SUBSCRIPTION,3.0,66.33,6,254.15
@@ -3379,10 +3379,10 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Quantum on the Bay Condominium,Edgeater Polygon,TRIAL,1.33,-7.2,4,154.7
 2026-05,River Place,Hell's Kitchen Polygon,CHURN,4.2,21.9,42,1500.07
 2026-05,River Place,Hell's Kitchen Polygon,FREEMIUM,5.0,90.0,10,298.61
-2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,3.28,40.68,82,2523.43
+2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,3.46,46.76,90,2750.54
 2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3.98,61.75,617,16547.83
 2026-05,River Place,Hell's Kitchen Polygon,TRIAL,1.86,63.21,52,979.42
-2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,1.52,38.89,76,814.19
+2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,1.39,31.24,68,587.08
 2026-05,Rothschild 80,Unknown,CHURN,1.0,0.0,24,312.0
 2026-05,Silver Towers,Hell's Kitchen Polygon,CHURN,6.6,26.42,33,1019.72
 2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,4.71,79.7,33,967.33
@@ -3428,7 +3428,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,The Eddy,Harrison Polygon,WARM_LEAD,2.0,24.33,8,237.9
 2026-05,The Enclave,Hoboken Polygon,CHURN,8.0,0.0,8,227.11
 2026-05,The Enclave,Hoboken Polygon,FREEMIUM,2.0,18.0,4,166.4
-2026-05,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,5.5,79.66,88,2814.76
+2026-05,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,5.33,76.73,80,2587.65
 2026-05,The Enclave,Hoboken Polygon,WARM_LEAD,8.0,150.0,8,227.11
 2026-05,The Ivy,Chatham / West Orange Polygon,CHURN,7.33,70.0,44,1271.4
 2026-05,The Ivy,Chatham / West Orange Polygon,FREEMIUM,8.0,112.0,8,227.11
@@ -3450,7 +3450,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,CHURN,8.0,21.33,48,1362.66
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,6.5,85.03,104,3228.81
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,TRIAL,4.0,89.67,12,370.11
-2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,4.1,14.26,41,1198.08
+2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,4.0,3.22,36,1003.73
 2026-05,Waters Edge,Harrison Polygon,CHURN,8.0,0.0,8,227.11
 2026-05,Waters Edge,Harrison Polygon,ON_DEMAND_SUBSCRIPTION,8.0,118.0,8,227.11
 2026-05,Woodside Central,Floating NY 1,ON_DEMAND_SUBSCRIPTION,6.8,1.82,34,979.94
@@ -3463,7 +3463,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,1 Boerum PL,Floating NY 2,CHURN,3.0,0.0,12,520.0
 2026-06,1 Boerum PL,Floating NY 2,RECURRING_SUBSCRIPTION,5.4,176.57,81,2483.52
 2026-06,1 River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,1.87,67.62,103,1589.77
-2026-06,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,6.97,74.65,237,5944.64
+2026-06,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,6.97,74.16,230,5776.03
 2026-06,2000 Biscayne,Edgeater Polygon,TRIAL,8.0,179.0,8,227.11
 2026-06,2001 Biscayne Boulevard,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,7.0,0.0,7,168.61
 2026-06,20 Broad Street,Financial District Polygon,CHURN,8.0,0.0,16,454.22
@@ -3497,7 +3497,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,Azrieli TLV,Unknown,TRIAL,4.0,0.0,8,295.1
 2026-06,Bay Parc Apartments,Edgeater Polygon,CHURN,9.5,0.0,19,509.21
 2026-06,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,5.0,0.0,10,298.61
-2026-06,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.44,88.92,424,12349.74
+2026-06,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.36,88.56,427,12427.09
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,CHURN,8.0,0.0,8,227.11
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,7.18,105.25,287,8150.74
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,WARM_LEAD,8.0,0.0,8,227.11
@@ -3529,7 +3529,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,HaHehad,Unknown,TRIAL,4.5,0.0,9,248.3
 2026-06,John Street 116,Financial District Polygon,CHURN,8.0,0.0,24,681.33
 2026-06,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,6.8,102.88,68,1801.93
-2026-06,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,4.35,106.32,74,2029.82
+2026-06,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,4.42,106.29,84,2313.22
 2026-06,Midtown 5,Floating Miami,CHURN,8.0,0.0,8,227.11
 2026-06,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,4.19,97.9,134,3809.0
 2026-06,Nine 52,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,6.93,140.05,104,3123.51
@@ -3545,14 +3545,14 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,Plank Road,Boerum Hill Polygon,CHURN,8.0,0.0,32,908.44
 2026-06,Plank Road,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,8.0,143.33,48,1362.66
 2026-06,River Place,Hell's Kitchen Polygon,CHURN,3.9,0.0,39,1353.82
-2026-06,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,5.0,43.6,20,687.31
+2026-06,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,4.8,48.67,24,869.96
 2026-06,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,4.47,89.85,478,13085.67
 2026-06,River Place,Hell's Kitchen Polygon,TRIAL,1.0,0.0,22,
-2026-06,River Place,Hell's Kitchen Polygon,WARM_LEAD,1.0,0.0,25,
+2026-06,River Place,Hell's Kitchen Polygon,WARM_LEAD,1.27,25.21,33,227.11
 2026-06,Rothschild 80,Unknown,CHURN,1.0,0.0,2,26.0
 2026-06,Silver Towers,Hell's Kitchen Polygon,CHURN,7.2,0.0,36,1058.33
 2026-06,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,4.17,4.24,25,664.17
-2026-06,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3.47,95.83,1016,24005.54
+2026-06,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3.47,94.52,1016,24005.54
 2026-06,Silver Towers,Hell's Kitchen Polygon,TRIAL,8.0,0.0,8,227.11
 2026-06,Southgate Towers,Miami Beach Polygon,CHURN,6.21,0.0,118,3033.94
 2026-06,Southgate Towers,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,8.0,0.0,8,227.11
@@ -3578,7 +3578,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,5.0,122.73,60,1791.66
 2026-06,The Eddy,Harrison Polygon,TRIAL,8.0,0.0,16,454.22
 2026-06,The Enclave,Hoboken Polygon,CHURN,8.0,0.0,8,227.11
-2026-06,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,5.4,95.22,81,2505.75
+2026-06,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,5.56,96.46,89,2732.86
 2026-06,The Ivy,Chatham / West Orange Polygon,CHURN,7.2,18.89,72,2088.58
 2026-06,The Ivy,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,8.0,167.0,8,227.11
 2026-06,The Ivy,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,6.81,142.9,143,4358.64
@@ -3587,12 +3587,12 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,The Landing,Brooklyn Heights Polygon,ON_DEMAND_SUBSCRIPTION,9.0,0.0,18,489.32
 2026-06,The Landing,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,8.0,143.0,16,454.22
 2026-06,The Landon,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,7.11,107.64,64,1914.12
-2026-06,The Landon,Hell's Kitchen Polygon,WARM_LEAD,1.0,0.0,20,
+2026-06,The Landon,Hell's Kitchen Polygon,WARM_LEAD,1.05,3.09,22,71.5
 2026-06,The Vitagraph,Floating NY 2,CHURN,8.0,0.0,16,454.22
 2026-06,Union Channel ,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,5.0,138.23,35,1084.33
 2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,CHURN,8.0,0.0,16,454.22
 2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.71,104.7,108,3146.78
-2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,8.0,0.0,8,227.11
+2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,6.5,36.92,13,421.46
 2026-06,Woodside Central,Floating NY 1,RECURRING_SUBSCRIPTION,5.3,82.02,53,1565.59
 2026-07,100 House,Hoboken Polygon,RECURRING_SUBSCRIPTION,7.0,141.12,84,2504.19
 2026-07,1800 North Bayshore Drive,Edgeater Polygon,RECURRING_SUBSCRIPTION,8.0,176.0,8,227.11

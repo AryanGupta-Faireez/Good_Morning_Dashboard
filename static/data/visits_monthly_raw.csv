@@ -1151,7 +1151,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2025-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,4,3,1,0,4,197.0,64.0
 2025-05,Silver Towers,Hell's Kitchen Polygon,FROZEN,2,1,1,0,0,167.0,111.0
 2025-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,54,20,34,0,13,2233.0,52.0
-2025-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,97,82,15,0,18,8429.0,83.0
+2025-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,97,81,16,0,18,8429.0,83.0
 2025-05,Silver Towers,Hell's Kitchen Polygon,TRIAL,2,2,0,0,2,202.0,74.0
 2025-05,Stonehill,Chatham / West Orange Polygon,CHURN,8,3,5,0,10,652.0,
 2025-05,Stonehill,Chatham / West Orange Polygon,FREEMIUM,1,0,1,0,2,172.0,
@@ -3155,7 +3155,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-04,The Addison,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,2,2,0,0,1,62.0,44.0
 2026-04,The Addison,Brooklyn Heights Polygon,WARM_LEAD,2,2,0,0,2,90.0,58.0
 2026-04,The Bergen,Boerum Hill Polygon,CHURN,0,0,0,0,2,,
-2026-04,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,1,1,0,0,1,118.0,152.0
+2026-04,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,1,0,1,0,1,118.0,152.0
 2026-04,The Boulevard,Floating Miami,CHURN,2,0,2,0,8,347.0,94.0
 2026-04,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,2,1,1,0,5,62.0,44.0
 2026-04,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,12,9,3,0,2,1280.0,71.0
@@ -3227,7 +3227,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,1 River Place,Hell's Kitchen Polygon,TRIAL,1,1,0,0,0,104.0,156.0
 2026-05,2000 Biscayne,Edgeater Polygon,CHURN,0,0,0,0,1,,
 2026-05,2000 Biscayne,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,4,3,1,0,3,171.0,47.0
-2026-05,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,13,8,5,4,45,1481.0,94.0
+2026-05,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,13,8,5,5,45,1481.0,94.0
 2026-05,2000 Biscayne,Edgeater Polygon,TRIAL,3,2,1,1,3,111.0,64.0
 2026-05,2000 Biscayne,Edgeater Polygon,WARM_LEAD,2,2,0,0,2,150.0,63.0
 2026-05,2001 Biscayne Boulevard,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,0,3,,
@@ -3236,7 +3236,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,20 Broad Street,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,8,8,0,0,11,396.0,67.0
 2026-05,20 Broad Street,Financial District Polygon,RECURRING_SUBSCRIPTION,27,22,5,8,19,2098.0,111.0
 2026-05,20 Broad Street,Financial District Polygon,TRIAL,6,3,3,0,4,190.0,42.0
-2026-05,20 Broad Street,Financial District Polygon,WARM_LEAD,3,2,1,1,4,347.0,156.0
+2026-05,20 Broad Street,Financial District Polygon,WARM_LEAD,3,2,1,2,4,347.0,156.0
 2026-05,20 Broad Street,Hell's Kitchen Polygon,FREEMIUM,1,0,1,0,0,34.0,43.0
 2026-05,250 E Houston,Floating NY 2,CHURN,0,0,0,0,1,,
 2026-05,250 E Houston,Floating NY 2,RECURRING_SUBSCRIPTION,5,5,0,1,8,596.0,129.0
@@ -3262,7 +3262,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,416 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,8,6,2,1,6,977.0,137.0
 2026-05,416 Kent Avenue,Williamsburg Polygon,WARM_LEAD,2,2,0,0,0,209.0,144.0
 2026-05,420 Kent Avenue,Williamsburg Polygon,CHURN,0,0,0,0,3,,
-2026-05,420 Kent Avenue,Williamsburg Polygon,ON_DEMAND_SUBSCRIPTION,6,5,1,0,0,457.0,88.0
+2026-05,420 Kent Avenue,Williamsburg Polygon,ON_DEMAND_SUBSCRIPTION,6,5,1,1,0,457.0,88.0
 2026-05,420 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,18,15,3,9,6,1282.0,96.0
 2026-05,420 Kent Avenue,Williamsburg Polygon,TRIAL,1,1,0,0,3,34.0,35.0
 2026-05,420 Kent Avenue,Williamsburg Polygon,WARM_LEAD,3,2,1,1,1,131.0,50.0
@@ -3272,7 +3272,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,535 W 43rd Street,Hell's Kitchen Polygon,WARM_LEAD,1,1,0,0,1,70.0,90.0
 2026-05,561 10th Avenue,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,2,1,1,1,0,122.0,73.0
 2026-05,655 Union,Boerum Hill Polygon,CHURN,0,0,0,0,3,,
-2026-05,655 Union,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,1,1,0,1,0,92.0,113.0
+2026-05,655 Union,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,1,1,0,0,1,92.0,113.0
 2026-05,655 Union,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,14,13,1,4,4,1862.0,108.0
 2026-05,655 Union,Boerum Hill Polygon,WARM_LEAD,1,1,0,1,0,216.0,180.0
 2026-05,655 Union,Williamsburg Polygon,CHURN,2,2,0,0,2,144.0,84.0
@@ -3280,7 +3280,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,66 Rockwell Place,Brooklyn Heights Polygon,ON_DEMAND_SUBSCRIPTION,1,0,1,0,2,94.0,137.0
 2026-05,66 Rockwell Place,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,19,15,4,3,3,1172.0,68.0
 2026-05,66 Rockwell Place,Brooklyn Heights Polygon,TRIAL,0,0,0,0,2,,
-2026-05,66 Rockwell Place,Brooklyn Heights Polygon,WARM_LEAD,1,0,1,0,0,121.0,180.0
+2026-05,66 Rockwell Place,Brooklyn Heights Polygon,WARM_LEAD,1,0,1,1,0,121.0,180.0
 2026-05,Agnes,Floating Jersey,CHURN,0,0,0,0,1,,
 2026-05,Agnes,Floating Jersey,RECURRING_SUBSCRIPTION,9,6,3,3,5,649.0,75.0
 2026-05,Agnes,Floating Jersey,WARM_LEAD,0,0,0,0,1,,
@@ -3294,13 +3294,13 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,Azrieli TLV,Unknown,TRIAL,2,2,0,0,8,156.99,84.0
 2026-05,Bay Parc Apartments,Edgeater Polygon,CHURN,0,0,0,0,7,,
 2026-05,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,1,1,0,1,4,16.0,30.0
-2026-05,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,24,17,7,8,55,2019.0,67.0
+2026-05,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,24,17,7,7,55,2019.0,67.0
 2026-05,Bay Parc Apartments,Edgeater Polygon,TRIAL,4,1,3,1,0,240.0,64.0
-2026-05,Bay Parc Apartments,Edgeater Polygon,WARM_LEAD,1,1,0,2,1,123.0,
+2026-05,Bay Parc Apartments,Edgeater Polygon,WARM_LEAD,1,1,0,3,1,123.0,
 2026-05,Biscayne SFR,The Ocean Club Polygon,CHURN,0,0,0,0,3,,
 2026-05,Biscayne SFR,Unknown,CHURN,0,0,0,0,3,,
 2026-05,Brooklyn Crossing,Boerum Hill Polygon,CHURN,0,0,0,0,7,,
-2026-05,Brooklyn Crossing,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,8,4,4,0,1,240.0,41.0
+2026-05,Brooklyn Crossing,Boerum Hill Polygon,ON_DEMAND_SUBSCRIPTION,8,3,5,2,1,240.0,41.0
 2026-05,Brooklyn Crossing,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,27,17,10,8,18,2941.0,89.0
 2026-05,Brooklyn Crossing,Boerum Hill Polygon,WARM_LEAD,3,1,2,0,1,470.0,156.0
 2026-05,Cite On The Bay,Edgeater Polygon,CHURN,0,0,0,0,3,,
@@ -3312,11 +3312,11 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,CHURN,2,1,1,0,6,307.0,
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,FROZEN,10,8,2,0,21,85.0,28.0
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,6,1,5,0,46,436.0,41.0
-2026-05,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,58,40,18,10,58,4698.0,63.0
+2026-05,Flamingo Point Center Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,58,38,20,10,58,4698.0,63.0
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,1,0,1,0,22,117.0,106.0
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,WARM_LEAD,6,4,2,1,4,582.0,75.0
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,4,3,1,0,6,284.0,71.0
-2026-05,Flamingo Point North Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,29,24,5,11,20,3611.0,77.0
+2026-05,Flamingo Point North Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,29,23,6,11,20,3611.0,77.0
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,TRIAL,2,1,1,0,1,66.0,40.0
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,WARM_LEAD,1,1,0,1,0,14.0,22.0
 2026-05,Flamingo South Beach,Miami Beach Polygon,CHURN,4,3,1,0,25,249.0,40.0
@@ -3328,7 +3328,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,14,10,4,4,28,1545.0,69.0
 2026-05,Flow Brickell,Flow Brickell Polygon,TRIAL,11,9,2,2,6,699.0,50.0
 2026-05,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,8,3,5,2,7,248.0,78.0
-2026-05,Gindi 1,Unknown,CHURN,29,27,2,0,82,2506.58,97.0
+2026-05,Gindi 1,Unknown,CHURN,29,26,3,0,82,2506.58,97.0
 2026-05,Gindi 1,Unknown,TRIAL,0,0,0,0,2,,
 2026-05,Gindi 2,Unknown,CHURN,16,13,3,0,41,1621.64,102.0
 2026-05,Gindi 2,Unknown,TRIAL,3,3,0,0,1,248.77,101.0
@@ -3344,17 +3344,17 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,HaHehad,Unknown,CHURN,9,9,0,0,12,720.82,98.0
 2026-05,HaHehad,Unknown,TRIAL,0,0,0,0,5,,
 2026-05,John Street 116,Financial District Polygon,CHURN,2,2,0,0,1,196.0,26.0
-2026-05,John Street 116,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,4,4,0,0,0,392.5,108.0
+2026-05,John Street 116,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,4,4,0,1,0,392.5,108.0
 2026-05,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,8,7,1,2,2,703.0,107.0
 2026-05,John Street 116,Financial District Polygon,TRIAL,0,0,0,0,1,,
 2026-05,Lake Tower,The Ocean Club Polygon,TRIAL,0,0,0,0,1,,
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,CHURN,0,0,0,0,2,,
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,8,5,3,2,9,784.0,34.0
 2026-05,Livana East Hanover,Chatham / West Orange Polygon,TRIAL,1,1,0,0,3,72.0,70.0
-2026-05,Livana East Hanover,Chatham / West Orange Polygon,WARM_LEAD,4,3,1,0,0,279.0,60.0
+2026-05,Livana East Hanover,Chatham / West Orange Polygon,WARM_LEAD,4,3,1,1,0,279.0,60.0
 2026-05,Midtown 5,Floating Miami,CHURN,1,1,0,0,7,78.0,60.0
 2026-05,Midtown 5,Floating Miami,ON_DEMAND_SUBSCRIPTION,0,0,0,0,2,,
-2026-05,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,14,7,7,5,28,1246.0,55.0
+2026-05,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,14,7,7,4,29,1246.0,55.0
 2026-05,Midtown 5,Floating Miami,TRIAL,4,4,0,1,1,379.0,61.0
 2026-05,Midtown 5,Floating Miami,WARM_LEAD,0,0,0,0,1,,
 2026-05,Nine 52,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,10,6,4,1,1,1189.0,96.0
@@ -3365,7 +3365,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,One Harrison,Harrison Polygon,CHURN,0,0,0,0,6,,
 2026-05,One Harrison,Harrison Polygon,RECURRING_SUBSCRIPTION,4,2,2,3,8,472.0,140.0
 2026-05,One Harrison,Harrison Polygon,TRIAL,1,1,0,0,2,34.0,16.0
-2026-05,One Harrison,Harrison Polygon,WARM_LEAD,2,1,1,0,1,175.0,110.0
+2026-05,One Harrison,Harrison Polygon,WARM_LEAD,2,1,1,1,1,175.0,110.0
 2026-05,One Ten,Hoboken Polygon,CHURN,0,0,0,0,6,,
 2026-05,One Ten,Hoboken Polygon,FREEMIUM,2,1,1,0,0,108.0,71.0
 2026-05,One Ten,Hoboken Polygon,ON_DEMAND_SUBSCRIPTION,1,1,0,1,0,74.0,61.0
@@ -3379,10 +3379,10 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,Quantum on the Bay Condominium,Edgeater Polygon,TRIAL,2,1,1,0,1,-18.0,25.0
 2026-05,River Place,Hell's Kitchen Polygon,CHURN,3,3,0,0,7,157.0,62.0
 2026-05,River Place,Hell's Kitchen Polygon,FREEMIUM,1,1,0,1,0,104.0,106.0
-2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,17,10,7,1,7,875.0,49.0
+2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,17,9,8,2,7,875.0,49.0
 2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,58,51,7,23,74,3523.0,75.0
 2026-05,River Place,Hell's Kitchen Polygon,TRIAL,11,4,7,0,17,613.0,46.0
-2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,7,3,4,1,42,407.0,60.0
+2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,7,3,4,0,42,407.0,60.0
 2026-05,Rothschild 80,Unknown,CHURN,0,0,0,0,24,,
 2026-05,Silver Towers,Hell's Kitchen Polygon,CHURN,1,1,0,0,4,109.0,118.0
 2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,4,3,1,0,3,259.0,62.0
@@ -3398,7 +3398,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,Southgate Towers,Miami Beach Polygon,WARM_LEAD,1,1,0,0,1,73.0,117.0
 2026-05,Stonehill,Chatham / West Orange Polygon,CHURN,0,0,0,0,2,,
 2026-05,Stonehill,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,1,0,1,0,0,105.5,115.0
-2026-05,Stonehill,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,8,5,3,4,3,725.0,63.0
+2026-05,Stonehill,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,8,4,4,4,3,725.0,63.0
 2026-05,Stonehill,Chatham / West Orange Polygon,WARM_LEAD,1,0,1,0,2,121.0,59.0
 2026-05,The Addison,Brooklyn Heights Polygon,CHURN,0,0,0,0,4,,
 2026-05,The Addison,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,2,2,0,0,1,78.0,60.0
@@ -3407,7 +3407,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,1,0,1,2,1,121.0,111.0
 2026-05,The Boulevard,Floating Miami,CHURN,0,0,0,0,6,,
 2026-05,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,1,1,0,0,3,31.0,28.0
-2026-05,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,9,8,1,4,5,1014.0,92.0
+2026-05,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,9,7,2,4,5,1014.0,92.0
 2026-05,The Boulevard,Floating Miami,TRIAL,1,1,0,0,1,57.0,61.0
 2026-05,The Buchanan,Floating NY 1,CHURN,0,0,0,0,1,,
 2026-05,The Buchanan,Floating NY 1,ON_DEMAND_SUBSCRIPTION,2,2,0,0,1,269.0,124.0
@@ -3415,7 +3415,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,The Buchanan,Floating NY 1,WARM_LEAD,2,1,1,1,0,425.0,197.0
 2026-05,The Devan,Hoboken Polygon,CHURN,0,0,0,0,1,,
 2026-05,The Devan,Hoboken Polygon,ON_DEMAND_SUBSCRIPTION,2,2,0,0,2,83.0,51.0
-2026-05,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,21,15,6,12,19,2297.0,101.0
+2026-05,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,21,15,6,11,20,2297.0,101.0
 2026-05,The Devan,Hoboken Polygon,TRIAL,3,2,1,0,3,295.0,98.0
 2026-05,The Devan,Hoboken Polygon,WARM_LEAD,3,2,1,0,1,242.0,70.0
 2026-05,The Dime,Williamsburg Polygon,CHURN,0,0,0,0,2,,
@@ -3423,12 +3423,12 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,The Dime,Williamsburg Polygon,RECURRING_SUBSCRIPTION,6,4,2,1,4,867.0,129.0
 2026-05,The Dime,Williamsburg Polygon,TRIAL,0,0,0,0,1,,
 2026-05,The Eddy,Harrison Polygon,CHURN,1,1,0,0,1,18.0,16.0
-2026-05,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,9,6,3,4,2,858.0,92.0
+2026-05,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,9,5,4,4,2,858.0,92.0
 2026-05,The Eddy,Harrison Polygon,TRIAL,0,0,0,0,6,,
 2026-05,The Eddy,Harrison Polygon,WARM_LEAD,2,2,0,0,2,62.0,35.0
 2026-05,The Enclave,Hoboken Polygon,CHURN,0,0,0,0,1,,
 2026-05,The Enclave,Hoboken Polygon,FREEMIUM,2,1,1,0,0,36.0,16.0
-2026-05,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,10,8,2,3,3,830.0,70.0
+2026-05,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,10,8,2,2,3,830.0,70.0
 2026-05,The Enclave,Hoboken Polygon,WARM_LEAD,0,0,0,1,0,,
 2026-05,The Ivy,Chatham / West Orange Polygon,CHURN,3,3,0,0,3,385.0,89.0
 2026-05,The Ivy,Chatham / West Orange Polygon,FREEMIUM,1,1,0,0,0,112.0,71.0
@@ -3450,7 +3450,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,CHURN,1,1,0,0,5,118.0,15.0
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,6,2,4,2,8,761.0,72.0
 2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,TRIAL,3,1,2,0,0,175.0,82.0
-2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,1,0,1,1,8,0.0,21.0
+2026-05,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,1,0,1,0,8,0.0,21.0
 2026-05,Waters Edge,Harrison Polygon,CHURN,0,0,0,0,1,,
 2026-05,Waters Edge,Harrison Polygon,ON_DEMAND_SUBSCRIPTION,1,1,0,0,0,118.0,135.0
 2026-05,Woodside Central,Floating NY 1,ON_DEMAND_SUBSCRIPTION,0,0,0,1,4,,
@@ -3463,7 +3463,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-06,1 Boerum PL,Floating NY 2,CHURN,0,0,0,0,4,,
 2026-06,1 Boerum PL,Floating NY 2,RECURRING_SUBSCRIPTION,0,0,0,15,0,,
 2026-06,1 River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,0,0,0,26,29,,
-2026-06,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,0,0,0,21,13,,
+2026-06,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,0,0,0,20,13,,
 2026-06,2000 Biscayne,Edgeater Polygon,TRIAL,0,0,0,1,0,,
 2026-06,2001 Biscayne Boulevard,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,0,1,,
 2026-06,20 Broad Street,Financial District Polygon,CHURN,0,0,0,0,2,,
@@ -3497,7 +3497,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-06,Azrieli TLV,Unknown,TRIAL,0,0,0,0,2,,
 2026-06,Bay Parc Apartments,Edgeater Polygon,CHURN,0,0,0,0,2,,
 2026-06,Bay Parc Apartments,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,0,2,,
-2026-06,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,0,0,0,43,14,,
+2026-06,Bay Parc Apartments,Edgeater Polygon,RECURRING_SUBSCRIPTION,0,0,0,44,14,,
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,CHURN,0,0,0,0,1,,
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,0,0,0,36,4,,
 2026-06,Brooklyn Crossing,Boerum Hill Polygon,WARM_LEAD,0,0,0,0,1,,
@@ -3529,7 +3529,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-06,HaHehad,Unknown,TRIAL,0,0,0,0,2,,
 2026-06,John Street 116,Financial District Polygon,CHURN,0,0,0,0,3,,
 2026-06,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,0,0,0,10,0,,
-2026-06,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,0,0,0,12,5,,
+2026-06,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,0,0,0,14,5,,
 2026-06,Midtown 5,Floating Miami,CHURN,0,0,0,0,1,,
 2026-06,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,0,0,0,29,3,,
 2026-06,Nine 52,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,0,0,0,15,0,,
@@ -3545,14 +3545,14 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-06,Plank Road,Boerum Hill Polygon,CHURN,0,0,0,0,4,,
 2026-06,Plank Road,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,0,0,0,6,0,,
 2026-06,River Place,Hell's Kitchen Polygon,CHURN,0,0,0,0,10,,
-2026-06,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,1,3,,
+2026-06,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,2,3,,
 2026-06,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,0,0,0,102,5,,
 2026-06,River Place,Hell's Kitchen Polygon,TRIAL,0,0,0,0,22,,
-2026-06,River Place,Hell's Kitchen Polygon,WARM_LEAD,0,0,0,0,25,,
+2026-06,River Place,Hell's Kitchen Polygon,WARM_LEAD,0,0,0,1,25,,
 2026-06,Rothschild 80,Unknown,CHURN,0,0,0,0,2,,
 2026-06,Silver Towers,Hell's Kitchen Polygon,CHURN,0,0,0,0,5,,
 2026-06,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,1,5,,
-2026-06,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,0,0,0,276,17,,
+2026-06,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,0,0,0,274,19,,
 2026-06,Silver Towers,Hell's Kitchen Polygon,TRIAL,0,0,0,0,1,,
 2026-06,Southgate Towers,Miami Beach Polygon,CHURN,0,0,0,0,19,,
 2026-06,Southgate Towers,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,0,1,,
@@ -3578,7 +3578,7 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-06,The Eddy,Harrison Polygon,RECURRING_SUBSCRIPTION,0,0,0,12,0,,
 2026-06,The Eddy,Harrison Polygon,TRIAL,0,0,0,0,2,,
 2026-06,The Enclave,Hoboken Polygon,CHURN,0,0,0,0,1,,
-2026-06,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,0,0,0,15,0,,
+2026-06,The Enclave,Hoboken Polygon,RECURRING_SUBSCRIPTION,0,0,0,16,0,,
 2026-06,The Ivy,Chatham / West Orange Polygon,CHURN,0,0,0,1,9,,
 2026-06,The Ivy,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,1,0,,
 2026-06,The Ivy,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,0,0,0,19,2,,
@@ -3587,12 +3587,12 @@ visit_month,project,neighbourhood,apt_status,finished_completed,finished,complet
 2026-06,The Landing,Brooklyn Heights Polygon,ON_DEMAND_SUBSCRIPTION,0,0,0,0,2,,
 2026-06,The Landing,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,0,0,0,2,0,,
 2026-06,The Landon,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,0,0,0,7,2,,
-2026-06,The Landon,Hell's Kitchen Polygon,WARM_LEAD,0,0,0,0,20,,
+2026-06,The Landon,Hell's Kitchen Polygon,WARM_LEAD,0,0,0,1,20,,
 2026-06,The Vitagraph,Floating NY 2,CHURN,0,0,0,0,2,,
 2026-06,Union Channel ,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,0,0,0,7,0,,
 2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,CHURN,0,0,0,0,2,,
 2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,0,0,0,11,3,,
-2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,0,0,0,0,1,,
+2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,0,0,0,1,1,,
 2026-06,Woodside Central,Floating NY 1,RECURRING_SUBSCRIPTION,0,0,0,9,1,,
 2026-07,100 House,Hoboken Polygon,RECURRING_SUBSCRIPTION,0,0,0,12,0,,
 2026-07,1800 North Bayshore Drive,Edgeater Polygon,RECURRING_SUBSCRIPTION,0,0,0,1,0,,

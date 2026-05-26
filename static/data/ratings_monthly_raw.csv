@@ -928,7 +928,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2025-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,4,5.0,0
 2025-05,Silver Towers,Hell's Kitchen Polygon,FROZEN,2,5.0,0
 2025-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,52,4.82,3
-2025-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,91,4.53,6
+2025-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,91,4.56,6
 2025-05,Silver Towers,Hell's Kitchen Polygon,TRIAL,2,,0
 2025-05,Stonehill,Chatham / West Orange Polygon,CHURN,7,5.0,0
 2025-05,Stonehill,Chatham / West Orange Polygon,FREEMIUM,1,5.0,0
@@ -2549,7 +2549,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-04,The Addison,Brooklyn Heights Polygon,CHURN,1,,0
 2026-04,The Addison,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,2,,0
 2026-04,The Addison,Brooklyn Heights Polygon,WARM_LEAD,2,,0
-2026-04,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,1,,0
+2026-04,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,1,5.0,0
 2026-04,The Boulevard,Floating Miami,CHURN,2,5.0,0
 2026-04,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,3,4.5,0
 2026-04,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,12,5.0,1
@@ -2680,7 +2680,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,13,5.0,1
 2026-05,Flow Brickell,Flow Brickell Polygon,TRIAL,10,5.0,0
 2026-05,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,8,5.0,2
-2026-05,Gindi 1,Unknown,CHURN,16,5.0,0
+2026-05,Gindi 1,Unknown,CHURN,16,4.33,1
 2026-05,Gindi 2,Unknown,CHURN,13,5.0,1
 2026-05,Gindi 2,Unknown,TRIAL,2,,0
 2026-05,Gindi 3,Unknown,CHURN,11,,0
@@ -2714,7 +2714,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,Quantum on the Bay Condominium,Edgeater Polygon,TRIAL,2,5.0,1
 2026-05,River Place,Hell's Kitchen Polygon,CHURN,2,,0
 2026-05,River Place,Hell's Kitchen Polygon,FREEMIUM,1,,0
-2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,19,4.9,0
+2026-05,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,19,4.91,0
 2026-05,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,58,5.0,1
 2026-05,River Place,Hell's Kitchen Polygon,TRIAL,11,4.86,6
 2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,7,4.75,1
@@ -2736,7 +2736,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,The Addison,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,2,,0
 2026-05,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,1,5.0,0
 2026-05,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,1,,0
-2026-05,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,9,5.0,0
+2026-05,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,9,5.0,1
 2026-05,The Boulevard,Floating Miami,TRIAL,1,,0
 2026-05,The Buchanan,Floating NY 1,ON_DEMAND_SUBSCRIPTION,2,,0
 2026-05,The Buchanan,Floating NY 1,RECURRING_SUBSCRIPTION,11,5.0,1
