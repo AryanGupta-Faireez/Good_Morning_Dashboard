@@ -3,17 +3,17 @@
     {
       "cancel_category": "From Free",
       "cancel_source": "Ops",
-      "count": 9077
+      "count": 9106
     },
     {
       "cancel_category": "From Free",
       "cancel_source": "Admin",
-      "count": 4087
+      "count": 4091
     },
     {
       "cancel_category": "OOP Free",
       "cancel_source": "Customer",
-      "count": 1210
+      "count": 1215
     },
     {
       "cancel_category": "OOP Free",
@@ -23,22 +23,22 @@
     {
       "cancel_category": "In Policy",
       "cancel_source": "Customer",
-      "count": 417
+      "count": 419
     },
     {
       "cancel_category": "In Policy",
       "cancel_source": "Admin",
-      "count": 225
+      "count": 226
     },
     {
       "cancel_category": "OOP Charged",
       "cancel_source": "Customer",
-      "count": 178
+      "count": 180
     },
     {
       "cancel_category": "From Free",
       "cancel_source": "Customer",
-      "count": 161
+      "count": 162
     },
     {
       "cancel_category": "From Plan",
@@ -63,7 +63,7 @@
     {
       "cancel_category": "OOP Charged",
       "cancel_source": "Admin",
-      "count": 6
+      "count": 7
     },
     {
       "cancel_category": "From Plan",
@@ -235,24 +235,24 @@
     },
     {
       "visit_month": "2026-05",
-      "out_of_policy": 315,
-      "in_policy": 43,
+      "out_of_policy": 317,
+      "in_policy": 46,
       "from_plan": 0,
-      "from_free": 1189
+      "from_free": 1196
     },
     {
       "visit_month": "2026-06",
-      "out_of_policy": 278,
+      "out_of_policy": 282,
       "in_policy": 0,
       "from_plan": 0,
-      "from_free": 537
+      "from_free": 552
     },
     {
       "visit_month": "2026-07",
-      "out_of_policy": 106,
+      "out_of_policy": 108,
       "in_policy": 0,
       "from_plan": 0,
-      "from_free": 77
+      "from_free": 89
     }
   ],
   "by_source_ts": [
@@ -373,18 +373,18 @@
     },
     {
       "visit_month": "2026-05",
-      "app_cancelled": 239,
-      "admin_cancelled": 1308
+      "app_cancelled": 244,
+      "admin_cancelled": 1315
     },
     {
       "visit_month": "2026-06",
-      "app_cancelled": 92,
-      "admin_cancelled": 723
+      "app_cancelled": 95,
+      "admin_cancelled": 739
     },
     {
       "visit_month": "2026-07",
-      "app_cancelled": 8,
-      "admin_cancelled": 175
+      "app_cancelled": 10,
+      "admin_cancelled": 187
     }
   ]
 }

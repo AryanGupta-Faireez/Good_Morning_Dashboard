@@ -1,9 +1,9 @@
 {
-  "total_apt_days": 1591,
-  "subscription_apt_days": 608,
-  "onetime_apt_days": 983,
-  "avg_time_sub_mins": 523.0,
-  "avg_time_onetime_mins": 103.0,
-  "found_slot_count": 443,
-  "success_rate_pct": 27.8
+  "total_apt_days": 1626,
+  "subscription_apt_days": 624,
+  "onetime_apt_days": 1002,
+  "avg_time_sub_mins": 520.0,
+  "avg_time_onetime_mins": 104.0,
+  "found_slot_count": 454,
+  "success_rate_pct": 27.9
 }

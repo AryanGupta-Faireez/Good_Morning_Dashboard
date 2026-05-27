@@ -2,7 +2,7 @@
   "visit": [
     {
       "star": 1,
-      "count": 90
+      "count": 91
     },
     {
       "star": 2,
@@ -10,15 +10,15 @@
     },
     {
       "star": 3,
-      "count": 100
+      "count": 101
     },
     {
       "star": 4,
-      "count": 286
+      "count": 287
     },
     {
       "star": 5,
-      "count": 7457
+      "count": 7477
     }
   ],
   "app": [
@@ -40,7 +40,7 @@
     },
     {
       "star": 5,
-      "count": 22134
+      "count": 22200
     }
   ]
 }
