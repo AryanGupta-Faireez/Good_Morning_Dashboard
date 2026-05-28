@@ -1,14 +1,14 @@
 project,neighbourhood,leads,registered_leads,subscribers,conversion_pct
 Silver Towers,Hell's Kitchen Polygon,1103,252,123,11.2
-River Place,Hell's Kitchen Polygon,792,185,85,10.7
+River Place,Hell's Kitchen Polygon,792,186,85,10.7
 Woodside Central,Floating NY 1,430,46,9,2.1
 330W-56th,Hell's Kitchen Polygon,424,49,9,2.1
 Gindi 3,Unknown,252,75,0,0.0
 Gindi 1,Unknown,230,56,0,0.0
-420 Kent Avenue,Williamsburg Polygon,220,83,26,11.8
+420 Kent Avenue,Williamsburg Polygon,221,83,26,11.8
 Stonehill,Chatham / West Orange Polygon,203,53,17,8.4
 Gindi 2,Unknown,200,49,0,0.0
-20 Broad Street,Financial District Polygon,198,105,32,16.2
+20 Broad Street,Financial District Polygon,199,105,32,16.1
 Midtown 5,Floating Miami,174,69,19,10.9
 Brooklyn Crossing,Boerum Hill Polygon,165,61,29,17.6
 Azrieli TLV,Unknown,161,42,0,0.0
@@ -20,17 +20,17 @@ Flamingo Point Center Tower,Miami Beach Polygon,149,84,36,24.2
 300 Somerset,Harrison Polygon,148,57,14,9.5
 One Ten,Hoboken Polygon,146,55,19,13.0
 The Ivy,Chatham / West Orange Polygon,140,52,18,12.9
-The Buchanan,Floating NY 1,130,38,18,13.8
+The Buchanan,Floating NY 1,132,38,18,13.6
+Flow Brickell,Flow Brickell Polygon,129,26,8,6.2
 2000 Biscayne,Edgeater Polygon,128,55,23,18.0
-Flow Brickell,Flow Brickell Polygon,128,25,7,5.5
 Flamingo Point North Tower,Miami Beach Polygon,127,62,30,23.6
-Bay Parc Apartments,Edgeater Polygon,124,57,31,25.0
+Bay Parc Apartments,Edgeater Polygon,124,58,32,25.8
 Southgate Towers,Miami Beach Polygon,123,57,9,7.3
 The Boulevard,Floating Miami,121,52,18,14.9
 Oliver on the Hudson,Floating Jersey,121,51,15,12.4
 330 Angelo Cifelli,Harrison Polygon,120,54,17,14.2
 The Enclave,Hoboken Polygon,107,39,11,10.3
-Flamingo South Beach,Miami Beach Polygon,98,54,19,19.4
+Flamingo South Beach,Miami Beach Polygon,98,55,20,20.4
 345 Baldwin Avenue,Floating Jersey,97,26,10,10.3
 416 Kent Avenue,Williamsburg Polygon,96,41,10,10.4
 Agnes,Floating Jersey,96,32,9,9.4
@@ -39,12 +39,12 @@ The Dime,Williamsburg Polygon,88,38,13,14.8
 Gindi 4,Unknown,81,8,0,0.0
 John Street 116,Financial District Polygon,80,45,11,13.8
 The Landon,Hell's Kitchen Polygon,78,42,8,10.3
-One Harrison,Harrison Polygon,72,30,9,12.5
+One Harrison,Harrison Polygon,72,30,8,11.1
 Grove Central Residences,Floating Miami,72,28,6,8.3
 The Addison,Brooklyn Heights Polygon,68,25,2,2.9
 655 Union,Boerum Hill Polygon,67,23,9,13.4
+Livana East Hanover,Chatham / West Orange Polygon,65,22,8,12.3
 66 Rockwell Place,Brooklyn Heights Polygon,65,31,10,15.4
-Livana East Hanover,Chatham / West Orange Polygon,64,20,8,12.5
 The Vitagraph,Floating NY 2,60,36,0,0.0
 Nine 52,Hell's Kitchen Polygon,57,20,8,14.0
 The Kestrel,Floating NY 2,57,32,5,8.8
@@ -53,7 +53,7 @@ Plank Road,Boerum Hill Polygon,53,17,2,3.8
 250 E Houston,Floating NY 2,51,18,6,11.8
 535 W 43rd Street,Hell's Kitchen Polygon,51,20,6,11.8
 HaHehad,Unknown,50,11,0,0.0
-Dey and Bergen,Harrison Polygon,48,17,1,2.1
+Dey and Bergen,Harrison Polygon,48,18,1,2.1
 220 East 72nd Street,Floating NY 2,45,19,1,2.2
 829 Garfield,Floating Jersey,39,23,0,0.0
 Union Channel ,Boerum Hill Polygon,38,13,4,10.5
