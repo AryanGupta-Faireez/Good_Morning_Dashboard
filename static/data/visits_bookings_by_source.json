@@ -2,11 +2,11 @@
   "summary": [
     {
       "booked_by": "Admin",
-      "count": 959
+      "count": 961
     },
     {
       "booked_by": "App",
-      "count": 29993
+      "count": 30059
     }
   ],
   "timeseries": [
@@ -192,8 +192,8 @@
     },
     {
       "visit_month": "2026-05",
-      "app_booked": 1398,
-      "admin_booked": 27
+      "app_booked": 1464,
+      "admin_booked": 29
     }
   ]
 }
