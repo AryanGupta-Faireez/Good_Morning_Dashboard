@@ -5,10 +5,10 @@ Woodside Central,Floating NY 1,430,46,9,2.1
 330W-56th,Hell's Kitchen Polygon,424,49,9,2.1
 Gindi 3,Unknown,252,75,0,0.0
 Gindi 1,Unknown,230,56,0,0.0
-420 Kent Avenue,Williamsburg Polygon,221,83,26,11.8
+420 Kent Avenue,Williamsburg Polygon,222,83,26,11.7
 Stonehill,Chatham / West Orange Polygon,203,53,17,8.4
 Gindi 2,Unknown,200,49,0,0.0
-20 Broad Street,Financial District Polygon,199,105,32,16.1
+20 Broad Street,Financial District Polygon,199,105,30,15.1
 Midtown 5,Floating Miami,174,69,19,10.9
 Brooklyn Crossing,Boerum Hill Polygon,165,61,29,17.6
 Azrieli TLV,Unknown,161,42,0,0.0
@@ -19,18 +19,18 @@ The Devan,Hoboken Polygon,150,61,23,15.3
 Flamingo Point Center Tower,Miami Beach Polygon,149,84,36,24.2
 300 Somerset,Harrison Polygon,148,57,14,9.5
 One Ten,Hoboken Polygon,146,55,19,13.0
-The Ivy,Chatham / West Orange Polygon,140,52,18,12.9
+The Ivy,Chatham / West Orange Polygon,141,53,18,12.8
+Flow Brickell,Flow Brickell Polygon,133,29,9,6.8
 The Buchanan,Floating NY 1,132,38,18,13.6
-Flow Brickell,Flow Brickell Polygon,131,27,8,6.1
 2000 Biscayne,Edgeater Polygon,128,55,23,18.0
 Flamingo Point North Tower,Miami Beach Polygon,127,62,30,23.6
-Bay Parc Apartments,Edgeater Polygon,125,58,32,25.6
-Southgate Towers,Miami Beach Polygon,123,57,9,7.3
+Bay Parc Apartments,Edgeater Polygon,125,58,30,24.0
+Southgate Towers,Miami Beach Polygon,124,57,9,7.3
+Oliver on the Hudson,Floating Jersey,122,51,15,12.3
 The Boulevard,Floating Miami,121,52,18,14.9
-Oliver on the Hudson,Floating Jersey,121,51,15,12.4
 330 Angelo Cifelli,Harrison Polygon,120,54,17,14.2
 The Enclave,Hoboken Polygon,107,39,11,10.3
-Flamingo South Beach,Miami Beach Polygon,98,55,20,20.4
+Flamingo South Beach,Miami Beach Polygon,99,56,20,20.2
 345 Baldwin Avenue,Floating Jersey,97,26,10,10.3
 416 Kent Avenue,Williamsburg Polygon,96,41,10,10.4
 Agnes,Floating Jersey,96,32,9,9.4
@@ -50,15 +50,15 @@ Nine 52,Hell's Kitchen Polygon,57,20,8,14.0
 The Kestrel,Floating NY 2,57,32,5,8.8
 Watermarc at Biscayne Bay,Edgeater Polygon,54,18,6,11.1
 Plank Road,Boerum Hill Polygon,53,17,2,3.8
+535 W 43rd Street,Hell's Kitchen Polygon,52,20,6,11.5
 250 E Houston,Floating NY 2,51,18,6,11.8
-535 W 43rd Street,Hell's Kitchen Polygon,51,20,6,11.8
 HaHehad,Unknown,50,11,0,0.0
 Dey and Bergen,Harrison Polygon,48,18,1,2.1
 220 East 72nd Street,Floating NY 2,45,19,1,2.2
 829 Garfield,Floating Jersey,39,23,0,0.0
 Union Channel ,Boerum Hill Polygon,38,13,4,10.5
-Waters Edge,Harrison Polygon,31,10,1,3.2
 The Landing,Brooklyn Heights Polygon,31,12,3,9.7
+Waters Edge,Harrison Polygon,31,10,1,3.2
 Arabella 101,Floating NY 2,20,12,0,0.0
 Biscayne SFR,Unknown,17,5,0,0.0
 Quantum on the Bay Condominium,Edgeater Polygon,15,5,0,0.0
@@ -66,24 +66,24 @@ Aria on the Bay Condominium Association  INC,Edgeater Polygon,14,1,0,0.0
 The Bergen,Boerum Hill Polygon,14,8,2,14.3
 Cite On The Bay,Edgeater Polygon,13,5,1,7.7
 1800 North Bayshore Drive,Edgeater Polygon,12,1,1,8.3
+1 River Place,Hell's Kitchen Polygon,10,6,4,40.0
 Rothschild 80,Unknown,10,7,0,0.0
-1 River Place,Hell's Kitchen Polygon,9,6,4,44.4
 Opera Tower,Edgeater Polygon,5,2,1,20.0
 Biscayne SFR,The Ocean Club Polygon,5,1,0,0.0
-Flow Miami,Flow Brickell Polygon,4,0,0,0.0
 Club Tower I,The Ocean Club Polygon,4,2,0,0.0
+Flow Miami,Flow Brickell Polygon,4,0,0,0.0
 2001 Biscayne Boulevard,Edgeater Polygon,3,0,1,33.3
 1800 Club,Edgeater Polygon,3,0,0,0.0
 1800 Biscayne Plaza,Edgeater Polygon,3,1,0,0.0
-Key Colony 1 Tidemark,The Ocean Club Polygon,3,1,1,33.3
 Key Colony 3 Emeraldbay,The Ocean Club Polygon,3,1,0,0.0
 22 Skyview Apartments,Edgeater Polygon,3,0,0,0.0
+Key Colony 1 Tidemark,The Ocean Club Polygon,3,1,1,33.3
 Quantum on the Bay,Edgeater Polygon,3,0,0,0.0
-Botanica at Key Colony,The Ocean Club Polygon,2,0,0,0.0
 Lake Tower,The Ocean Club Polygon,2,1,0,0.0
+Elysee Miami,Edgeater Polygon,2,1,0,0.0
+Botanica at Key Colony,The Ocean Club Polygon,2,0,0,0.0
 Key Colony 2. Ocean Sound,The Ocean Club Polygon,2,0,0,0.0
 1717 North Bayshore Drive,Edgeater Polygon,2,0,0,0.0
-Elysee Miami,Edgeater Polygon,2,1,0,0.0
 Towers of Key Biscayne,The Ocean Club Polygon,1,0,0,0.0
 655 Union,Floating NY 2,1,1,0,0.0
 Venetia Condominium,Edgeater Polygon,1,0,0,0.0

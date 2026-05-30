@@ -1,11 +1,11 @@
 {
-  "leads": 9068,
-  "registered_leads": 2909,
-  "subscribers": 880,
-  "recurring": 553,
+  "leads": 9077,
+  "registered_leads": 2913,
+  "subscribers": 877,
+  "recurring": 550,
   "on_demand": 327,
-  "non_subscribers": 8188,
-  "churn": 684,
-  "waitlist": 548,
-  "mrr": 101787.0
+  "non_subscribers": 8200,
+  "churn": 688,
+  "waitlist": 549,
+  "mrr": 101204.0
 }

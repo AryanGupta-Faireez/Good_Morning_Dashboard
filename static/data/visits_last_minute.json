@@ -2,11 +2,11 @@
   "by_type": [
     {
       "user_type": "On Demand",
-      "visit_count": 296
+      "visit_count": 300
     },
     {
       "user_type": "Free / Other",
-      "visit_count": 183
+      "visit_count": 184
     },
     {
       "user_type": "Subscribers",
@@ -88,7 +88,7 @@
     },
     {
       "visit_month": "2026-05",
-      "lmd_count": 35
+      "lmd_count": 40
     }
   ]
 }
