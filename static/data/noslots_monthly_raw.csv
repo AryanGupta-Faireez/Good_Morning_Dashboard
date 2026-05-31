@@ -648,6 +648,9 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,300 Somerset,Harrison Polygon,WARM_LEAD,Subscription,4
 2026-05,330 Angelo Cifelli,Harrison Polygon,RECURRING_SUBSCRIPTION,Subscription,6
 2026-05,330 Angelo Cifelli,Harrison Polygon,WARM_LEAD,Subscription,3
+2026-05,330W-56th,Hell's Kitchen Polygon,FREEMIUM,One-time,2
+2026-05,330W-56th,Hell's Kitchen Polygon,FREEMIUM,Subscription,1
+2026-05,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,1
 2026-05,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,2
 2026-05,345 Baldwin Avenue,Floating Jersey,TRIAL,One-time,2
 2026-05,345 Baldwin Avenue,Floating Jersey,WARM_LEAD,One-time,4
@@ -656,7 +659,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,416 Kent Avenue,Williamsburg Polygon,WARM_LEAD,Subscription,1
 2026-05,420 Kent Avenue,Williamsburg Polygon,LEAD,Subscription,1
 2026-05,420 Kent Avenue,Williamsburg Polygon,WARM_LEAD,Subscription,2
-2026-05,535 W 43rd Street,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,3
+2026-05,535 W 43rd Street,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,4
 2026-05,655 Union,Boerum Hill Polygon,WARM_LEAD,One-time,1
 2026-05,655 Union,Boerum Hill Polygon,WARM_LEAD,Subscription,1
 2026-05,829 Garfield,Floating Jersey,LEAD,One-time,4
@@ -689,7 +692,7 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Cite On The Bay,Edgeater Polygon,WARM_LEAD,Subscription,2
 2026-05,Dey and Bergen,Harrison Polygon,LEAD,One-time,2
 2026-05,Dey and Bergen,Harrison Polygon,LEAD,Subscription,1
-2026-05,Dey and Bergen,Harrison Polygon,WARM_LEAD,Subscription,3
+2026-05,Dey and Bergen,Harrison Polygon,WARM_LEAD,Subscription,5
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,LEAD,One-time,6
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,LEAD,Subscription,14
 2026-05,Flamingo Point Center Tower,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,5
@@ -714,8 +717,8 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,Flamingo South Beach,Miami Beach Polygon,TRIAL,One-time,10
 2026-05,Flamingo South Beach,Miami Beach Polygon,TRIAL,Subscription,3
 2026-05,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,Subscription,3
-2026-05,Flow Brickell,Flow Brickell Polygon,LEAD,One-time,20
-2026-05,Flow Brickell,Flow Brickell Polygon,LEAD,Subscription,30
+2026-05,Flow Brickell,Flow Brickell Polygon,LEAD,One-time,24
+2026-05,Flow Brickell,Flow Brickell Polygon,LEAD,Subscription,35
 2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,One-time,8
 2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,Subscription,18
 2026-05,Flow Brickell,Flow Brickell Polygon,TRIAL,One-time,17
@@ -779,41 +782,43 @@ ns_month,project,neighbourhood,apt_status,visit_type,count
 2026-05,River Place,Hell's Kitchen Polygon,TRIAL,Subscription,1
 2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,One-time,12
 2026-05,River Place,Hell's Kitchen Polygon,WARM_LEAD,Subscription,21
-2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,One-time,9
-2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,Subscription,15
+2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,One-time,11
+2026-05,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,Subscription,17
 2026-05,Silver Towers,Hell's Kitchen Polygon,FROZEN,One-time,1
 2026-05,Silver Towers,Hell's Kitchen Polygon,LEAD,One-time,23
 2026-05,Silver Towers,Hell's Kitchen Polygon,LEAD,Subscription,49
-2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,6
+2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,One-time,7
 2026-05,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,9
 2026-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,One-time,7
 2026-05,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,Subscription,22
 2026-05,Silver Towers,Hell's Kitchen Polygon,TRIAL,One-time,2
 2026-05,Silver Towers,Hell's Kitchen Polygon,TRIAL,Subscription,4
 2026-05,Silver Towers,Hell's Kitchen Polygon,WARM_LEAD,One-time,8
-2026-05,Silver Towers,Hell's Kitchen Polygon,WARM_LEAD,Subscription,23
+2026-05,Silver Towers,Hell's Kitchen Polygon,WARM_LEAD,Subscription,26
 2026-05,Southgate Towers,Miami Beach Polygon,CHURN,One-time,2
 2026-05,Southgate Towers,Miami Beach Polygon,LEAD,One-time,10
 2026-05,Southgate Towers,Miami Beach Polygon,LEAD,Subscription,16
 2026-05,Southgate Towers,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,One-time,2
 2026-05,Southgate Towers,Miami Beach Polygon,RECURRING_SUBSCRIPTION,One-time,2
-2026-05,Southgate Towers,Miami Beach Polygon,WARM_LEAD,Subscription,3
+2026-05,Southgate Towers,Miami Beach Polygon,WARM_LEAD,Subscription,4
 2026-05,Stonehill,Chatham / West Orange Polygon,LEAD,Subscription,1
 2026-05,Stonehill,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,One-time,1
 2026-05,Stonehill,Chatham / West Orange Polygon,ON_DEMAND_SUBSCRIPTION,Subscription,1
 2026-05,Stonehill,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,Subscription,9
+2026-05,The Boulevard,Floating Miami,LEAD,Subscription,1
 2026-05,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,One-time,4
 2026-05,The Buchanan,Floating NY 1,CHURN,Subscription,1
 2026-05,The Buchanan,Floating NY 1,WARM_LEAD,One-time,1
 2026-05,The Buchanan,Floating NY 1,WARM_LEAD,Subscription,3
+2026-05,The Devan,Hoboken Polygon,FROZEN,Subscription,3
 2026-05,The Devan,Hoboken Polygon,LEAD,One-time,11
-2026-05,The Devan,Hoboken Polygon,LEAD,Subscription,49
-2026-05,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,One-time,8
-2026-05,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,Subscription,37
+2026-05,The Devan,Hoboken Polygon,LEAD,Subscription,36
+2026-05,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,One-time,11
+2026-05,The Devan,Hoboken Polygon,RECURRING_SUBSCRIPTION,Subscription,60
 2026-05,The Devan,Hoboken Polygon,TRIAL,One-time,4
 2026-05,The Devan,Hoboken Polygon,TRIAL,Subscription,1
-2026-05,The Devan,Hoboken Polygon,WARM_LEAD,One-time,10
-2026-05,The Devan,Hoboken Polygon,WARM_LEAD,Subscription,19
+2026-05,The Devan,Hoboken Polygon,WARM_LEAD,One-time,13
+2026-05,The Devan,Hoboken Polygon,WARM_LEAD,Subscription,24
 2026-05,The Dime,Williamsburg Polygon,RECURRING_SUBSCRIPTION,Subscription,2
 2026-05,The Eddy,Harrison Polygon,WARM_LEAD,Subscription,2
 2026-05,The Enclave,Hoboken Polygon,FREEMIUM,One-time,1

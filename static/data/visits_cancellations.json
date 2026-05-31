@@ -13,7 +13,7 @@
     {
       "cancel_category": "OOP Free",
       "cancel_source": "Customer",
-      "count": 1224
+      "count": 1226
     },
     {
       "cancel_category": "OOP Free",
@@ -242,7 +242,7 @@
     },
     {
       "visit_month": "2026-06",
-      "out_of_policy": 298,
+      "out_of_policy": 300,
       "in_policy": 0,
       "from_plan": 0,
       "from_free": 578
@@ -378,7 +378,7 @@
     },
     {
       "visit_month": "2026-06",
-      "app_cancelled": 110,
+      "app_cancelled": 112,
       "admin_cancelled": 766
     },
     {

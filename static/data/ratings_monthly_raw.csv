@@ -2676,7 +2676,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,Flamingo Point North Tower,Miami Beach Polygon,WARM_LEAD,2,,0
 2026-05,Flamingo South Beach,Miami Beach Polygon,CHURN,4,5.0,0
 2026-05,Flamingo South Beach,Miami Beach Polygon,ON_DEMAND_SUBSCRIPTION,3,,0
-2026-05,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,49,4.96,4
+2026-05,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,50,4.97,4
 2026-05,Flamingo South Beach,Miami Beach Polygon,TRIAL,7,4.0,0
 2026-05,Flamingo South Beach,Miami Beach Polygon,WARM_LEAD,5,5.0,1
 2026-05,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,18,5.0,1
@@ -2713,7 +2713,7 @@ review_month,project,neighbourhood,apt_status,count,avg_rating,reviews
 2026-05,One Ten,Hoboken Polygon,RECURRING_SUBSCRIPTION,27,5.0,0
 2026-05,One Ten,Hoboken Polygon,WARM_LEAD,1,,0
 2026-05,Opera Tower,Edgeater Polygon,RECURRING_SUBSCRIPTION,1,,0
-2026-05,Plank Road,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,6,,0
+2026-05,Plank Road,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,6,5.0,0
 2026-05,Quantum on the Bay Condominium,Edgeater Polygon,TRIAL,2,5.0,1
 2026-05,River Place,Hell's Kitchen Polygon,CHURN,2,,0
 2026-05,River Place,Hell's Kitchen Polygon,FREEMIUM,2,5.0,0
