@@ -3464,12 +3464,12 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,1 River Place,Hell's Kitchen Polygon,WARM_LEAD,3.0,60.0,3,130.0
 2026-06,2000 Biscayne,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,3.0,63.67,6,143.0
 2026-06,2000 Biscayne,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.0,74.27,238,6003.14
-2026-06,2000 Biscayne,Edgeater Polygon,TRIAL,6.0,119.33,12,362.96
+2026-06,2000 Biscayne,Edgeater Polygon,TRIAL,4.33,112.54,13,375.96
 2026-06,2001 Biscayne Boulevard,Edgeater Polygon,ON_DEMAND_SUBSCRIPTION,7.0,0.0,7,168.61
 2026-06,20 Broad Street,Financial District Polygon,CHURN,8.0,0.0,32,908.44
 2026-06,20 Broad Street,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,3.2,11.0,16,390.26
-2026-06,20 Broad Street,Financial District Polygon,RECURRING_SUBSCRIPTION,5.98,77.51,239,6953.83
-2026-06,20 Broad Street,Financial District Polygon,TRIAL,8.0,0.0,16,454.22
+2026-06,20 Broad Street,Financial District Polygon,RECURRING_SUBSCRIPTION,5.83,77.19,239,6953.83
+2026-06,20 Broad Street,Financial District Polygon,TRIAL,6.33,8.05,19,560.82
 2026-06,20 Broad Street,Financial District Polygon,WARM_LEAD,8.0,113.0,8,227.11
 2026-06,250 E Houston,Floating NY 2,CHURN,8.0,0.0,8,227.11
 2026-06,250 E Houston,Floating NY 2,RECURRING_SUBSCRIPTION,8.0,139.38,64,1746.68
@@ -3480,7 +3480,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,330 Angelo Cifelli,Harrison Polygon,RECURRING_SUBSCRIPTION,3.84,77.85,123,3647.54
 2026-06,330W-56th,Hell's Kitchen Polygon,CHURN,2.0,0.0,4,143.0
 2026-06,330W-56th,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,5.38,68.21,86,2395.9
-2026-06,345 Baldwin Avenue,Floating Jersey,RECURRING_SUBSCRIPTION,4.64,94.16,51,1561.04
+2026-06,345 Baldwin Avenue,Floating Jersey,RECURRING_SUBSCRIPTION,4.64,85.92,51,1561.04
 2026-06,345 Baldwin Avenue,Floating Jersey,TRIAL,3.0,81.0,3,130.0
 2026-06,345 Baldwin Avenue,Floating Jersey,WARM_LEAD,2.75,59.91,11,403.0
 2026-06,416 Kent Avenue,Williamsburg Polygon,RECURRING_SUBSCRIPTION,7.43,87.38,156,4511.78
@@ -3518,12 +3518,12 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,2.75,45.76,33,803.01
 2026-06,Flamingo Point North Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,6.78,108.25,332,9328.93
 2026-06,Flamingo South Beach,Miami Beach Polygon,CHURN,3.29,0.0,56,1688.18
-2026-06,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,3.75,68.98,281,6683.95
+2026-06,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,3.75,64.27,281,6683.95
 2026-06,Flamingo South Beach,Miami Beach Polygon,TRIAL,3.25,57.54,13,566.8
 2026-06,Flow Brickell,Flow Brickell Polygon,ON_DEMAND_SUBSCRIPTION,2.33,0.0,7,226.2
 2026-06,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,5.46,105.08,224,6423.3
 2026-06,Flow Brickell,Flow Brickell Polygon,TRIAL,3.55,22.95,39,1254.5
-2026-06,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,8.0,0.0,40,1135.55
+2026-06,Flow Brickell,Flow Brickell Polygon,WARM_LEAD,7.0,0.0,42,1207.05
 2026-06,Gindi 1,Unknown,CHURN,5.97,0.0,382,12530.57
 2026-06,Gindi 2,Unknown,CHURN,7.15,1.94,293,8434.4
 2026-06,Gindi 3,Unknown,CHURN,8.04,0.0,370,11032.32
@@ -3539,7 +3539,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,John Street 116,Financial District Polygon,ON_DEMAND_SUBSCRIPTION,4.5,98.67,9,240.11
 2026-06,John Street 116,Financial District Polygon,RECURRING_SUBSCRIPTION,6.8,102.88,68,1801.93
 2026-06,Livana East Hanover,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,4.42,106.29,84,2313.22
-2026-06,Midtown 5,Floating Miami,CHURN,8.0,0.0,8,227.11
+2026-06,Midtown 5,Floating Miami,CHURN,8.0,89.5,16,454.22
 2026-06,Midtown 5,Floating Miami,RECURRING_SUBSCRIPTION,4.12,96.74,136,3857.1
 2026-06,Nine 52,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,6.93,140.05,104,3123.51
 2026-06,Oliver on the Hudson,Floating Jersey,ON_DEMAND_SUBSCRIPTION,8.0,0.0,48,1362.66
@@ -3554,16 +3554,17 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,Opera Tower,Edgeater Polygon,RECURRING_SUBSCRIPTION,8.0,202.0,8,227.11
 2026-06,Plank Road,Boerum Hill Polygon,CHURN,8.0,0.0,32,908.44
 2026-06,Plank Road,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,8.0,143.33,48,1362.66
+2026-06,Plank Road,Boerum Hill Polygon,TRIAL,5.0,89.0,5,170.95
 2026-06,River Place,Hell's Kitchen Polygon,CHURN,4.18,0.0,46,1606.67
 2026-06,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,5.0,26.13,55,1718.99
 2026-06,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,4.34,80.56,469,12820.21
 2026-06,River Place,Hell's Kitchen Polygon,TRIAL,1.0,0.0,22,
-2026-06,River Place,Hell's Kitchen Polygon,WARM_LEAD,1.27,25.21,33,227.11
+2026-06,River Place,Hell's Kitchen Polygon,WARM_LEAD,1.48,31.67,43,369.07
 2026-06,Rothschild 80,Unknown,CHURN,1.0,0.0,2,26.0
 2026-06,Silver Towers,Hell's Kitchen Polygon,CHURN,7.2,0.0,36,1058.33
 2026-06,Silver Towers,Hell's Kitchen Polygon,FREEMIUM,3.0,74.0,3,83.2
 2026-06,Silver Towers,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,3.56,10.16,32,843.57
-2026-06,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3.45,91.67,1033,24450.66
+2026-06,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3.46,91.9,1048,24872.12
 2026-06,Silver Towers,Hell's Kitchen Polygon,TRIAL,8.0,0.0,8,227.11
 2026-06,Silver Towers,Hell's Kitchen Polygon,WARM_LEAD,4.33,86.15,13,428.61
 2026-06,Southgate Towers,Miami Beach Polygon,CHURN,6.21,0.0,118,3033.94
@@ -3579,7 +3580,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,The Addison,Brooklyn Heights Polygon,WARM_LEAD,4.0,0.0,4,127.66
 2026-06,The Bergen,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,8.0,118.0,48,1362.66
 2026-06,The Boulevard,Floating Miami,CHURN,7.0,0.0,21,636.87
-2026-06,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,2.0,15.5,4,137.15
+2026-06,The Boulevard,Floating Miami,ON_DEMAND_SUBSCRIPTION,2.0,20.67,6,208.65
 2026-06,The Boulevard,Floating Miami,RECURRING_SUBSCRIPTION,6.11,137.7,110,3143.79
 2026-06,The Boulevard,Floating Miami,TRIAL,8.0,0.0,8,227.11
 2026-06,The Boulevard,Floating Miami,WARM_LEAD,8.0,121.0,8,227.11
@@ -3603,12 +3604,13 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-06,The Landing,Brooklyn Heights Polygon,ON_DEMAND_SUBSCRIPTION,9.0,0.0,18,489.32
 2026-06,The Landing,Brooklyn Heights Polygon,RECURRING_SUBSCRIPTION,8.0,143.0,16,454.22
 2026-06,The Landon,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,7.11,107.64,64,1914.12
-2026-06,The Landon,Hell's Kitchen Polygon,WARM_LEAD,1.05,3.09,22,71.5
+2026-06,The Landon,Hell's Kitchen Polygon,WARM_LEAD,1.05,0.91,22,71.5
 2026-06,The Vitagraph,Floating NY 2,CHURN,8.0,0.0,16,454.22
 2026-06,Union Channel ,Boerum Hill Polygon,RECURRING_SUBSCRIPTION,5.0,138.23,35,1084.33
 2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,CHURN,8.0,0.0,16,454.22
 2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,RECURRING_SUBSCRIPTION,7.69,99.0,100,2919.67
 2026-06,Watermarc at Biscayne Bay,Edgeater Polygon,WARM_LEAD,6.5,36.92,13,421.46
+2026-06,Woodside Central,Floating NY 1,FROZEN,5.0,93.0,5,194.35
 2026-06,Woodside Central,Floating NY 1,RECURRING_SUBSCRIPTION,5.3,82.02,53,1565.59
 2026-07,100 House,Hoboken Polygon,RECURRING_SUBSCRIPTION,6.93,141.96,97,2925.65
 2026-07,1800 North Bayshore Drive,Edgeater Polygon,RECURRING_SUBSCRIPTION,8.0,176.0,8,227.11
@@ -3648,7 +3650,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-07,Flamingo Point Center Tower,Miami Beach Polygon,TRIAL,7.0,0.0,7,223.6
 2026-07,Flamingo Point North Tower,Miami Beach Polygon,RECURRING_SUBSCRIPTION,7.02,154.25,309,9079.33
 2026-07,Flamingo South Beach,Miami Beach Polygon,CHURN,2.33,0.0,7,267.15
-2026-07,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,3.41,100.91,232,5351.58
+2026-07,Flamingo South Beach,Miami Beach Polygon,RECURRING_SUBSCRIPTION,3.41,89.12,232,5351.58
 2026-07,Flamingo South Beach,Miami Beach Polygon,TRIAL,3.0,0.0,3,130.0
 2026-07,Flow Brickell,Flow Brickell Polygon,RECURRING_SUBSCRIPTION,6.28,130.25,182,5166.98
 2026-07,Flow Brickell,Flow Brickell Polygon,TRIAL,3.25,0.0,13,385.45
@@ -3675,7 +3677,7 @@ visit_month,project,neighbourhood,apt_status,avg_tasks_per_visit,avg_visit_price
 2026-07,River Place,Hell's Kitchen Polygon,ON_DEMAND_SUBSCRIPTION,6.5,0.0,13,421.46
 2026-07,River Place,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,4.62,90.99,485,13174.2
 2026-07,River Place,Hell's Kitchen Polygon,TRIAL,1.0,0.0,3,
-2026-07,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3.4,100.75,1022,23940.8
+2026-07,Silver Towers,Hell's Kitchen Polygon,RECURRING_SUBSCRIPTION,3.4,100.85,1037,24362.26
 2026-07,Southgate Towers,Miami Beach Polygon,CHURN,2.5,0.0,15,446.55
 2026-07,Southgate Towers,Miami Beach Polygon,RECURRING_SUBSCRIPTION,5.81,98.39,93,2779.66
 2026-07,Stonehill,Chatham / West Orange Polygon,RECURRING_SUBSCRIPTION,6.78,114.33,122,3602.43

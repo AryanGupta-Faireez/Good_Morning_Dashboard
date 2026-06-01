@@ -1,6 +1,6 @@
 project,neighbourhood,leads,registered_leads,subscribers,conversion_pct
 Silver Towers,Hell's Kitchen Polygon,1104,252,123,11.1
-River Place,Hell's Kitchen Polygon,792,186,84,10.6
+River Place,Hell's Kitchen Polygon,793,186,84,10.6
 Woodside Central,Floating NY 1,430,46,9,2.1
 330W-56th,Hell's Kitchen Polygon,424,49,9,2.1
 Gindi 3,Unknown,252,75,0,0.0
@@ -10,7 +10,7 @@ Stonehill,Chatham / West Orange Polygon,203,53,17,8.4
 Gindi 2,Unknown,200,49,0,0.0
 20 Broad Street,Financial District Polygon,199,105,30,15.1
 Midtown 5,Floating Miami,174,69,19,10.9
-Brooklyn Crossing,Boerum Hill Polygon,165,61,29,17.6
+Brooklyn Crossing,Boerum Hill Polygon,166,61,29,17.5
 Azrieli TLV,Unknown,161,42,0,0.0
 The Eddy,Harrison Polygon,160,47,10,6.3
 Alta,Floating NY 1,156,47,20,12.8
@@ -20,14 +20,14 @@ Flamingo Point Center Tower,Miami Beach Polygon,149,84,36,24.2
 300 Somerset,Harrison Polygon,148,57,14,9.5
 One Ten,Hoboken Polygon,146,55,19,13.0
 The Ivy,Chatham / West Orange Polygon,141,53,18,12.8
-Flow Brickell,Flow Brickell Polygon,134,30,9,6.7
+Flow Brickell,Flow Brickell Polygon,136,30,9,6.6
 The Buchanan,Floating NY 1,132,38,18,13.6
-2000 Biscayne,Edgeater Polygon,128,55,23,18.0
 Flamingo Point North Tower,Miami Beach Polygon,128,62,30,23.4
-Bay Parc Apartments,Edgeater Polygon,125,58,30,24.0
+2000 Biscayne,Edgeater Polygon,128,55,23,18.0
+Bay Parc Apartments,Edgeater Polygon,127,61,30,23.6
+Oliver on the Hudson,Floating Jersey,124,53,15,12.1
 Southgate Towers,Miami Beach Polygon,124,57,9,7.3
-The Boulevard,Floating Miami,122,54,18,14.8
-Oliver on the Hudson,Floating Jersey,122,51,15,12.3
+The Boulevard,Floating Miami,123,54,18,14.6
 330 Angelo Cifelli,Harrison Polygon,120,54,17,14.2
 The Enclave,Hoboken Polygon,107,39,11,10.3
 Flamingo South Beach,Miami Beach Polygon,99,56,20,20.2
@@ -39,7 +39,7 @@ The Dime,Williamsburg Polygon,88,38,13,14.8
 Gindi 4,Unknown,81,8,0,0.0
 John Street 116,Financial District Polygon,80,45,11,13.8
 The Landon,Hell's Kitchen Polygon,78,42,8,10.3
-One Harrison,Harrison Polygon,73,30,8,11.0
+One Harrison,Harrison Polygon,74,31,8,10.8
 Grove Central Residences,Floating Miami,72,28,6,8.3
 The Addison,Brooklyn Heights Polygon,68,25,2,2.9
 655 Union,Boerum Hill Polygon,67,23,9,13.4
